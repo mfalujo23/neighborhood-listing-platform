@@ -78,7 +78,7 @@ export async function POST(req: NextRequest) {
       status: 200,
       headers: { 'Content-Type': 'text/xml' },
     });
-  } catch (error) {
+  } catch {
     console.error(JSON.stringify({ event: 'ingestion_pipeline_error', callSid }));
 
     const fallbackTwiml = `<?xml version="1.0" encoding="UTF-8"?>

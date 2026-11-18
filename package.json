@@ -1,27 +1,41 @@
 {
+  "name": "neighborhood-listing-platform",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "npm@11.21.3",
+  "engines": {
+    "node": "24.x",
+    "npm": "11.x"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
     "test": "vitest run src/test && node --test tests/webhook.test.js"
   },
   "devDependencies": {
-    "@types/node": "^26.6.2",
+    "@tailwindcss/postcss": "4.3.5",
+    "@types/node": "26.6.2",
     "@types/react": "19.3.0",
-    "supabase": "^2.122.1",
-    "tsx": "^4.23.15",
-    "typescript": "^7.0.2",
-    "vitest": "^5.0.5"
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.4.6",
+    "postcss": "8.5.33",
+    "supabase": "2.122.1",
+    "tailwindcss": "4.3.5",
+    "tsx": "4.23.15",
+    "typescript": "6.0.2",
+    "vitest": "5.1.0"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.119.0",
-    "@upstash/redis": "^1.41.0",
-    "next": "^16.4.6",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "server-only": "^0.0.1",
-    "twilio": "^6.3.0",
-    "zod": "^4.6.7"
+    "@supabase/supabase-js": "2.119.0",
+    "@upstash/redis": "1.41.0",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "server-only": "0.0.1",
+    "twilio": "6.3.0",
+    "zod": "4.6.7"
   }
 }

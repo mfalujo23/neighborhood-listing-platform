@@ -4,7 +4,7 @@ interface Property {
   id: string;
   title: string;
   image_url?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 interface PropertyCardProps {
