@@ -1,0 +1,43 @@
+npm notice run test
+npm notice run vitest run src/test && node --test tests/webhook.test.js
+
+ RUN  v5.1.0 C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/neighborhood-listing-platform
+
+
+ Test Files  3 passed (3)
+      Tests  33 passed (33)
+   Start at  14:28:45
+   Duration  1.56s (import 87%, transform 10%, worker 2%, tests 1%)
+
+(node:29160) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/neighborhood-listing-platform/tests/webhook.test.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\mfalujo\Documents\Codex\2026-11-18\https-calstatela-instructure-com-https-calstatela\work\neighborhood-listing-platform\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+<anonymous_script>:1
+
+
+SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/neighborhood-listing-platform/tests/webhook.test.js:8:22
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.22.3
+✖ tests\webhook.test.js (127.571ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 136.5626
+
+✖ failing tests:
+
+test at tests\webhook.test.js:1:1
+✖ tests\webhook.test.js (127.571ms)
+  'test failed'
+Exit code: 1

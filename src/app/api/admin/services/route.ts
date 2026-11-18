@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
-import { supabaseAdmin } from '../../../../lib/supabase-server'
+import { getSupabaseAdmin } from '../../../../lib/supabase-server'
 
 export async function PATCH(request: Request) {
   const authorization = request.headers.get('authorization')
@@ -74,7 +74,7 @@ export async function PATCH(request: Request) {
       )
     }
 
-    const { data, error } = await supabaseAdmin
+    const { data, error } = await getSupabaseAdmin()
       .from('services')
       .update({ status: 'approved' })
       .eq('id', serviceId)
