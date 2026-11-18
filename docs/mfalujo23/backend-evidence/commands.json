@@ -1,0 +1,41 @@
+{
+  "snapshotBase": "c88d1a47559566f3d858d11788bceee91197bfc8",
+  "baseTree": "1a012d4320b057cdc7594825e63a6c4c183a794b",
+  "node": "24.22.3",
+  "npm": "11.21.3",
+  "date": "2026-11-18",
+  "cleanInstall": {
+    "exit": 0,
+    "addedPackages": 439,
+    "vulnerabilities": 0,
+    "auditedPackages": 446,
+    "log": "isolated-clean-install.txt",
+    "command": "npm ci --ignore-scripts"
+  },
+  "lint": {
+    "exit": 0,
+    "command": "npm run lint -- --max-warnings 0",
+    "log": "isolated-lint.txt"
+  },
+  "typecheck": {
+    "exit": 0,
+    "command": "npm run typecheck",
+    "log": "isolated-typecheck.txt"
+  },
+  "tests": {
+    "actualPostgresqlRoleCases": 45,
+    "exit": 0,
+    "nodeWebhook": 19,
+    "log": "isolated-test.txt",
+    "vitest": 77,
+    "command": "npm test"
+  },
+  "build": {
+    "exit": 0,
+    "sandbox": "approved outside Windows filesystem sandbox",
+    "staticGenerationTasks": 11,
+    "command": "npm run build",
+    "log": "isolated-build.txt"
+  },
+  "scope": "Exact voice-base plus selected backend files only; no sponsor or analytics files. Local disposable PostgreSQL WASM/auth stub; no hosted database or real credentials."
+}
