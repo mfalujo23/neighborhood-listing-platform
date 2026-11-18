@@ -1,0 +1,37 @@
+
+> neighborhood-listing-platform@0.1.0 test
+> vitest run src/test && node --test tests/webhook.test.js
+
+
+ RUN  v5.1.0 C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/lab2-lab3-verified-snapshot
+
+
+ Test Files  3 passed (3)
+      Tests  43 passed (43)
+   Start at  14:58:40
+   Duration  2.14s (import 82%, transform 14%, tests 2%, worker 2%)
+
+(node:25960) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/lab2-lab3-verified-snapshot/tests/webhook.test.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\mfalujo\Documents\Codex\2026-11-18\https-calstatela-instructure-com-https-calstatela\work\lab2-lab3-verified-snapshot\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"timestamp":"2026-11-18T22:58:42.882Z","eventId":"CA00000000000000000000000000000001","status":"ringing","phoneSuffix":"***0199","note":"Event accepted"}
+{"timestamp":"2026-11-18T22:58:42.882Z","eventId":"CA00000000000000000000000000000001","status":"sms_skipped_no_consent","phoneSuffix":"***0199","note":"Explicit consent missing"}
+{"timestamp":"2026-11-18T22:58:42.894Z","eventId":"CA00000000000000000000000000000001","status":"ringing","phoneSuffix":"***0199","note":"Event accepted"}
+{"timestamp":"2026-11-18T22:58:42.894Z","eventId":"CA00000000000000000000000000000001","status":"sms_skipped_no_consent","phoneSuffix":"***0199","note":"Explicit consent missing"}
+{"timestamp":"2026-11-18T22:58:42.897Z","eventId":"CA00000000000000000000000000000001","status":"ringing","phoneSuffix":"***0199","note":"Duplicate event ignored"}
+▶ Lab 9: Telephony Webhook Security, Idempotency & Consent
+  ✔ 1. Accepts a valid signature and returns TwiML XML (44.5023ms)
+  ✔ 2. Rejects an invalid signature with 403 (2.4588ms)
+  ✔ 3. Rejects missing required fields with 400 (1.1868ms)
+  ✔ 4. Handles duplicate events / provider retries idempotently (9.6221ms)
+  ✔ 5. Rejects unexpected HTTP methods and oversized bodies (4.7377ms)
+✔ Lab 9: Telephony Webhook Security, Idempotency & Consent (64.521ms)
+ℹ tests 5
+ℹ suites 1
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 299.4323
