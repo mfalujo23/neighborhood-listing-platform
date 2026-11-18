@@ -1,16 +1,7 @@
-import { z } from "zod";
+import { PropertySchema } from '../schemas/property'
 
-export const PropertySchema = z.object({
-  bathrooms: z.number().min(0),
-  square_feet: z.number().positive(),
-  amenities: z.array(z.string()),
-  local_sponsors: z.array(
-    z.object({
-      sponsor_id: z.string().uuid(),
-    })
-  ),
-});
+export { PropertySchema } from '../schemas/property'
 
 export function parsePropertyPayload(data: unknown) {
-  return PropertySchema.parse(data);
+  return PropertySchema.parse(data)
 }
