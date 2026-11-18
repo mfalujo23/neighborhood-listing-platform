@@ -1,0 +1,1068 @@
+{
+  "localOnly": true,
+  "limitation": "PostgreSQL WASM in one disposable connection; local auth.uid stub and SET ROLE. No Supabase Auth, PostgREST, cloud migration, real credentials, or multi-connection concurrency was verified.",
+  "version": "PostgreSQL 18.6 (PGlite 0.5.16) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.13 (e13ee988ce3d87a738dd8f3661d02223308c412a), 32-bit",
+  "migrationPath": "supabase/migrations/20261118000400_restore_backend_contracts_rls.sql",
+  "cleanSchemaTables": [
+    "bookings",
+    "profiles",
+    "properties",
+    "service_categories",
+    "service_category_mappings",
+    "services"
+  ],
+  "migrationSha256": "4629aa9c6534259112dfcb0d70bac77b77fc3947c20691dc5db568caeb66e2b6",
+  "legacyRowsPreserved": true,
+  "migrationReappliedWithoutDataChange": true,
+  "roles": [
+    {
+      "rolname": "anon",
+      "rolsuper": false,
+      "rolbypassrls": false
+    },
+    {
+      "rolname": "authenticated",
+      "rolsuper": false,
+      "rolbypassrls": false
+    },
+    {
+      "rolname": "service_role",
+      "rolsuper": false,
+      "rolbypassrls": true
+    }
+  ],
+  "policies": [
+    {
+      "tablename": "bookings",
+      "policyname": "backend_booking_provider_read",
+      "cmd": "SELECT",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": "((EXISTS ( SELECT 1\n   FROM services s\n  WHERE ((s.id = bookings.service_id) AND (s.provider_id = ( SELECT auth.uid() AS uid))))) AND (EXISTS ( SELECT 1\n   FROM profiles p\n  WHERE ((p.id = ( SELECT auth.uid() AS uid)) AND (p.role = ANY (ARRAY['provider'::text, 'merchant'::text]))))))",
+      "with_check": null
+    },
+    {
+      "tablename": "bookings",
+      "policyname": "backend_booking_public_insert",
+      "cmd": "INSERT",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "qual": null,
+      "with_check": "(EXISTS ( SELECT 1\n   FROM services s\n  WHERE ((s.id = bookings.service_id) AND (s.status = 'approved'::text) AND (s.coverage_active IS TRUE))))"
+    },
+    {
+      "tablename": "profiles",
+      "policyname": "backend_profile_insert_non_admin",
+      "cmd": "INSERT",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": null,
+      "with_check": "((id = ( SELECT auth.uid() AS uid)) AND (role = ANY (ARRAY['client'::text, 'provider'::text, 'merchant'::text, 'property_professional'::text])))"
+    },
+    {
+      "tablename": "profiles",
+      "policyname": "backend_profile_read_own",
+      "cmd": "SELECT",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": "(id = ( SELECT auth.uid() AS uid))",
+      "with_check": null
+    },
+    {
+      "tablename": "properties",
+      "policyname": "backend_property_owner_delete",
+      "cmd": "DELETE",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": "((owner_id = ( SELECT auth.uid() AS uid)) AND (approved IS FALSE))",
+      "with_check": null
+    },
+    {
+      "tablename": "properties",
+      "policyname": "backend_property_owner_insert",
+      "cmd": "INSERT",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": null,
+      "with_check": "((owner_id = ( SELECT auth.uid() AS uid)) AND (approved IS FALSE))"
+    },
+    {
+      "tablename": "properties",
+      "policyname": "backend_property_owner_read",
+      "cmd": "SELECT",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": "(owner_id = ( SELECT auth.uid() AS uid))",
+      "with_check": null
+    },
+    {
+      "tablename": "properties",
+      "policyname": "backend_property_owner_update",
+      "cmd": "UPDATE",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": "((owner_id = ( SELECT auth.uid() AS uid)) AND (approved IS FALSE))",
+      "with_check": "((owner_id = ( SELECT auth.uid() AS uid)) AND (approved IS FALSE))"
+    },
+    {
+      "tablename": "properties",
+      "policyname": "backend_property_public_read",
+      "cmd": "SELECT",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "qual": "(approved IS TRUE)",
+      "with_check": null
+    },
+    {
+      "tablename": "service_categories",
+      "policyname": "backend_category_public_read",
+      "cmd": "SELECT",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "qual": "(active_status IS TRUE)",
+      "with_check": null
+    },
+    {
+      "tablename": "service_category_mappings",
+      "policyname": "backend_mapping_provider_delete",
+      "cmd": "DELETE",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": "(EXISTS ( SELECT 1\n   FROM services s\n  WHERE ((s.id = service_category_mappings.service_id) AND (s.provider_id = ( SELECT auth.uid() AS uid)) AND (s.status = ANY (ARRAY['draft'::text, 'suspended'::text])))))",
+      "with_check": null
+    },
+    {
+      "tablename": "service_category_mappings",
+      "policyname": "backend_mapping_provider_insert",
+      "cmd": "INSERT",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": null,
+      "with_check": "(EXISTS ( SELECT 1\n   FROM services s\n  WHERE ((s.id = service_category_mappings.service_id) AND (s.provider_id = ( SELECT auth.uid() AS uid)) AND (s.status = ANY (ARRAY['draft'::text, 'suspended'::text])))))"
+    },
+    {
+      "tablename": "service_category_mappings",
+      "policyname": "backend_mapping_public_read",
+      "cmd": "SELECT",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "qual": "((EXISTS ( SELECT 1\n   FROM services s\n  WHERE ((s.id = service_category_mappings.service_id) AND (s.status = 'approved'::text) AND (s.coverage_active IS TRUE)))) AND (EXISTS ( SELECT 1\n   FROM service_categories c\n  WHERE ((c.id = service_category_mappings.category_id) AND (c.active_status IS TRUE)))))",
+      "with_check": null
+    },
+    {
+      "tablename": "services",
+      "policyname": "backend_service_provider_delete",
+      "cmd": "DELETE",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": "((provider_id = ( SELECT auth.uid() AS uid)) AND (status = ANY (ARRAY['draft'::text, 'suspended'::text])) AND (EXISTS ( SELECT 1\n   FROM profiles p\n  WHERE ((p.id = ( SELECT auth.uid() AS uid)) AND (p.role = ANY (ARRAY['provider'::text, 'merchant'::text]))))))",
+      "with_check": null
+    },
+    {
+      "tablename": "services",
+      "policyname": "backend_service_provider_insert",
+      "cmd": "INSERT",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": null,
+      "with_check": "((provider_id = ( SELECT auth.uid() AS uid)) AND (status = 'draft'::text) AND (EXISTS ( SELECT 1\n   FROM profiles p\n  WHERE ((p.id = ( SELECT auth.uid() AS uid)) AND (p.role = ANY (ARRAY['provider'::text, 'merchant'::text]))))))"
+    },
+    {
+      "tablename": "services",
+      "policyname": "backend_service_provider_read",
+      "cmd": "SELECT",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": "((provider_id = ( SELECT auth.uid() AS uid)) AND (EXISTS ( SELECT 1\n   FROM profiles p\n  WHERE ((p.id = ( SELECT auth.uid() AS uid)) AND (p.role = ANY (ARRAY['provider'::text, 'merchant'::text]))))))",
+      "with_check": null
+    },
+    {
+      "tablename": "services",
+      "policyname": "backend_service_provider_update",
+      "cmd": "UPDATE",
+      "roles": [
+        "authenticated"
+      ],
+      "qual": "((provider_id = ( SELECT auth.uid() AS uid)) AND (status = ANY (ARRAY['draft'::text, 'suspended'::text])) AND (EXISTS ( SELECT 1\n   FROM profiles p\n  WHERE ((p.id = ( SELECT auth.uid() AS uid)) AND (p.role = ANY (ARRAY['provider'::text, 'merchant'::text]))))))",
+      "with_check": "((provider_id = ( SELECT auth.uid() AS uid)) AND (status = ANY (ARRAY['draft'::text, 'suspended'::text])))"
+    },
+    {
+      "tablename": "services",
+      "policyname": "backend_service_public_read",
+      "cmd": "SELECT",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "qual": "((status = 'approved'::text) AND (coverage_active IS TRUE))",
+      "with_check": null
+    }
+  ],
+  "cases": 45,
+  "results": [
+    {
+      "name": "Legacy published flag actually exposed unapproved row (read only)",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "select id from public.properties where approved is false",
+      "params": [],
+      "actual": {
+        "rows": [
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa006"
+          }
+        ],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 1
+      }
+    },
+    {
+      "name": "Legacy owner insert actually allowed pre-approved row (rolled back)",
+      "role": "authenticated",
+      "localAuthUid": "66666666-6666-4666-8666-666666666666",
+      "sql": "insert into public.properties(owner_id, title, approved) values ($1, $2, true) returning id",
+      "params": [
+        "66666666-6666-4666-8666-666666666666",
+        "Fictional pre-approved legacy insert"
+      ],
+      "actual": {
+        "rows": [
+          {
+            "id": "e0a48ac8-1524-42d6-87e6-6c52efe8a2d5"
+          }
+        ],
+        "affectedRows": 1
+      },
+      "expected": {
+        "affectedRows": 1
+      }
+    },
+    {
+      "name": "Legacy policy actually allowed self-approval (rolled back)",
+      "role": "authenticated",
+      "localAuthUid": "66666666-6666-4666-8666-666666666666",
+      "sql": "update public.properties set approved = true returning id",
+      "params": [],
+      "actual": {
+        "rows": [
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa006"
+          }
+        ],
+        "affectedRows": 1
+      },
+      "expected": {
+        "affectedRows": 1
+      }
+    },
+    {
+      "name": "Anonymous sees only approved property",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "select id, title, approved from public.properties order by id",
+      "params": [],
+      "actual": {
+        "rows": [
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa002",
+            "title": "Fictional approved listing A",
+            "approved": true
+          }
+        ],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 1
+      }
+    },
+    {
+      "name": "Anonymous private-property query returns []",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "select id from public.properties where id = $1",
+      "params": [
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 0
+      }
+    },
+    {
+      "name": "Anonymous property insert denied",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "insert into public.properties(owner_id, title) values ($1, $2)",
+      "params": [
+        "11111111-1111-4111-8111-111111111111",
+        "Forbidden insert"
+      ],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "permission denied for table properties"
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Owner can read private property",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "select id from public.properties where id = $1",
+      "params": [
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+      ],
+      "actual": {
+        "rows": [
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+          }
+        ],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 1
+      }
+    },
+    {
+      "name": "Owner can edit own unapproved property",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "update public.properties set title = $1 where id = $2 returning id",
+      "params": [
+        "Revised fictional title",
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+      ],
+      "actual": {
+        "rows": [
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+          }
+        ],
+        "affectedRows": 1
+      },
+      "expected": {
+        "affectedRows": 1
+      }
+    },
+    {
+      "name": "Owner cannot self-approve",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "update public.properties set approved = true where id = $1 returning id",
+      "params": [
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+      ],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "new row violates row-level security policy for table \"properties\""
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Owner cannot edit already approved property",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "update public.properties set title = $1 where id = $2 returning id",
+      "params": [
+        "Unauthorized live edit",
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa002"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "affectedRows": 0
+      }
+    },
+    {
+      "name": "Owner can delete own unapproved property",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "delete from public.properties where id = $1 returning id",
+      "params": [
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+      ],
+      "actual": {
+        "rows": [
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+          }
+        ],
+        "affectedRows": 1
+      },
+      "expected": {
+        "affectedRows": 1
+      }
+    },
+    {
+      "name": "Other authenticated user sees no private property",
+      "role": "authenticated",
+      "localAuthUid": "22222222-2222-4222-8222-222222222222",
+      "sql": "select id from public.properties where id = $1",
+      "params": [
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 0
+      }
+    },
+    {
+      "name": "Other authenticated user can read approved public property",
+      "role": "authenticated",
+      "localAuthUid": "22222222-2222-4222-8222-222222222222",
+      "sql": "select id from public.properties where id = $1",
+      "params": [
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa002"
+      ],
+      "actual": {
+        "rows": [
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa002"
+          }
+        ],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 1
+      }
+    },
+    {
+      "name": "Other authenticated update affects zero rows",
+      "role": "authenticated",
+      "localAuthUid": "22222222-2222-4222-8222-222222222222",
+      "sql": "update public.properties set title = $1 where id = $2 returning id",
+      "params": [
+        "Forbidden other edit",
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "affectedRows": 0
+      }
+    },
+    {
+      "name": "Other authenticated delete affects zero rows",
+      "role": "authenticated",
+      "localAuthUid": "22222222-2222-4222-8222-222222222222",
+      "sql": "delete from public.properties where id = $1 returning id",
+      "params": [
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "affectedRows": 0
+      }
+    },
+    {
+      "name": "Owner can insert an unapproved property",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "insert into public.properties\n    (owner_id, title, approved, street, city, state, zip_code, price, bedrooms, bathrooms, square_feet)\n    values ($1, 'Fictional inserted listing', $2, '40 Example Way', 'Test City', 'CA', '90032', $3, 2, 1, 800)\n    returning id",
+      "params": [
+        "11111111-1111-4111-8111-111111111111",
+        false,
+        500000
+      ],
+      "actual": {
+        "rows": [
+          {
+            "id": "11777991-e5ae-47ce-9fff-c7392a0d2f17"
+          }
+        ],
+        "affectedRows": 1
+      },
+      "expected": {
+        "affectedRows": 1
+      }
+    },
+    {
+      "name": "Owner cannot insert an already approved property",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "insert into public.properties\n    (owner_id, title, approved, street, city, state, zip_code, price, bedrooms, bathrooms, square_feet)\n    values ($1, 'Fictional inserted listing', $2, '40 Example Way', 'Test City', 'CA', '90032', $3, 2, 1, 800)\n    returning id",
+      "params": [
+        "11111111-1111-4111-8111-111111111111",
+        true,
+        500000
+      ],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "new row violates row-level security policy for table \"properties\""
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Other cannot forge owner on property insert",
+      "role": "authenticated",
+      "localAuthUid": "22222222-2222-4222-8222-222222222222",
+      "sql": "insert into public.properties\n    (owner_id, title, approved, street, city, state, zip_code, price, bedrooms, bathrooms, square_feet)\n    values ($1, 'Fictional inserted listing', $2, '40 Example Way', 'Test City', 'CA', '90032', $3, 2, 1, 800)\n    returning id",
+      "params": [
+        "11111111-1111-4111-8111-111111111111",
+        false,
+        500000
+      ],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "new row violates row-level security policy for table \"properties\""
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Server administrator sees all properties",
+      "role": "service_role",
+      "localAuthUid": "33333333-3333-4333-8333-333333333333",
+      "sql": "select id from public.properties",
+      "params": [],
+      "actual": {
+        "rows": [
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa006"
+          },
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+          },
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa002"
+          },
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa003"
+          }
+        ],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 4
+      }
+    },
+    {
+      "name": "Server administrator can approve a property",
+      "role": "service_role",
+      "localAuthUid": "33333333-3333-4333-8333-333333333333",
+      "sql": "update public.properties set approved = true where id = $1 returning id",
+      "params": [
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+      ],
+      "actual": {
+        "rows": [
+          {
+            "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+          }
+        ],
+        "affectedRows": 1
+      },
+      "expected": {
+        "affectedRows": 1
+      }
+    },
+    {
+      "name": "Administrator still obeys price CHECK constraint",
+      "role": "service_role",
+      "localAuthUid": "33333333-3333-4333-8333-333333333333",
+      "sql": "insert into public.properties\n    (owner_id, title, approved, street, city, state, zip_code, price, bedrooms, bathrooms, square_feet)\n    values ($1, 'Fictional inserted listing', $2, '40 Example Way', 'Test City', 'CA', '90032', $3, 2, 1, 800)\n    returning id",
+      "params": [
+        "11111111-1111-4111-8111-111111111111",
+        false,
+        -1
+      ],
+      "actual": {
+        "error": {
+          "code": "23514",
+          "message": "new row for relation \"properties\" violates check constraint \"properties_backend_contract_check\""
+        }
+      },
+      "expected": {
+        "code": "23514"
+      }
+    },
+    {
+      "name": "Service role is not table owner and cannot alter schema",
+      "role": "service_role",
+      "localAuthUid": "33333333-3333-4333-8333-333333333333",
+      "sql": "alter table public.properties add column forbidden_local_probe text",
+      "params": [],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "must be owner of table properties"
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Client may create a non-admin own profile",
+      "role": "authenticated",
+      "localAuthUid": "77777777-7777-4777-8777-777777777777",
+      "sql": "insert into public.profiles(id, role, email) values ($1, $2, $3) returning id",
+      "params": [
+        "77777777-7777-4777-8777-777777777777",
+        "client",
+        "new-client@example.test"
+      ],
+      "actual": {
+        "rows": [
+          {
+            "id": "77777777-7777-4777-8777-777777777777"
+          }
+        ],
+        "affectedRows": 1
+      },
+      "expected": {
+        "affectedRows": 1
+      }
+    },
+    {
+      "name": "Client cannot create an admin profile",
+      "role": "authenticated",
+      "localAuthUid": "77777777-7777-4777-8777-777777777777",
+      "sql": "insert into public.profiles(id, role, email) values ($1, $2, $3)",
+      "params": [
+        "77777777-7777-4777-8777-777777777777",
+        "admin",
+        "new-client@example.test"
+      ],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "new row violates row-level security policy for table \"profiles\""
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Client cannot update their profile role",
+      "role": "authenticated",
+      "localAuthUid": "44444444-4444-4444-8444-444444444444",
+      "sql": "update public.profiles set role = 'admin' where id = $1",
+      "params": [
+        "44444444-4444-4444-8444-444444444444"
+      ],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "permission denied for table profiles"
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Admin browser identity is not elevated service execution",
+      "role": "authenticated",
+      "localAuthUid": "33333333-3333-4333-8333-333333333333",
+      "sql": "update public.properties set approved = true where id = $1 returning id",
+      "params": [
+        "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "affectedRows": 0
+      }
+    },
+    {
+      "name": "Anonymous categories exclude inactive records",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "select id from public.service_categories",
+      "params": [],
+      "actual": {
+        "rows": [
+          {
+            "id": "cccccccc-cccc-4ccc-8ccc-ccccccccccc1"
+          }
+        ],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 1
+      }
+    },
+    {
+      "name": "Anonymous services require approval and active coverage",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "select id, title, hourly_rate from public.services order by id",
+      "params": [],
+      "actual": {
+        "rows": [
+          {
+            "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2",
+            "title": "Provider A approved",
+            "hourly_rate": "75.00"
+          },
+          {
+            "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb5",
+            "title": "Provider B approved",
+            "hourly_rate": "80.00"
+          }
+        ],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 2
+      }
+    },
+    {
+      "name": "Anonymous cannot see draft service",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "select id from public.services where id = $1",
+      "params": [
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 0
+      }
+    },
+    {
+      "name": "Anonymous cannot see inactive approved coverage",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "select id from public.services where id = $1",
+      "params": [
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb4"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 0
+      }
+    },
+    {
+      "name": "Provider updates their draft",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "update public.services set title = $1 where id = $2 returning id",
+      "params": [
+        "Changed provider draft",
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1"
+      ],
+      "actual": {
+        "rows": [
+          {
+            "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1"
+          }
+        ],
+        "affectedRows": 1
+      },
+      "expected": {
+        "affectedRows": 1
+      }
+    },
+    {
+      "name": "Provider cannot edit another provider draft",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "update public.services set title = $1 where id = $2 returning id",
+      "params": [
+        "Forbidden provider edit",
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb3"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "affectedRows": 0
+      }
+    },
+    {
+      "name": "Provider cannot self-publish draft",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "update public.services set status = 'approved' where id = $1 returning id",
+      "params": [
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1"
+      ],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "new row violates row-level security policy for table \"services\""
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Provider cannot modify live approved service",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "update public.services set title = $1 where id = $2 returning id",
+      "params": [
+        "Forbidden live edit",
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "affectedRows": 0
+      }
+    },
+    {
+      "name": "Merchant can insert own draft (role mismatch repaired)",
+      "role": "authenticated",
+      "localAuthUid": "55555555-5555-4555-8555-555555555555",
+      "sql": "insert into public.services(provider_id, title, hourly_rate, duration_minutes, coverage_radius_miles)\n    values ($1, 'Fictional service offering', 50, 30, 5) returning id",
+      "params": [
+        "55555555-5555-4555-8555-555555555555"
+      ],
+      "actual": {
+        "rows": [
+          {
+            "id": "ed3cae64-eed7-4a4d-b657-695cb35032f7"
+          }
+        ],
+        "affectedRows": 1
+      },
+      "expected": {
+        "affectedRows": 1
+      }
+    },
+    {
+      "name": "Client cannot impersonate a provider",
+      "role": "authenticated",
+      "localAuthUid": "44444444-4444-4444-8444-444444444444",
+      "sql": "insert into public.services(provider_id, title, hourly_rate, duration_minutes, coverage_radius_miles)\n    values ($1, 'Fictional service offering', 50, 30, 5) returning id",
+      "params": [
+        "44444444-4444-4444-8444-444444444444"
+      ],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "new row violates row-level security policy for table \"services\""
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Anonymous can insert booking without RETURNING private data",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "insert into public.bookings(service_id, client_email, requested_date, notes)\n    values ($1, $2, '2027-01-03', 'Fictional booking request for local test')",
+      "params": [
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2",
+        "new-client@example.test"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 1
+      },
+      "expected": {
+        "affectedRows": 1
+      }
+    },
+    {
+      "name": "Anonymous booking for unapproved service denied",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "insert into public.bookings(service_id, client_email, requested_date, notes)\n    values ($1, $2, '2027-01-03', 'Fictional booking request for local test')",
+      "params": [
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1",
+        "new-client@example.test"
+      ],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "new row violates row-level security policy for table \"bookings\""
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Anonymous booking for inactive coverage denied",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "insert into public.bookings(service_id, client_email, requested_date, notes)\n    values ($1, $2, '2027-01-03', 'Fictional booking request for local test')",
+      "params": [
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb4",
+        "new-client@example.test"
+      ],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "new row violates row-level security policy for table \"bookings\""
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Anonymous cannot read any booking contact information",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "select * from public.bookings",
+      "params": [],
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "permission denied for table bookings"
+        }
+      },
+      "expected": {
+        "code": "42501"
+      }
+    },
+    {
+      "name": "Client booking SELECT returns []",
+      "role": "authenticated",
+      "localAuthUid": "44444444-4444-4444-8444-444444444444",
+      "sql": "select * from public.bookings",
+      "params": [],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 0
+      }
+    },
+    {
+      "name": "Provider sees only their service booking",
+      "role": "authenticated",
+      "localAuthUid": "11111111-1111-4111-8111-111111111111",
+      "sql": "select id, client_email from public.bookings order by id",
+      "params": [],
+      "actual": {
+        "rows": [
+          {
+            "id": "dddddddd-dddd-4ddd-8ddd-ddddddddddd1",
+            "client_email": "client-a@example.test"
+          }
+        ],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 1
+      }
+    },
+    {
+      "name": "Other provider cannot see provider A booking",
+      "role": "authenticated",
+      "localAuthUid": "22222222-2222-4222-8222-222222222222",
+      "sql": "select id, client_email from public.bookings where service_id = $1",
+      "params": [
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2"
+      ],
+      "actual": {
+        "rows": [],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 0
+      }
+    },
+    {
+      "name": "Server administrator sees all bookings",
+      "role": "service_role",
+      "localAuthUid": "33333333-3333-4333-8333-333333333333",
+      "sql": "select id from public.bookings",
+      "params": [],
+      "actual": {
+        "rows": [
+          {
+            "id": "dddddddd-dddd-4ddd-8ddd-ddddddddddd1"
+          },
+          {
+            "id": "dddddddd-dddd-4ddd-8ddd-ddddddddddd2"
+          }
+        ],
+        "affectedRows": 0
+      },
+      "expected": {
+        "rows": 2
+      }
+    },
+    {
+      "name": "Booking email constraint rejects malformed value",
+      "role": "anon",
+      "localAuthUid": null,
+      "sql": "insert into public.bookings(service_id, client_email, requested_date, notes)\n    values ($1, $2, '2027-01-03', 'Fictional booking request for local test')",
+      "params": [
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2",
+        "not-an-email"
+      ],
+      "actual": {
+        "error": {
+          "code": "23514",
+          "message": "new row for relation \"bookings\" violates check constraint \"bookings_backend_contract_check\""
+        }
+      },
+      "expected": {
+        "code": "23514"
+      }
+    }
+  ]
+}
