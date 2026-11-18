@@ -4,8 +4,9 @@ Date: 2026-11-18. Local branch: `setup/mfalujo23-lab1-remediation`.
 Base commit: `c36ccf8`.
 
 These are actual Codex-executed checks and Codex browser observations. They are
-not represented as student-performed manual verification, partner reviews, or a
-complete hosted deployment. Lab 1 still needs the outstanding evidence below.
+not represented as student-performed manual verification or partner reviews.
+The 2026-11-18 publication follow-up records the actual hosting verification;
+Lab 1 still needs the outstanding student/provider/review evidence below.
 
 ## Environment and reproducibility
 
@@ -44,7 +45,7 @@ disabled during both the original dependency install and the clean check.
 
 The pinned configuration does not ignore build/type errors or remove tests to
 obtain a pass. The inherited error-tolerant CI workflow is corrected separately
-in `ci-verification.md`; a real GitHub-hosted result remains pending publication.
+in `ci-verification.md`; a real GitHub-hosted test result remains pending; Actions was enabled after publication.
 
 ## Local page and development-server evidence
 
@@ -131,10 +132,8 @@ output. No command output or deployment result was fabricated.
 - Student review and explanation of the code and verification evidence.
 - Genuine ChatGPT/Gemini stack comparison and Google AI Studio checkpoint, where
   still required by the instructor. This remediation did not perform them.
-- New attributable commit references, issue, pull request, review or documented
-  instructor-approved solo alternative, and actual automated check results.
-- A deployment of the submitted commit, its hosting-dashboard commit SHA, and
-  actual live response evidence. The historical team deployment is not proof of
-  this branch's deployment.
+- Required review or documented instructor-approved solo alternative, and actual
+  GitHub-hosted test results. New issue #1, PR #4, and four attributable commits
+  are published; see `lab1-deployment-verification.md` for exact references.
 - Instructor repository access, if not already granted, and the user's reported
   solo-work exception applied to the remaining collaboration requirements.

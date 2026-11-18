@@ -1,0 +1,24 @@
+[
+  {
+    "url": "https://neighborhood-listing-platform-sable.vercel.app/",
+    "status": 200,
+    "server": [
+      "Vercel"
+    ],
+    "vercelId": [
+      "sfo1::7fh88-1795044274546-8fea34a10be3"
+    ],
+    "bodySummary": "BarrioList public homepage; content checked independently in browser"
+  },
+  {
+    "url": "https://neighborhood-listing-platform-sable.vercel.app/api/admin/bookings",
+    "status": 401,
+    "server": [
+      "Vercel"
+    ],
+    "vercelId": [
+      "sfo1::iad1::pv7d5-1795044274642-59b93dc1f506"
+    ],
+    "bodySummary": "{\"error\":\"Sign-in is required.\"}"
+  }
+]
