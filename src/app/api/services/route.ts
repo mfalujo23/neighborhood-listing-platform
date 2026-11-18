@@ -29,6 +29,7 @@ export async function GET() {
       .from('services')
       .select('id, title, hourly_rate, duration_minutes, coverage_radius_miles')
       .eq('status', 'approved')
+      .eq('coverage_active', true)
       .order('created_at', { ascending: false })
 
     if (error) {
@@ -112,9 +113,10 @@ export async function POST(request: Request) {
       .single()
 
     if (error) {
+      const status = error.code === '42501' ? 403 : error.code?.startsWith('23') ? 400 : 500
       return NextResponse.json(
         { error: 'Could not create service.' },
-        { status: 403 },
+        { status },
       )
     }
 

@@ -65,7 +65,7 @@ export async function POST(request: Request) {
     })
 
     if (error) {
-      console.error('Booking insert error:', error)
+      console.error('Booking insert failed', { code: error.code })
       return NextResponse.json(
         { error: 'Could not submit booking request.' },
         { status: 400 },
@@ -76,8 +76,8 @@ export async function POST(request: Request) {
       { message: 'Booking request submitted.' },
       { status: 201 },
     )
-  } catch (error) {
-    console.error('Booking route error:', error)
+  } catch {
+    console.error('Booking route failed')
     return NextResponse.json(
       { error: 'Server configuration or request error.' },
       { status: 500 },
