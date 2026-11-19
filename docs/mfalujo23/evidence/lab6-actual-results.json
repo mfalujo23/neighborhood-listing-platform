@@ -1,0 +1,238 @@
+{
+  "generatedAt": "2026-11-18T23:27:42.567Z",
+  "scope": "Actual local pure-function/Web Response/static-render execution. No Next HTTP server, cloud, sponsor site, or database called by this script.",
+  "fixtureProvenance": "Teacher supplied A/B/C/D tier, distance, impressions, approval status and active dates for ZIP 90032. Fixed date, concrete dates, UUIDs, radius, placement and example.com URLs are explicitly chosen fictional fixture details.",
+  "audit": {
+    "context": {
+      "placement": "sidebar",
+      "zipCode": "90032",
+      "currentDate": "2026-10-24"
+    },
+    "precedence": [
+      "approved/active/placement/date/geography/safe URL eligibility",
+      "tier descending",
+      "distance ascending",
+      "impressions ascending",
+      "stable ID ascending"
+    ],
+    "candidates": [
+      {
+        "id": "60000000-0000-4000-8000-00000000000a",
+        "name": "Sponsor A",
+        "eligible": true,
+        "reason": "eligible",
+        "geography": "exact_zip"
+      },
+      {
+        "id": "60000000-0000-4000-8000-00000000000b",
+        "name": "Sponsor B",
+        "eligible": true,
+        "reason": "eligible",
+        "geography": "exact_zip"
+      },
+      {
+        "id": "60000000-0000-4000-8000-00000000000c",
+        "name": "Sponsor C",
+        "eligible": true,
+        "reason": "eligible",
+        "geography": "exact_zip"
+      },
+      {
+        "id": "60000000-0000-4000-8000-00000000000d",
+        "name": "Sponsor D",
+        "eligible": false,
+        "reason": "not_approved",
+        "geography": "none"
+      }
+    ],
+    "rankedEligibleIds": [
+      "60000000-0000-4000-8000-00000000000c",
+      "60000000-0000-4000-8000-00000000000b",
+      "60000000-0000-4000-8000-00000000000a"
+    ],
+    "selected": {
+      "id": "60000000-0000-4000-8000-00000000000c",
+      "name": "Sponsor C",
+      "approved": true,
+      "active": true,
+      "placement": "sidebar",
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-31",
+      "zipCodes": [
+        "90032"
+      ],
+      "coverageRadiusMiles": 5,
+      "tier": "Gold",
+      "distanceMiles": 0.8,
+      "impressions": 90,
+      "destinationUrl": "https://example.com/sponsor"
+    }
+  },
+  "properties": [
+    {
+      "property": "Fictional exact ZIP property",
+      "context": {
+        "placement": "sidebar",
+        "zipCode": "90032",
+        "currentDate": "2026-10-24"
+      },
+      "precedence": [
+        "approved/active/placement/date/geography/safe URL eligibility",
+        "tier descending",
+        "distance ascending",
+        "impressions ascending",
+        "stable ID ascending"
+      ],
+      "candidates": [
+        {
+          "id": "exact",
+          "name": "Exact ZIP sponsor",
+          "eligible": true,
+          "reason": "eligible",
+          "geography": "exact_zip"
+        }
+      ],
+      "rankedEligibleIds": [
+        "exact"
+      ],
+      "selected": {
+        "id": "exact",
+        "name": "Exact ZIP sponsor",
+        "approved": true,
+        "active": true,
+        "placement": "sidebar",
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-31",
+        "zipCodes": [
+          "90032"
+        ],
+        "coverageRadiusMiles": 5,
+        "tier": "Silver",
+        "distanceMiles": 25,
+        "impressions": 0,
+        "destinationUrl": "https://example.com/sponsor"
+      }
+    },
+    {
+      "property": "Fictional nearby property",
+      "context": {
+        "placement": "sidebar",
+        "zipCode": "90033",
+        "currentDate": "2026-10-24"
+      },
+      "precedence": [
+        "approved/active/placement/date/geography/safe URL eligibility",
+        "tier descending",
+        "distance ascending",
+        "impressions ascending",
+        "stable ID ascending"
+      ],
+      "candidates": [
+        {
+          "id": "nearby",
+          "name": "Nearby sponsor",
+          "eligible": true,
+          "reason": "eligible",
+          "geography": "radius"
+        }
+      ],
+      "rankedEligibleIds": [
+        "nearby"
+      ],
+      "selected": {
+        "id": "nearby",
+        "name": "Nearby sponsor",
+        "approved": true,
+        "active": true,
+        "placement": "sidebar",
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-31",
+        "zipCodes": [
+          "90032"
+        ],
+        "coverageRadiusMiles": 5,
+        "tier": "Silver",
+        "distanceMiles": 3,
+        "impressions": 0,
+        "destinationUrl": "https://example.com/sponsor"
+      }
+    },
+    {
+      "property": "Fictional outside coverage property",
+      "context": {
+        "placement": "sidebar",
+        "zipCode": "90034",
+        "currentDate": "2026-10-24"
+      },
+      "precedence": [
+        "approved/active/placement/date/geography/safe URL eligibility",
+        "tier descending",
+        "distance ascending",
+        "impressions ascending",
+        "stable ID ascending"
+      ],
+      "candidates": [
+        {
+          "id": "outside",
+          "name": "Outside sponsor",
+          "eligible": false,
+          "reason": "outside_geography",
+          "geography": "none"
+        }
+      ],
+      "rankedEligibleIds": [],
+      "selected": null
+    }
+  ],
+  "validUrl": {
+    "success": true,
+    "url": "https://example.com/approved"
+  },
+  "unsafeUrl": {
+    "success": false,
+    "error": {
+      "code": "UNSAFE_SPONSOR_URL",
+      "message": "Destination must be a public HTTPS URL.",
+      "issues": [
+        {
+          "path": [],
+          "message": "Destination must be a public HTTPS URL."
+        }
+      ]
+    }
+  },
+  "validStoredRedirect": {
+    "status": 302,
+    "headers": {
+      "cache-control": "no-store",
+      "location": "https://example.com/sponsor",
+      "referrer-policy": "strict-origin-when-cross-origin"
+    },
+    "body": ""
+  },
+  "unsafeStoredRedirect": {
+    "status": 502,
+    "headers": {
+      "cache-control": "no-store",
+      "content-type": "application/json",
+      "referrer-policy": "strict-origin-when-cross-origin"
+    },
+    "body": "{\"error\":{\"code\":\"UNSAFE_SPONSOR_URL\",\"message\":\"Destination must be a public HTTPS URL.\",\"issues\":[{\"path\":[],\"message\":\"Destination must be a public HTTPS URL.\"}]}}"
+  },
+  "noLongerEligible": {
+    "status": 404,
+    "headers": {
+      "cache-control": "no-store",
+      "content-type": "application/json",
+      "referrer-policy": "strict-origin-when-cross-origin"
+    },
+    "body": "{\"error\":{\"code\":\"SPONSOR_NOT_ELIGIBLE\",\"message\":\"Sponsor is not eligible for this placement.\"}}"
+  },
+  "coarseImpression": {
+    "sponsorId": "60000000-0000-4000-8000-00000000000c",
+    "placement": "sidebar",
+    "pageContext": "home",
+    "timestamp": "2026-10-24T12:00:00.000Z"
+  },
+  "externalNetworkRequests": 0
+}

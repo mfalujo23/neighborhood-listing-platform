@@ -1,0 +1,1310 @@
+{
+  "localOnly": true,
+  "sponsorMigrationPath": "supabase/migrations/20261118000500_eligible_sponsors.sql",
+  "sponsorMigrationSha256": "2bb642601b80177d12f55f905b2fd003839c63949831148a212cbc8248f8fe36",
+  "limitation": "Disposable PGlite, fictional rows, auth stubs. Tiny-fixture EXPLAIN is actual but not a production performance measurement. No cloud migration, external URL visit, provider request, or production data.",
+  "reports": [
+    {
+      "idType": "uuid",
+      "localOnly": true,
+      "migrationReappliedWithoutDataChange": true,
+      "selection": [
+        {
+          "id": "60000000-0000-4000-8000-00000000000c",
+          "business_name": "Sponsor C",
+          "tier": "Gold",
+          "distance_miles": "0.80",
+          "impression_count": 90
+        },
+        {
+          "id": "60000000-0000-4000-8000-00000000000b",
+          "business_name": "Sponsor B",
+          "tier": "Gold",
+          "distance_miles": "1.20",
+          "impression_count": 45
+        },
+        {
+          "id": "60000000-0000-4000-8000-00000000000a",
+          "business_name": "Sponsor A",
+          "tier": "Silver",
+          "distance_miles": "0.40",
+          "impression_count": 120
+        }
+      ],
+      "outerPlan": [
+        {
+          "QUERY PLAN": "Function Scan on eligible_sponsors_for_property  (cost=0.25..10.25 rows=1000 width=305) (actual time=2.680..2.768 rows=3.00 loops=1)"
+        },
+        {
+          "QUERY PLAN": "  Buffers: shared hit=12"
+        },
+        {
+          "QUERY PLAN": "Planning Time: 0.151 ms"
+        },
+        {
+          "QUERY PLAN": "Execution Time: 2.978 ms"
+        }
+      ],
+      "innerPlan": [
+        {
+          "QUERY PLAN": [
+            {
+              "Plan": {
+                "Node Type": "Sort",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Startup Cost": 38.69,
+                "Total Cost": 38.69,
+                "Plan Rows": 1,
+                "Plan Width": 295,
+                "Actual Startup Time": 0.16,
+                "Actual Total Time": 0.17,
+                "Actual Rows": 3,
+                "Actual Loops": 1,
+                "Disabled": false,
+                "Sort Key": [
+                  "(CASE s.tier WHEN 'Platinum'::text THEN 3 WHEN 'Gold'::text THEN 2 ELSE 1 END) DESC",
+                  "(min(ps.distance_miles))",
+                  "s.impression_count",
+                  "((s.id)::text)"
+                ],
+                "Sort Method": "quicksort",
+                "Sort Space Used": 17,
+                "Sort Space Type": "Memory",
+                "Shared Hit Blocks": 12,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0,
+                "Plans": [
+                  {
+                    "Node Type": "Nested Loop",
+                    "Parent Relationship": "Outer",
+                    "Parallel Aware": false,
+                    "Async Capable": false,
+                    "Join Type": "Inner",
+                    "Startup Cost": 13.98,
+                    "Total Cost": 38.68,
+                    "Plan Rows": 1,
+                    "Plan Width": 295,
+                    "Actual Startup Time": 0.099,
+                    "Actual Total Time": 0.153,
+                    "Actual Rows": 3,
+                    "Actual Loops": 1,
+                    "Disabled": false,
+                    "Inner Unique": false,
+                    "Shared Hit Blocks": 12,
+                    "Shared Read Blocks": 0,
+                    "Shared Dirtied Blocks": 0,
+                    "Shared Written Blocks": 0,
+                    "Local Hit Blocks": 0,
+                    "Local Read Blocks": 0,
+                    "Local Dirtied Blocks": 0,
+                    "Local Written Blocks": 0,
+                    "Temp Read Blocks": 0,
+                    "Temp Written Blocks": 0,
+                    "Plans": [
+                      {
+                        "Node Type": "Index Scan",
+                        "Parent Relationship": "Outer",
+                        "Parallel Aware": false,
+                        "Async Capable": false,
+                        "Scan Direction": "Forward",
+                        "Index Name": "properties_pkey",
+                        "Relation Name": "properties",
+                        "Alias": "p",
+                        "Startup Cost": 0.14,
+                        "Total Cost": 8.17,
+                        "Plan Rows": 1,
+                        "Plan Width": 16,
+                        "Actual Startup Time": 0.013,
+                        "Actual Total Time": 0.015,
+                        "Actual Rows": 1,
+                        "Actual Loops": 1,
+                        "Disabled": false,
+                        "Index Cond": "(id = '60000000-0000-4000-8000-000000000001'::uuid)",
+                        "Rows Removed by Index Recheck": 0,
+                        "Filter": "(approved AND (\"left\"(zip_code, 5) = '90032'::text))",
+                        "Rows Removed by Filter": 0,
+                        "Index Searches": 1,
+                        "Shared Hit Blocks": 2,
+                        "Shared Read Blocks": 0,
+                        "Shared Dirtied Blocks": 0,
+                        "Shared Written Blocks": 0,
+                        "Local Hit Blocks": 0,
+                        "Local Read Blocks": 0,
+                        "Local Dirtied Blocks": 0,
+                        "Local Written Blocks": 0,
+                        "Temp Read Blocks": 0,
+                        "Temp Written Blocks": 0
+                      },
+                      {
+                        "Node Type": "Nested Loop",
+                        "Parent Relationship": "Inner",
+                        "Parallel Aware": false,
+                        "Async Capable": false,
+                        "Join Type": "Inner",
+                        "Startup Cost": 13.84,
+                        "Total Cost": 30.48,
+                        "Plan Rows": 1,
+                        "Plan Width": 331,
+                        "Actual Startup Time": 0.078,
+                        "Actual Total Time": 0.125,
+                        "Actual Rows": 3,
+                        "Actual Loops": 1,
+                        "Disabled": false,
+                        "Inner Unique": true,
+                        "Shared Hit Blocks": 10,
+                        "Shared Read Blocks": 0,
+                        "Shared Dirtied Blocks": 0,
+                        "Shared Written Blocks": 0,
+                        "Local Hit Blocks": 0,
+                        "Local Read Blocks": 0,
+                        "Local Dirtied Blocks": 0,
+                        "Local Written Blocks": 0,
+                        "Temp Read Blocks": 0,
+                        "Temp Written Blocks": 0,
+                        "Plans": [
+                          {
+                            "Node Type": "Aggregate",
+                            "Strategy": "Sorted",
+                            "Partial Mode": "Simple",
+                            "Parent Relationship": "Outer",
+                            "Parallel Aware": false,
+                            "Async Capable": false,
+                            "Startup Cost": 13.69,
+                            "Total Cost": 13.73,
+                            "Plan Rows": 2,
+                            "Plan Width": 48,
+                            "Actual Startup Time": 0.044,
+                            "Actual Total Time": 0.053,
+                            "Actual Rows": 4,
+                            "Actual Loops": 1,
+                            "Disabled": false,
+                            "Group Key": [
+                              "ps.sponsor_id"
+                            ],
+                            "Shared Hit Blocks": 2,
+                            "Shared Read Blocks": 0,
+                            "Shared Dirtied Blocks": 0,
+                            "Shared Written Blocks": 0,
+                            "Local Hit Blocks": 0,
+                            "Local Read Blocks": 0,
+                            "Local Dirtied Blocks": 0,
+                            "Local Written Blocks": 0,
+                            "Temp Read Blocks": 0,
+                            "Temp Written Blocks": 0,
+                            "Plans": [
+                              {
+                                "Node Type": "Sort",
+                                "Parent Relationship": "Outer",
+                                "Parallel Aware": false,
+                                "Async Capable": false,
+                                "Startup Cost": 13.69,
+                                "Total Cost": 13.7,
+                                "Plan Rows": 2,
+                                "Plan Width": 30,
+                                "Actual Startup Time": 0.035,
+                                "Actual Total Time": 0.039,
+                                "Actual Rows": 4,
+                                "Actual Loops": 1,
+                                "Disabled": false,
+                                "Sort Key": [
+                                  "ps.sponsor_id"
+                                ],
+                                "Sort Method": "quicksort",
+                                "Sort Space Used": 17,
+                                "Sort Space Type": "Memory",
+                                "Shared Hit Blocks": 2,
+                                "Shared Read Blocks": 0,
+                                "Shared Dirtied Blocks": 0,
+                                "Shared Written Blocks": 0,
+                                "Local Hit Blocks": 0,
+                                "Local Read Blocks": 0,
+                                "Local Dirtied Blocks": 0,
+                                "Local Written Blocks": 0,
+                                "Temp Read Blocks": 0,
+                                "Temp Written Blocks": 0,
+                                "Plans": [
+                                  {
+                                    "Node Type": "Bitmap Heap Scan",
+                                    "Parent Relationship": "Outer",
+                                    "Parallel Aware": false,
+                                    "Async Capable": false,
+                                    "Relation Name": "property_sponsors",
+                                    "Alias": "ps",
+                                    "Startup Cost": 4.2,
+                                    "Total Cost": 13.68,
+                                    "Plan Rows": 2,
+                                    "Plan Width": 30,
+                                    "Actual Startup Time": 0.021,
+                                    "Actual Total Time": 0.025,
+                                    "Actual Rows": 4,
+                                    "Actual Loops": 1,
+                                    "Disabled": false,
+                                    "Recheck Cond": "(property_id = p.id)",
+                                    "Rows Removed by Index Recheck": 0,
+                                    "Filter": "(distance_miles >= '0'::numeric)",
+                                    "Rows Removed by Filter": 0,
+                                    "Exact Heap Blocks": 1,
+                                    "Lossy Heap Blocks": 0,
+                                    "Shared Hit Blocks": 2,
+                                    "Shared Read Blocks": 0,
+                                    "Shared Dirtied Blocks": 0,
+                                    "Shared Written Blocks": 0,
+                                    "Local Hit Blocks": 0,
+                                    "Local Read Blocks": 0,
+                                    "Local Dirtied Blocks": 0,
+                                    "Local Written Blocks": 0,
+                                    "Temp Read Blocks": 0,
+                                    "Temp Written Blocks": 0,
+                                    "Plans": [
+                                      {
+                                        "Node Type": "Bitmap Index Scan",
+                                        "Parent Relationship": "Outer",
+                                        "Parallel Aware": false,
+                                        "Async Capable": false,
+                                        "Index Name": "property_sponsors_pkey",
+                                        "Startup Cost": 0,
+                                        "Total Cost": 4.2,
+                                        "Plan Rows": 6,
+                                        "Plan Width": 0,
+                                        "Actual Startup Time": 0.004,
+                                        "Actual Total Time": 0.005,
+                                        "Actual Rows": 4,
+                                        "Actual Loops": 1,
+                                        "Disabled": false,
+                                        "Index Cond": "(property_id = p.id)",
+                                        "Index Searches": 1,
+                                        "Shared Hit Blocks": 1,
+                                        "Shared Read Blocks": 0,
+                                        "Shared Dirtied Blocks": 0,
+                                        "Shared Written Blocks": 0,
+                                        "Local Hit Blocks": 0,
+                                        "Local Read Blocks": 0,
+                                        "Local Dirtied Blocks": 0,
+                                        "Local Written Blocks": 0,
+                                        "Temp Read Blocks": 0,
+                                        "Temp Written Blocks": 0
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Node Type": "Index Scan",
+                            "Parent Relationship": "Inner",
+                            "Parallel Aware": false,
+                            "Async Capable": false,
+                            "Scan Direction": "Forward",
+                            "Index Name": "sponsors_pkey",
+                            "Relation Name": "sponsors",
+                            "Alias": "s",
+                            "Startup Cost": 0.14,
+                            "Total Cost": 8.36,
+                            "Plan Rows": 1,
+                            "Plan Width": 299,
+                            "Actual Startup Time": 0.013,
+                            "Actual Total Time": 0.013,
+                            "Actual Rows": 0.75,
+                            "Actual Loops": 4,
+                            "Disabled": false,
+                            "Index Cond": "(id = ps.sponsor_id)",
+                            "Rows Removed by Index Recheck": 0,
+                            "Filter": "(approved AND is_active AND active AND (destination_url IS NOT NULL) AND (impression_count >= 0) AND (coverage_radius_miles >= '0'::numeric) AND (status = 'APPROVED'::text) AND (placement = 'sidebar'::text) AND (tier = ANY ('{Platinum,Gold,Silver}'::text[])) AND (CURRENT_DATE >= start_date) AND (CURRENT_DATE <= end_date) AND (NOT EXISTS(SubPlan 1)) AND (EXISTS(SubPlan 2) OR ((min(ps.distance_miles)) <= coverage_radius_miles)))",
+                            "Rows Removed by Filter": 0,
+                            "Index Searches": 4,
+                            "Shared Hit Blocks": 8,
+                            "Shared Read Blocks": 0,
+                            "Shared Dirtied Blocks": 0,
+                            "Shared Written Blocks": 0,
+                            "Local Hit Blocks": 0,
+                            "Local Read Blocks": 0,
+                            "Local Dirtied Blocks": 0,
+                            "Local Written Blocks": 0,
+                            "Temp Read Blocks": 0,
+                            "Temp Written Blocks": 0,
+                            "Plans": [
+                              {
+                                "Node Type": "Function Scan",
+                                "Parent Relationship": "SubPlan",
+                                "Subplan Name": "SubPlan 1",
+                                "Parallel Aware": false,
+                                "Async Capable": false,
+                                "Function Name": "unnest",
+                                "Alias": "z",
+                                "Startup Cost": 0,
+                                "Total Cost": 0.13,
+                                "Plan Rows": 10,
+                                "Plan Width": 0,
+                                "Actual Startup Time": 0.006,
+                                "Actual Total Time": 0.006,
+                                "Actual Rows": 0,
+                                "Actual Loops": 3,
+                                "Disabled": false,
+                                "Filter": "((z IS NULL) OR (z !~ '^[0-9]{5}(-[0-9]{4})?$'::text))",
+                                "Rows Removed by Filter": 1,
+                                "Shared Hit Blocks": 0,
+                                "Shared Read Blocks": 0,
+                                "Shared Dirtied Blocks": 0,
+                                "Shared Written Blocks": 0,
+                                "Local Hit Blocks": 0,
+                                "Local Read Blocks": 0,
+                                "Local Dirtied Blocks": 0,
+                                "Local Written Blocks": 0,
+                                "Temp Read Blocks": 0,
+                                "Temp Written Blocks": 0
+                              },
+                              {
+                                "Node Type": "Function Scan",
+                                "Parent Relationship": "SubPlan",
+                                "Subplan Name": "SubPlan 2",
+                                "Parallel Aware": false,
+                                "Async Capable": false,
+                                "Function Name": "unnest",
+                                "Alias": "z_1",
+                                "Startup Cost": 0,
+                                "Total Cost": 0.15,
+                                "Plan Rows": 1,
+                                "Plan Width": 0,
+                                "Actual Startup Time": 0.003,
+                                "Actual Total Time": 0.003,
+                                "Actual Rows": 1,
+                                "Actual Loops": 3,
+                                "Disabled": false,
+                                "Filter": "(\"left\"(z, 5) = '90032'::text)",
+                                "Rows Removed by Filter": 0,
+                                "Shared Hit Blocks": 0,
+                                "Shared Read Blocks": 0,
+                                "Shared Dirtied Blocks": 0,
+                                "Shared Written Blocks": 0,
+                                "Local Hit Blocks": 0,
+                                "Local Read Blocks": 0,
+                                "Local Dirtied Blocks": 0,
+                                "Local Written Blocks": 0,
+                                "Temp Read Blocks": 0,
+                                "Temp Written Blocks": 0
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.411,
+              "Triggers": [],
+              "Execution Time": 0.277
+            }
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "name": "Merchant inserts own pending inactive draft",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "insert into public.sponsors(id,owner_id,name,company_name,business_name)\n       values ($1,$2,'New merchant draft','New merchant draft','New merchant draft') returning id",
+          "params": [
+            "60000000-0000-4000-8000-000000000030",
+            "55555555-5555-4555-8555-555555555555"
+          ],
+          "actual": {
+            "rows": [
+              {
+                "id": "60000000-0000-4000-8000-000000000030"
+              }
+            ],
+            "affectedRows": 1
+          }
+        },
+        {
+          "name": "Merchant updates own pending draft",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set business_name=$1 where id::text=$2 returning id",
+          "params": [
+            "Revised merchant draft",
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "rows": [
+              {
+                "id": "60000000-0000-4000-8000-00000000000e"
+              }
+            ],
+            "affectedRows": 1
+          }
+        },
+        {
+          "name": "Merchant cannot self-set approved",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set approved=$1 where id::text=$2 returning id",
+          "params": [
+            true,
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "new row violates row-level security policy for table \"sponsors\""
+            }
+          }
+        },
+        {
+          "name": "Merchant cannot self-set active",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set active=$1 where id::text=$2 returning id",
+          "params": [
+            true,
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "new row violates row-level security policy for table \"sponsors\""
+            }
+          }
+        },
+        {
+          "name": "Merchant cannot self-set is_active",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set is_active=$1 where id::text=$2 returning id",
+          "params": [
+            true,
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "new row violates row-level security policy for table \"sponsors\""
+            }
+          }
+        },
+        {
+          "name": "Merchant cannot self-set status",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set status=$1 where id::text=$2 returning id",
+          "params": [
+            "APPROVED",
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "new row violates row-level security policy for table \"sponsors\""
+            }
+          }
+        },
+        {
+          "name": "Merchant cannot transfer draft ownership",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set owner_id=$1 where id::text=$2 returning id",
+          "params": [
+            "11111111-1111-4111-8111-111111111111",
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "new row violates row-level security policy for table \"sponsors\""
+            }
+          }
+        },
+        {
+          "name": "Another owner cannot read merchant draft",
+          "role": "authenticated",
+          "localAuthUid": "11111111-1111-4111-8111-111111111111",
+          "sql": "select id from public.sponsors where id::text=$1",
+          "params": [
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "rows": [],
+            "affectedRows": 0
+          }
+        },
+        {
+          "name": "Another owner cannot update merchant draft",
+          "role": "authenticated",
+          "localAuthUid": "11111111-1111-4111-8111-111111111111",
+          "sql": "update public.sponsors set business_name=$1 where id::text=$2 returning id",
+          "params": [
+            "Forbidden edit",
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "rows": [],
+            "affectedRows": 0
+          }
+        },
+        {
+          "name": "Trusted admin profile can approve campaign",
+          "role": "authenticated",
+          "localAuthUid": "33333333-3333-4333-8333-333333333333",
+          "sql": "update public.sponsors set approved=true,active=true,is_active=true,status='APPROVED' where id::text=$1 returning id",
+          "params": [
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "rows": [
+              {
+                "id": "60000000-0000-4000-8000-00000000000e"
+              }
+            ],
+            "affectedRows": 1
+          }
+        },
+        {
+          "name": "Anonymous direct sponsor table read is denied",
+          "role": "anon",
+          "localAuthUid": null,
+          "sql": "select * from public.sponsors",
+          "params": [],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "permission denied for table sponsors"
+            }
+          }
+        },
+        {
+          "name": "Anonymous impression RPC is denied",
+          "role": "anon",
+          "localAuthUid": null,
+          "sql": "select public.record_sponsor_placement_impression($1,$2,$3)",
+          "params": [
+            "60000000-0000-4000-8000-00000000000a",
+            "sidebar",
+            "home"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "permission denied for function record_sponsor_placement_impression"
+            }
+          }
+        },
+        {
+          "name": "Service role may invoke coarse impression RPC",
+          "role": "service_role",
+          "localAuthUid": null,
+          "sql": "select public.record_sponsor_placement_impression($1,$2,$3)",
+          "params": [
+            "60000000-0000-4000-8000-00000000000a",
+            "sidebar",
+            "home"
+          ],
+          "actual": {
+            "rows": [
+              {
+                "record_sponsor_placement_impression": ""
+              }
+            ],
+            "affectedRows": 0
+          }
+        },
+        {
+          "name": "Mismatched ZIP and unknown property return []",
+          "actual": {
+            "wrongZip": [],
+            "unknownProperty": []
+          }
+        },
+        {
+          "name": "Coarse event actually stored and counter incremented (rolled back)",
+          "actual": {
+            "recorded": [
+              {
+                "sponsor_id": "60000000-0000-4000-8000-00000000000a",
+                "placement": "sidebar",
+                "page_context": "home"
+              }
+            ],
+            "counter": [
+              {
+                "impression_count": 121
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "idType": "text",
+      "localOnly": true,
+      "migrationReappliedWithoutDataChange": true,
+      "selection": [
+        {
+          "id": "60000000-0000-4000-8000-00000000000c",
+          "business_name": "Sponsor C",
+          "tier": "Gold",
+          "distance_miles": "0.80",
+          "impression_count": 90
+        },
+        {
+          "id": "60000000-0000-4000-8000-00000000000b",
+          "business_name": "Sponsor B",
+          "tier": "Gold",
+          "distance_miles": "1.20",
+          "impression_count": 45
+        },
+        {
+          "id": "60000000-0000-4000-8000-00000000000a",
+          "business_name": "Sponsor A",
+          "tier": "Silver",
+          "distance_miles": "0.40",
+          "impression_count": 120
+        }
+      ],
+      "outerPlan": [
+        {
+          "QUERY PLAN": "Function Scan on eligible_sponsors_for_property  (cost=0.25..10.25 rows=1000 width=305) (actual time=0.598..0.601 rows=3.00 loops=1)"
+        },
+        {
+          "QUERY PLAN": "  Buffers: shared hit=12"
+        },
+        {
+          "QUERY PLAN": "Planning Time: 0.020 ms"
+        },
+        {
+          "QUERY PLAN": "Execution Time: 0.615 ms"
+        }
+      ],
+      "innerPlan": [
+        {
+          "QUERY PLAN": [
+            {
+              "Plan": {
+                "Node Type": "Sort",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Startup Cost": 37.65,
+                "Total Cost": 37.66,
+                "Plan Rows": 1,
+                "Plan Width": 295,
+                "Actual Startup Time": 0.115,
+                "Actual Total Time": 0.122,
+                "Actual Rows": 3,
+                "Actual Loops": 1,
+                "Disabled": false,
+                "Sort Key": [
+                  "(CASE s.tier WHEN 'Platinum'::text THEN 3 WHEN 'Gold'::text THEN 2 ELSE 1 END) DESC",
+                  "(min(ps.distance_miles))",
+                  "s.impression_count",
+                  "s.id"
+                ],
+                "Sort Method": "quicksort",
+                "Sort Space Used": 17,
+                "Sort Space Type": "Memory",
+                "Shared Hit Blocks": 12,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0,
+                "Plans": [
+                  {
+                    "Node Type": "Nested Loop",
+                    "Parent Relationship": "Outer",
+                    "Parallel Aware": false,
+                    "Async Capable": false,
+                    "Join Type": "Inner",
+                    "Startup Cost": 12.95,
+                    "Total Cost": 37.64,
+                    "Plan Rows": 1,
+                    "Plan Width": 295,
+                    "Actual Startup Time": 0.075,
+                    "Actual Total Time": 0.109,
+                    "Actual Rows": 3,
+                    "Actual Loops": 1,
+                    "Disabled": false,
+                    "Inner Unique": false,
+                    "Shared Hit Blocks": 12,
+                    "Shared Read Blocks": 0,
+                    "Shared Dirtied Blocks": 0,
+                    "Shared Written Blocks": 0,
+                    "Local Hit Blocks": 0,
+                    "Local Read Blocks": 0,
+                    "Local Dirtied Blocks": 0,
+                    "Local Written Blocks": 0,
+                    "Temp Read Blocks": 0,
+                    "Temp Written Blocks": 0,
+                    "Plans": [
+                      {
+                        "Node Type": "Index Scan",
+                        "Parent Relationship": "Outer",
+                        "Parallel Aware": false,
+                        "Async Capable": false,
+                        "Scan Direction": "Forward",
+                        "Index Name": "properties_pkey",
+                        "Relation Name": "properties",
+                        "Alias": "p",
+                        "Startup Cost": 0.14,
+                        "Total Cost": 8.17,
+                        "Plan Rows": 1,
+                        "Plan Width": 16,
+                        "Actual Startup Time": 0.008,
+                        "Actual Total Time": 0.009,
+                        "Actual Rows": 1,
+                        "Actual Loops": 1,
+                        "Disabled": false,
+                        "Index Cond": "(id = '60000000-0000-4000-8000-000000000001'::uuid)",
+                        "Rows Removed by Index Recheck": 0,
+                        "Filter": "(approved AND (\"left\"(zip_code, 5) = '90032'::text))",
+                        "Rows Removed by Filter": 0,
+                        "Index Searches": 1,
+                        "Shared Hit Blocks": 2,
+                        "Shared Read Blocks": 0,
+                        "Shared Dirtied Blocks": 0,
+                        "Shared Written Blocks": 0,
+                        "Local Hit Blocks": 0,
+                        "Local Read Blocks": 0,
+                        "Local Dirtied Blocks": 0,
+                        "Local Written Blocks": 0,
+                        "Temp Read Blocks": 0,
+                        "Temp Written Blocks": 0
+                      },
+                      {
+                        "Node Type": "Nested Loop",
+                        "Parent Relationship": "Inner",
+                        "Parallel Aware": false,
+                        "Async Capable": false,
+                        "Join Type": "Inner",
+                        "Startup Cost": 12.81,
+                        "Total Cost": 29.45,
+                        "Plan Rows": 1,
+                        "Plan Width": 347,
+                        "Actual Startup Time": 0.061,
+                        "Actual Total Time": 0.091,
+                        "Actual Rows": 3,
+                        "Actual Loops": 1,
+                        "Disabled": false,
+                        "Inner Unique": true,
+                        "Shared Hit Blocks": 10,
+                        "Shared Read Blocks": 0,
+                        "Shared Dirtied Blocks": 0,
+                        "Shared Written Blocks": 0,
+                        "Local Hit Blocks": 0,
+                        "Local Read Blocks": 0,
+                        "Local Dirtied Blocks": 0,
+                        "Local Written Blocks": 0,
+                        "Temp Read Blocks": 0,
+                        "Temp Written Blocks": 0,
+                        "Plans": [
+                          {
+                            "Node Type": "Aggregate",
+                            "Strategy": "Sorted",
+                            "Partial Mode": "Simple",
+                            "Parent Relationship": "Outer",
+                            "Parallel Aware": false,
+                            "Async Capable": false,
+                            "Startup Cost": 12.66,
+                            "Total Cost": 12.7,
+                            "Plan Rows": 2,
+                            "Plan Width": 64,
+                            "Actual Startup Time": 0.034,
+                            "Actual Total Time": 0.042,
+                            "Actual Rows": 4,
+                            "Actual Loops": 1,
+                            "Disabled": false,
+                            "Group Key": [
+                              "ps.sponsor_id"
+                            ],
+                            "Shared Hit Blocks": 2,
+                            "Shared Read Blocks": 0,
+                            "Shared Dirtied Blocks": 0,
+                            "Shared Written Blocks": 0,
+                            "Local Hit Blocks": 0,
+                            "Local Read Blocks": 0,
+                            "Local Dirtied Blocks": 0,
+                            "Local Written Blocks": 0,
+                            "Temp Read Blocks": 0,
+                            "Temp Written Blocks": 0,
+                            "Plans": [
+                              {
+                                "Node Type": "Sort",
+                                "Parent Relationship": "Outer",
+                                "Parallel Aware": false,
+                                "Async Capable": false,
+                                "Startup Cost": 12.66,
+                                "Total Cost": 12.67,
+                                "Plan Rows": 2,
+                                "Plan Width": 46,
+                                "Actual Startup Time": 0.027,
+                                "Actual Total Time": 0.03,
+                                "Actual Rows": 4,
+                                "Actual Loops": 1,
+                                "Disabled": false,
+                                "Sort Key": [
+                                  "ps.sponsor_id"
+                                ],
+                                "Sort Method": "quicksort",
+                                "Sort Space Used": 17,
+                                "Sort Space Type": "Memory",
+                                "Shared Hit Blocks": 2,
+                                "Shared Read Blocks": 0,
+                                "Shared Dirtied Blocks": 0,
+                                "Shared Written Blocks": 0,
+                                "Local Hit Blocks": 0,
+                                "Local Read Blocks": 0,
+                                "Local Dirtied Blocks": 0,
+                                "Local Written Blocks": 0,
+                                "Temp Read Blocks": 0,
+                                "Temp Written Blocks": 0,
+                                "Plans": [
+                                  {
+                                    "Node Type": "Bitmap Heap Scan",
+                                    "Parent Relationship": "Outer",
+                                    "Parallel Aware": false,
+                                    "Async Capable": false,
+                                    "Relation Name": "property_sponsors",
+                                    "Alias": "ps",
+                                    "Startup Cost": 4.18,
+                                    "Total Cost": 12.65,
+                                    "Plan Rows": 2,
+                                    "Plan Width": 46,
+                                    "Actual Startup Time": 0.015,
+                                    "Actual Total Time": 0.018,
+                                    "Actual Rows": 4,
+                                    "Actual Loops": 1,
+                                    "Disabled": false,
+                                    "Recheck Cond": "(property_id = p.id)",
+                                    "Rows Removed by Index Recheck": 0,
+                                    "Filter": "(distance_miles >= '0'::numeric)",
+                                    "Rows Removed by Filter": 0,
+                                    "Exact Heap Blocks": 1,
+                                    "Lossy Heap Blocks": 0,
+                                    "Shared Hit Blocks": 2,
+                                    "Shared Read Blocks": 0,
+                                    "Shared Dirtied Blocks": 0,
+                                    "Shared Written Blocks": 0,
+                                    "Local Hit Blocks": 0,
+                                    "Local Read Blocks": 0,
+                                    "Local Dirtied Blocks": 0,
+                                    "Local Written Blocks": 0,
+                                    "Temp Read Blocks": 0,
+                                    "Temp Written Blocks": 0,
+                                    "Plans": [
+                                      {
+                                        "Node Type": "Bitmap Index Scan",
+                                        "Parent Relationship": "Outer",
+                                        "Parallel Aware": false,
+                                        "Async Capable": false,
+                                        "Index Name": "property_sponsors_pkey",
+                                        "Startup Cost": 0,
+                                        "Total Cost": 4.18,
+                                        "Plan Rows": 4,
+                                        "Plan Width": 0,
+                                        "Actual Startup Time": 0.003,
+                                        "Actual Total Time": 0.004,
+                                        "Actual Rows": 4,
+                                        "Actual Loops": 1,
+                                        "Disabled": false,
+                                        "Index Cond": "(property_id = p.id)",
+                                        "Index Searches": 1,
+                                        "Shared Hit Blocks": 1,
+                                        "Shared Read Blocks": 0,
+                                        "Shared Dirtied Blocks": 0,
+                                        "Shared Written Blocks": 0,
+                                        "Local Hit Blocks": 0,
+                                        "Local Read Blocks": 0,
+                                        "Local Dirtied Blocks": 0,
+                                        "Local Written Blocks": 0,
+                                        "Temp Read Blocks": 0,
+                                        "Temp Written Blocks": 0
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Node Type": "Index Scan",
+                            "Parent Relationship": "Inner",
+                            "Parallel Aware": false,
+                            "Async Capable": false,
+                            "Scan Direction": "Forward",
+                            "Index Name": "sponsors_pkey",
+                            "Relation Name": "sponsors",
+                            "Alias": "s",
+                            "Startup Cost": 0.14,
+                            "Total Cost": 8.36,
+                            "Plan Rows": 1,
+                            "Plan Width": 315,
+                            "Actual Startup Time": 0.01,
+                            "Actual Total Time": 0.01,
+                            "Actual Rows": 0.75,
+                            "Actual Loops": 4,
+                            "Disabled": false,
+                            "Index Cond": "(id = ps.sponsor_id)",
+                            "Rows Removed by Index Recheck": 0,
+                            "Filter": "(approved AND is_active AND active AND (destination_url IS NOT NULL) AND (impression_count >= 0) AND (coverage_radius_miles >= '0'::numeric) AND (status = 'APPROVED'::text) AND (placement = 'sidebar'::text) AND (tier = ANY ('{Platinum,Gold,Silver}'::text[])) AND (CURRENT_DATE >= start_date) AND (CURRENT_DATE <= end_date) AND (NOT EXISTS(SubPlan 1)) AND (EXISTS(SubPlan 2) OR ((min(ps.distance_miles)) <= coverage_radius_miles)))",
+                            "Rows Removed by Filter": 0,
+                            "Index Searches": 4,
+                            "Shared Hit Blocks": 8,
+                            "Shared Read Blocks": 0,
+                            "Shared Dirtied Blocks": 0,
+                            "Shared Written Blocks": 0,
+                            "Local Hit Blocks": 0,
+                            "Local Read Blocks": 0,
+                            "Local Dirtied Blocks": 0,
+                            "Local Written Blocks": 0,
+                            "Temp Read Blocks": 0,
+                            "Temp Written Blocks": 0,
+                            "Plans": [
+                              {
+                                "Node Type": "Function Scan",
+                                "Parent Relationship": "SubPlan",
+                                "Subplan Name": "SubPlan 1",
+                                "Parallel Aware": false,
+                                "Async Capable": false,
+                                "Function Name": "unnest",
+                                "Alias": "z",
+                                "Startup Cost": 0,
+                                "Total Cost": 0.13,
+                                "Plan Rows": 10,
+                                "Plan Width": 0,
+                                "Actual Startup Time": 0.005,
+                                "Actual Total Time": 0.005,
+                                "Actual Rows": 0,
+                                "Actual Loops": 3,
+                                "Disabled": false,
+                                "Filter": "((z IS NULL) OR (z !~ '^[0-9]{5}(-[0-9]{4})?$'::text))",
+                                "Rows Removed by Filter": 1,
+                                "Shared Hit Blocks": 0,
+                                "Shared Read Blocks": 0,
+                                "Shared Dirtied Blocks": 0,
+                                "Shared Written Blocks": 0,
+                                "Local Hit Blocks": 0,
+                                "Local Read Blocks": 0,
+                                "Local Dirtied Blocks": 0,
+                                "Local Written Blocks": 0,
+                                "Temp Read Blocks": 0,
+                                "Temp Written Blocks": 0
+                              },
+                              {
+                                "Node Type": "Function Scan",
+                                "Parent Relationship": "SubPlan",
+                                "Subplan Name": "SubPlan 2",
+                                "Parallel Aware": false,
+                                "Async Capable": false,
+                                "Function Name": "unnest",
+                                "Alias": "z_1",
+                                "Startup Cost": 0,
+                                "Total Cost": 0.15,
+                                "Plan Rows": 1,
+                                "Plan Width": 0,
+                                "Actual Startup Time": 0.002,
+                                "Actual Total Time": 0.002,
+                                "Actual Rows": 1,
+                                "Actual Loops": 3,
+                                "Disabled": false,
+                                "Filter": "(\"left\"(z, 5) = '90032'::text)",
+                                "Rows Removed by Filter": 0,
+                                "Shared Hit Blocks": 0,
+                                "Shared Read Blocks": 0,
+                                "Shared Dirtied Blocks": 0,
+                                "Shared Written Blocks": 0,
+                                "Local Hit Blocks": 0,
+                                "Local Read Blocks": 0,
+                                "Local Dirtied Blocks": 0,
+                                "Local Written Blocks": 0,
+                                "Temp Read Blocks": 0,
+                                "Temp Written Blocks": 0
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "Planning": {
+                "Shared Hit Blocks": 0,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              },
+              "Planning Time": 0.317,
+              "Triggers": [],
+              "Execution Time": 0.178
+            }
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "name": "Merchant inserts own pending inactive draft",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "insert into public.sponsors(id,owner_id,name,company_name,business_name)\n       values ($1,$2,'New merchant draft','New merchant draft','New merchant draft') returning id",
+          "params": [
+            "60000000-0000-4000-8000-000000000030",
+            "55555555-5555-4555-8555-555555555555"
+          ],
+          "actual": {
+            "rows": [
+              {
+                "id": "60000000-0000-4000-8000-000000000030"
+              }
+            ],
+            "affectedRows": 1
+          }
+        },
+        {
+          "name": "Merchant updates own pending draft",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set business_name=$1 where id::text=$2 returning id",
+          "params": [
+            "Revised merchant draft",
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "rows": [
+              {
+                "id": "60000000-0000-4000-8000-00000000000e"
+              }
+            ],
+            "affectedRows": 1
+          }
+        },
+        {
+          "name": "Merchant cannot self-set approved",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set approved=$1 where id::text=$2 returning id",
+          "params": [
+            true,
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "new row violates row-level security policy for table \"sponsors\""
+            }
+          }
+        },
+        {
+          "name": "Merchant cannot self-set active",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set active=$1 where id::text=$2 returning id",
+          "params": [
+            true,
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "new row violates row-level security policy for table \"sponsors\""
+            }
+          }
+        },
+        {
+          "name": "Merchant cannot self-set is_active",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set is_active=$1 where id::text=$2 returning id",
+          "params": [
+            true,
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "new row violates row-level security policy for table \"sponsors\""
+            }
+          }
+        },
+        {
+          "name": "Merchant cannot self-set status",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set status=$1 where id::text=$2 returning id",
+          "params": [
+            "APPROVED",
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "new row violates row-level security policy for table \"sponsors\""
+            }
+          }
+        },
+        {
+          "name": "Merchant cannot transfer draft ownership",
+          "role": "authenticated",
+          "localAuthUid": "55555555-5555-4555-8555-555555555555",
+          "sql": "update public.sponsors set owner_id=$1 where id::text=$2 returning id",
+          "params": [
+            "11111111-1111-4111-8111-111111111111",
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "new row violates row-level security policy for table \"sponsors\""
+            }
+          }
+        },
+        {
+          "name": "Another owner cannot read merchant draft",
+          "role": "authenticated",
+          "localAuthUid": "11111111-1111-4111-8111-111111111111",
+          "sql": "select id from public.sponsors where id::text=$1",
+          "params": [
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "rows": [],
+            "affectedRows": 0
+          }
+        },
+        {
+          "name": "Another owner cannot update merchant draft",
+          "role": "authenticated",
+          "localAuthUid": "11111111-1111-4111-8111-111111111111",
+          "sql": "update public.sponsors set business_name=$1 where id::text=$2 returning id",
+          "params": [
+            "Forbidden edit",
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "rows": [],
+            "affectedRows": 0
+          }
+        },
+        {
+          "name": "Trusted admin profile can approve campaign",
+          "role": "authenticated",
+          "localAuthUid": "33333333-3333-4333-8333-333333333333",
+          "sql": "update public.sponsors set approved=true,active=true,is_active=true,status='APPROVED' where id::text=$1 returning id",
+          "params": [
+            "60000000-0000-4000-8000-00000000000e"
+          ],
+          "actual": {
+            "rows": [
+              {
+                "id": "60000000-0000-4000-8000-00000000000e"
+              }
+            ],
+            "affectedRows": 1
+          }
+        },
+        {
+          "name": "Anonymous direct sponsor table read is denied",
+          "role": "anon",
+          "localAuthUid": null,
+          "sql": "select * from public.sponsors",
+          "params": [],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "permission denied for table sponsors"
+            }
+          }
+        },
+        {
+          "name": "Anonymous impression RPC is denied",
+          "role": "anon",
+          "localAuthUid": null,
+          "sql": "select public.record_sponsor_placement_impression($1,$2,$3)",
+          "params": [
+            "60000000-0000-4000-8000-00000000000a",
+            "sidebar",
+            "home"
+          ],
+          "actual": {
+            "error": {
+              "code": "42501",
+              "message": "permission denied for function record_sponsor_placement_impression"
+            }
+          }
+        },
+        {
+          "name": "Service role may invoke coarse impression RPC",
+          "role": "service_role",
+          "localAuthUid": null,
+          "sql": "select public.record_sponsor_placement_impression($1,$2,$3)",
+          "params": [
+            "60000000-0000-4000-8000-00000000000a",
+            "sidebar",
+            "home"
+          ],
+          "actual": {
+            "rows": [
+              {
+                "record_sponsor_placement_impression": ""
+              }
+            ],
+            "affectedRows": 0
+          }
+        },
+        {
+          "name": "Mismatched ZIP and unknown property return []",
+          "actual": {
+            "wrongZip": [],
+            "unknownProperty": []
+          }
+        },
+        {
+          "name": "Coarse event actually stored and counter incremented (rolled back)",
+          "actual": {
+            "recorded": [
+              {
+                "sponsor_id": "60000000-0000-4000-8000-00000000000a",
+                "placement": "sidebar",
+                "page_context": "home"
+              }
+            ],
+            "counter": [
+              {
+                "impression_count": 121
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

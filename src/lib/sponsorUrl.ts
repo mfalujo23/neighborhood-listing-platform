@@ -54,3 +54,18 @@ export const SponsorDestinationUrlSchema = z
       })
     }
   })
+
+export function validateSponsorDestination(input: unknown) {
+  const result = SponsorDestinationUrlSchema.safeParse(input)
+  if (!result.success) {
+    return {
+      success: false as const,
+      error: {
+        code: 'UNSAFE_SPONSOR_URL',
+        message: 'Destination must be a public HTTPS URL.',
+        issues: result.error.issues.map((issue) => ({ path: issue.path, message: issue.message })),
+      },
+    }
+  }
+  return { success: true as const, url: new URL(result.data).href }
+}
