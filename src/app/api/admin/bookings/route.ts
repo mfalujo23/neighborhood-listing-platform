@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
-import { supabaseAdmin } from '../../../../lib/supabase-server'
+import { getSupabaseAdmin } from '../../../../lib/supabase-server'
 
 export const dynamic = 'force-dynamic'
 
@@ -49,7 +49,7 @@ export async function GET(request: Request) {
       )
     }
 
-    const { data, error } = await supabaseAdmin
+    const { data, error } = await getSupabaseAdmin()
       .from('bookings')
       .select('id, service_id, client_email, requested_date, notes, created_at')
       .order('created_at', { ascending: false })

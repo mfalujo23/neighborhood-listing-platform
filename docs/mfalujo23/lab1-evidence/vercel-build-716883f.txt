@@ -1,0 +1,72 @@
+15:21:30.213 Running build in Washington, D.C., USA (East) – iad1
+15:21:30.214 Build machine configuration: 2 cores, 8 GB
+15:21:30.343 Cloning github.com/mfalujo23/neighborhood-listing-platform (Branch: setup/mfalujo23-lab1-remediation, Commit: 716883f)
+15:21:30.674 Cloning completed: 331.000ms
+15:21:31.784 Restored build cache from previous deployment (6niUY3pUUsnHUcKMiWBYgjKmxEKA)
+15:21:33.452 Running "vercel build"
+15:21:33.464 Vercel CLI 65.17.0
+15:21:33.826 Warning: Due to "engines": { "node": "24.x" } in your `package.json` file, the Node.js Version defined in your Project Settings ("26.x") will not apply, Node.js Version "24.x" will be used instead. Learn More: https://vercel.link/node-version
+15:21:33.847 Installing dependencies...
+15:21:34.527 npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+15:21:35.143 
+15:21:35.144 up to date in 1s
+15:21:35.145 
+15:21:35.145 164 packages are looking for funding
+15:21:35.145   run `npm fund` for details
+15:21:35.145 npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+15:21:35.145 npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)
+15:21:35.145 npm warn install-scripts
+15:21:35.145 npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+15:21:35.179 Detected Next.js version: 16.4.6
+15:21:35.196 Running "npm run build"
+15:21:35.322 npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+15:21:35.344 
+15:21:35.345 > neighborhood-listing-platform@0.1.0 build
+15:21:35.345 > next build --webpack
+15:21:35.345 
+15:21:35.906 ▲ Next.js 16.4.6 (webpack)
+15:21:35.975   Applying modifyConfig from Vercel
+15:21:35.980 ✓ Running next.config took 74ms
+15:21:36.068 
+15:21:36.094   Creating an optimized production build ...
+15:21:47.353 ✓ Compiled successfully in 8.2s
+15:21:47.356   Running TypeScript ...
+15:21:52.509   Finished TypeScript in 5.2s ...
+15:21:52.512   Collecting page data using 1 worker ...
+15:21:52.979 [Upstash Redis] Unable to find environment variable: `UPSTASH_REDIS_REST_URL`. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+15:21:52.979 [Upstash Redis] Unable to find environment variable: `UPSTASH_REDIS_REST_TOKEN`. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+15:21:52.979 [Upstash Redis] The 'url' property is missing or undefined in your Redis config. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+15:21:52.980 [Upstash Redis] The 'token' property is missing or undefined in your Redis config. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+15:21:53.824   Generating static pages using 1 worker (0/9) ...
+15:21:53.977   Generating static pages using 1 worker (2/9) 
+15:21:53.977   Generating static pages using 1 worker (4/9) 
+15:21:54.128   Generating static pages using 1 worker (6/9) 
+15:21:54.128 ✓ Generating static pages using 1 worker (9/9) in 304ms
+15:21:55.317   Finalizing page optimization ...
+15:21:55.320   Collecting build traces ...
+15:22:06.283   Running onBuildComplete from Vercel
+15:22:06.315 Warning: Due to "engines": { "node": "24.x" } in your `package.json` file, the Node.js Version defined in your Project Settings ("26.x") will not apply, Node.js Version "24.x" will be used instead. Learn More: https://vercel.link/node-version
+15:22:06.342 
+15:22:06.344 Route (app)
+15:22:06.344 ┌ ○ /
+15:22:06.345 ├ ○ /_not-found
+15:22:06.345 ├ ƒ /api/admin/bookings
+15:22:06.345 ├ ƒ /api/admin/services
+15:22:06.345 ├ ƒ /api/bookings
+15:22:06.345 ├ ƒ /api/listings
+15:22:06.345 ├ ƒ /api/services
+15:22:06.345 ├ ƒ /api/sponsors/redirect
+15:22:06.345 ├ ƒ /api/webhooks/twilio
+15:22:06.345 └ ƒ /api/webhooks/voice
+15:22:06.345 
+15:22:06.346 
+15:22:06.346 ○  (Static)   prerendered as static content
+15:22:06.346 ƒ  (Dynamic)  server-rendered on demand
+15:22:06.346 
+15:22:06.535 Build Completed in /vercel/output [33s]
+15:22:06.561 Deploying outputs...
+15:22:11.311 Deployment completed
+15:22:11.314 Creating build cache...
+15:22:28.623 Created build cache: 17s
+15:22:28.623 Uploading build cache [306.84 MB]
+15:22:32.377 Build cache uploaded: 3.754s

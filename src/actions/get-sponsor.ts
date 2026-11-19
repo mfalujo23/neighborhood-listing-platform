@@ -59,7 +59,7 @@ export async function getActiveSponsorForProperty(
     return null
   }
 
-  const candidates = (data ?? []).map((row: any) => {
+  const candidates = (data ?? []).map((row) => {
     const links = Array.isArray(row.property_sponsors)
       ? row.property_sponsors
       : [row.property_sponsors]

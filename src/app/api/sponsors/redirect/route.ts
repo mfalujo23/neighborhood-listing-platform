@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
-import { supabaseAdmin } from '@/lib/supabase-server'
+import { getSupabaseAdmin } from '@/lib/supabase-server'
 import { SponsorDestinationUrlSchema } from '@/lib/sponsorUrl'
 
 const SponsorIdSchema = z.string().uuid()
@@ -18,7 +18,7 @@ export async function GET(request: Request) {
 
   const today = new Date().toISOString().slice(0, 10)
 
-  const { data: sponsor, error } = await supabaseAdmin
+  const { data: sponsor, error } = await getSupabaseAdmin()
     .from('sponsors')
     .select('destination_url')
     .eq('id', parsedId.data)

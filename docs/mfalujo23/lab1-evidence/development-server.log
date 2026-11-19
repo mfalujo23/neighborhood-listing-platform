@@ -1,0 +1,22 @@
+npm notice run neighborhood-listing-platform@0.1.0 dev
+npm notice run next dev --webpack --hostname 127.0.0.1 --port 3000
+▲ Next.js 16.4.6 (webpack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+✓ Ready in 494ms
+✓ Running next.config took 25ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+
+○ Compiling /page ...
+ GET / 200 in 626ms (next.js: 432ms, application-code: 194ms)
+ GET / 200 in 56ms (next.js: 3ms, application-code: 53ms)
+ GET / 200 in 322ms (next.js: 203ms, application-code: 120ms)
+ GET / 200 in 117ms (next.js: 4ms, application-code: 113ms)
+ GET /api/admin/bookings 401 in 3.5s (next.js: 3.4s, application-code: 84ms)
+ PATCH /api/admin/services 401 in 125ms (next.js: 57ms, application-code: 68ms)
+ GET / 200 in 94ms (next.js: 42ms, application-code: 52ms)
+ GET / 200 in 27ms (next.js: 3ms, application-code: 24ms)

@@ -1,39 +1,48 @@
-name: Production Release Gates Pipeline
+name: Project checks
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
-  release-gates:
+  verify:
+    name: Lint, types, tests, and build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          node-version: '20'
-          cache: 'npm'
+          persist-credentials: false
 
-      - name: Install Dependencies
-        run: npm install --legacy-peer-deps
+      - name: Set up Node.js 24
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: package-lock.json
 
-      - name: Run Type Check and Build
-        continue-on-error: true
-        run: |
-          npx tsc --noEmit || true
-          npm run build -- --webpack
-        env:
-          SUPABASE_URL: https://lhwcmttpwgeeuehuerfb.supabase.co
-          SUPABASE_ANON_KEY: sb_publishable_XG2zva50QjTH-kY5_DBenQ_RUACvy51
-          SUPABASE_SERVICE_ROLE_KEY: sb_publishable_XG2zva50QjTH-kY5_DBenQ_RUACvy51
-          NEXT_PUBLIC_SUPABASE_URL: https://lhwcmttpwgeeuehuerfb.supabase.co
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: sb_publishable_XG2zva50QjTH-kY5_DBenQ_RUACvy51
+      - name: Pin npm
+        run: npm install --global npm@11.21.3
 
-      - name: Run Unit Tests
-        continue-on-error: true
-        run: npm test || true
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Lint
+        run: npm run lint -- --max-warnings 0
+
+      - name: Check TypeScript
+        run: npm run typecheck
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build production artifacts
+        run: npm run build

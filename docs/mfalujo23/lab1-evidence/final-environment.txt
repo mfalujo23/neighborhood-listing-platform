@@ -1,0 +1,7 @@
+Command: node --version
+v24.22.3
+Command: node ../lab1-tools11/node_modules/npm/bin/npm-cli.js --version
+11.21.3
+Command: git --version
+git version 2.56.0.windows.2
+Snapshot base: c36ccf8; no .git directory in isolated snapshot
