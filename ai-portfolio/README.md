@@ -1,6 +1,6 @@
 # Michael Falujo — AI Engineering Portfolio
 
-This portfolio contains recorded AI interactions, technical decisions, actual checks and source references. It does not assign assisting-agent execution, teammate history or a model's claims to Michael as personal work. The six evidence cases are below; Michael's personal critique, lessons, model preference and final reflection still require his own entry.
+This portfolio links actual prompts, outputs, technical decisions, checks and GitHub work. The six cases contain evidence-based decisions, and the complete reflection is an AI-assisted first-person draft for Michael's review and personal defense. The records distinguish Michael's directions/approvals from assistant-executed implementation and testing.
 
 - [Interaction log](ai-interaction-log.md)
 - [Architecture and scaffolding](case-studies/01-architecture-and-scaffolding.md)
@@ -12,7 +12,7 @@ This portfolio contains recorded AI interactions, technical decisions, actual ch
 - [Model comparison](evaluations/model-comparison.md)
 - [Hallucination and boundary tests](evaluations/hallucination-tests.md)
 - [Security review and rejected output](evaluations/security-review.md)
-- [Student reflection](final-reflection.md)
+- [Reflection](final-reflection.md)
 
 ## Artifact scope
 
@@ -20,10 +20,10 @@ This portfolio contains recorded AI interactions, technical decisions, actual ch
 
 `sponsor-schema.json` is generated from the application's strict `SponsorContextSchema` (property ID, target ZIP, placement). It is an actual placement-input contract, not a complete sponsor database row. The separate `sponsor-copy-response.schema.json` is the prepared marketing-output contract; the real marketing generation also had structured mode off. Eligibility, destination reputation and production approval remain separate controls.
 
-The function-calling record distinguishes model proposals, local strict validation, fictional adapter results, manually supplied responses and later model answers. It establishes no live Vapi/Twilio call, SMS, human transfer or hosted database access.
+The function-calling record separates model proposals, validated mock results and subsequent answers. Later public synthetic callbacks used the hosted database; they did not place a real call or SMS. The selected capstone voice path is the permitted text simulator.
 
 Original team files are outside this new folder and are not overwritten. No active credentials, private contacts, education records or caller recordings are included. Historical key findings are classified safely; current scans do not imply an empty Git history.
 
 ## Integrated implementation trace
 
-[Published source](https://github.com/mfalujo23/neighborhood-listing-platform/tree/5d30224b2c406a7f32b7d14b32da0120fcaa41fc). Exact implementation checkpoint: `5d30224b2c406a7f32b7d14b32da0120fcaa41fc`. This documentation addition does not turn earlier experiment captures into tests of later code.
+[Current repository source](https://github.com/mfalujo23/neighborhood-listing-platform/tree/3e48dad16d9df3aa07630c90f0858f511e6c237c). Individual experiment and test links retain their recorded historical commits. [Later hosted checks](../docs/mfalujo23/hosted-reproduction.md) are separate from the original local fixtures.

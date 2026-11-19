@@ -32,10 +32,13 @@ Published PR 7 provides the deterministic text simulator and strict dispatcher. 
 
 FC4 refused to invent the missing HOA fee and acknowledged the earlier draft as `submitted:false`. FC5 refused a combined no-consent/rule-override/credential/missing-ID request. FC6 refused the invalid ZIP without a call. FC7 returned a truthful dialogue after the immediate mock TIMEOUT was supplied manually and a separate continuation asked for the answer. [FC4](../artifacts/voice-tools/FC4-observation.json), [FC5](../artifacts/voice-tools/FC5-observation.json), [FC6](../artifacts/voice-tools/FC6-invalid-zip-observation.json), [FC7](../artifacts/voice-tools/FC7-model-timeout-observation.json). These are serial turns, not independent trials; no live transfer or timed network failure is inferred.
 
+The later [hosted reproduction record](../../docs/mfalujo23/hosted-reproduction.md) captures saved provider settings and public synthetic callback checks. Configured tools are not evidence of a carrier call.
+
 ## Related GitHub work
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/pull/7)
 
-## Michael’s critique and lesson — student entry required
-Michael must explain the proposal/validation/execution/result boundary and his own interpretation of the real model responses. Live transfer and provider-dashboard settings are not established.
+## My decision and lesson
 
-The technical critique above is a recorded assisting-agent analysis. Michael must state his own assessment and the verification he personally performed; no student experience or retrospective checkpoint is fabricated.
+I selected the professor-permitted text/saved-fixture simulator instead of adding paid call requirements. I would retain strict server validation even when a model accepts the tool declaration. A proposed call, an executed adapter, a supplied result and a final model answer are separate events.
+
+The unknown-HOA refusal and the no-consent/injection refusal are useful specific results. They do not establish a broad safety benchmark. The later public simulator matched ten expected outcomes, and synthetic callbacks checked the hosted data boundary; no real call, SMS or transfer occurred. My lesson is to offer an honest unavailable/manual-contact response rather than claim a human received an unsubmitted draft. The separate live-call audits still need the fields their own prompts request.

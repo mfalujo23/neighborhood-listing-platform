@@ -21,7 +21,7 @@ Exact executed revision retained
 Exact retained revision: [attempt 2](../artifacts/lab3/attempt2-prompt.txt).
 
 ## Final result
-The exact accepted second-response bytes became data/generated/gemini-ai-studio-seed-attempt2.json. The original Codex-authored synthetic fixture is preserved under its original name. Zod is canonical; inferred TypeScript and generated JSON Schema are checked for consistency.
+The exact accepted second-response bytes became data/generated/gemini-ai-studio-seed-attempt2.json. The original assistant-generated synthetic fixture is preserved under its original name. Zod is canonical; inferred TypeScript and generated JSON Schema are checked for consistency.
 
 ## Verification evidence
 - Attempt 1: invalid_type at root, expected array; attempt 2: five records accepted unchanged
@@ -33,7 +33,8 @@ The exact accepted second-response bytes became data/generated/gemini-ai-studio-
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/pull/5)
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/commit/50030fbf26d6d80c5c59b3ce12d7c9678e5a505e)
 
-## Michael’s critique and lesson — student entry required
-Michael must compare the two responses across accuracy, completeness, clarity, security, accessibility relevance, assumptions, unsupported claims and useful tests, then state his own evidence-based preference. Both returned complete negative examples behaved as intended; no preference is invented.
+## My decision and lesson
 
-The technical critique above is a recorded assisting-agent analysis. Michael must state his own assessment and the verification he personally performed; no student experience or retrospective checkpoint is fabricated.
+I would keep one strict Zod definition as the source for runtime parsing, TypeScript types and generated JSON Schema. The first Gemini seed response failed the required array boundary; preserving that rejection was more useful than silently repairing the output. The accepted second attempt supplied five valid fictional records with structured mode off, so I would describe it as a prompt-and-validator fallback.
+
+For the normalization comparison, both complete example sets produced the expected one acceptance and four rejections. I would favor Gemini's set for direct extraction because it presented five complete examples without ChatGPT's earlier partial illustrations. That is a narrow completeness/clarity decision, not a claim that either model bypasses validation or is universally more accurate.

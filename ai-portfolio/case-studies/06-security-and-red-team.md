@@ -8,7 +8,7 @@ Recorded task summary, not a retained exact provider prompt
 Use a pinned official Gitleaks release with verified checksums, redaction 100, default rules and no suppression to inspect reachable history and selected source/client bundles. Stop on possible findings and classify only safe metadata.
 
 ## AI response summary
-Codex prepared redacted scans and classified findings by source context, field names and key format. Follow-up requests refined the initial generic-rule hits rather than assuming every high-entropy match was an active provider secret.
+The AI coding assistant prepared redacted scans and classified findings by source context, field names and key format. Follow-up requests refined the initial generic-rule hits rather than assuming every high-entropy match was an active provider secret.
 
 ## Recorded technical critique
 Nine workflow matches were sb_publishable public-client keys even when a variable was named SERVICE_ROLE. Four historical .next fields were generated signing/encryption/cache material. Their active reuse was not established. A zero-findings current scan is not a zero-keys-in-all-history statement.
@@ -34,7 +34,8 @@ The actual paired consolidated critiques led to three independently reproduced f
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/commit/fe0c8c79932ca40c4ca30809a73c54e76b2e8707)
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/commit/aac017dfe343381d037006a8be72eecd21688f47)
 
-## Michael’s critique and lesson — student entry required
-Michael must explain why finding classification, scan scope and residual risk matter, and describe only verification he personally performed. Final release source/client scans and actual provider configuration need their own evidence.
+## My decision and lesson
 
-The technical critique above is a recorded assisting-agent analysis. Michael must state his own assessment and the verification he personally performed; no student experience or retrospective checkpoint is fabricated.
+I would accept a security finding after reproducing it against the complete source and an explicit requirement. The sponsor coercion, reordered-event conflict and nested environment-filename cases met that standard and were repaired. I would qualify claims based only on missing excerpts instead of weakening an existing boundary to satisfy a model.
+
+I would keep the safe distinction between public client keys and privileged secrets, and between current scans and historical generated Next.js material. Zero findings in a bounded scan are not an all-history guarantee. The actual application rollback is also separate from database recovery. My lesson is to state the tested control and remaining risk plainly, preserve the real output and avoid a broad security or accessibility certificate.

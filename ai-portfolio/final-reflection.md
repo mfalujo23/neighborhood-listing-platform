@@ -1,15 +1,21 @@
-# Michael Falujo — Final portfolio reflection
+# Michael Falujo
 
-Student entry required: approximately 750–1000 words in Michael's own experience and judgment. This file is intentionally not a fabricated reflection.
+## AI Engineering Portfolio Submission
 
-Address these questions with specific case/commit/test evidence:
+My portfolio records AI-assisted catch-up work on the neighborhood property and local-business platform under my account, mfalujo23. I directed the work, approved its boundaries and made choices about the demonstration and delivery. The AI coding assistant implemented the recorded changes and ran the documented command-line and browser checks. I did not personally type or test every part. AI also helped compose this reflection from the project record. I remain responsible for reviewing the analysis and explaining the work attributed to my account.
 
-1. Which AI tool was most useful, for which work, and why?
-2. Where did AI save time, and where did it create additional work or risk?
-3. What was the most serious incorrect or unsafe suggestion?
-4. Which checks did you personally perform, and how did they change your trust?
-5. How did you protect credentials and private information?
-6. How did your prompting improve through actual revisions?
-7. What would you do differently on another project?
+For this work, the AI coding assistant was most useful for connecting implementation, tests, documentation and GitHub evidence. ChatGPT and Gemini provided separate comparisons and critiques, while Google AI Studio supplied actual property-generation and function-call experiments. In the matching App Shell comparison, I would favor ChatGPT's use of the required src directory. I would still reject its tablet layout example because it jumped to three columns. Gemini supplied useful verification steps, but its no-src-dir suggestion conflicted with the course. The useful response was the one that matched the requirement, not the one with the longest explanation.
 
-Do not claim assisting-agent tests, teammate implementation or model assertions as your own actions. Record substantive AI assistance when it is used. The separate course Individual Reflection requires 1000–1250 words and a contribution appendix; this portfolio reflection does not replace it or the live defense.
+The clearest time-saving approach was reusing one strict property definition to produce both TypeScript types and JSON Schema. That reduced duplicated definitions and made changes easier to check. Automated runners also repeated validation, database, webhook and build checks without assembling a different process for each feature. The assistant organized links between prompts, code, tests and pull requests. I cannot assign a measured number of hours saved. The practical benefit is that another person can follow the evidence instead of reconstructing how a result was reached.
+
+AI also created additional work. The first property-generation response wrapped encoded JSON inside an object instead of returning the required array. The validator rejected it. The second attempt returned five fictional records that passed, but structured mode was off. The correct description is a schema-in-prompt and local-validation fallback. Calling that a successful structured-mode experiment would be inaccurate. Keeping both attempts explains the revision and shows why generated output needs a separate boundary before the interface uses it.
+
+The most serious incorrect direction was changing explicit examination requirements without a reason grounded in the assignment. A critique suggested removing mandated owner access to suspended services and changing a required cascading booking relationship. I would reject those changes because they replace the specified contract. Another critique claimed that trimmed notes lacked a SQL check, although the existing migration already contained one. These examples show why a reviewer needs the complete requirement and source. A plausible recommendation can still be wrong for the actual system.
+
+Testing gives me a better standard for trust than confidence in a model response. The assistant executed runtime validation, local PostgreSQL role checks, actual HTTP requests and rendered accessibility checks. The accessibility run found a favorite-button naming defect and an incomplete service-region finding that were corrected and retested. Later review findings about sponsor input coercion, reordered analytics events and nested environment filenames were reproduced before repair. I would trust those specific, repeatable results more than an unsupported statement that the application is secure or accessible.
+
+The voice evidence also needs clear boundaries. Seven actual AI Studio cases covered known facts, sponsorship, an unsubmitted follow-up, unknown HOA information, injection and consent refusal, invalid ZIP input and a supplied mock timeout. These were serial cases in one conversation. The public text simulator separately matched all ten expected outcomes. Seven public callback tests used synthetic envelopes and the hosted database. I selected the professor-permitted simulator route. No real carrier call, SMS or human transfer was performed, and local execution durations are not provider latency.
+
+Protecting credentials and personal information was part of my approval process. I authorized a new free course project and a limited callback credential, with private values handled in runtime configuration. Actual passwords, keys and the supplied phone number were kept out of the public reports and source evidence. Fictional properties and sponsors supported the demonstration. Current source and client scans found no matches, while historical findings were classified separately. I also limited my marketing-copy approval to variant 2 for the classroom demonstration; it was not stakeholder production permission.
+
+The prompts became more useful when they included the exact source, required output shape, prohibited actions, failure behavior and a way to verify the answer. On another project, I would establish those constraints earlier and save prompt versions before adding features. I would arrange consented usability sessions sooner, rather than mistake developer browser checks for human acceptance. My main lesson is that AI can accelerate a starting point, but responsible development still requires a traceable decision, an executed check and an honest explanation of what the evidence proves.

@@ -23,15 +23,18 @@ Published backend and exam snapshots contain strict session-bound provider draft
 ## Verification evidence
 - 45 actual local backend PostgreSQL cases
 - 50 actual fresh/legacy midterm PostgreSQL cases, with raw 42501, 23514 and empty-row results
-- Current midterm browser/API/keyboard evidence uses fictional local transport, not Supabase Auth/PostgREST
-- Four real local email-character parity probes and later request-control tests; their release commit is not yet supplied in this draft
+- Earlier midterm browser/API/keyboard evidence uses fictional local transport; later hosted evidence is recorded separately
+- Four real local email-character parity probes and later request-control tests; [exam follow-up source](https://github.com/mfalujo23/neighborhood-listing-platform/commit/d6c3b3f93afd5b263d199bdcd70868535cb93103) records the later isolated checks
+
+Later real managed-Auth/role, public booking and deployment checks are in the [hosted reproduction record](../../docs/mfalujo23/hosted-reproduction.md). They do not relabel the earlier local tests.
 
 ## Related GitHub work
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/pull/9)
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/pull/11)
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/commit/f4ea7ab7adb0a4a50e7506f602bfda92282b2ae5)
 
-## Michael’s critique and lesson — student entry required
-Michael must explain why grants, RLS, runtime contracts and real authentication are separate boundaries, choose which critique he accepts and describe his own verification. Hosted migration/Auth/RLS evidence is not replaced by the local fixture.
+## My decision and lesson
 
-The technical critique above is a recorded assisting-agent analysis. Michael must state his own assessment and the verification he personally performed; no student experience or retrospective checkpoint is fabricated.
+I would retain separate controls for validated input, verified identity, database grants and row-level security. I would reject removing the examination's required suspended-service owner edits or changing its required cascading relationship merely because a critique preferred another design. I would also reject the claim that a trimmed-notes check was missing when the SQL already contained it.
+
+The property API and RLS repairs are useful, but the current listings page still reads saved JSON. The older migration defines inquiries, while the approved fresh hosted rollout omits that table. I would close those exact Lab 5 integration gaps rather than present service-booking tests as proof of the whole listings flow. Local fixtures, hosted role checks and public UI persistence must retain their distinct evidence scopes.

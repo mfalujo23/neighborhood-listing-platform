@@ -1,7 +1,10 @@
 # Application shell prompt record
 
-The original Lab 1 log retained task summaries rather than an exact separate App Shell Architect provider prompt. [Original log](../../docs/mfalujo23/lab1-ai-log.md). No historical Gemini/ChatGPT shell run is invented.
+The original implementation task was retained as a summary in the [Lab 1 log](../../docs/mfalujo23/lab1-ai-log.md). The later matching ChatGPT/Gemini App Shell experiment used this [exact retained prompt](../../docs/mfalujo23/ai-experiments/app-shell-prompt.txt).
 
-Recorded scope: inspect the existing shell against the lab requirements, preserve team history, restore accessible purpose/feature cards, isolate privileged clients on the server, and obtain genuine local checks.
+- [ChatGPT actual capture](../../docs/mfalujo23/ai-experiments/chatgpt-app-shell.json): visible label Instant; exact version not exposed.
+- [Gemini actual capture](../../docs/mfalujo23/ai-experiments/gemini-app-shell.json): Gemini 4 Hydrogen, High thinking.
 
-The later [consolidated exact review prompt](../artifacts/consolidated/exact-prompt.txt) and its three [actual delivered parts](../artifacts/consolidated/actual-parts.json) are real post-implementation review evidence. They do not replace or backdate the missing original shell-provider checkpoint.
+The run was a temporary AI Studio chat; a Drive-saved reusable prompt is not claimed. It reviewed implemented work rather than documenting a model run before that implementation. The shared source plan asked for the required stack, accessible HTML, commands and a file plan without secrets or invented results.
+
+The [later consolidated prompt](../artifacts/consolidated/exact-prompt.txt) and its [delivered parts](../artifacts/consolidated/actual-parts.json) are a different review experiment. Both records keep their actual chronology.

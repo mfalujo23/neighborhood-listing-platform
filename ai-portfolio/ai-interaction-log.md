@@ -269,10 +269,49 @@ These entries identify actual captured work and its limits. Assisting-agent impl
 ## Additional actual interactions
 
 - [Marketing generation/paired review](prompts/week-07-marketing-copy.md): exact prompts/settings/raw output retained; model approval is not human approval.
-- [Codex shell task record](../docs/mfalujo23/lab1-ai-log.md): original task summaries and actual corrections; separate initial shell-provider experiment unperformed.
-- [Codex component/contract record](../docs/mfalujo23/ai-log.md): implementation, actual errors/corrections, accepted/rejected decisions and separate provider follow-up.
+- [App Shell comparison and implementation record](../docs/mfalujo23/lab1-ai-log.md): original implementation summaries plus the later actual matching ChatGPT/Gemini review. The provider review is not backdated.
+- [Component/contract record](../docs/mfalujo23/ai-log.md): implementation, actual errors/corrections, accepted/rejected decisions and separate provider follow-up.
 - [Technical case index](README.md): source checks, actual rendered accessibility failures/fixes and safe scan classifications.
 
 ## Separate human review decision
 
 Michael Falujo approved only variant 2 for the classroom demonstration on November 19, 2026. This date-only decision is separate from the earlier AI generation/review records; no production permission or stakeholder/Auth identity is inferred. [Exact published decision](https://github.com/mfalujo23/neighborhood-listing-platform/blob/5d30224b2c406a7f32b7d14b32da0120fcaa41fc/docs/mfalujo23/lab7-classroom-approval.md).
+
+## Interaction 23
+
+**Date:** 2026-11-18  
+**Tool:** ChatGPT website  
+**Visible model:** Instant; exact version not exposed  
+**Purpose:** Review the implemented App Shell using the matching architecture prompt  
+**Prompt:** [Exact App Shell Architect prompt](../docs/mfalujo23/ai-experiments/app-shell-prompt.txt)  
+**Output used:** Required src-directory layout and inherited-project inspection  
+**Output rejected:** Tablet-three-column example; retained the tested one/two/three layout  
+**Verification:** Compared the actual capture with the assignment, source and recorded viewport results; no suggested generator command was treated as executed  
+**GitHub trace:** [PR 4](https://github.com/mfalujo23/neighborhood-listing-platform/pull/4), source implementation fae1a1e83ceb7f94743b94cce43e62f0517473f1  
+**Output:** [Actual capture](../docs/mfalujo23/ai-experiments/chatgpt-app-shell.json)
+
+## Interaction 24
+
+**Date:** 2026-11-18  
+**Tool:** Google AI Studio  
+**Visible model:** Gemini 4 Hydrogen; High thinking  
+**Purpose:** Same matching App Shell review  
+**Prompt:** [Exact App Shell Architect prompt](../docs/mfalujo23/ai-experiments/app-shell-prompt.txt)  
+**Output used:** Separate fresh/inherited paths and explicit proposed verification steps  
+**Output rejected:** no-src-dir conflicts with the course; the nested heading example needed correction  
+**Verification:** Actual Markdown capture compared with the specification and existing source/browser record; temporary chat, no saved-Drive or executed-generator claim  
+**GitHub trace:** [PR 4](https://github.com/mfalujo23/neighborhood-listing-platform/pull/4), source implementation fae1a1e83ceb7f94743b94cce43e62f0517473f1  
+**Output:** [Actual capture](../docs/mfalujo23/ai-experiments/gemini-app-shell.json)
+
+## Interaction 25
+
+**Date:** 2026-11-19  
+**Tool:** Codex  
+**Visible model:** Exact identifier not captured  
+**Purpose:** Turn verified project facts and the user's actual choices into complete reflection and case-decision drafts  
+**Prompt summary:** Use only recorded directions/approvals and analytical judgments; keep the prose simple, preserve raw captures, and do not invent personal coding, peer help or human UAT  
+**Output used:** The complete 772-word portfolio reflection and six evidence-based case decisions; a narrow model-comparison preference supported by recorded output  
+**Output rejected:** Blank personal-entry templates, fabricated student manual checks, fabricated participant results, a structured-mode success claim, and retroactively assigning old tests to current code  
+**Verification:** Cached professor instructions, actual source/captures and the current public tree were checked; word count and all preserved artifact hashes were verified  
+**GitHub trace:** Base3e48dad16d9df3aa07630c90f0858f511e6c237c, [PR 14](https://github.com/mfalujo23/neighborhood-listing-platform/pull/14); documentation candidate awaiting review  
+**Student action boundary:** Michael directed/approved the work and selected the permitted simulator. The assistant drafted the prose and ran the cited checks; personal review/defense remain Michael's responsibility.

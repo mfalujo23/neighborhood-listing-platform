@@ -9,7 +9,7 @@ Prepare accessible PropertyCard controls, labeled filters, a responsive listings
 - [Original source](../../docs/mfalujo23/ai-log.md).
 
 ## AI response summary
-Codex supplied article/header/heading structure, dynamic image alternatives, Save and expandable Details buttons, labeled City/Maximum Price controls, visible Sponsored language and scoped 1/2/3-column CSS.
+The AI coding assistant supplied article/heading structure, dynamic image alternatives, a Save button and expandable Details control, labeled City/Maximum Price controls, visible Sponsored language and scoped 1/2/3-column CSS.
 
 ## Recorded technical critique
 Inherited generic audit snippets were not actual current controls. A type assertion was not a parser. The first fixture import traversed one directory too far and failed in the browser; that defect was corrected before successful checks. A later real rendered axe run found a favorite-button label-in-name mismatch and a media CTA naming defect; the services scan had an incomplete finding. The release checker rejected those actual artifacts instead of accepting a mocked axe test.
@@ -35,7 +35,8 @@ The actual final rendered axe captures now report zero violations and zero incom
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/pull/5)
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/commit/926c40cfec072b29f92262981c13639b1b846a8c)
 
-## Michael’s critique and lesson — student entry required
-Michael must explain why a real button, accessible state and observed keyboard behavior matter, and identify any remaining assistive-technology concern. Automated or agent-run checks are not personal user testing.
+## My decision and lesson
 
-The technical critique above is a recorded assisting-agent analysis. Michael must state his own assessment and the verification he personally performed; no student experience or retrospective checkpoint is fabricated.
+I would keep a real button with an accessible name and state, a labelled filter form and purposeful image alternatives. The rendered favorite-label failure and service-region finding show why source inspection alone was insufficient. The recorded browser checks and fixes provide stronger evidence than a general claim of compliance.
+
+I would also compare the code with the exact component instructions: the current card displays the address and facts, but an explicit facts list would be clearer and the requested shared type entry file is not present. Those are separate from the successful keyboard and layout checks. My lesson is to verify both behavior and the stated deliverable, without counting automated checks as a partner review or human UAT.

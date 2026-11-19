@@ -4,12 +4,11 @@
 The inherited shell used an obsolete next lint command and eagerly constructed a privileged Supabase client while Next.js imported routes, so a credential-free build failed. The public purpose and three feature cards also needed a usable semantic shell.
 
 ## Initial prompt
-Summary recorded, not a retained exact provider prompt
-Inspect the existing project against Lab 1 shell, Git, AI logging and deployment requirements; preserve teammate history and obtain genuine checks.
+The implementation task was retained as a summary. A later matching ChatGPT/Gemini review used the [exact App Shell Architect prompt](../../docs/mfalujo23/ai-experiments/app-shell-prompt.txt). The actual [ChatGPT capture](../../docs/mfalujo23/ai-experiments/chatgpt-app-shell.json) and [Gemini capture](../../docs/mfalujo23/ai-experiments/gemini-app-shell.json) reviewed already-implemented work.
 - [Original source](../../docs/mfalujo23/lab1-ai-log.md).
 
 ## AI response summary
-Codex prepared the accessible public shell, pinned compatible tooling, ESLint flat configuration, Tailwind PostCSS support and a server-only request-time administrator-client getter. No separate ChatGPT/Gemini/App Shell Architect run is established by this checkpoint.
+The AI coding assistant prepared the accessible public shell, pinned compatible tooling, ESLint flat configuration, Tailwind PostCSS support and a server-only request-time administrator-client getter. That implementation checkpoint predates the separate matching App Shell review now recorded in the linked log.
 
 ## Recorded technical critique
 A build must not require fake production credentials or weaker authorization. next lint is unavailable in Next.js 16; the installed parser rejected TypeScript 7. A local worker failure was preserved rather than relabeled as a pass.
@@ -30,7 +29,8 @@ Published Lab 1 code builds the public shell without provider secrets and preser
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/pull/4)
 - [Source / change](https://github.com/mfalujo23/neighborhood-listing-platform/commit/d0db83a2b7886f2a1a543529d2f11770adbfcfe3)
 
-## Michael’s critique and lesson — student entry required
-Michael must state which decision he accepts, explain the server/client trust boundary and write his own lesson. Do not invent an earlier model comparison, exact prompt or personal verification.
+## My decision and lesson
 
-The technical critique above is a recorded assisting-agent analysis. Michael must state his own assessment and the verification he personally performed; no student experience or retrospective checkpoint is fabricated.
+I would keep the inherited src-based Next.js structure and make bounded changes instead of rerunning a project generator over team work. The actual ChatGPT App Shell response was more useful for the required src directory, but its tablet-three-column example still needed correction. Gemini supplied useful verification steps; its no-src-dir command did not fit the course.
+
+I would retain lazy, server-only privileged-client creation. A public build should not require fabricated credentials or weaker authorization. My lesson is to check version-specific commands and the actual trust boundary before accepting a polished setup plan. The recorded build/browser checks were executed by the assistant; my role was directing and approving the catch-up work.
