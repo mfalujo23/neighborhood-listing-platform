@@ -1,0 +1,323 @@
+{
+  "status": "passed",
+  "phase": "verify-rls",
+  "sourceCommit": "cca10f44952dcf85f9237c3312a35f448e30bb6d",
+  "projectRef": "emzgyjdasctljwnbcuov",
+  "startedAtUTC": "2026-11-19T18:15:40.036Z",
+  "completedAtUTC": "2026-11-19T18:15:57.126Z",
+  "applicationRowsInserted": 0,
+  "invitationsSent": 0,
+  "confirmationOrResetRequests": 0,
+  "evidenceType": "Allowlisted summary of an actual retained result; not a new execution.",
+  "inputResultSha256": "ebc1b111ebf134c93cb29ed4be9fba312a75de0e8e4f6c526af57367a2b4e91d",
+  "cases": [
+    {
+      "name": "exact_new_project_and_six_table_surface_verified",
+      "outcome": "passed"
+    },
+    {
+      "name": "exact_seed_inventory_verified_before_mutations",
+      "outcome": "passed"
+    },
+    {
+      "name": "real_password_and_getUser_provider_a",
+      "outcome": "passed",
+      "protectedRole": "provider",
+      "passwordStatus": 200,
+      "getUserStatus": 200
+    },
+    {
+      "name": "real_password_and_getUser_provider_b",
+      "outcome": "passed",
+      "protectedRole": "provider",
+      "passwordStatus": 200,
+      "getUserStatus": 200
+    },
+    {
+      "name": "real_password_and_getUser_admin",
+      "outcome": "passed",
+      "protectedRole": "admin",
+      "passwordStatus": 200,
+      "getUserStatus": 200
+    },
+    {
+      "name": "real_password_and_getUser_client",
+      "outcome": "passed",
+      "protectedRole": "client",
+      "passwordStatus": 200,
+      "getUserStatus": 200
+    },
+    {
+      "name": "real_password_and_getUser_merchant",
+      "outcome": "passed",
+      "protectedRole": "merchant",
+      "passwordStatus": 200,
+      "getUserStatus": 200
+    },
+    {
+      "name": "anonymous_approved_active_services_only",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "anonymous_cannot_read_a_draft",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "anonymous_cannot_read_b_draft",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "anonymous_active_category_only",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "anonymous_inactive_category_hidden",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "anonymous_visible_mapping_only",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "anonymous_draft_mapping_hidden",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "anonymous_approved_property_only",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "provider_a_own_and_public_services",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 2,
+      "expectedRows": 2
+    },
+    {
+      "name": "provider_b_own_and_public_services",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 2,
+      "expectedRows": 2
+    },
+    {
+      "name": "provider_a_cannot_read_b_draft",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_b_cannot_read_a_draft",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_a_own_and_public_properties",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 2,
+      "expectedRows": 2
+    },
+    {
+      "name": "provider_a_cannot_read_b_property",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "anonymous_booking_select_denied",
+      "outcome": "passed",
+      "status": 401,
+      "sqlstate": "42501",
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "client_cannot_read_seeded_booking",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_b_cannot_read_seeded_booking",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "merchant_cannot_read_seeded_booking",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "admin_cannot_read_seeded_booking",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_a_reads_assigned_seeded_booking",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "trusted_server_reads_seeded_booking",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "provider_a_cannot_read_other_profile",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_a_edits_own_draft_and_restores",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "provider_a_cannot_edit_other_draft",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_a_cannot_edit_approved_service",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_a_cannot_self_publish",
+      "outcome": "passed",
+      "status": 403,
+      "sqlstate": "42501",
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "admin_jwt_is_not_service_role",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "verified_admin_then_trusted_server_suspends_and_restores",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "provider_a_edits_own_property_and_restores",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "provider_a_cannot_edit_other_property",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_a_cannot_self_approve_property",
+      "outcome": "passed",
+      "status": 403,
+      "sqlstate": "42501",
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_a_cannot_update_profile_to_admin",
+      "outcome": "passed",
+      "status": 403,
+      "sqlstate": "42501",
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "self_admin_insert_denied_by_policy",
+      "outcome": "passed",
+      "status": 403,
+      "sqlstate": "42501",
+      "rowCount": 0,
+      "expectedRows": 0
+    }
+  ],
+  "caseCount": 40
+}
