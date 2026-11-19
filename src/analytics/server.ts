@@ -13,7 +13,7 @@ const WindowSchema = z.object({
   sponsorCtr: z.array(z.object({ neighborhood: z.string(), impression_count: z.coerce.number().int().nonnegative(), clicked_impressions: z.coerce.number().int().nonnegative(), ctr_percent: z.union([z.string(), z.number(), z.null()]) })),
 }).strict()
 
-export function createServerAnalyticsDependencies(): AnalyticsDependencies {
+export function createServerAnalyticsDependencies(options: { dashboardSessionClient?: SupabaseClient } = {}): AnalyticsDependencies {
   let verified: { userId: string; role: 'admin' | 'provider' | 'property_professional'; client: SupabaseClient } | null = null
   return {
     enabled: () => process.env.ENABLE_ANALYTICS === 'true',
@@ -22,12 +22,17 @@ export function createServerAnalyticsDependencies(): AnalyticsDependencies {
       verified = null
       const authorization = headers.get('authorization')
       const token = authorization?.match(/^Bearer\s+(\S+)$/i)?.[1]
-      if (!token || !authorization) return { denied: 401 }
+      if ((!token || !authorization) && !options.dashboardSessionClient) return { denied: 401 }
+      // Only the server-rendered dashboard passes a cookie-bound client.
+      // API route factories keep their existing bearer-only contract.
+      if (authorization && !token) return { denied: 401 }
       const url = process.env.SUPABASE_URL
       const key = process.env.SUPABASE_ANON_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY
       if (!url || !key) return { denied: 503 }
-      const client = createClient(url, key, { global: { headers: { Authorization: authorization } }, auth: { persistSession: false, autoRefreshToken: false } })
-      const { data, error } = await client.auth.getUser(token)
+      const client = token && authorization
+        ? createClient(url, key, { global: { headers: { Authorization: authorization } }, auth: { persistSession: false, autoRefreshToken: false } })
+        : options.dashboardSessionClient!
+      const { data, error } = token ? await client.auth.getUser(token) : await client.auth.getUser()
       if (error || !data.user) return { denied: 401 }
       const { data: profile, error: profileError } = await client.from('profiles').select('role').eq('id', data.user.id).maybeSingle()
       if (profileError || !profile || !['admin', 'provider', 'property_professional'].includes(profile.role)) return { denied: 403 }

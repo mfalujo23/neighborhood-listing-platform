@@ -1,0 +1,295 @@
+{
+  "localOnly": true,
+  "fictionalTransport": true,
+  "officialSdk": true,
+  "actualProductionNextHttp": true,
+  "hostedAuthVerified": false,
+  "providerRequests": 0,
+  "realAccountsOrContacts": false,
+  "checks": [
+    {
+      "name": "ordinary signed-out dashboard",
+      "path": "/realtor-dashboard",
+      "status": 200,
+      "cacheControl": "private, no-cache, no-store, must-revalidate, max-age=0",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "cross-origin sign in denied",
+      "path": "/api/auth/sign-in",
+      "status": 403,
+      "cacheControl": "no-store",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "missing Origin denied",
+      "path": "/api/auth/sign-in",
+      "status": 403,
+      "cacheControl": "no-store",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "unknown key denied",
+      "path": "/api/auth/sign-in",
+      "status": 400,
+      "cacheControl": "no-store",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "oversize denied",
+      "path": "/api/auth/sign-in",
+      "status": 413,
+      "cacheControl": "no-store",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "malformed JSON denied",
+      "path": "/api/auth/sign-in",
+      "status": 400,
+      "cacheControl": "no-store",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "unsupported type denied",
+      "path": "/api/auth/sign-in",
+      "status": 415,
+      "cacheControl": "no-store",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "incorrect password denied",
+      "path": "/api/auth/sign-in",
+      "status": 401,
+      "cacheControl": "no-store",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "sign in provider",
+      "path": "/api/auth/sign-in",
+      "status": 200,
+      "cacheControl": "no-store",
+      "setCookieCount": 1,
+      "cookieHttpOnly": true,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "ordinary provider cookie dashboard",
+      "path": "/realtor-dashboard",
+      "status": 200,
+      "cacheControl": "private, no-cache, no-store, must-revalidate, max-age=0",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "cookie cannot broaden bearer API",
+      "path": "/api/analytics",
+      "status": 401,
+      "cacheControl": "no-store",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "sign in provider",
+      "path": "/api/auth/sign-in",
+      "status": 200,
+      "cacheControl": "no-store",
+      "setCookieCount": 1,
+      "cookieHttpOnly": true,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "dashboard role provider",
+      "path": "/realtor-dashboard",
+      "status": 200,
+      "cacheControl": "private, no-cache, no-store, must-revalidate, max-age=0",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "sign in admin",
+      "path": "/api/auth/sign-in",
+      "status": 200,
+      "cacheControl": "no-store",
+      "setCookieCount": 1,
+      "cookieHttpOnly": true,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "dashboard role admin",
+      "path": "/realtor-dashboard",
+      "status": 200,
+      "cacheControl": "private, no-cache, no-store, must-revalidate, max-age=0",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "sign in merchant",
+      "path": "/api/auth/sign-in",
+      "status": 200,
+      "cacheControl": "no-store",
+      "setCookieCount": 1,
+      "cookieHttpOnly": true,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "dashboard role merchant",
+      "path": "/realtor-dashboard",
+      "status": 200,
+      "cacheControl": "private, no-cache, no-store, must-revalidate, max-age=0",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "sign in client",
+      "path": "/api/auth/sign-in",
+      "status": 200,
+      "cacheControl": "no-store",
+      "setCookieCount": 1,
+      "cookieHttpOnly": true,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "dashboard role client",
+      "path": "/realtor-dashboard",
+      "status": 200,
+      "cacheControl": "private, no-cache, no-store, must-revalidate, max-age=0",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "sign in property_professional",
+      "path": "/api/auth/sign-in",
+      "status": 200,
+      "cacheControl": "no-store",
+      "setCookieCount": 1,
+      "cookieHttpOnly": true,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "dashboard role property_professional",
+      "path": "/realtor-dashboard",
+      "status": 200,
+      "cacheControl": "private, no-cache, no-store, must-revalidate, max-age=0",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "sign in provider",
+      "path": "/api/auth/sign-in",
+      "status": 200,
+      "cacheControl": "no-store",
+      "setCookieCount": 1,
+      "cookieHttpOnly": true,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "expired session refreshed by official SDK and Proxy",
+      "path": "/realtor-dashboard",
+      "status": 200,
+      "cacheControl": "private, no-cache, no-store, must-revalidate, max-age=0",
+      "setCookieCount": 1,
+      "cookieHttpOnly": true,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "revoked session fails before metrics",
+      "path": "/realtor-dashboard",
+      "status": 200,
+      "cacheControl": "private, no-cache, no-store, must-revalidate, max-age=0",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "cross-origin logout denied",
+      "path": "/api/auth/sign-out",
+      "status": 403,
+      "cacheControl": "no-store",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "same-origin logout clears cookie",
+      "path": "/api/auth/sign-out",
+      "status": 200,
+      "cacheControl": "no-store",
+      "setCookieCount": 1,
+      "cookieHttpOnly": true,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "signed-out dashboard has no metrics",
+      "path": "/realtor-dashboard",
+      "status": 200,
+      "cacheControl": "private, no-cache, no-store, must-revalidate, max-age=0",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    },
+    {
+      "name": "Auth outage is coarse503",
+      "path": "/api/auth/sign-in",
+      "status": 503,
+      "cacheControl": "no-store",
+      "setCookieCount": 0,
+      "cookieHttpOnly": null,
+      "credentialMaterialInBody": false,
+      "credentialMaterialOutsideSetCookie": false
+    }
+  ],
+  "refreshesObserved": 2,
+  "passwordRequestsObserved": 8,
+  "protectedRpcRequestsObserved": 5,
+  "credentialsInBodiesOrProcessLogs": false
+}

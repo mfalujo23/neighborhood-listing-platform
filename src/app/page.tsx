@@ -39,6 +39,7 @@ export default function Page() {
             ['/services', 'Find services'],
             ['/voice-simulator', 'Try text assistant'],
             ['/dashboard-demo', 'View sample dashboard'],
+            ['/login', 'Sign in'],
           ].map(([href, label]) => (
             <Link key={href} href={href} className="inline-block rounded border border-blue-700 px-4 py-2 font-semibold text-blue-800 focus-visible:ring-2 focus-visible:ring-offset-2">
               {label}
