@@ -214,3 +214,10 @@ One matching experiment per tool covered Labs2,4,6,8–16. The [complete disposi
 [Raw response](mfalujo23/ai-experiments/lab2-props/lab2-props-response.ts.txt), [capture metadata](mfalujo23/ai-experiments/lab2-props/lab2-props-observation.json) and [screenshot](mfalujo23/ai-experiments/lab2-props/lab2-props-studio.jpg). The run was temporary, with no selected API key or code execution; structured output was off for the requested TypeScript interfaces.
 
 [Component/type verification](mfalujo23/evidence/lab2-alignment/verification.json), [actual focused output](mfalujo23/evidence/lab2-alignment/focused-tests.txt).
+
+
+## Public listings read view - November 19, 2026
+
+| Tool/date | Prompt | Decision | Verification | Trace |
+| --- | --- | --- | --- | --- |
+| Codex; model version not exposed; November 19, 2026 | Add a separate listings view reading the existing public route. Preserve the five Gemini fixtures and existing tasks. Validate the actual 15-field response; provide loading, empty, error and retry states. No new credentials or database writes. | Used one client-safe public response contract, strict collection validation, bounded GET and accessible state messages. Rejected casting the distinct Gemini property shape, silently using fixtures after failure, exposing raw errors or adding inquiry tables without a defined contract. | 20 focused tests, scoped lint and full types passed. Schema keys match the retained public-route observation. Checks used mocked responses; real-browser/full combined build remain separate. No new provider experiment was performed. | Input source 3e48dad16d9df3aa07630c90f0858f511e6c237c; new follow-up is in this candidate. Existing integration PR: https://github.com/mfalujo23/neighborhood-listing-platform/pull/14 |

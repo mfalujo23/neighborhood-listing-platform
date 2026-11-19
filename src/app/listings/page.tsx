@@ -15,6 +15,7 @@ export default function ListingsPage() {
         <Link href="/">Back to BarrioList</Link>
         <h1>Explore the synthetic neighborhood</h1>
         <p>These five invented property records and sponsor names are classroom examples, not real offers or recommendations.</p>
+        <p><Link href="/listings/live">Browse approved example listings</Link></p>
       </header>
       {result.success ? (
         <ListingsExplorer properties={result.data} />
