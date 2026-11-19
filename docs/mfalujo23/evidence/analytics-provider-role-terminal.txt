@@ -1,0 +1,1 @@
+ANALYTICS PROVIDER ROLE: 14 actual local PostgreSQL checks PASS; canonical ownership/admin/client/merchant/legacy/read-only/profile-contract boundaries verified.
