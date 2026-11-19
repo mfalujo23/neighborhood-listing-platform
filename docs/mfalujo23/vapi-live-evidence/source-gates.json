@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-11-19T17:40:25.336Z",
+  "status": "passed",
+  "results": [
+    {
+      "name": "strict lint",
+      "command": [
+        "node",
+        "node_modules/eslint/bin/eslint.js",
+        "src",
+        "config",
+        "next.config.mjs",
+        "scripts/verify-all.mjs",
+        "scripts/verify-release.mjs",
+        "--max-warnings",
+        "0"
+      ],
+      "exit": 0,
+      "durationMs": 4011
+    },
+    {
+      "name": "TypeScript",
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "exit": 0,
+      "durationMs": 3517
+    },
+    {
+      "name": "all local tests",
+      "command": [
+        "node",
+        "scripts/verify-all.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 23029
+    },
+    {
+      "name": "production build",
+      "command": [
+        "node",
+        "node_modules/next/dist/bin/next",
+        "build",
+        "--webpack"
+      ],
+      "exit": 0,
+      "durationMs": 13243
+    },
+    {
+      "name": "actual fictional loopback booking API capacity",
+      "command": [
+        "node",
+        "scripts/verify-booking-http-capacity.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 5785
+    }
+  ],
+  "deploymentAuthorizedByThisScript": false,
+  "remainingGates": [
+    "Rendered-browser accessibility and core flows",
+    "Hosted smoke checks",
+    "Owner-approved rollback verification",
+    "Human usability/review evidence"
+  ]
+}

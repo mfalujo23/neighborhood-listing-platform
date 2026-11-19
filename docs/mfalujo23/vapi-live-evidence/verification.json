@@ -1,0 +1,36 @@
+{
+  "baseCommit": "cca10f44952dcf85f9237c3312a35f448e30bb6d",
+  "baseTree": "31e0373c1c6435c3d9701109f593dc86e79bae3c",
+  "scope": "Real callback implementation with local-only verification; no hosted/provider requests, real phone, privileged key, migration apply, or dispatch.",
+  "focusedTests": 45,
+  "fullVitestTests": 311,
+  "fullVitestFiles": 25,
+  "nodeWebhookTests": 21,
+  "allTenLocalPhasesPassed": true,
+  "strictLintPassed": true,
+  "typeScriptPassed": true,
+  "productionBuildPassed": true,
+  "bookingHttpCapacity": "30HTTP201 followed by31stHTTP429 with Retry-After; disposable local fixture",
+  "actualLoopbackAndPostgreSqlChecks": 17,
+  "queryTimeoutMs": 2500,
+  "observedAbortedHttpConnections": 2,
+  "timeoutObservations": [
+    {
+      "name": "actual2500ms abort produces internal HTTP504 at harness adapter boundary",
+      "status": 504,
+      "elapsedMs": 2513
+    },
+    {
+      "name": "actual2500ms sponsor abort is translated to HTTP200 Vapi error",
+      "status": 200,
+      "elapsedMs": 2527
+    }
+  ],
+  "reusedExistingPinnedDependencies": true,
+  "packageAndLockUnchanged": true,
+  "hostedSupabaseVerified": false,
+  "vapiDeliveryVerified": false,
+  "carrierCallVerified": false,
+  "followupTransport": "UNAVAILABLE; no persistence/call/SMS implemented",
+  "sponsorSchemaPrerequisite": "Actual sponsors/property_sponsors and00500RPC required; fresh core alone does not include them."
+}

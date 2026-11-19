@@ -1,0 +1,232 @@
+{
+  "scope": "Actual loopback HTTP and disposable PGlite PostgreSQL anon RLS/RPC verification. Local HTTP bridge emulates only the fixed PostgREST read/RPC wire contract; this is not hosted Supabase, actual PostgREST, Vapi, Twilio, a call, or delivery evidence.",
+  "at": "2026-11-19T17:42:38.751Z",
+  "runtime": "v24.22.3",
+  "passed": 17,
+  "failed": 0,
+  "localAuthStubsOnly": true,
+  "noHostedOrProviderCalls": true,
+  "noPrivateCredentials": true,
+  "queryTimeoutMs": 2500,
+  "dbRequests": 12,
+  "abortedSponsorConnections": 2,
+  "checks": [
+    {
+      "name": "actual local anon RLS hides unapproved property without an approved query filter",
+      "passed": true,
+      "rows": []
+    },
+    {
+      "name": "actual local anon RPC excludes pending sponsor and preserves rank",
+      "passed": true,
+      "names": [
+        "Sponsor C",
+        "Sponsor B",
+        "Sponsor A"
+      ]
+    },
+    {
+      "name": "real HTTP callback reads actual anon approved local PostgreSQL row",
+      "passed": true
+    },
+    {
+      "name": "real HTTP callback cannot read unapproved row under anon RLS",
+      "passed": true
+    },
+    {
+      "name": "real HTTP callback reads actual eligible sponsor RPC",
+      "passed": true
+    },
+    {
+      "name": "unauthenticated real HTTP callback denied before database",
+      "passed": true
+    },
+    {
+      "name": "invalid ten-digit ZIP returns correlated error without database",
+      "passed": true
+    },
+    {
+      "name": "followup explicitly unavailable with no database or dispatch",
+      "passed": true
+    },
+    {
+      "name": "method restriction over HTTP",
+      "passed": true
+    },
+    {
+      "name": "non-JSON restriction over HTTP",
+      "passed": true
+    },
+    {
+      "name": "malformed JSON restriction over HTTP",
+      "passed": true
+    },
+    {
+      "name": "bounded body restriction over HTTP",
+      "passed": true
+    },
+    {
+      "name": "missing real RPC cannot fabricate sponsor data",
+      "passed": true
+    },
+    {
+      "name": "actual2500ms abort produces internal HTTP504 at harness adapter boundary",
+      "passed": true
+    },
+    {
+      "name": "actual2500ms sponsor abort is translated to HTTP200 Vapi error",
+      "passed": true
+    },
+    {
+      "name": "both delayed RPC HTTP connections actually aborted",
+      "passed": true,
+      "observed": 2
+    },
+    {
+      "name": "normal real HTTP read recovers after controlled fault",
+      "passed": true
+    }
+  ],
+  "wire": [
+    {
+      "name": "real HTTP callback reads actual anon approved local PostgreSQL row",
+      "status": 200,
+      "elapsedMs": 52,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"results\":[{\"toolCallId\":\"synthetic-http-tool\",\"result\":\"{\\\"property\\\":{\\\"id\\\":\\\"60000000-0000-4000-8000-000000000001\\\",\\\"title\\\":\\\"Fictional live-tool property\\\",\\\"street\\\":\\\"50 Example Way\\\",\\\"city\\\":\\\"Demo City\\\",\\\"state\\\":\\\"CA\\\",\\\"zip_code\\\":\\\"90032\\\",\\\"price\\\":500000,\\\"bedrooms\\\":2,\\\"bathrooms\\\":1,\\\"square_feet\\\":900,\\\"amenities\\\":[\\\"Sample courtyard\\\"],\\\"description\\\":\\\"Fictional local database only.\\\"}}\"}]}"
+    },
+    {
+      "name": "real HTTP callback cannot read unapproved row under anon RLS",
+      "status": 200,
+      "elapsedMs": 23,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"results\":[{\"toolCallId\":\"synthetic-http-tool\",\"error\":\"NOT_FOUND: This approved property or matching sponsor information was not found. Do not guess.\"}]}"
+    },
+    {
+      "name": "real HTTP callback reads actual eligible sponsor RPC",
+      "status": 200,
+      "elapsedMs": 35,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"results\":[{\"toolCallId\":\"synthetic-http-tool\",\"result\":\"{\\\"sponsors\\\":[{\\\"id\\\":\\\"60000000-0000-4000-8000-00000000000c\\\",\\\"name\\\":\\\"Sponsor C\\\"},{\\\"id\\\":\\\"60000000-0000-4000-8000-00000000000b\\\",\\\"name\\\":\\\"Sponsor B\\\"},{\\\"id\\\":\\\"60000000-0000-4000-8000-00000000000a\\\",\\\"name\\\":\\\"Sponsor A\\\"}],\\\"disclosure\\\":\\\"Sponsored placements are advertising, separate from property facts.\\\"}\"}]}"
+    },
+    {
+      "name": "unauthenticated real HTTP callback denied before database",
+      "status": 401,
+      "elapsedMs": 2,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"error\":\"Unauthorized\"}"
+    },
+    {
+      "name": "invalid ten-digit ZIP returns correlated error without database",
+      "status": 200,
+      "elapsedMs": 2,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"results\":[{\"toolCallId\":\"synthetic-http-tool\",\"error\":\"INVALID_ARGUMENTS: Use only the exact required fields and valid property UUID or five-digit ZIP. No action was performed.\"}]}"
+    },
+    {
+      "name": "followup explicitly unavailable with no database or dispatch",
+      "status": 200,
+      "elapsedMs": 2,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"results\":[{\"toolCallId\":\"synthetic-http-tool\",\"error\":\"UNAVAILABLE: Human follow-up transport is not configured. No request was submitted and no call or message was sent.\"}]}"
+    },
+    {
+      "name": "method restriction over HTTP",
+      "status": 405,
+      "elapsedMs": 1,
+      "headers": {
+        "allow": "POST",
+        "cache-control": "no-store",
+        "content-type": "text/plain;charset=UTF-8"
+      },
+      "body": "Method Not Allowed"
+    },
+    {
+      "name": "non-JSON restriction over HTTP",
+      "status": 415,
+      "elapsedMs": 1,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"error\":\"Content-Type must be application/json.\"}"
+    },
+    {
+      "name": "malformed JSON restriction over HTTP",
+      "status": 400,
+      "elapsedMs": 1,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"error\":\"Request body must be valid JSON.\"}"
+    },
+    {
+      "name": "bounded body restriction over HTTP",
+      "status": 413,
+      "elapsedMs": 2,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"error\":\"Request body is too large.\"}"
+    },
+    {
+      "name": "missing real RPC cannot fabricate sponsor data",
+      "status": 200,
+      "elapsedMs": 5,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"results\":[{\"toolCallId\":\"synthetic-http-tool\",\"error\":\"UNAVAILABLE: This information is temporarily unavailable. Do not invent an answer.\"}]}"
+    },
+    {
+      "name": "actual2500ms abort produces internal HTTP504 at harness adapter boundary",
+      "status": 504,
+      "elapsedMs": 2513,
+      "headers": {
+        "content-type": "application/json"
+      },
+      "body": "{\"status\":504,\"error\":{\"code\":\"TIMEOUT\",\"message\":\"The data request timed out. Continue without sponsored information and offer a retry.\"}}"
+    },
+    {
+      "name": "actual2500ms sponsor abort is translated to HTTP200 Vapi error",
+      "status": 200,
+      "elapsedMs": 2527,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"results\":[{\"toolCallId\":\"synthetic-http-tool\",\"error\":\"TIMEOUT: The data request timed out. Continue without sponsored information and offer a retry.\"}]}"
+    },
+    {
+      "name": "normal real HTTP read recovers after controlled fault",
+      "status": 200,
+      "elapsedMs": 8,
+      "headers": {
+        "cache-control": "no-store",
+        "content-type": "application/json"
+      },
+      "body": "{\"results\":[{\"toolCallId\":\"synthetic-http-tool\",\"result\":\"{\\\"sponsors\\\":[{\\\"id\\\":\\\"60000000-0000-4000-8000-00000000000c\\\",\\\"name\\\":\\\"Sponsor C\\\"},{\\\"id\\\":\\\"60000000-0000-4000-8000-00000000000b\\\",\\\"name\\\":\\\"Sponsor B\\\"},{\\\"id\\\":\\\"60000000-0000-4000-8000-00000000000a\\\",\\\"name\\\":\\\"Sponsor A\\\"}],\\\"disclosure\\\":\\\"Sponsored placements are advertising, separate from property facts.\\\"}\"}]}"
+    }
+  ]
+}
