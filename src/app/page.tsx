@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const features = [
   {
     id: 'listings',
@@ -31,6 +33,11 @@ export default function Page() {
           A place to explore neighborhood listings, discover local sponsors, and
           get help finding the information you need.
         </p>
+        <nav aria-label="Explore BarrioList">
+          <Link href="/services" className="inline-block rounded border border-blue-700 px-4 py-2 font-semibold text-blue-800 focus-visible:ring-2 focus-visible:ring-offset-2">
+            Browse neighborhood services
+          </Link>
+        </nav>
       </header>
 
       <section aria-labelledby="features-heading" className="space-y-6">

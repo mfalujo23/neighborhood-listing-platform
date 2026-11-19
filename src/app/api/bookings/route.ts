@@ -1,21 +1,6 @@
-import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
-import { z } from 'zod'
-
-const BookingSchema = z
-  .object({
-    service_id: z.string().uuid(),
-    client_email: z.string().trim().email().max(254),
-    requested_date: z
-      .string()
-      .regex(/^\d{4}-\d{2}-\d{2}$/)
-      .refine((value) => {
-        const date = new Date(`${value}T00:00:00.000Z`)
-        return !Number.isNaN(date.getTime()) && date.toISOString().startsWith(value)
-      }),
-    notes: z.string().trim().min(10).max(2000),
-  })
-  .strict()
+import { BookingCreateSchema } from '@/schemas/booking'
+import { createSupabaseUserClient } from '@/lib/supabaseServer'
 
 export async function POST(request: Request) {
   let body: unknown
@@ -29,7 +14,7 @@ export async function POST(request: Request) {
     )
   }
 
-  const parsed = BookingSchema.safeParse(body)
+  const parsed = BookingCreateSchema.safeParse(body)
 
   if (!parsed.success) {
     return NextResponse.json(
@@ -40,7 +25,7 @@ export async function POST(request: Request) {
 
   const url = process.env.SUPABASE_URL
   const key =
-    process.env.SUPABASE_ANON_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY
+    process.env.SUPABASE_ANON_KEY || process.env.SUPABASE_PUBLISHABLE_KEY
 
   if (!url || !key) {
     return NextResponse.json(
@@ -50,12 +35,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const supabase = createClient(url, key, {
-      auth: {
-        persistSession: false,
-        autoRefreshToken: false,
-      },
-    })
+    const supabase = createSupabaseUserClient()
 
     const { error } = await supabase.from('bookings').insert({
       service_id: parsed.data.service_id,
@@ -66,9 +46,10 @@ export async function POST(request: Request) {
 
     if (error) {
       console.error('Booking insert failed', { code: error.code })
+      const status = error.code === '42501' ? 403 : error.code?.startsWith('23') ? 400 : 503
       return NextResponse.json(
         { error: 'Could not submit booking request.' },
-        { status: 400 },
+        { status },
       )
     }
 

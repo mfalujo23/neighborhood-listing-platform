@@ -132,3 +132,20 @@
 ### Associated Commit
 
 `f5bf704` — Complete Week 6 sponsor matching engine.
+
+---
+
+## Midterm services and booking implementation
+
+| Step / Tool | Prompt Summary | Model Output Used | Model Output Rejected & Rationale | Verification Method | Associated Git Commit |
+| --- | --- | --- | --- | --- | --- |
+| Codex | Complete Version B services and booking UI using the exact required paths and grid. | Mounted /services, validated responses, shared booking schema, semantic cards, keyboard/focus handling, server-only supabaseServer.ts. | Unchecked runtime casts and event.currentTarget access after await could crash the interface. | DOM keyboard/API tests and exact isolated lint/type/test/build checks linked below. | Backend base5a51dcb; new exam commit pending publication. |
+| Codex | Enforce the four required roles while retaining existing data. | Fresh canonical profile table and forward007 constraint that blocks all new legacy roles. | Broadening new role choices for historical rows would not meet the requirement; no silent legacy conversion. | Actual disposable PostgreSQL fresh/legacy assertions, raw42501/23514/empty rows, preserved profile data and reapplication. | New exam commit pending publication. |
+| Codex | Verify administrator approval/suspension and privacy boundaries. | Strict authorized service status updates; receipt-only booking insertion. | Provider elevation, unknown update fields, contact-data echoes and hidden fixture fallback. | API/admin tests plus actual local SQL; optional fixture preview is clearly labeled and has no hosted Auth. | New exam commit pending publication. |
+
+The [personal midterm journal](mfalujo23/midterm-ai-log.md) and
+[verification record](mfalujo23/midterm-verification.md) contain the source paths
+and actual local evidence. These rows are new implementation work and do not
+attribute earlier teammate work to this account. No new ChatGPT/Gemini/AI Studio
+midterm experiment or student manual test is invented. Hosted migration/Auth,
+required model checkpoints, review and student defense remain separate evidence.

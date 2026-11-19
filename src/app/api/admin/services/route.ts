@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
-import { getSupabaseAdmin } from '../../../../lib/supabase-server'
+import { getSupabaseAdmin } from '../../../../lib/supabaseServer'
+import { ServiceAdminUpdateSchema } from '../../../../schemas/service'
 
 export async function PATCH(request: Request) {
   const authorization = request.headers.get('authorization')
@@ -12,7 +13,7 @@ export async function PATCH(request: Request) {
 
   const url = process.env.SUPABASE_URL
   const key =
-    process.env.SUPABASE_ANON_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY
+    process.env.SUPABASE_ANON_KEY || process.env.SUPABASE_PUBLISHABLE_KEY
 
   if (!url || !key) {
     return NextResponse.json(
@@ -57,49 +58,39 @@ export async function PATCH(request: Request) {
       )
     }
 
-    const serviceId =
-      typeof body === 'object' && body !== null && 'service_id' in body
-        ? (body as { service_id?: unknown }).service_id
-        : undefined
-
-    if (
-      typeof serviceId !== 'string' ||
-      !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(
-        serviceId,
-      )
-    ) {
+    const parsed = ServiceAdminUpdateSchema.safeParse(body)
+    if (!parsed.success) {
       return NextResponse.json(
-        { error: 'A valid service_id is required.' },
+        { error: 'A valid service_id and approved or suspended status are required.', details: parsed.error.issues },
         { status: 400 },
       )
     }
 
     const { data, error } = await getSupabaseAdmin()
       .from('services')
-      .update({ status: 'approved' })
-      .eq('id', serviceId)
-      .eq('status', 'draft')
+      .update({ status: parsed.data.status })
+      .eq('id', parsed.data.service_id)
       .select('id, status')
       .maybeSingle()
 
     if (error) {
-      console.error('Admin service approval error:', error)
+      console.error('Admin service update failed', { code: error.code })
       return NextResponse.json(
-        { error: 'Could not approve service.' },
+        { error: 'Could not update service.' },
         { status: 500 },
       )
     }
 
     if (!data) {
       return NextResponse.json(
-        { error: 'Draft service not found.' },
+        { error: 'Service not found.' },
         { status: 404 },
       )
     }
 
     return NextResponse.json({ data }, { status: 200 })
-  } catch (error) {
-    console.error('Admin service approval route error:', error)
+  } catch {
+    console.error('Admin service update route failed')
     return NextResponse.json(
       { error: 'Server configuration or request error.' },
       { status: 500 },

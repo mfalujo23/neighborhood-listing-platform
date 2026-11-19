@@ -2,6 +2,7 @@ import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
 
 const transport = vi.hoisted(() => ({ createClient: vi.fn() }))
 vi.mock('@supabase/supabase-js', () => ({ createClient: transport.createClient }))
+vi.mock('server-only', () => ({}))
 
 import { GET, POST } from '../app/api/services/route'
 import { ServiceCreateSchema } from '../schemas/service'
@@ -14,7 +15,7 @@ function fixture(role = 'provider', validSession = true) {
   const serviceChain = {
     select: vi.fn().mockReturnThis(),
     eq: vi.fn().mockReturnThis(),
-    order: vi.fn().mockResolvedValue({ data: [{ id: 'local-service', ...valid }], error: null }),
+    order: vi.fn().mockResolvedValue({ data: [{ id: 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2', ...valid }], error: null }),
     insert: vi.fn().mockReturnThis(),
     single: vi.fn().mockResolvedValue({ data: { id: 'local-service', provider_id: owner, ...valid, status: 'draft' }, error: null }),
   }
@@ -87,6 +88,11 @@ describe('Service contract and route guards (local mocked transport, no provider
     expect(f.serviceChain.eq).toHaveBeenCalledWith('status', 'approved')
     expect(f.serviceChain.eq).toHaveBeenCalledWith('coverage_active', true)
   })
+  it('rejects malformed public database output before rendering', async () => {
+    const f = fixture()
+    f.serviceChain.order.mockResolvedValue({ data: [{ id: 'malformed', ...valid }], error: null })
+    expect((await GET()).status).toBe(502)
+  })
   it.each([['42501', 403], ['23514', 400], ['42P01', 500]] as const)('maps database code%s to HTTP%i', async (code, status) => {
     const f = fixture()
     f.serviceChain.single.mockResolvedValue({ data: null, error: { code } })
@@ -107,5 +113,16 @@ describe('Service contract and route guards (local mocked transport, no provider
     const body = { service_id: 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2', client_email: 'client@example.test', requested_date: '2027-02-30', notes: 'Fictional appointment request', admin: true }
     expect((await createBooking(request(body, false))).status).toBe(400)
     expect(transport.createClient).not.toHaveBeenCalled()
+  })
+  it.each([['42501', 403], ['23514', 400], ['08006', 503]] as const)('maps booking database failure%s to%i without contact data', async (code, status) => {
+    transport.createClient.mockReturnValue({ from: vi.fn().mockReturnValue({ insert: vi.fn().mockResolvedValue({ error: { code } }) }) })
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {})
+    try {
+      const body = { service_id: 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2', client_email: 'client@example.test', requested_date: '2027-01-01', notes: 'Fictional appointment request' }
+      const result = await createBooking(request(body, false))
+      expect(result.status).toBe(status)
+      expect(JSON.stringify(await result.json())).not.toContain('client@example.test')
+      expect(log).toHaveBeenCalledWith('Booking insert failed', { code })
+    } finally { log.mockRestore() }
   })
 })

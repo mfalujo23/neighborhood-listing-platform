@@ -1,26 +1,6 @@
-import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
-import { ServiceCreateSchema } from '@/schemas/service'
-
-function createUserClient(authorization?: string) {
-  const url = process.env.SUPABASE_URL
-  const key =
-    process.env.SUPABASE_ANON_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY
-
-  if (!url || !key) {
-    throw new Error('Supabase server configuration is missing.')
-  }
-
-  return createClient(url, key, {
-    ...(authorization
-      ? { global: { headers: { Authorization: authorization } } }
-      : {}),
-    auth: {
-      persistSession: false,
-      autoRefreshToken: false,
-    },
-  })
-}
+import { ServiceCreateSchema, ServiceListResponseSchema } from '@/schemas/service'
+import { createSupabaseUserClient as createUserClient } from '@/lib/supabaseServer'
 
 export async function GET() {
   try {
@@ -39,7 +19,11 @@ export async function GET() {
       )
     }
 
-    return NextResponse.json({ data }, { status: 200 })
+    const parsed = ServiceListResponseSchema.safeParse({ data })
+    if (!parsed.success) {
+      return NextResponse.json({ error: 'Service data is unavailable.' }, { status: 502 })
+    }
+    return NextResponse.json(parsed.data, { status: 200 })
   } catch {
     return NextResponse.json(
       { error: 'Server configuration or request error.' },

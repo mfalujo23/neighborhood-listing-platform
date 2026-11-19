@@ -8,3 +8,18 @@ export const ServiceCreateSchema = z.object({
 }).strict()
 
 export type ServiceCreateInput = z.infer<typeof ServiceCreateSchema>
+
+export const PublicServiceSchema = ServiceCreateSchema.extend({
+  id: z.string().uuid(),
+}).strict()
+
+export const ServiceListResponseSchema = z.object({
+  data: z.array(PublicServiceSchema),
+}).strict()
+
+export type PublicService = z.infer<typeof PublicServiceSchema>
+
+export const ServiceAdminUpdateSchema = z.object({
+  service_id: z.string().uuid(),
+  status: z.enum(['approved', 'suspended']).default('approved'),
+}).strict()

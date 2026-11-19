@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "path": ".env",
+      "ignored": true
+    },
+    {
+      "path": ".env.production.local",
+      "ignored": true
+    },
+    {
+      "path": "node_modules/example.js",
+      "ignored": true
+    },
+    {
+      "path": "dist/bundle.js",
+      "ignored": true
+    },
+    {
+      "path": ".next/server.js",
+      "ignored": true
+    },
+    {
+      "path": ".env.example",
+      "ignored": false
+    }
+  ],
+  "trackedEnvironmentPaths": [
+    ".env.example"
+  ]
+}
