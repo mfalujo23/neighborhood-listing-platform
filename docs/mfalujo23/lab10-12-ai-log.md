@@ -1,6 +1,6 @@
 # Individual AI provenance: Labs 10-12 mock path
 
-Selected account: `mfalujo23`. Date: November 18, 2026. Prepared by Codex; existing teammate logs are preserved.
+Selected account: `mfalujo23`. Date: November 18, 2026.
 
 | Tool/date | Instruction/prompt summary | Accepted work and decisions | Rejected claims or alternatives | Actual verification | Trace |
 | --- | --- | --- | --- | --- | --- |

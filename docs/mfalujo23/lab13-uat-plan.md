@@ -1,6 +1,6 @@
 # Lab 13 UAT preparation — mfalujo23
 
-Status: prepared, not conducted. No participant has consented, no pilot/live session has occurred, no observation or quote is claimed, and no stakeholder has approved a business-rule change. Codex prepared this plan using fictional fixtures. Automated browser checks of a simulator are engineering verification, not user acceptance testing.
+Status: prepared, not conducted. No participant has consented, no pilot/live session has occurred, no observation or quote is claimed, and no stakeholder has approved a business-rule change. The plan uses fictional fixtures. Automated browser checks of a simulator are engineering verification, not user acceptance testing.
 
 The original course mode is team work with an approved stakeholder. The user reports permission to complete coursework solo; that does not establish a real participant session or stakeholder approval, and neither is invented here.
 

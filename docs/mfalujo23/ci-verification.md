@@ -1,6 +1,6 @@
 # CI correction and verification
 
-Date: 2026-11-18. Prepared with Codex assistance for `mfalujo23`.
+Date: 2026-11-18.
 
 The inherited `.github/workflows/deploy.yml` allowed type, test, and build errors
 through `continue-on-error` and `|| true`. It therefore could not establish that

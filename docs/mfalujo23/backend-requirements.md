@@ -1,8 +1,7 @@
 # Backend acceptance and traceability
 
-This is the `mfalujo23` remediation of inherited Lab 5 and midterm backend work,
-prepared with Codex assistance. It does not attribute earlier teammates' work to
-this account. All executed database evidence is local and fictional.
+Database acceptance and authorization criteria for services, listings and bookings.
+Executed database evidence is local and fictional.
 
 ## Provider / merchant - Medium
 

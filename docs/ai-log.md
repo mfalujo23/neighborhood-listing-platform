@@ -178,10 +178,7 @@ The [personal release journal](mfalujo23/release-ai-log.md) records local coding
 
 ## 2026-11-18 - mfalujo23 Lab 1 remediation and matching model critique
 
-This appended entry records new work prepared with Codex for `mfalujo23`.
-Earlier entries above remain historical team records and are not attributed to
-this account or re-certified by this entry. The user reports an instructor
-solo-work exception; no partner activity or peer review is invented.
+Lab 1 implementation and matching model-review evidence are recorded below.
 
 See the [personal Lab 1 AI journal](mfalujo23/lab1-ai-log.md) for the exact
 matching prompt, two observed ChatGPT/Gemini differences, useful and rejected

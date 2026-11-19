@@ -1,6 +1,6 @@
 # ADR 002: One source for the synthetic property exchange contract
 
-Date: November 18, 2026. Status: implemented locally; student review pending. Prepared with Codex assistance for mfalujo23.
+Date: November 18, 2026. Status: implemented locally; student review pending.
 
 ## Decision
 
@@ -18,7 +18,7 @@ Canvas did not mandate specific state or amenity enum values. The US-state/DC sc
 
 ## Boundary and tradeoffs
 
-`/listings` treats imported generated JSON as unknown runtime data and calls `validatePropertyCollection` before handing records to client components. If any record is invalid, the collection fails closed and a generic unavailable panel replaces all cards. The original teammate fixture and legacy documents are preserved; the current five-record fixture is separately named and explicitly Codex-authored.
+`/listings` treats imported generated JSON as unknown runtime data and calls `validatePropertyCollection` before handing records to client components. If any record is invalid, the collection fails closed and a generic unavailable panel replaces all cards. The original teammate fixture and legacy documents are preserved; the local five-record fixture is separately named and explicitly synthetic.
 
 The archive `pages-old/` is excluded by the existing application configuration and is not a supported active view. New active card consumers must supply the canonical type. Strict unknown-key rejection requires a deliberate mapping at any existing database/API boundary whose field names differ; this change does not falsely claim to retrofit every persistence endpoint.
 

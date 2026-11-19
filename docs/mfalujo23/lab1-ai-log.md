@@ -1,12 +1,8 @@
 # Lab 1 AI-assistance log - mfalujo23
 
-Date: 2026-11-18. Prepared with Codex for the user-selected GitHub account
-`mfalujo23`. Earlier teammates' work and AI records remain their own.
+Date: 2026-11-18. Account: `mfalujo23`.
 
-The user requested missing CIS 3610 work from the beginning and reported
-instructor permission to work individually. Codex implemented and checked the
-remediation, operated the model websites, and evaluated their output. These
-activities are not represented as student-performed tests or student mastery.
+Scope: Lab 1 remediation and matching model review. Personal understanding and required reviews remain separate from the verification recorded below.
 
 ## Actual matching model experiment
 

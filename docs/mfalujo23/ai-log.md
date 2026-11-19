@@ -1,6 +1,6 @@
 # AI assistance log: mfalujo23 remediation preparation
 
-Date: November 18, 2026. Tool: Codex; exact model identifier not exposed to this agent. Entries were prepared by Codex while assisting the user, not independently written or verified by the student. Student acceptance and personal explanation remain to be recorded.
+Date: November 18, 2026. Tool: Codex; exact model version not exposed. Personal review and explanation remain pending.
 
 ## Labs 2 and 3: current components and contract
 

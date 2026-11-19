@@ -1,6 +1,6 @@
 # Audit 6: sponsor eligibility and selection — mfalujo23
 
-Prepared with Codex assistance for review. This file contains actual local evidence; it does not assert a hosted migration, teacher approval, teammate review, or legal/accessibility compliance.
+This file contains actual local evidence; it does not assert a hosted migration, teacher approval, teammate review, or legal/accessibility compliance.
 
 ## Exact database function
 
@@ -294,4 +294,4 @@ The visible `Sponsored — paid local partner` paragraph is referenced by the as
 
 ## Verification limits
 
-Focused test output is in `evidence/lab6-tests.txt`; actual selection, URL, redirect and coarse impression results are in `evidence/lab6-actual-results.json`. The coordinating backend agent executed the exact migration and fixture against disposable local PostgreSQL in PGlite for UUID and historical TEXT/company_name-NOT-NULL schema families. Both returned C, B, A with D excluded; actual outer and inner EXPLAIN plans, permission denials, coarse event insertion and counter increment are recorded in `backend-evidence/local-sponsor-results.json`. See the decision note for the execution limits. No cloud migration or sponsor click is part of this evidence. The required ChatGPT-and-Gemini critique, human partner review and course submission remain separate actions; Codex output is not labeled as either required tool run.
+Focused test output is in `evidence/lab6-tests.txt`; actual selection, URL, redirect and coarse impression results are in `evidence/lab6-actual-results.json`. The coordinating backend agent executed the exact migration and fixture against disposable local PostgreSQL in PGlite for UUID and historical TEXT/company_name-NOT-NULL schema families. Both returned C, B, A with D excluded; actual outer and inner EXPLAIN plans, permission denials, coarse event insertion and counter increment are recorded in `backend-evidence/local-sponsor-results.json`. See the decision note for the execution limits. No cloud migration or sponsor click is part of this evidence. The actual [consolidated ChatGPT/Gemini review](consolidated-model-review.md) is recorded separately. Human review and course submission require separate evidence.

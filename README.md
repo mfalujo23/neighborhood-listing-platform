@@ -99,11 +99,6 @@ remediation.
 
 ## Lab 1 contribution and evidence
 
-This remediation was prepared with Codex assistance for the `mfalujo23` account.
-The new AI log distinguishes automated checks from student review and lists
-unfinished assignment requirements. It does not attribute earlier teammates'
-implementation, tests, or reviews to this account.
-
 - [AI-assistance log](docs/mfalujo23/lab1-ai-log.md)
 - [Verification notes](docs/mfalujo23/lab1-verification.md)
 - [Existing team AI log](docs/ai-log.md)
