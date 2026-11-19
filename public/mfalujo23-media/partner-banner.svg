@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" width="640" height="240">
+  <rect width="640" height="240" rx="20" fill="#edf3e9"/>
+  <circle cx="550" cy="55" r="30" fill="#f1d68b"/>
+  <path d="M0 200Q180 140 320 195T640 175V240H0Z" fill="#c3d6b5"/>
+  <path d="M115 183V80M115 130Q55 130 65 85Q118 86 115 130M115 112Q172 114 175 67Q120 66 115 112" fill="#4f7854" stroke="#35583e" stroke-width="5"/>
+  <path d="M68 170H162L147 218H83Z" fill="#b66b4d"/>
+  <text x="220" y="102" font-family="sans-serif" font-size="27" font-weight="700" fill="#233f30">Fictional Garden Partner</text>
+  <text x="220" y="145" font-family="sans-serif" font-size="19" fill="#35583e">Classroom example</text>
+</svg>

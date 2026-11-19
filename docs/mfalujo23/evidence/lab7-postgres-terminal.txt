@@ -1,0 +1,1 @@
+MEDIA LOCAL POSTGRESQL: 8 checks PASS;3 test-only assets;production approval absent;draft/expiry/length gates verified.

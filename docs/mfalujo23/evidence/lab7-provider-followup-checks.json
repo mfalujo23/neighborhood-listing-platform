@@ -1,0 +1,24 @@
+{
+  "focusedVitest": {
+    "command": "node node_modules/vitest/vitest.mjs run src/test/media.test.ts src/test/mediaRenditions.test.ts src/test/providerCopy.test.ts",
+    "files": 3,
+    "passed": 31,
+    "failed": 0,
+    "exit": 0,
+    "recordedLocalStart": "2026-11-18 18:20:19",
+    "durationSeconds": 1.15
+  },
+  "strictScopedLint": {
+    "command": "node node_modules/eslint/bin/eslint.js src/media src/app/media-demo src/app/api/media src/test/media.test.ts src/test/mediaRenditions.test.ts src/test/providerCopy.test.ts --max-warnings 0",
+    "exit": 0,
+    "maxWarnings": 0
+  },
+  "typecheck": {
+    "command": "node node_modules/typescript/bin/tsc --noEmit",
+    "exit": 0
+  },
+  "sourceScope": "Actual-provider follow-up staged over the media descriptor/metrics correction. Frozen original snapshots are unchanged.",
+  "browserEvidence": "Four fresh runs apply to the media-correction build before this provider-draft review UI overlay.",
+  "humanApproval": "pending; no status change or fabricated actor",
+  "externalWritesPerformed": false
+}

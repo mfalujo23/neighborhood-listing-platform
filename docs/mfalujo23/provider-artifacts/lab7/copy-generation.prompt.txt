@@ -1,0 +1,33 @@
+Using only the fictional source facts below, create exactly three distinct sponsor blurbs. Each blurb must be strictly fewer than 120 characters (119 maximum), counting spaces and punctuation. Include the exact business name, the gardening-guide fact, and the exact disclaimer "Classroom demo only." You may omit address, dates and URL to stay within the limit; if included, preserve their meaning exactly. Do not imply that the guide is free, downloadable, available in person, guaranteed, urgent, superior, or suitable for a demographic group. Do not invent a discount, real offer, real business, physical address, payment, contact, endorsement or human approval.
+
+All outputs are DRAFTS requiring human review. The facts are classroom test inputs, not evidence of stakeholder approval. The fixture dates are UTC campaign boundaries; do not say the campaign is active unless the supplied date context supports that.
+
+For each variant, return its exact text, your character count, status "draft", and a fact-to-phrase trace. Each trace phrase must be an exact substring of your output and identify the source fact it expresses. Separate connective wording from factual claims. Do not claim that a model critique approves publication.
+
+Return only valid JSON:
+{
+  "brief_id": "fictional-garden-v1",
+  "variants": [
+    {
+      "id": "variant-1",
+      "text": "...",
+      "character_count": 0,
+      "status": "draft",
+      "fact_trace": [{"phrase": "...", "fact_id": "business_name"}],
+      "connective_wording": ["..."]
+    }
+  ]
+}
+
+Allowed fact_id values: business_name, offer, address, url, starts_on, ends_on, disclaimer.
+SOURCE FACTS:
+{
+  "brief_id": "fictional-garden-v1",
+  "business_name": "Fictional Garden Partner",
+  "offer": "a fictional gardening guide",
+  "address": "No physical location; fictional classroom setting",
+  "url": "/media-demo/partner",
+  "starts_on": "2026-11-19",
+  "ends_on": "2026-11-26",
+  "disclaimer": "Classroom demo only."
+}

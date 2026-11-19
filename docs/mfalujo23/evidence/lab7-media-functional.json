@@ -1,0 +1,119 @@
+{
+  "startedAt": "2026-11-19T01:38:55.140Z",
+  "mode": "production Next build, local fictional fixtures",
+  "cacheDisabled": false,
+  "measurements": [
+    {
+      "capturedAtUTC": "2026-11-19T01:38:56.319Z",
+      "page": "/media-demo",
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1
+      },
+      "lcpMs": null,
+      "lcpElement": null,
+      "observedDocumentAndResourceTransferBytes": 357890,
+      "observedEncodedDocumentAndResourceBytes": 352190,
+      "resourceEntryCount": 18,
+      "pageWeightDefinition": "Sum of available navigation/resource timing entries before the separate MIME HEAD requests. Earlier interactions, development HMR, caching and buffer limits can affect this observation; use a fresh controlled reload.",
+      "lcpDefinition": "Last observed largest-contentful-paint startTime from this navigation; null means unavailable.",
+      "cacheNote": "Zero transfer bytes can indicate a cache hit. Use DevTools cache-disabled hard reload and record network settings for comparison.",
+      "telemetry": "Local in-memory audit only; no external recipient, storage, provider or user identity.",
+      "records": [
+        {
+          "assetId": "home-navigation",
+          "path": "/mfalujo23-media/home-icon.svg",
+          "renderedCssWidth": 32,
+          "naturalWidth": 48,
+          "naturalHeight": 48,
+          "transferBytes": null,
+          "encodedBodyBytes": null,
+          "downloadMs": null,
+          "requestDurationMs": null,
+          "contentType": "image/svg+xml",
+          "headerStatus": 200,
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        },
+        {
+          "assetId": "fictional-property",
+          "path": "/mfalujo23-media/property-1280.webp",
+          "renderedCssWidth": 998,
+          "naturalWidth": 332,
+          "naturalHeight": 187,
+          "transferBytes": null,
+          "encodedBodyBytes": null,
+          "downloadMs": null,
+          "requestDurationMs": null,
+          "contentType": "image/webp",
+          "headerStatus": 200,
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        },
+        {
+          "assetId": "fictional-partner",
+          "path": "/mfalujo23-media/partner-banner.svg",
+          "renderedCssWidth": 640,
+          "naturalWidth": 640,
+          "naturalHeight": 240,
+          "transferBytes": 1006,
+          "encodedBodyBytes": 706,
+          "downloadMs": 0.6999999992549419,
+          "requestDurationMs": 6.399999998509884,
+          "contentType": "image/svg+xml",
+          "headerStatus": 200,
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "test": "missing image",
+      "before": {
+        "aspect": "1280 / 720",
+        "height": 561.375,
+        "width": 998
+      },
+      "after": {
+        "aspect": "1280 / 720",
+        "height": 561.375,
+        "text": "Image unavailable — the description and page actions remain available.",
+        "width": 998
+      }
+    },
+    {
+      "test": "known draft server validation",
+      "status": "Server validated the draft. Human approval is still required; nothing published."
+    },
+    {
+      "test": "unsupported guarantee/superlative",
+      "status": "UI validation: PROHIBITED_CLAIM. Nothing published."
+    },
+    {
+      "test": "end date before campaign start",
+      "status": "UI validation: INVALID_CAMPAIGN_DATES. Nothing published.",
+      "inputMethod": "Native calendar selection; controlled-date fill did not update React state."
+    },
+    {
+      "test": "mobile layout",
+      "result": {
+        "imageBoxes": [
+          {
+            "height": 32,
+            "width": 32
+          },
+          {
+            "height": 176.0625,
+            "width": 313
+          },
+          {
+            "height": 117.375,
+            "width": 313
+          }
+        ],
+        "scrollWidth": 375,
+        "width": 390
+      }
+    }
+  ]
+}
