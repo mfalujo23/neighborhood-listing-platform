@@ -1,98 +1,86 @@
-# Local Merchant Services and Appointment Booking Requirements
+# Local Services and Appointment Booking Requirements
 
-## Scope and assumptions
+## 1. Service provider or merchant
 
-This exam slice supports local service providers, neighborhood clients, and platform administrators. A provider-created service starts as a draft and must be approved before public display. Booking requests are accepted, but clients cannot read other clients' bookings.
+As an authenticated provider or merchant, I want to submit service drafts with
+hourly rates so residents can request appointments after administrator approval.
 
-The exam specifies active service categories and coverage radius, but does not fully define how neighborhood districts or coverage zones are stored. Those details need confirmation before they can be implemented precisely.
+Scope: Medium.
 
-## Story 1: Provider submits a service draft
+- Given a verified provider or merchant session, when a valid strict service
+  payload is submitted, then the server binds provider_id to that session and
+  saves status=draft.
+- Given missing authentication, when a draft is submitted, then the API returns
+  401. A verified client profile receives 403.
+- Given an unknown key, short title, negative rate, duration below 15, or invalid
+  radius, when submitted, then structured 400 errors are returned before insert.
+- Given the provider's own draft or suspended service, when editing or deleting,
+  then RLS permits the operation. Another provider's or a live approved service
+  cannot be modified, and providers cannot self-publish.
 
-**User story:** As an authenticated service provider, I want to submit a service listing with an hourly rate so that clients can request appointments after an administrator approves it.
+Trace: [required exam migration](../supabase/migrations/20261029140000_exam_services_persistence.sql),
+[forward repair](../supabase/migrations/20261118000400_restore_backend_contracts_rls.sql),
+[exact-role forward constraint](../supabase/migrations/20261118000700_midterm_profile_roles.sql),
+[service schema](../src/schemas/service.ts), [service API](../src/app/api/services/route.ts).
 
-**Estimate:** Medium
+## 2. Neighborhood resident
 
-**Acceptance criteria:**
+As a resident, I want to browse approved local services and request an appointment
+without seeing bookings or contact information submitted by other clients.
 
-- **Given** an authenticated provider and a valid service payload, **when** the provider submits the service, **then** the service is saved with `status = 'draft'` and `provider_id` equal to the authenticated user's ID.
-- **Given** a service payload with a title shorter than five characters, a negative rate, an invalid duration, or an unknown field, **when** the provider submits it, **then** the API returns HTTP 400 and does not insert the service.
+Scope: Medium.
 
-**Traceability:** `supabase/migrations/20261029140000_exam_services_persistence.sql`; `src/schemas/service.ts`; `app/api/services/route.ts`.
+- Given an anonymous visitor, when requesting services, then only approved
+  services with active coverage are returned, with exactly the five public
+  fields required by the examination.
+- Given valid public records, when visiting /services, then semantic service
+  cards show rate, duration and radius in a Tailwind 1/2/3-column layout.
+- Given malformed runtime service data, when loading the catalog, then a
+  recoverable error is shown instead of rendering unsafe data.
+- Given valid email, calendar date and notes, when submitting a booking, then
+  only that booking payload is inserted and a receipt is returned without
+  selecting or echoing contact records.
+- Given invalid fields, when submitting, then errors are associated with their
+  controls and focus moves to the first invalid field. Cancel returns focus to
+  the opening button; successful submission focuses the receipt.
+- Given an anonymous booking SELECT, then SQL denies table access with 42501.
+  Given an authenticated client SELECT, then RLS returns no booking rows.
 
-## Story 2: Client browses and requests a service
+Trace: [booking schema](../src/schemas/booking.ts),
+[booking API](../src/app/api/bookings/route.ts),
+[mounted page](../src/app/services/page.tsx),
+[ServiceCatalog](../src/components/ServiceCatalog.tsx),
+[ServiceCard](../src/components/ServiceCard.tsx),
+[security matrix](security-audit.md).
 
-**User story:** As a neighborhood client, I want to browse approved local services and request an appointment without seeing other clients' booking details.
+The specified DDL supplies radius and active categories but no district/zone
+entity or coordinates. This implementation uses coverage_active as an explicit
+availability flag. District grouping and geographic distance matching are not
+implemented or inferred from that flag.
 
-**Estimate:** Large
+## 3. Platform administrator
 
-**Acceptance criteria:**
+As an administrator, I want to approve or suspend service offerings and audit
+bookings so unsafe offerings can be removed from public discovery and booking.
 
-- **Given** an anonymous visitor, **when** they request the services list, **then** the response includes only services with `status = 'approved'` and only public service fields.
-- **Given** a visitor submits a booking request with a valid service, email, date, and notes, **when** the request is accepted, **then** a booking is created.
-- **Given** a client requests booking records, **when** they try to read bookings, **then** they cannot see bookings or contact information belonging to other clients.
+Scope: Medium.
 
-**Traceability:** `supabase/migrations/20261029140000_exam_services_persistence.sql`; `app/api/services/route.ts`; booking access rules in `docs/security-audit.md`. A dedicated booking route is not listed in the exam's required route files and needs confirmation.
+- Given a verified session whose protected profile role is admin, when PATCH
+  /api/admin/services receives an approved or suspended update, then the
+  server-only elevated client applies it. Providers and clients receive 403.
+- Given suspension, when anonymous visitors query or book the offering, then
+  approved-only RLS removes it from public results and rejects booking inserts.
+- Given a verified administrator, when requesting /api/admin/bookings, then
+  the protected server route may audit bookings.
+- Given a browser identity, when trying to assign its own admin role, then RLS
+  rejects the insert. New profile writes accept only admin, merchant, provider,
+  or client; existing legacy rows are retained without granting new legacy roles.
 
-## Story 3: Administrator reviews services and bookings
+Trace: [server-only compatibility module](../src/lib/supabaseServer.ts),
+[admin service API](../src/app/api/admin/services/route.ts),
+[admin booking API](../src/app/api/admin/bookings/route.ts),
+[exact-role forward constraint](../supabase/migrations/20261118000700_midterm_profile_roles.sql).
 
-**User story:** As a platform administrator, I want to approve or suspend services and review bookings so that I can oversee service quality and address misuse.
-
-**Estimate:** Large
-
-**Acceptance criteria:**
-
-- **Given** an authenticated administrator, **when** they approve a draft service, **then** its status changes to `approved` and it becomes available through the public services query.
-- **Given** an administrator, **when** they review bookings for a service, **then** they can see bookings associated with that service.
-- **Given** a non-admin user, **when** they attempt an administrator action or read another user's booking, **then** the request is denied by server authorization or RLS.
-
-**Traceability:** `supabase/migrations/20261029140000_exam_services_persistence.sql`; administrator and booking policies in `docs/security-audit.md`; server-side route authorization.
-
-## Questions to confirm
-
-1. How are neighborhood districts and active coverage zones represented? The required schema includes `coverage_radius_miles` and active categories but no district or zone table.
-2. Should a booking be allowed for an unapproved or suspended service? The requirements imply bookings should be for approved services.
-3. Does “admin elevated service execution” mean a server-only service-role client, or a custom admin role checked through `profiles`?
-
-# Product Requirements & Acceptance Criteria (Local Services & Bookings Subsystem)
-
-## User Stories & Traceability Matrix
-
-### Story 1: Service Provider / Merchant Listing Creation
-* **Role**: Service Provider / Merchant
-* **Goal**: Submit service listing drafts with hourly rates, duration, and coverage radius so clients can book appointments once verified.
-* **Scope Estimate**: Medium
-* **Traceability Link**: `supabase/migrations/20261029140000_exam_services_persistence.sql` (`services` table) | `app/api/services/route.ts` (`POST`)
-
-#### Acceptance Criteria
-* **Given** an authenticated merchant provider,
-* **When** submitting a service offering payload with a valid title (>= 5 chars), rate (>= 0), duration (>= 15 mins), and radius (> 0),
-* **Then** the record is stored in `services` with `status = 'draft'` and `provider_id = auth.uid()`.
-
----
-
-### Story 2: Neighborhood Client / Resident Service Discovery & Anonymous Booking
-* **Role**: Neighborhood Client / Resident
-* **Goal**: Browse approved services by district and submit appointment bookings without viewing other client details.
-* **Scope Estimate**: Medium
-* **Traceability Link**: `app/api/services/route.ts` (`GET`) | `src/components/ServiceCard.tsx` | `services` & `bookings` RLS policies
-
-#### Acceptance Criteria
-* **Given** an anonymous neighborhood visitor,
-* **When** querying service offerings,
-* **Then** only listings with `status = 'approved'` and active categories are returned.
-* **Given** a client requesting a service,
-* **When** submitting a booking request with email, requested date, and notes,
-* **Then** the booking persists successfully, but client remains unable to read bookings submitted by others.
-
----
-
-### Story 3: Platform Administrator Oversight
-* **Role**: Platform Administrator
-* **Goal**: Maintain full administrative oversight to review, approve, or deactivate listings and audit bookings.
-* **Scope Estimate**: Small
-* **Traceability Link**: `profiles` RLS policy (`role = 'admin'`) | `bookings` policy
-
-#### Acceptance Criteria
-* **Given** an authenticated administrator,
-* **When** querying or modifying any record across `services`, `bookings`, or `profiles`,
-* **Then** access is granted unconditionally through full administrative policies.
+Suspending offerings is implemented. Disabling an actual Supabase Auth account,
+cloud deployment, hosted authentication and hosted database migration require
+separate provider-side execution and evidence.

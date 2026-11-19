@@ -1,26 +1,7 @@
-import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
-import { ServiceCreateSchema } from '@/schemas/service'
-
-function createUserClient(authorization?: string) {
-  const url = process.env.SUPABASE_URL
-  const key =
-    process.env.SUPABASE_ANON_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY
-
-  if (!url || !key) {
-    throw new Error('Supabase server configuration is missing.')
-  }
-
-  return createClient(url, key, {
-    ...(authorization
-      ? { global: { headers: { Authorization: authorization } } }
-      : {}),
-    auth: {
-      persistSession: false,
-      autoRefreshToken: false,
-    },
-  })
-}
+import { ServiceCreateSchema, ServiceListResponseSchema } from '@/schemas/service'
+import { createSupabaseUserClient as createUserClient } from '@/lib/supabaseServer'
+import { JsonBodyError, readJsonBody } from '@/lib/request-controls'
 
 export async function GET() {
   try {
@@ -29,6 +10,7 @@ export async function GET() {
       .from('services')
       .select('id, title, hourly_rate, duration_minutes, coverage_radius_miles')
       .eq('status', 'approved')
+      .eq('coverage_active', true)
       .order('created_at', { ascending: false })
 
     if (error) {
@@ -38,7 +20,11 @@ export async function GET() {
       )
     }
 
-    return NextResponse.json({ data }, { status: 200 })
+    const parsed = ServiceListResponseSchema.safeParse({ data })
+    if (!parsed.success) {
+      return NextResponse.json({ error: 'Service data is unavailable.' }, { status: 502 })
+    }
+    return NextResponse.json(parsed.data, { status: 200 })
   } catch {
     return NextResponse.json(
       { error: 'Server configuration or request error.' },
@@ -57,11 +43,11 @@ export async function POST(request: Request) {
 
   let body: unknown
   try {
-    body = await request.json()
-  } catch {
+    body = await readJsonBody(request)
+  } catch (error) {
     return NextResponse.json(
-      { error: 'Request body must be valid JSON.' },
-      { status: 400 },
+      { error: error instanceof JsonBodyError ? error.message : 'Request body must be valid JSON.' },
+      { status: error instanceof JsonBodyError ? error.status : 400 },
     )
   }
 
@@ -88,8 +74,13 @@ export async function POST(request: Request) {
       .eq('id', authData.user.id)
       .maybeSingle()
 
+    if (profileError) {
+      return NextResponse.json(
+        { error: 'Account authorization is temporarily unavailable.' },
+        { status: profileError.code === '42501' ? 403 : 503 },
+      )
+    }
     if (
-      profileError ||
       !profile ||
       !['provider', 'merchant'].includes(profile.role)
     ) {
@@ -112,9 +103,10 @@ export async function POST(request: Request) {
       .single()
 
     if (error) {
+      const status = error.code === '42501' ? 403 : error.code?.startsWith('23') ? 400 : 500
       return NextResponse.json(
         { error: 'Could not create service.' },
-        { status: 403 },
+        { status },
       )
     }
 

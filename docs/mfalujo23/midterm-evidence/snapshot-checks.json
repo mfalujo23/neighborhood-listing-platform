@@ -1,0 +1,209 @@
+{
+  "base": "5a51dcb601b372ea2ac4ab9147611743068f2ace",
+  "baseTree": "eae525c510be2dda659460d6889de1e4000398cf",
+  "sourceFiles": [
+    ".env.example",
+    ".gitignore",
+    "docs/ai-log.md",
+    "docs/mfalujo23/midterm-ai-log.md",
+    "docs/mfalujo23/midterm-evidence/backend-regression-results.json",
+    "docs/mfalujo23/midterm-evidence/browser-qa.json",
+    "docs/mfalujo23/midterm-evidence/browser-server.txt",
+    "docs/mfalujo23/midterm-evidence/clean-install.txt",
+    "docs/mfalujo23/midterm-evidence/commands.json",
+    "docs/mfalujo23/midterm-evidence/database-results.json",
+    "docs/mfalujo23/midterm-evidence/fixture-http.txt",
+    "docs/mfalujo23/midterm-evidence/fresh-bootstrap-check.json",
+    "docs/mfalujo23/midterm-evidence/fresh-supabase-bootstrap.sql",
+    "docs/mfalujo23/midterm-evidence/git-hygiene.txt",
+    "docs/mfalujo23/midterm-evidence/history-classification-safe.json",
+    "docs/mfalujo23/midterm-evidence/isolated-build.txt",
+    "docs/mfalujo23/midterm-evidence/isolated-lint.txt",
+    "docs/mfalujo23/midterm-evidence/isolated-test.txt",
+    "docs/mfalujo23/midterm-evidence/isolated-typecheck.txt",
+    "docs/mfalujo23/midterm-evidence/snapshot-checks.json",
+    "docs/mfalujo23/midterm-evidence/workflow-hotfix-published.json",
+    "docs/mfalujo23/midterm-verification.md",
+    "docs/mfalujo23/security-history-remediation.md",
+    "docs/requirements.md",
+    "docs/security-audit.md",
+    "package-lock.json",
+    "package.json",
+    "scripts/midterm-local-preview.mjs",
+    "scripts/verify-local-midterm.mjs",
+    "src/app/api/admin/services/route.ts",
+    "src/app/api/bookings/route.ts",
+    "src/app/api/services/route.ts",
+    "src/app/page.tsx",
+    "src/app/services/page.tsx",
+    "src/components/ServiceCard.tsx",
+    "src/components/ServiceCatalog.tsx",
+    "src/lib/supabaseServer.ts",
+    "src/schemas/booking.ts",
+    "src/schemas/service.ts",
+    "src/test/adminService.test.ts",
+    "src/test/serviceApi.test.ts",
+    "src/test/serviceCatalog.test.tsx",
+    "supabase/migrations/20261029140000_exam_services_persistence.sql",
+    "supabase/migrations/20261118000700_midterm_profile_roles.sql"
+  ],
+  "unchangedBaselineFiles": 169,
+  "modifiedBaselineFiles": [
+    ".env.example",
+    ".gitignore",
+    "docs/ai-log.md",
+    "docs/requirements.md",
+    "docs/security-audit.md",
+    "package-lock.json",
+    "package.json",
+    "src/app/api/admin/services/route.ts",
+    "src/app/api/bookings/route.ts",
+    "src/app/api/services/route.ts",
+    "src/app/page.tsx",
+    "src/components/ServiceCard.tsx",
+    "src/components/ServiceCatalog.tsx",
+    "src/schemas/service.ts",
+    "src/test/serviceApi.test.ts",
+    "supabase/migrations/20261029140000_exam_services_persistence.sql"
+  ],
+  "expectedGeneratedTypeChanges": [],
+  "historicalTeamLogBytesPreserved": 9175,
+  "localLinksChecked": 33,
+  "localLinks": [
+    {
+      "source": "docs/mfalujo23/midterm-verification.md",
+      "target": "midterm-evidence/fresh-supabase-bootstrap.sql"
+    },
+    {
+      "source": "docs/mfalujo23/midterm-verification.md",
+      "target": "midterm-evidence/fresh-bootstrap-check.json"
+    },
+    {
+      "source": "docs/mfalujo23/midterm-verification.md",
+      "target": "midterm-evidence/browser-qa.json"
+    },
+    {
+      "source": "docs/mfalujo23/midterm-verification.md",
+      "target": "midterm-evidence/browser-server.txt"
+    },
+    {
+      "source": "docs/mfalujo23/midterm-verification.md",
+      "target": "midterm-evidence/clean-install.txt"
+    },
+    {
+      "source": "docs/mfalujo23/midterm-verification.md",
+      "target": "midterm-evidence/isolated-lint.txt"
+    },
+    {
+      "source": "docs/mfalujo23/midterm-verification.md",
+      "target": "midterm-evidence/isolated-typecheck.txt"
+    },
+    {
+      "source": "docs/mfalujo23/midterm-verification.md",
+      "target": "midterm-evidence/isolated-test.txt"
+    },
+    {
+      "source": "docs/mfalujo23/midterm-verification.md",
+      "target": "midterm-evidence/isolated-build.txt"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../supabase/migrations/20261029140000_exam_services_persistence.sql"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../supabase/migrations/20261118000400_restore_backend_contracts_rls.sql"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../supabase/migrations/20261118000700_midterm_profile_roles.sql"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../src/schemas/service.ts"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../src/app/api/services/route.ts"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../src/schemas/booking.ts"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../src/app/api/bookings/route.ts"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../src/app/services/page.tsx"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../src/components/ServiceCatalog.tsx"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../src/components/ServiceCard.tsx"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "security-audit.md"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../src/lib/supabaseServer.ts"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../src/app/api/admin/services/route.ts"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../src/app/api/admin/bookings/route.ts"
+    },
+    {
+      "source": "docs/requirements.md",
+      "target": "../supabase/migrations/20261118000700_midterm_profile_roles.sql"
+    },
+    {
+      "source": "docs/security-audit.md",
+      "target": "mfalujo23/midterm-evidence/database-results.json"
+    },
+    {
+      "source": "docs/security-audit.md",
+      "target": "../src/lib/supabaseServer.ts"
+    },
+    {
+      "source": "docs/security-audit.md",
+      "target": "../src/test/serviceApi.test.ts"
+    },
+    {
+      "source": "docs/security-audit.md",
+      "target": "../src/test/adminService.test.ts"
+    },
+    {
+      "source": "docs/security-audit.md",
+      "target": "mfalujo23/midterm-verification.md"
+    },
+    {
+      "source": "docs/security-audit.md",
+      "target": "mfalujo23/security-history-remediation.md"
+    },
+    {
+      "source": "docs/mfalujo23/security-history-remediation.md",
+      "target": "midterm-evidence/history-classification-safe.json"
+    },
+    {
+      "source": "docs/ai-log.md",
+      "target": "mfalujo23/midterm-ai-log.md"
+    },
+    {
+      "source": "docs/ai-log.md",
+      "target": "mfalujo23/midterm-verification.md"
+    }
+  ],
+  "environmentTemplateContainsNoSecrets": true,
+  "postgresqlCases": 50,
+  "excludesUnpublishedSponsorAnalyticsMedia": true
+}

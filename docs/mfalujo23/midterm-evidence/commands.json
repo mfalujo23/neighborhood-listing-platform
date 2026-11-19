@@ -1,0 +1,56 @@
+{
+  "base": "5a51dcb601b372ea2ac4ab9147611743068f2ace",
+  "baseTree": "eae525c510be2dda659460d6889de1e4000398cf",
+  "date": "2026-11-18",
+  "node": "24.22.3",
+  "npm": "11.21.3",
+  "cleanInstall": {
+    "vulnerabilities": 0,
+    "exit": 0,
+    "audited": 486,
+    "command": "npm ci --ignore-scripts",
+    "added": 479
+  },
+  "lint": {
+    "exit": 0,
+    "command": "npm run lint -- --max-warnings 0"
+  },
+  "typecheck": {
+    "exit": 0,
+    "note": "Passed again after restoring baseline generated next-env.d.ts imports.",
+    "command": "npm run typecheck"
+  },
+  "tests": {
+    "webhook": 19,
+    "exit": 0,
+    "midtermPostgresql": 50,
+    "command": "npm test",
+    "vitest": 100,
+    "backendPostgresql": 45
+  },
+  "build": {
+    "credentialFree": true,
+    "exit": 0,
+    "sandbox": "approved outside Windows filesystem sandbox",
+    "command": "npm run build",
+    "staticGenerationTasks": 12
+  },
+  "fixtureTransport": {
+    "stoppedAfterProbe": true,
+    "localOnly": true,
+    "host": "127.0.0.1",
+    "port": 54325,
+    "cases": [
+      200,
+      201,
+      403,
+      400
+    ]
+  },
+  "limits": [
+    "No hosted Supabase migration/Auth/PostgREST",
+    "No deployed midterm build yet",
+    "No student manual test or peer review claimed",
+    "No claim of a fresh provider-specific AI experiment"
+  ]
+}

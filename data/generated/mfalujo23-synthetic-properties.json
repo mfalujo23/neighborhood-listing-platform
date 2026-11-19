@@ -1,0 +1,67 @@
+[
+  {
+    "property_id": "10000000-0000-4000-8000-000000000001",
+    "street": "101 Imaginary Garden Lane",
+    "city": "Demo Grove",
+    "state": "CA",
+    "zip_code": "90032",
+    "price": 425000,
+    "bedrooms": 2,
+    "bathrooms": 1.5,
+    "square_feet": 1100,
+    "amenities": ["garden", "parking"],
+    "local_sponsors": [{ "sponsor_id": "20000000-0000-4000-8000-000000000001", "name": "Imaginary Garden Shop" }]
+  },
+  {
+    "property_id": "10000000-0000-4000-8000-000000000002",
+    "street": "202 Fictional Terrace",
+    "city": "Sample Heights",
+    "state": "CA",
+    "zip_code": "90031-1234",
+    "price": 610000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "square_feet": 1650,
+    "amenities": ["balcony", "air_conditioning"],
+    "local_sponsors": []
+  },
+  {
+    "property_id": "10000000-0000-4000-8000-000000000003",
+    "street": "303 Make-Believe Court",
+    "city": "Demo Grove",
+    "state": "CA",
+    "zip_code": "90032",
+    "price": 780000,
+    "bedrooms": 4,
+    "bathrooms": 2.5,
+    "square_feet": 2200,
+    "amenities": ["pool", "parking", "pet_friendly"],
+    "local_sponsors": [{ "sponsor_id": "20000000-0000-4000-8000-000000000002", "name": "Fictional Neighborhood Cafe" }]
+  },
+  {
+    "property_id": "10000000-0000-4000-8000-000000000004",
+    "street": "404 Invented Studio Walk",
+    "city": "Example Harbor",
+    "state": "CA",
+    "zip_code": "90731",
+    "price": 295000,
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "square_feet": 520,
+    "amenities": ["pet_friendly"],
+    "local_sponsors": []
+  },
+  {
+    "property_id": "10000000-0000-4000-8000-000000000005",
+    "street": "505 Placeholder Avenue",
+    "city": "Sample Heights",
+    "state": "CA",
+    "zip_code": "90031",
+    "price": 550000,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "square_feet": 1300,
+    "amenities": ["balcony", "garden", "air_conditioning"],
+    "local_sponsors": []
+  }
+]

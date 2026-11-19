@@ -1,0 +1,29 @@
+
+> neighborhood-listing-platform@0.1.0 dev
+> next dev --webpack --hostname 127.0.0.1 --port 3002
+
+▲ Next.js 16.4.6 (webpack)
+- Local:         http://127.0.0.1:3002
+- Network:       http://127.0.0.1:3002
+✓ Ready in 2.3s
+✓ Running next.config took 81ms
+
+○ Compiling /services/page ...
+ GET /services 200 in 449ms (next.js: 280ms, application-code: 169ms)
+ GET /api/services 200 in 1327ms (next.js: 1108ms, application-code: 218ms)
+ GET /services 200 in 109ms (next.js: 33ms, application-code: 77ms)
+ POST /api/bookings 201 in 199ms (next.js: 51ms, application-code: 148ms)
+ GET /services 200 in 104ms (next.js: 55ms, application-code: 49ms)
+ GET /services 200 in 37ms (next.js: 7ms, application-code: 30ms)
+ GET /services 200 in 37ms (next.js: 6ms, application-code: 31ms)
+ GET /services 200 in 39ms (next.js: 7ms, application-code: 32ms)
+ GET /services 200 in 26ms (next.js: 4ms, application-code: 22ms)
+ GET /services 200 in 27ms (next.js: 3ms, application-code: 24ms)
+Booking insert failed { code: '' }
+ POST /api/bookings 503 in 59ms (next.js: 3ms, application-code: 57ms)
+Booking insert failed { code: '' }
+ POST /api/bookings 503 in 331ms (next.js: 4ms, application-code: 327ms)
+ POST /api/bookings 201 in 39ms (next.js: 1.4ms, application-code: 37ms)
+ GET /services 200 in 33ms (next.js: 3ms, application-code: 29ms)
+ GET /services 200 in 33ms (next.js: 3ms, application-code: 30ms)
+ GET /services 200 in 25ms (next.js: 2ms, application-code: 22ms)

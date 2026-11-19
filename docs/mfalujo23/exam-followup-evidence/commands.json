@@ -1,0 +1,48 @@
+{
+  "base": "f4ea7ab7adb0a4a50e7506f602bfda92282b2ae5",
+  "baseTree": "be067c13d31066906cafef8ded3ef5d31f2d04e3",
+  "cleanInstallExit": 0,
+  "packageLockChanged": false,
+  "strictLintExit": 0,
+  "strictLintMaxWarnings": 0,
+  "typecheckExit": 0,
+  "unitTests": 117,
+  "unitFiles": 9,
+  "webhookTests": 19,
+  "actualBackendPostgreSQLChecks": 45,
+  "actualMidtermPostgreSQLChecks": 50,
+  "actualMigratedBookingEmailInserts": 4,
+  "productionBuildExit": 0,
+  "actualProductionLoopbackHttpChecks": 47,
+  "httpStatusCounts": {
+    "200": 1,
+    "201": 31,
+    "429": 1,
+    "415": 2,
+    "413": 1,
+    "400": 2,
+    "401": 2,
+    "405": 1,
+    "503": 3,
+    "403": 3
+  },
+  "httpCapacity": {
+    "first30": 201,
+    "request31": 429,
+    "retryAfterPositive": true
+  },
+  "hostedAuthVerified": false,
+  "hostedMigrationsApplied": false,
+  "realCustomerDataUsed": false,
+  "outboundProviderCalls": 0,
+  "testConditions": [
+    "Separate exact published exam source with clean locked dependency install",
+    "Successful production build had compiler subprocess access; initial restricted compile failure retained outside publication",
+    "Initial5-second HTTP harness timeout retained outside publication; bounded20-second rerun passed",
+    "Profile outage/denial HTTP uses explicit synthetic local Auth/profile responses, not hosted Auth",
+    "Booking INSERTs use disposable real PostgreSQL18.6 via PGlite0.5.16",
+    "Text log workspace prefixes normalized to <workspace>; raw originals retained outside publication"
+  ],
+  "capacityLimitation": "30 requests per process per60seconds; no user/IP/distributed or direct PostgREST rate-limit claim",
+  "unchangedScope": "No SQL schema/roles/business rules, package versions, district taxonomy or Auth deactivation added; no new analytics/media/voice/release feature imports"
+}

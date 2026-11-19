@@ -1,2 +1,20 @@
 node_modules
 .next
+
+# Local credentials and environment-specific configuration.
+.env*
+!.env.example
+
+# Generated files and local tooling output.
+out/
+dist/
+coverage/
+*.tsbuildinfo
+*.log
+!docs/mfalujo23/lab1-evidence/*.log
+.npm-cache/
+.pnpm-store/
+
+# Local telephony simulator records are runtime data, never source files.
+data/webhook-events/
+data/idempotency.json

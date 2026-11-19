@@ -1,0 +1,47 @@
+Clean empty-database migration: PASS ["bookings","profiles","properties","service_categories","service_category_mappings","services"]
+Legacy published flag actually exposed unapproved row (read only): PASS {"rows":[{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa006"}],"affectedRows":0}
+Legacy owner insert actually allowed pre-approved row (rolled back): PASS {"rows":[{"id":"f07464fd-dda1-40e6-b599-449825c4c62a"}],"affectedRows":1}
+Legacy policy actually allowed self-approval (rolled back): PASS {"rows":[{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa006"}],"affectedRows":1}
+Anonymous sees only approved property: PASS {"rows":[{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa002","title":"Fictional approved listing A","approved":true}],"affectedRows":0}
+Anonymous private-property query returns []: PASS {"rows":[],"affectedRows":0}
+Anonymous property insert denied: PASS {"error":{"code":"42501","message":"permission denied for table properties"}}
+Owner can read private property: PASS {"rows":[{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"}],"affectedRows":0}
+Owner can edit own unapproved property: PASS {"rows":[{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"}],"affectedRows":1}
+Owner cannot self-approve: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"properties\""}}
+Owner cannot edit already approved property: PASS {"rows":[],"affectedRows":0}
+Owner can delete own unapproved property: PASS {"rows":[{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"}],"affectedRows":1}
+Other authenticated user sees no private property: PASS {"rows":[],"affectedRows":0}
+Other authenticated user can read approved public property: PASS {"rows":[{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa002"}],"affectedRows":0}
+Other authenticated update affects zero rows: PASS {"rows":[],"affectedRows":0}
+Other authenticated delete affects zero rows: PASS {"rows":[],"affectedRows":0}
+Owner can insert an unapproved property: PASS {"rows":[{"id":"e4e62e10-68ef-4fcc-9cd9-218f005fa135"}],"affectedRows":1}
+Owner cannot insert an already approved property: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"properties\""}}
+Other cannot forge owner on property insert: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"properties\""}}
+Server administrator sees all properties: PASS {"rows":[{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa006"},{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"},{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa002"},{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa003"}],"affectedRows":0}
+Server administrator can approve a property: PASS {"rows":[{"id":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaa001"}],"affectedRows":1}
+Administrator still obeys price CHECK constraint: PASS {"error":{"code":"23514","message":"new row for relation \"properties\" violates check constraint \"properties_backend_contract_check\""}}
+Service role is not table owner and cannot alter schema: PASS {"error":{"code":"42501","message":"must be owner of table properties"}}
+Client may create a non-admin own profile: PASS {"rows":[{"id":"77777777-7777-4777-8777-777777777777"}],"affectedRows":1}
+Client cannot create an admin profile: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"profiles\""}}
+Client cannot update their profile role: PASS {"error":{"code":"42501","message":"permission denied for table profiles"}}
+Admin browser identity is not elevated service execution: PASS {"rows":[],"affectedRows":0}
+Anonymous categories exclude inactive records: PASS {"rows":[{"id":"cccccccc-cccc-4ccc-8ccc-ccccccccccc1"}],"affectedRows":0}
+Anonymous services require approval and active coverage: PASS {"rows":[{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2","title":"Provider A approved","hourly_rate":"75.00"},{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb5","title":"Provider B approved","hourly_rate":"80.00"}],"affectedRows":0}
+Anonymous cannot see draft service: PASS {"rows":[],"affectedRows":0}
+Anonymous cannot see inactive approved coverage: PASS {"rows":[],"affectedRows":0}
+Provider updates their draft: PASS {"rows":[{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1"}],"affectedRows":1}
+Provider cannot edit another provider draft: PASS {"rows":[],"affectedRows":0}
+Provider cannot self-publish draft: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"services\""}}
+Provider cannot modify live approved service: PASS {"rows":[],"affectedRows":0}
+Merchant can insert own draft (role mismatch repaired): PASS {"rows":[{"id":"f90525be-2c96-45e2-b2ab-1b2f9e480158"}],"affectedRows":1}
+Client cannot impersonate a provider: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"services\""}}
+Anonymous can insert booking without RETURNING private data: PASS {"rows":[],"affectedRows":1}
+Anonymous booking for unapproved service denied: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"bookings\""}}
+Anonymous booking for inactive coverage denied: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"bookings\""}}
+Anonymous cannot read any booking contact information: PASS {"error":{"code":"42501","message":"permission denied for table bookings"}}
+Client booking SELECT returns []: PASS {"rows":[],"affectedRows":0}
+Provider sees only their service booking: PASS {"rows":[{"id":"dddddddd-dddd-4ddd-8ddd-ddddddddddd1","client_email":"client-a@example.test"}],"affectedRows":0}
+Other provider cannot see provider A booking: PASS {"rows":[],"affectedRows":0}
+Server administrator sees all bookings: PASS {"rows":[{"id":"dddddddd-dddd-4ddd-8ddd-ddddddddddd1"},{"id":"dddddddd-dddd-4ddd-8ddd-ddddddddddd2"}],"affectedRows":0}
+Booking email constraint rejects malformed value: PASS {"error":{"code":"23514","message":"new row for relation \"bookings\" violates check constraint \"bookings_backend_contract_check\""}}
+LOCAL POSTGRESQL RLS AUDIT: 45/45 checks passed.

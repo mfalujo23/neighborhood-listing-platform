@@ -1,0 +1,46 @@
+.page { max-width: 1200px; padding: 1.5rem; }
+.intro { max-width: 70ch; margin-bottom: 2rem; }
+.intro h1 { margin-top: 1rem; }
+.intro p { margin-block: 0.75rem; }
+.intro a { color: #1d4ed8; text-decoration: underline; }
+.eyebrow { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #334155; }
+.filters, .sponsor, .error { padding: 1.25rem; border: 1px solid #cbd5e1; border-radius: 0.75rem; background: #fff; margin-bottom: 1.5rem; }
+.filters h2, .sponsor h2, .results h2 { margin: 0 0 0.75rem; font-size: 1.4rem; }
+.filterForm { display: grid; gap: 1rem; align-items: end; }
+.filterForm label { display: block; margin-bottom: 0.35rem; font-weight: 600; }
+.field { min-height: 44px; width: 100%; padding: 0.6rem; border: 1px solid #64748b; border-radius: 0.35rem; background: #fff; color: #0f172a; }
+.button, .secondaryButton { min-height: 44px; padding: 0.65rem 1rem; border: 1px solid #1d4ed8; border-radius: 0.35rem; background: #1d4ed8; color: #fff; font-weight: 600; cursor: pointer; }
+.button[aria-pressed='true'] { background: #14532d; border-color: #14532d; }
+.secondaryButton { background: #fff; color: #1d4ed8; }
+.sponsor { border-left: 5px solid #a16207; background: #fffbeb; }
+.results { scroll-margin-top: 1rem; }
+.note { color: #475569; font-size: 0.9rem; }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+.card { min-width: 0; overflow: hidden; border: 1px solid #cbd5e1; border-radius: 0.75rem; background: #fff; box-shadow: 0 2px 5px rgb(15 23 42 / 6%); }
+.image { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #dbeafe; }
+.cardBody { padding: 1.1rem; }
+.cardBody h3 { margin: 0.5rem 0; font-size: 1.15rem; }
+.cardBody p { margin-block: 0.6rem; }
+.cardBody .button { width: 100%; margin-top: 0.5rem; }
+.price { font-size: 1.3rem; font-weight: 700; }
+.details { margin-top: 1rem; }
+.details summary { min-height: 44px; padding: 0.65rem 0.35rem; color: #1e40af; text-decoration: underline; cursor: pointer; }
+.details p { overflow-wrap: anywhere; }
+.empty { padding: 1rem; border: 1px dashed #64748b; border-radius: 0.35rem; }
+.button:focus-visible, .secondaryButton:focus-visible, .field:focus-visible,
+.details summary:focus-visible, .intro a:focus-visible, .skipLink:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 3px;
+}
+.skipLink { position: absolute; left: -10000px; top: 1rem; background: #fff; padding: 0.75rem; z-index: 10; }
+.skipLink:focus { left: 1rem; }
+
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .filterForm { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .filterForm { grid-template-columns: 1fr 1fr auto auto; }
+}

@@ -1,0 +1,211 @@
+Actual local validation evidence, 2026-11-18T22:50:47.293Z
+Fixtures are Codex-authored synthetic classroom data, not Gemini output.
+{
+  "case": "valid",
+  "payload": {
+    "property_id": "10000000-0000-4000-8000-000000000001",
+    "street": "101 Imaginary Garden Lane",
+    "city": "Demo Grove",
+    "state": "CA",
+    "zip_code": "90032",
+    "price": 425000,
+    "bedrooms": 2,
+    "bathrooms": 1.5,
+    "square_feet": 1100,
+    "amenities": [
+      "garden",
+      "parking"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "20000000-0000-4000-8000-000000000001",
+        "name": "Imaginary Garden Shop"
+      }
+    ]
+  },
+  "success": true,
+  "issues": []
+}
+{
+  "case": "missing_id",
+  "payload": {
+    "street": "101 Imaginary Garden Lane",
+    "city": "Demo Grove",
+    "state": "CA",
+    "zip_code": "90032",
+    "price": 425000,
+    "bedrooms": 2,
+    "bathrooms": 1.5,
+    "square_feet": 1100,
+    "amenities": [
+      "garden",
+      "parking"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "20000000-0000-4000-8000-000000000001",
+        "name": "Imaginary Garden Shop"
+      }
+    ]
+  },
+  "success": false,
+  "issues": [
+    {
+      "expected": "string",
+      "code": "invalid_type",
+      "path": [
+        "property_id"
+      ],
+      "message": "Invalid input: expected string, received undefined"
+    }
+  ]
+}
+{
+  "case": "negative_price_business_rule",
+  "payload": {
+    "property_id": "10000000-0000-4000-8000-000000000001",
+    "street": "101 Imaginary Garden Lane",
+    "city": "Demo Grove",
+    "state": "CA",
+    "zip_code": "90032",
+    "price": -1,
+    "bedrooms": 2,
+    "bathrooms": 1.5,
+    "square_feet": 1100,
+    "amenities": [
+      "garden",
+      "parking"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "20000000-0000-4000-8000-000000000001",
+        "name": "Imaginary Garden Shop"
+      }
+    ]
+  },
+  "success": false,
+  "issues": [
+    {
+      "origin": "number",
+      "code": "too_small",
+      "minimum": 0,
+      "inclusive": true,
+      "path": [
+        "price"
+      ],
+      "message": "Too small: expected number to be >=0"
+    }
+  ]
+}
+{
+  "case": "malformed_zip",
+  "payload": {
+    "property_id": "10000000-0000-4000-8000-000000000001",
+    "street": "101 Imaginary Garden Lane",
+    "city": "Demo Grove",
+    "state": "CA",
+    "zip_code": "ABCDE",
+    "price": 425000,
+    "bedrooms": 2,
+    "bathrooms": 1.5,
+    "square_feet": 1100,
+    "amenities": [
+      "garden",
+      "parking"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "20000000-0000-4000-8000-000000000001",
+        "name": "Imaginary Garden Shop"
+      }
+    ]
+  },
+  "success": false,
+  "issues": [
+    {
+      "origin": "string",
+      "code": "invalid_format",
+      "format": "regex",
+      "pattern": "/^\\d{5}(-\\d{4})?$/",
+      "path": [
+        "zip_code"
+      ],
+      "message": "Use a US ZIP or ZIP+4 code."
+    }
+  ]
+}
+{
+  "case": "unknown_field",
+  "payload": {
+    "property_id": "10000000-0000-4000-8000-000000000001",
+    "street": "101 Imaginary Garden Lane",
+    "city": "Demo Grove",
+    "state": "CA",
+    "zip_code": "90032",
+    "price": 425000,
+    "bedrooms": 2,
+    "bathrooms": 1.5,
+    "square_feet": 1100,
+    "amenities": [
+      "garden",
+      "parking"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "20000000-0000-4000-8000-000000000001",
+        "name": "Imaginary Garden Shop"
+      }
+    ],
+    "approved": true
+  },
+  "success": false,
+  "issues": [
+    {
+      "code": "unrecognized_keys",
+      "keys": [
+        "approved"
+      ],
+      "path": [],
+      "message": "Unrecognized key: \"approved\""
+    }
+  ]
+}
+{
+  "case": "numeric_string_type_mismatch",
+  "payload": {
+    "property_id": "10000000-0000-4000-8000-000000000001",
+    "street": "101 Imaginary Garden Lane",
+    "city": "Demo Grove",
+    "state": "CA",
+    "zip_code": "90032",
+    "price": "425000",
+    "bedrooms": 2,
+    "bathrooms": 1.5,
+    "square_feet": 1100,
+    "amenities": [
+      "garden",
+      "parking"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "20000000-0000-4000-8000-000000000001",
+        "name": "Imaginary Garden Shop"
+      }
+    ]
+  },
+  "success": false,
+  "issues": [
+    {
+      "expected": "number",
+      "code": "invalid_type",
+      "path": [
+        "price"
+      ],
+      "message": "Invalid input: expected number, received string"
+    }
+  ]
+}
+Deliberately unsafe assertion demonstration (not used in the application):
+TypeError: asserted.price.toFixed is not a function
+A negative number does not crash toFixed but violates the price rule:
+-1.00

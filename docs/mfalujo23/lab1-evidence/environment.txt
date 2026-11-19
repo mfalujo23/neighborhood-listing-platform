@@ -1,0 +1,8 @@
+node --version
+npm --version (isolated official CLI)
+git --version
+v24.22.3
+12.2.3
+git version 2.56.0.windows.2
+setup/mfalujo23-lab1-remediation
+c36ccf8225edfa8ee6506dcdddf546d9a45609fe

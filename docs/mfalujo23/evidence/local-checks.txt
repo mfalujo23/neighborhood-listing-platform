@@ -1,0 +1,50 @@
+ACTUAL LOCAL CHECK RECORD -- November 18, 2026
+
+Canonical schema export:
+node node_modules/tsx/dist/cli.mjs scripts/export-property-schema.ts
+Exit0. Generated src/schemas/property.schema.json from the Zod source.
+
+Focused property-contract tests:
+node node_modules/vitest/vitest.mjs run src/test/property.test.ts --reporter verbose
+Exit0. 13tests passed. Raw output: lab3-property-tests.log.
+
+Raw payload/type-erasure evidence:
+node node_modules/tsx/dist/cli.mjs scripts/property-validation-evidence.ts
+Exit0. Raw payloads/results: lab3-validation-results.txt.
+
+Scoped source lint:
+node node_modules/eslint/bin/eslint.js src/components/PropertyCard.tsx
+  src/components/SearchFilters.tsx src/components/ListingsExplorer.tsx
+  src/app/listings/page.tsx src/schemas/property.ts src/lib/api.ts
+  src/test/property.test.ts
+Exit0; no output/errors/warnings from this scoped command.
+
+Full TypeScript check:
+node ../lab1-tools/node_modules/npm/bin/npm-cli.js run typecheck
+Exit0. The initial browser-reported import-path error was fixed before this run.
+
+Production build using the final isolated npm11 toolchain:
+node ../lab1-tools11/node_modules/npm/bin/npm-cli.js run build
+Exit1. Compilation and TypeScript passed. During prerendering, filesystem mkdir
+for .next/server/app/_not-found.segments/_not-found failed with EPERM. Missing
+Upstash environment warnings also appeared from an existing route. Raw output:
+lab2-lab3-build.log. This record does not claim a successful production build.
+
+No Gemini/AI Studio experiment, deployment, database query, or student oral
+defense was performed by this agent. Root's browser findings belong in the
+separate audit evidence only after actually observed.
+
+FINAL STACKED SNAPSHOT VERIFICATION
+Source base: verified Lab1 snapshot, published head
+716883ff822152390d0329d5e5602290d3688e5e, plus exact Lab2/3 file group.
+Environment: Node24.22.3 and npm11.21.3; official-registry clean install passed.
+Strict lint --max-warnings0: exit0.
+Full typecheck: exit0.
+Integrated tests: exit0; 43 Vitest tests across3files plus5 inherited Node tests.
+Production build: exit0; /listings prerendered successfully.
+The isolated default-sandbox build first failed on filesystem EPERM; its output
+is retained as lab23-isolated-build-sandbox-failure.log. The successful build
+used approved execution outside the sandbox with no source workaround.
+Raw final results are in lab23-isolated-{lint,typecheck,tests,build}.log;
+clean-install and exact environment records accompany them. These results do
+not claim Gemini execution, database/Redis configuration, or deployment.
