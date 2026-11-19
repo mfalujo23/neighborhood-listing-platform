@@ -1,0 +1,105 @@
+[
+  {
+    "property_id": "7c1a2b3c-4d5e-4f60-8a71-2b3c4d5e6f70",
+    "street": "1427 Willow Lantern Lane",
+    "city": "Exampleton",
+    "state": "CA",
+    "zip_code": "90210",
+    "price": 425000,
+    "bedrooms": 3,
+    "bathrooms": 2.5,
+    "square_feet": 1650,
+    "amenities": [
+      "parking",
+      "garden",
+      "air_conditioning"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "8d2b3c4d-5e6f-4071-9b82-3c4d5e6f7081",
+        "name": "Maple Lantern Cafe"
+      }
+    ]
+  },
+  {
+    "street": "2846 Cedar Moon Avenue",
+    "city": "Sampleford",
+    "state": "CA",
+    "zip_code": "90012",
+    "price": 310000,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "square_feet": 1100,
+    "amenities": [
+      "parking"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "9e3c4d5e-6f70-4182-ac93-4d5e6f708192",
+        "name": "Blue Finch Bakery"
+      }
+    ]
+  },
+  {
+    "property_id": "af4d5e6f-7081-4293-bda4-5e6f708192a3",
+    "street": "3912 Paper Birch Road",
+    "city": "Fablebrook",
+    "state": "CA",
+    "zip_code": "90015",
+    "price": -150000,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "square_feet": 1300,
+    "amenities": [
+      "balcony"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "b05e6f70-8192-43a4-8eb5-6f708192a3b4",
+        "name": "Silver Kite Books"
+      }
+    ]
+  },
+  {
+    "property_id": "c16f7081-92a3-44b5-9fc6-708192a3b4c5",
+    "street": "5088 Golden Acorn Street",
+    "city": "Storyhaven",
+    "state": "CA",
+    "zip_code": "90A1",
+    "price": 520000,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "square_feet": 2200,
+    "amenities": [
+      "pool",
+      "parking"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "d2708192-a3b4-45c6-80d7-8192a3b4c5d6",
+        "name": "Copper Owl Market"
+      }
+    ]
+  },
+  {
+    "property_id": "e38192a3-b4c5-46d7-91e8-92a3b4c5d6e7",
+    "street": "6173 Starflower Court",
+    "city": "Imagineton",
+    "state": "CA",
+    "zip_code": "90017",
+    "price": 385000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "square_feet": 1450,
+    "amenities": [
+      "garden"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "f492a3b4-c5d6-47e8-a2f9-a3b4c5d6e7f8",
+        "name": "Moonbeam Flower Shop"
+      }
+    ],
+    "virtual_tour_url": "https://example.com/tour"
+  }
+]

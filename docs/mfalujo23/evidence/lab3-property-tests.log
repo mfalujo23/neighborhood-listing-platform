@@ -1,0 +1,22 @@
+
+ RUN  v5.1.0 C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/neighborhood-listing-platform
+
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > accepts all five explicitly synthetic fixtures without coercion 6ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > rejects a missing property_id 0ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > rejects a negative price although its TypeScript primitive type is number 0ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > rejects a malformed ZIP 0ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > rejects unknown top-level fields rather than silently stripping them 0ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > rejects a runtime numeric-string mismatch before a consumer calls toFixed 1ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > rejects empty required address strings 0ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > rejects an unknown state and uncontrolled amenities 0ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > rejects duplicate amenities and unknown nested sponsor fields 0ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > rejects malformed identifiers and fractional bedroom/area values 0ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > accepts zero-valued nonnegative numeric fields and ZIP+4 0ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > fails the whole collection closed if one record is invalid 0ms
+ ✓ src/test/property.test.ts > strict property exchange contract at the rendering boundary > keeps the exported JSON Schema synchronized with the runtime source 4ms
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  14:50:47
+   Duration  602ms (import 80%, transform 12%, tests 5%, worker 3%)
+

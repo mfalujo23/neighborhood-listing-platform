@@ -1,0 +1,5 @@
+Node: v24.22.3
+npm: 11.21.3
+Stacked base: 716883ff822152390d0329d5e5602290d3688e5e
+Dependency install: npm ci --ignore-scripts --registry https://registry.npmjs.org
+Passing build: approved execution outside sandbox after generated-output-only cleanup

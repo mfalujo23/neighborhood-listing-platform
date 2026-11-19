@@ -1,0 +1,14 @@
+
+> neighborhood-listing-platform@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.4.6 (webpack)
+✓ Running next.config took 148ms
+
+  Creating an optimized production build ...
+Failed to compile.
+
+Error: EPERM: operation not permitted, mkdir 'C:\Users\mfalujo\Documents\Codex\2026-11-18\https-calstatela-instructure-com-https-calstatela\work\lab2-lab3-verified-snapshot\.next\types\app\listings'
+
+
+> Build failed because of webpack errors

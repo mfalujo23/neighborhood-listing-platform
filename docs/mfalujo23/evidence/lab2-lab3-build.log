@@ -1,0 +1,33 @@
+
+> neighborhood-listing-platform@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.4.6 (webpack)
+✓ Running next.config took 66ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 10.6s
+  Running TypeScript ...
+  Finished TypeScript in 7.3s ...
+  Collecting page data using 13 workers ...
+[Upstash Redis] Unable to find environment variable: `UPSTASH_REDIS_REST_URL`. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] Unable to find environment variable: `UPSTASH_REDIS_REST_TOKEN`. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] The 'url' property is missing or undefined in your Redis config. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] The 'token' property is missing or undefined in your Redis config. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+  Generating static pages using 13 workers (0/10) ...
+  Generating static pages using 13 workers (2/10) 
+[Upstash Redis] Unable to find environment variable: `UPSTASH_REDIS_REST_URL`. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] Unable to find environment variable: `UPSTASH_REDIS_REST_TOKEN`. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] The 'url' property is missing or undefined in your Redis config. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] The 'token' property is missing or undefined in your Redis config. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+  Generating static pages using 13 workers (4/10) 
+Error occurred prerendering page "/_not-found". Read more: https://nextjs.org/docs/messages/prerender-error
+Error: EPERM: operation not permitted, mkdir 'C:\Users\mfalujo\Documents\Codex\2026-11-18\https-calstatela-instructure-com-https-calstatela\work\neighborhood-listing-platform\.next\server\app\_not-found.segments\_not-found'
+    at ignore-listed frames {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'mkdir',
+  path: 'C:\\Users\\mfalujo\\Documents\\Codex\\2026-11-18\\https-calstatela-instructure-com-https-calstatela\\work\\neighborhood-listing-platform\\.next\\server\\app\\_not-found.segments\\_not-found'
+}
+Export encountered an error on /_not-found/page: /_not-found, exiting the build.
+⨯ Next.js build worker exited with code: 1 and signal: null

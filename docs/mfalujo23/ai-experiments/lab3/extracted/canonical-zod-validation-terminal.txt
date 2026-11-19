@@ -1,0 +1,12 @@
+gemini/valid: PASS []
+gemini/missing_property_id: REJECT [{"expected":"string","code":"invalid_type","path":["property_id"],"message":"Invalid input: expected string, received undefined"}]
+gemini/negative_price: REJECT [{"origin":"number","code":"too_small","minimum":0,"inclusive":true,"path":["price"],"message":"Too small: expected number to be >=0"}]
+gemini/malformed_zip: REJECT [{"origin":"string","code":"invalid_format","format":"regex","pattern":"/^\\d{5}(-\\d{4})?$/","path":["zip_code"],"message":"Use a US ZIP or ZIP+4 code."}]
+gemini/unknown_field: REJECT [{"code":"unrecognized_keys","keys":["hoa_fee"],"path":[],"message":"Unrecognized key: \"hoa_fee\""}]
+chatgpt/valid: PASS []
+chatgpt/missing_property_id: REJECT [{"expected":"string","code":"invalid_type","path":["property_id"],"message":"Invalid input: expected string, received undefined"}]
+chatgpt/negative_price: REJECT [{"origin":"number","code":"too_small","minimum":0,"inclusive":true,"path":["price"],"message":"Too small: expected number to be >=0"}]
+chatgpt/malformed_zip: REJECT [{"origin":"string","code":"invalid_format","format":"regex","pattern":"/^\\d{5}(-\\d{4})?$/","path":["zip_code"],"message":"Use a US ZIP or ZIP+4 code."}]
+chatgpt/unknown_field: REJECT [{"code":"unrecognized_keys","keys":["virtual_tour_url"],"path":[],"message":"Unrecognized key: \"virtual_tour_url\""}]
+gemini/seed_attempt1_raw_envelope: REJECT [{"expected":"array","code":"invalid_type","path":[],"message":"Invalid input: expected array, received object"}]
+gemini/seed_attempt2_array: PASS 5 records
