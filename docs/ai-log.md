@@ -132,3 +132,30 @@
 ### Associated Commit
 
 `f5bf704` — Complete Week 6 sponsor matching engine.
+
+---
+
+## 2026-11-18 - mfalujo23 Lab 1 remediation and matching model critique
+
+This appended entry records new work prepared with Codex for `mfalujo23`.
+Earlier entries above remain historical team records and are not attributed to
+this account or re-certified by this entry. The user reports an instructor
+solo-work exception; no partner activity or peer review is invented.
+
+See the [personal Lab 1 AI journal](mfalujo23/lab1-ai-log.md) for the exact
+matching prompt, two observed ChatGPT/Gemini differences, useful and rejected
+output, verification, and implementation commit links. The
+[provider captures](mfalujo23/ai-experiments/README.md) preserve the actual output.
+
+| Tool | Prompt | Output used | Output rejected or qualified | Verification | Commit |
+| --- | --- | --- | --- | --- | --- |
+| Codex | Repair the inherited shell, setup, authorization initialization, and checks. | Purpose, three accessible cards, pinned tooling, lazy privileged client, strict CI. | Earlier team evidence was not credited to this account; fake credentials and tolerated failures were rejected. | Actual local responsive/Fast Refresh checks and successful hosted lint/types/33 Vitest + 5 webhook tests/build. | `fae1a1e`, `0790888`, `4fd8974`, `716883f`; full links in the personal journal. |
+| ChatGPT website, Instant; exact version not exposed | App Shell Architect; same complete prompt as Gemini. | Plain-language stack explanation, src layout, inherited-history safety, and planned-voice honesty used to critique existing work. | Tablet-three-column example; no command-result or student-check claims accepted. | Captured completed rendered response compared with source/course requirements and actual 375/768/1280 evidence. | Critique of source `fae1a1e`; new docs tracked in PR 4, exact new SHA pending publication. |
+| Gemini 4 Hydrogen, AI Studio, High thinking | Same App Shell Architect prompt; temporary chat. | Fresh/inherited workflow distinction, tool explanations, and proposed 1/2/3-column verification. | No-src-dir flag conflicts with the course; nested section/card headings require h3 cards; sample missing routes were not copied. | Actual Markdown capture compared with source/specification; no suggested generator commands executed. | Critique of source `fae1a1e`; new docs tracked in PR 4, exact new SHA pending publication. |
+
+The model experiments followed the implementation and are documented as critique,
+not retroactive generation history. AI Studio Drive access was not granted;
+no persisted saved prompt title is claimed. Student understanding, personal
+checks, required review or a documented instructor-approved solo alternative,
+and any required AI Studio prompt persistence remain pending. No merge,
+Canvas submission, or instructor credit is asserted by this record.

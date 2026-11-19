@@ -1,0 +1,129 @@
+{
+  "observedDate": "2026-11-18",
+  "base": "d0db83a2b7886f2a1a543529d2f11770adbfcfe3",
+  "baseTree": "8964bbbd9baae9d457b7510d9a160abae78dc60e",
+  "docsOnly": true,
+  "unchangedBaselineFiles": 109,
+  "modifiedBaselineDocs": [
+    "README.md",
+    "docs/ai-log.md",
+    "docs/mfalujo23/ci-verification.md",
+    "docs/mfalujo23/lab1-ai-log.md",
+    "docs/mfalujo23/lab1-deployment-verification.md",
+    "docs/mfalujo23/lab1-verification.md"
+  ],
+  "newEvidenceFiles": [
+    "docs/mfalujo23/ai-experiments/app-shell-prompt.txt",
+    "docs/mfalujo23/ai-experiments/chatgpt-app-shell.json",
+    "docs/mfalujo23/ai-experiments/gemini-app-shell.json",
+    "docs/mfalujo23/ai-experiments/README.md",
+    "docs/mfalujo23/ci-evidence/github-job-135212609727.log",
+    "docs/mfalujo23/ci-evidence/github-run-44420717814-jobs.json"
+  ],
+  "localLinksChecked": 24,
+  "localLinks": [
+    {
+      "source": "README.md",
+      "target": "docs/mfalujo23/lab1-ai-log.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/mfalujo23/lab1-verification.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/ai-log.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/mfalujo23/ai-experiments/README.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/mfalujo23/lab1-deployment-verification.md"
+    },
+    {
+      "source": "docs/ai-log.md",
+      "target": "mfalujo23/lab1-ai-log.md"
+    },
+    {
+      "source": "docs/ai-log.md",
+      "target": "mfalujo23/ai-experiments/README.md"
+    },
+    {
+      "source": "docs/mfalujo23/lab1-ai-log.md",
+      "target": "ai-experiments/app-shell-prompt.txt"
+    },
+    {
+      "source": "docs/mfalujo23/lab1-ai-log.md",
+      "target": "ai-experiments/chatgpt-app-shell.json"
+    },
+    {
+      "source": "docs/mfalujo23/lab1-ai-log.md",
+      "target": "ai-experiments/gemini-app-shell.json"
+    },
+    {
+      "source": "docs/mfalujo23/lab1-ai-log.md",
+      "target": "lab1-verification.md"
+    },
+    {
+      "source": "docs/mfalujo23/lab1-ai-log.md",
+      "target": "lab1-deployment-verification.md"
+    },
+    {
+      "source": "docs/mfalujo23/ci-verification.md",
+      "target": "ci-evidence/github-run-44420717814-jobs.json"
+    },
+    {
+      "source": "docs/mfalujo23/ci-verification.md",
+      "target": "ci-evidence/github-job-135212609727.log"
+    },
+    {
+      "source": "docs/mfalujo23/ci-verification.md",
+      "target": "lab1-deployment-verification.md"
+    },
+    {
+      "source": "docs/mfalujo23/lab1-verification.md",
+      "target": "ci-verification.md"
+    },
+    {
+      "source": "docs/mfalujo23/lab1-verification.md",
+      "target": "lab1-ai-log.md"
+    },
+    {
+      "source": "docs/mfalujo23/lab1-verification.md",
+      "target": "lab1-evidence/documentation-followup-checks.json"
+    },
+    {
+      "source": "docs/mfalujo23/lab1-deployment-verification.md",
+      "target": "ci-verification.md"
+    },
+    {
+      "source": "docs/mfalujo23/lab1-deployment-verification.md",
+      "target": "lab1-ai-log.md"
+    },
+    {
+      "source": "docs/mfalujo23/ai-experiments/README.md",
+      "target": "app-shell-prompt.txt"
+    },
+    {
+      "source": "docs/mfalujo23/ai-experiments/README.md",
+      "target": "chatgpt-app-shell.json"
+    },
+    {
+      "source": "docs/mfalujo23/ai-experiments/README.md",
+      "target": "gemini-app-shell.json"
+    },
+    {
+      "source": "docs/mfalujo23/ai-experiments/README.md",
+      "target": "../lab1-ai-log.md"
+    }
+  ],
+  "historicalTeamLogBytesPreserved": 9175,
+  "exactMatchingPrompts": true,
+  "providerResponsesPreserved": true,
+  "privateConversationUrlRemoved": true,
+  "journalTableColumns": 6,
+  "codeBuildRerun": false,
+  "scope": "Documentation/content checks only. Existing source/CI results are cited at their exact revisions; this follow-up was not built, deployed, reviewed, merged, or submitted by this check."
+}

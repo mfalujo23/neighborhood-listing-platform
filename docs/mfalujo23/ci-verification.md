@@ -16,15 +16,37 @@ or deployment command. The two official GitHub Actions are pinned to the exact
 commits resolved from their `v7` release tags on this date.
 
 Local command results are recorded with the relevant Lab 1, Lab 2/3, and Lab 9
-verification records. A GitHub-hosted check run, its URL, and its exact checked
-commit remain pending publication; local success is not represented as a hosted
-CI run or a deployment.
+verification records. The actual Lab 1 hosted result is recorded below; each
+later branch requires its own result. CI success is not a hosting deployment.
 
 The workflow YAML was parsed locally, confirming `push` and `pull_request`
 triggers, one verification job, `contents: read`, the six expected install/check
 commands, and the absence of `continue-on-error` or `|| true`. The isolated Lab 1
 snapshot passed its strict lint, typecheck, tests, and build with the same npm
-11.21.3 CLI. GitHub-hosted execution has not yet been observed.
+11.21.3 CLI.
+
+## Actual GitHub-hosted Lab 1 result
+
+On 2026-11-18, the GitHub connector returned completed/success for
+[run 44420717814](https://github.com/mfalujo23/neighborhood-listing-platform/actions/runs/44420717814),
+job 135212609727, with successful lint, TypeScript, test, and build steps.
+The associated PR 4 head is `d0db83a2b7886f2a1a543529d2f11770adbfcfe3`.
+The raw checkout log identifies the tested pull-request merge commit as
+`9edd8e5e6a22e606a35fe9625d1b92ac28b55911`, merging that head into
+`c36ccf8225edfa8ee6506dcdddf546d9a45609fe`. This is a workflow-generated test
+merge; it does not mean the PR was merged.
+
+The Ubuntu runner used Node 24.22.3, installed the pinned npm 11.21.3, added
+444 packages, audited 451 packages, and reported zero vulnerabilities. The test
+log records 33 Vitest tests and 5 original webhook tests passed. Strict lint,
+standalone typechecking, and production build also passed. These Ubuntu install
+counts differ from the local Windows snapshot and are recorded separately.
+
+Raw evidence: [job/step results](ci-evidence/github-run-44420717814-jobs.json)
+and [complete job log](ci-evidence/github-job-135212609727.log). Existing missing
+Upstash and Node module-format warnings remain visible in the log. The result
+predates this docs-only follow-up; the follow-up's CI must be checked separately
+after publication.
 
 ## Hosting compatibility checked against official documentation
 
@@ -37,7 +59,9 @@ snapshot passed its strict lint, typecheck, tests, and build with the same npm
   verified from the official registry and pinned for local checks and this CI
   workflow. Vercel's managed exact npm version must still be checked in a real
   deployment log. Earlier npm 12 local experiments are baseline evidence only.
-  No hosting setup or deployment has been claimed here.
+  The actual Vercel deployment is recorded separately in
+  [hosting verification](lab1-deployment-verification.md). The host log does not
+  expose its exact managed npm version, so no hosted npm patch version is inferred.
 
 Sources consulted:
 

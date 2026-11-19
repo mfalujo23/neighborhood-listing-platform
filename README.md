@@ -13,7 +13,7 @@ Use Node.js 24 and npm 11.21.3. Direct dependencies are pinned in `package.json`
 `package-lock.json` records the complete resolved dependency tree.
 
 ```sh
-git clone https://github.com/mfalujo23/neighborhood-listing-platform.git
+git clone --branch setup/mfalujo23-lab1-remediation https://github.com/mfalujo23/neighborhood-listing-platform.git
 cd neighborhood-listing-platform
 node --version
 npm --version
@@ -29,7 +29,7 @@ Development and production builds use Next.js's supported Webpack mode because
 the local Windows verification encountered a Turbopack PostCSS worker failure.
 
 ```sh
-npm run lint
+npm run lint -- --max-warnings 0
 npm run typecheck
 npm test
 npm run build
@@ -69,13 +69,28 @@ remediation.
 ## Lab 1 contribution and evidence
 
 This remediation was prepared with Codex assistance for the `mfalujo23` account.
-The new AI log distinguishes automated checks from student review and lists
+The personal AI log distinguishes automated checks from student review and lists
 unfinished assignment requirements. It does not attribute earlier teammates'
 implementation, tests, or reviews to this account.
 
 - [AI-assistance log](docs/mfalujo23/lab1-ai-log.md)
 - [Verification notes](docs/mfalujo23/lab1-verification.md)
 - [Existing team AI log](docs/ai-log.md)
+- [Matching ChatGPT/Gemini experiment captures](docs/mfalujo23/ai-experiments/README.md)
+- [Issue 1](https://github.com/mfalujo23/neighborhood-listing-platform/issues/1)
+- [Lab 1 PR 4](https://github.com/mfalujo23/neighborhood-listing-platform/pull/4)
+- [Successful GitHub Actions run](https://github.com/mfalujo23/neighborhood-listing-platform/actions/runs/44420717814)
+
+Four new attributable implementation commits are recorded in the personal log:
+app shell, reproducible tooling/hygiene, deferred privileged clients, and strict
+CI. PR 4 remains open; student understanding and the required review or
+instructor-approved solo alternative still need evidence. The instructor
+`pdt605` invitation is pending acceptance.
+
+The successful hosted workflow checked the PR merge ref for head `d0db83a`
+against base `c36ccf8`: strict lint, TypeScript, 33 Vitest tests, 5 webhook tests,
+and production build passed. These counts describe that Lab 1 revision; later
+branches have separate verification records.
 
 The original repository has historical pull requests, including
 [PR 1](https://github.com/gavy1997/neighborhood-listing-platform/pull/1) and
@@ -84,11 +99,22 @@ Those links are historical evidence, not a new review of this remediation.
 
 ## Hosting
 
-The team's previous README records
-`https://neighborhood-listing-platform-lime.vercel.app/` as its deployment.
-That deployment has not been linked to or revalidated for this local branch.
-Before submitting Lab 1, record the deployment URL and deployed commit, verify
-that it serves the submitted version, and attach the actual verification output.
+- [Immutable verified Lab 1 deployment](https://neighborhood-listing-platform-3deuqbofy-mfalujo23.vercel.app/)
+- [Production alias at observation](https://neighborhood-listing-platform-sable.vercel.app/)
+- [Deployment source commit 716883f](https://github.com/mfalujo23/neighborhood-listing-platform/commit/716883ff822152390d0329d5e5602290d3688e5e)
+- [Hosting verification and raw evidence](docs/mfalujo23/lab1-deployment-verification.md)
+
+On 2026-11-18, Codex verified the deployed source in Vercel and the rendered
+public page. Actual HTTPS checks returned 200 for the homepage and 401 for an
+unauthenticated administrator-bookings request. The immutable URL identifies
+the verified source deployment; the production alias can change. Documentation
+follow-ups are separate commits and are not described as newly deployed without
+checking their hosting record.
+
+The team's earlier `neighborhood-listing-platform-lime.vercel.app` URL is
+historical and is not used as proof of this account's deployment. The verified
+Lab 1 shell does not establish that configured database, phone, SMS, or other
+later integrations work.
 
 ## Existing Lab 7 content process
 

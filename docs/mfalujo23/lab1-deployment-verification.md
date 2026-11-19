@@ -15,6 +15,10 @@ Vercel showed Ready, Production, Current, source `716883f`, and a 41-second depl
 
 Warnings were retained: project settings defaulted to Node 26 but package engines correctly selected Node 24; npm reported unknown cache-dir configuration and the esbuild postinstall approval notice. Vercel package-manager exact version was not established by the displayed log, so the npm 11.21.3 claim applies to the independent local clean build only. The hosting log is not evidence that GitHub lint/tests ran.
 
-The instructor pdt605 was invited with user-approved write access; the visible state is Pending Invite, awaiting acceptance. GitHub Actions was enabled on this fork after the original PR opened; hosted checks remain pending this follow-up. ChatGPT/Gemini/AI Studio checkpoints, student understanding, and peer review or an instructor-approved solo alternative are still unperformed/unverified.
+The instructor pdt605 was invited with user-approved write access; the visible state is Pending Invite, awaiting acceptance. GitHub Actions was enabled on this fork after the original PR opened. Actual [run 44420717814](https://github.com/mfalujo23/neighborhood-listing-platform/actions/runs/44420717814) subsequently passed strict lint, TypeScript, 33 Vitest tests, 5 webhook tests, and the build for PR head `d0db83a` (test merge `9edd8e5`); [CI verification](ci-verification.md) preserves the raw evidence.
+
+The matching ChatGPT/Gemini experiments and temporary AI Studio run are now recorded in [the personal AI log](lab1-ai-log.md). The AI Studio prompt began App Shell Architect, but Drive access was not granted and no persisted saved prompt title is claimed. Student understanding, personal checks, required review or a documented instructor-approved solo alternative, and any required AI Studio prompt persistence remain pending.
+
+This docs-only follow-up starts at `d0db83a2b7886f2a1a543529d2f11770adbfcfe3`. The verified immutable deployment above remains tied to source `716883f`; a new deployment of these documentation updates is not asserted without a new hosting observation.
 
 The user explicitly approved a Vercel Hobby project, public deployment and later verified updates to this same project with no paid upgrades. No paid upgrade, database integration, environment secret, microphone, call or SMS was added.

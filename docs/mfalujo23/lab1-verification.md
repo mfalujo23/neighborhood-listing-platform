@@ -45,7 +45,8 @@ disabled during both the original dependency install and the clean check.
 
 The pinned configuration does not ignore build/type errors or remove tests to
 obtain a pass. The inherited error-tolerant CI workflow is corrected separately
-in `ci-verification.md`; a real GitHub-hosted test result remains pending; Actions was enabled after publication.
+in [CI verification](ci-verification.md), which now includes actual successful
+GitHub-hosted run 44420717814 for PR head `d0db83a` and merge ref `9edd8e5`.
 
 ## Local page and development-server evidence
 
@@ -130,10 +131,20 @@ output. No command output or deployment result was fabricated.
 ## Outstanding before a complete Lab 1 submission
 
 - Student review and explanation of the code and verification evidence.
-- Genuine ChatGPT/Gemini stack comparison and Google AI Studio checkpoint, where
-  still required by the instructor. This remediation did not perform them.
-- Required review or documented instructor-approved solo alternative, and actual
-  GitHub-hosted test results. New issue #1, PR #4, and four attributable commits
-  are published; see `lab1-deployment-verification.md` for exact references.
+- Student personal verification of the source, running page, and evidence.
+- Persisting the titled App Shell Architect prompt in AI Studio, if required.
+  The actual matching ChatGPT/Gemini comparison and temporary AI Studio run are
+  now documented in [the personal AI log](lab1-ai-log.md); Drive access was not
+  granted and no saved prompt title is claimed.
+- Required review or documented instructor-approved solo alternative. Issue #1,
+  PR #4, four attributable implementation commits, hosted test success, and the
+  actual source deployment are recorded in the linked verification documents.
 - Instructor repository access, if not already granted, and the user's reported
   solo-work exception applied to the remaining collaboration requirements.
+
+This follow-up changes documentation only. Its link/content checks do not
+represent a new code build, a new deployment, student manual testing, PR review,
+merge, Canvas submission, or instructor credit.
+The [documentation check record](lab1-evidence/documentation-followup-checks.json)
+verifies local links, exact retained provider responses, matching prompts,
+unchanged source bytes, and preservation of the earlier team-log byte prefix.
