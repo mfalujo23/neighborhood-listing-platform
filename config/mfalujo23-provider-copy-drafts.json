@@ -1,0 +1,132 @@
+{
+  "briefId": "fictional-garden-v1",
+  "source": {
+    "tool": "Google AI Studio",
+    "model": "gemini-4-hydrogen",
+    "capturedAt": "2026-11-19T01:28:56.983Z",
+    "structuredOutputs": false,
+    "rawSha256": "869393f6e9b7c94a9ccb60d4ef654b0f0f6affaac262fa3350191fe5b948805c"
+  },
+  "variants": [
+    {
+      "record": {
+        "briefId": "fictional-garden-v1",
+        "text": "Fictional Garden Partner presents a fictional gardening guide. Classroom demo only.",
+        "startsOn": "2026-11-19",
+        "endsOn": "2026-11-26",
+        "id": "variant-1",
+        "status": "draft",
+        "approval": {
+          "scope": "production",
+          "actor": null,
+          "humanReviewed": false,
+          "date": null
+        },
+        "factTrace": [
+          {
+            "phrase": "Fictional Garden Partner",
+            "fact": "businessName"
+          },
+          {
+            "phrase": "a fictional gardening guide",
+            "fact": "offer"
+          },
+          {
+            "phrase": "Classroom demo only.",
+            "fact": "disclaimer"
+          }
+        ]
+      },
+      "characterCount": 83,
+      "connectiveWording": [
+        "presents",
+        "."
+      ]
+    },
+    {
+      "record": {
+        "briefId": "fictional-garden-v1",
+        "text": "Fictional Garden Partner: a fictional gardening guide (URL: /media-demo/partner). Classroom demo only.",
+        "startsOn": "2026-11-19",
+        "endsOn": "2026-11-26",
+        "id": "variant-2",
+        "status": "draft",
+        "approval": {
+          "scope": "production",
+          "actor": null,
+          "humanReviewed": false,
+          "date": null
+        },
+        "factTrace": [
+          {
+            "phrase": "Fictional Garden Partner",
+            "fact": "businessName"
+          },
+          {
+            "phrase": "a fictional gardening guide",
+            "fact": "offer"
+          },
+          {
+            "phrase": "/media-demo/partner",
+            "fact": "url"
+          },
+          {
+            "phrase": "Classroom demo only.",
+            "fact": "disclaimer"
+          }
+        ]
+      },
+      "characterCount": 102,
+      "connectiveWording": [
+        ":",
+        "(URL:",
+        ")."
+      ]
+    },
+    {
+      "record": {
+        "briefId": "fictional-garden-v1",
+        "text": "Fictional Garden Partner lists a fictional gardening guide, 2026-11-19 to 2026-11-26 UTC. Classroom demo only.",
+        "startsOn": "2026-11-19",
+        "endsOn": "2026-11-26",
+        "id": "variant-3",
+        "status": "draft",
+        "approval": {
+          "scope": "production",
+          "actor": null,
+          "humanReviewed": false,
+          "date": null
+        },
+        "factTrace": [
+          {
+            "phrase": "Fictional Garden Partner",
+            "fact": "businessName"
+          },
+          {
+            "phrase": "a fictional gardening guide",
+            "fact": "offer"
+          },
+          {
+            "phrase": "2026-11-19",
+            "fact": "startsOn"
+          },
+          {
+            "phrase": "2026-11-26",
+            "fact": "endsOn"
+          },
+          {
+            "phrase": "Classroom demo only.",
+            "fact": "disclaimer"
+          }
+        ]
+      },
+      "characterCount": 110,
+      "connectiveWording": [
+        "lists",
+        ",",
+        "to",
+        "UTC."
+      ]
+    }
+  ]
+}
