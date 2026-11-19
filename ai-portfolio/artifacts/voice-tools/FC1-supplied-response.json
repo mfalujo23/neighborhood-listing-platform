@@ -1,0 +1,31 @@
+{
+  "caseId": "FC1-property",
+  "observedTool": "get_property_details",
+  "observedArguments": {
+    "property_id": "demo-001"
+  },
+  "execution": "Actual local strict validator and fictional mock adapter; no provider calls or external effects.",
+  "toolSourceSha256": "15c285ecc10225d850b76efb52c158300836a798a68692a9839ea52496497daf",
+  "executedAtUTC": "2026-11-19T01:48:54.822Z",
+  "result": {
+    "ok": true,
+    "data": {
+      "kind": "property",
+      "property": {
+        "id": "demo-001",
+        "title": "Cedar Court Demo Home",
+        "address": "101 Example Court, Demo City, CA 90032",
+        "zip": "90032",
+        "price": 625000,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "features": [
+          "Step-free entry in this fictional example",
+          "Sample courtyard"
+        ],
+        "publicationStatus": "approved-in-fictional-fixture"
+      },
+      "factsVersion": "fictional-facts-v1.0.0"
+    }
+  }
+}

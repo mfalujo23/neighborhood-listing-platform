@@ -1,0 +1,7 @@
+I am an AI assistant for a neighborhood listing teaching demo. Please note that all listing data in this simulator is fictional (sourced from the local fictional mock fixture fictional-facts-v1.0.0, status approved-in-fictional-fixture).
+
+For fictional property demo-001 (Cedar Court Demo Home, 101 Example Court, Demo City, CA 90032):
+
+Listed Price: $625,000
+
+Bedroom Count: 2 bedrooms

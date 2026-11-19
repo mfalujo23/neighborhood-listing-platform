@@ -1,0 +1,131 @@
+
+{
+  "brief_id": "fictional-garden-v1",
+  "reviews": [
+    {
+      "id": "variant-1",
+      "recomputed_character_count": 83,
+      "under_120": true,
+      "supported_claims": [
+        "Exact business name: Fictional Garden Partner.",
+        "Exact offer: a fictional gardening guide.",
+        "Exact disclaimer: Classroom demo only.",
+        "All three fact_trace phrases are exact substrings of the text and map to the correct source facts.",
+        "The reported character count of 83 is correct.",
+        "The supplied status is draft."
+      ],
+      "unsupported_claims": [
+        "The verb 'presents' suggests the business is presenting the guide. The source identifies an offer but does not explicitly establish a presentation or publication action."
+      ],
+      "language_flags": [
+        "No discriminatory wording detected.",
+        "No urgency, superlative, guarantee, or real-endorsement wording detected.",
+        "No unsupported free, download, availability, or physical-location claim detected.",
+        "'presents' is a mild unsupported action implication, not a verified source fact."
+      ],
+      "trace_errors": [
+        "No exact-substring errors.",
+        "No incorrect fact_id mappings.",
+        "The word 'presents' is not directly supported by a named source fact.",
+        "The connective_wording entry '.' is present as punctuation, but punctuation alone does not establish a factual claim.",
+        "The URL, start date, end date, and no-physical-location fact are omitted from the text and fact_trace. These omissions do not independently invalidate the draft because the source does not require every fact to appear."
+      ],
+      "verdict": "needs_human_review",
+      "reason": "The draft is 83 characters, below the 120-character threshold. It preserves the exact business name, guide fact, and disclaimer. All fact_trace entries match the source and text. The verb 'presents' should be reviewed as an action implication. No prohibited promotional language or unsupported availability claim was detected. A named human reviewer must decide whether the connective wording is acceptable. Automated critique does not constitute approval."
+    },
+    {
+      "id": "variant-2",
+      "recomputed_character_count": 102,
+      "under_120": true,
+      "supported_claims": [
+        "Exact business name: Fictional Garden Partner.",
+        "Exact offer: a fictional gardening guide.",
+        "Exact URL path: /media-demo/partner.",
+        "Exact disclaimer: Classroom demo only.",
+        "All four fact_trace phrases are exact substrings of the text and map to the correct source facts.",
+        "The reported character count of 102 is correct.",
+        "The supplied status is draft."
+      ],
+      "unsupported_claims": [
+        "No directly false factual claim detected.",
+        "The label 'URL:' is consistent with the source field but does not establish that the relative path is publicly accessible, functional, or deployed."
+      ],
+      "language_flags": [
+        "No discriminatory wording detected.",
+        "No urgency, superlative, guarantee, or real-endorsement wording detected.",
+        "No unsupported free, download, availability, or physical-location claim detected.",
+        "The URL reference must not be interpreted as proof of a working destination."
+      ],
+      "trace_errors": [
+        "No exact-substring errors.",
+        "No incorrect fact_id mappings.",
+        "The connective wording ':', '(URL:', and ').' appears in the text and does not introduce an independent factual claim.",
+        "The start date, end date, and no-physical-location fact are omitted from the text and fact_trace. These omissions do not independently invalidate the draft.",
+        "The fact_trace correctly maps the relative URL path to the url source field."
+      ],
+      "verdict": "needs_human_review",
+      "reason": "The draft is 102 characters, below the 120-character threshold. It includes the exact business name, guide fact, disclaimer, and supplied relative URL. All fact_trace entries are correct. It contains no identified unsupported promotional claims. However, the source does not establish URL accessibility, deployment, or campaign approval. A named human reviewer must confirm whether including the relative URL is appropriate. Passing factual critique is not human approval."
+    },
+    {
+      "id": "variant-3",
+      "recomputed_character_count": 110,
+      "under_120": true,
+      "supported_claims": [
+        "Exact business name: Fictional Garden Partner.",
+        "Exact offer: a fictional gardening guide.",
+        "Exact start date: 2026-11-19.",
+        "Exact end date: 2026-11-26.",
+        "Exact disclaimer: Classroom demo only.",
+        "All five fact_trace phrases are exact substrings of the text and map to the correct source facts.",
+        "The reported character count of 110 is correct.",
+        "The supplied status is draft."
+      ],
+      "unsupported_claims": [
+        "The verb 'lists' implies that the guide is listed or published. The source does not establish a listing action.",
+        "The suffix 'UTC' introduces a timezone assertion that is not supplied by the source.",
+        "The wording '2026-11-19 to 2026-11-26 UTC' implies a timezone-qualified period. The source provides calendar dates without a timezone.",
+        "The date range must not be interpreted as evidence that the campaign is scheduled, active, publicly available, or approved."
+      ],
+      "language_flags": [
+        "No discriminatory wording detected.",
+        "No urgency, superlative, guarantee, or real-endorsement wording detected.",
+        "No explicit free, download, or physical-location claim detected.",
+        "'lists' introduces an unsupported publication or listing implication.",
+        "'UTC' is an unsupported timezone qualification.",
+        "The date range may imply an availability window that the source does not independently establish."
+      ],
+      "trace_errors": [
+        "No exact-substring errors in the five fact_trace entries.",
+        "No incorrect fact_id mappings.",
+        "The dates correctly map to starts_on and ends_on.",
+        "The connective_wording entry 'UTC.' is present in the text but has no supporting source fact.",
+        "The connective_wording entry 'lists' introduces an unsupported action implication.",
+        "The connective word 'to' connects the two supplied dates but does not independently establish availability throughout the period.",
+        "The comma is punctuation and does not independently introduce a factual claim.",
+        "The URL and no-physical-location fact are omitted from the text and fact_trace. These omissions do not independently invalidate the draft.",
+        "The timezone assertion is not covered by a valid fact_trace mapping."
+      ],
+      "verdict": "needs_human_review",
+      "reason": "The draft is 110 characters, below the 120-character threshold. It preserves the exact business name, guide fact, disclaimer, and both supplied dates. All fact_trace entries match their named source facts. However, 'lists' implies an unverified action, and 'UTC' adds an unsupported timezone. The date range does not establish campaign availability or deployment. A named human reviewer must resolve these issues before any approval."
+    }
+  ],
+  "comparison": {
+    "most_fact_faithful_id": "variant-2",
+    "why": "Variant-2 has the strongest factual alignment with the supplied source. Its 102-character count is correct, all four fact_trace entries are exact substrings with correct fact_id mappings, and it includes the exact business name, guide fact, disclaimer, and relative URL. Unlike variant-1, it does not use the potentially unsupported action verb 'presents'. Unlike variant-3, it does not imply a listing action or introduce an unsupported UTC timezone. The URL is source-supported as a relative path, but its accessibility and deployment remain unverified. All three variants are below 120 characters and retain draft status. None has received human approval.",
+    "remaining_human_decisions": [
+      "Assign a named human reviewer responsible for factual and safety approval. No reviewer identity is supplied.",
+      "Confirm whether variant-2 should be selected as the preferred draft.",
+      "Confirm whether the relative URL /media-demo/partner should appear in the sponsor blurb.",
+      "Determine whether the URL resolves within the intended classroom environment. The source does not establish a domain, working destination, deployment, or public accessibility.",
+      "Confirm the intended meaning of starts_on 2026-11-19 and ends_on 2026-11-26, including whether the dates describe a campaign window, display period, or another scheduling concept.",
+      "Confirm any required timezone and date-boundary conventions. The source contains date-only values and does not specify UTC or exact start and end times.",
+      "Determine whether date information is required in the final blurb.",
+      "Confirm that the classroom-only context is sufficiently clear and that no physical business location is implied.",
+      "Decide whether action verbs such as 'presents' or 'lists' are acceptable or should be replaced with source-neutral wording.",
+      "Confirm whether the exact disclaimer 'Classroom demo only.' satisfies the intended classroom disclosure requirement.",
+      "Confirm that no unverified free, download, availability, physical-location, endorsement, or promotional claims are introduced during final editing.",
+      "Record the named human reviewer's decision and any required revisions before changing draft status.",
+      "Do not treat this automated factual critique as stakeholder authorization, human approval, user testing, deployment verification, or evidence that a campaign is live."
+    ]
+  }
+}

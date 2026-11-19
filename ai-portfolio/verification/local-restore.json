@@ -1,0 +1,25 @@
+{
+  "localOnly": true,
+  "engine": "PostgreSQL 18.6 (PGlite 0.5.16) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.13 (e13ee988ce3d87a738dd8f3661d02223308c412a), 32-bit",
+  "pgliteVersion": "0.5.16",
+  "checkpointAt": "2026-11-19T03:17:48.305Z",
+  "archiveBytes": 4682331,
+  "archiveSha256": "f58df5e5d2a9d9c6e71b047a541dd5a798ecf92e6ff9d784da25702df47cd435",
+  "restoredRows": {
+    "profiles": 5,
+    "properties": 3,
+    "service_categories": 2,
+    "services": 5,
+    "service_category_mappings": 2,
+    "bookings": 2
+  },
+  "exactRowsRestored": true,
+  "restoredAnonymousBookingRead": {
+    "code": "42501",
+    "message": "permission denied for table bookings"
+  },
+  "measuredLocalRecoveryMs": 380,
+  "operationalRpo": "Not established: no hosted backup schedule or WAL/PITR has been configured or verified.",
+  "operationalRto": "Not established: this measurement covers only a tiny local fictional PGlite checkpoint.",
+  "limitation": "PGlite data-directory snapshot, not a hosted PostgreSQL dump/PITR restore. Archive remains in ignored .cache, containing only fictional test data."
+}

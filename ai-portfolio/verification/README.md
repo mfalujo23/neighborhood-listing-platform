@@ -1,0 +1,5 @@
+# Verification evidence
+
+JSON files preserve actual local outcomes. Source/manifest checkpoints may predate later changes; they are not silently re-certified. Current-source/client reports are bounded scans, not a claim about all Git history. Axe files are actual rendered local engine results, not mocked unit reports. Recovery milliseconds describe a tiny same-version local PGlite checkpoint, not operational RPO/RTO. Provider calls, hosted Auth/database checks and human testing remain separate.
+
+The publication base for this portfolio addition is [5d30224b2c406a7f32b7d14b32da0120fcaa41fc](https://github.com/mfalujo23/neighborhood-listing-platform/tree/5d30224b2c406a7f32b7d14b32da0120fcaa41fc). The underlying 469-file tested implementation checkpoint is `404a763b78dbcaff509a5172dea83c302e40ca76`, with source-manifest SHA256 `d1ad31f74294ed78591c2214aeb10a047e61474abc41352980c6058b7c0d811b`. The separately linked classroom-approval follow-up is `5d30224b2c406a7f32b7d14b32da0120fcaa41fc`. Earlier experiment checkpoints remain separately identified.

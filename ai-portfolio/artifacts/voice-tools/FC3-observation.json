@@ -1,0 +1,9 @@
+{
+  "observedProposalFile": "FC3-proposed-call.json",
+  "localResultFile": "FC3-local-result.json",
+  "responseManuallyEntered": true,
+  "responseFieldDisabledAfterFinishingEdit": true,
+  "separateModelCompletionObserved": false,
+  "note": "UI editing needed to be finished; no fabricated model completion or actual contact claim.",
+  "capturedAt": "2026-11-19T02:21:39.068Z"
+}

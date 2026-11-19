@@ -1,0 +1,56 @@
+{
+  "node": "v24.22.3",
+  "zod": "4.6.7",
+  "source": [
+    {
+      "path": "src/schemas/property.ts",
+      "sha256": "b9e60836cdb34c874eb705110444f4082a33cab405afcc8beb882c25efd9b61a"
+    },
+    {
+      "path": "src/lib/sponsorRuntime.ts",
+      "sha256": "5838b3443b91e992a8d62aef985617218ec56aa87a43b3ccf94ab374e28b8e8f"
+    }
+  ],
+  "propertyExportMatchesCanonicalFile": true,
+  "exactGeminiSampleRecordsAccepted": 5,
+  "sponsorScope": "Actual strict placement-input SponsorContextSchema, not a full sponsor entity/output contract.",
+  "results": [
+    {
+      "name": "valid fictional placement context",
+      "success": true,
+      "issues": []
+    },
+    {
+      "name": "ten-digit ZIP rejected",
+      "success": false,
+      "issues": [
+        {
+          "origin": "string",
+          "code": "invalid_format",
+          "format": "regex",
+          "pattern": "/^[0-9]{5}(-[0-9]{4})?$/",
+          "path": [
+            "targetZip"
+          ],
+          "message": "Invalid string: must match pattern /^[0-9]{5}(-[0-9]{4})?$/"
+        }
+      ]
+    },
+    {
+      "name": "unknown property rejected",
+      "success": false,
+      "issues": [
+        {
+          "code": "unrecognized_keys",
+          "keys": [
+            "unsafe_override"
+          ],
+          "path": [],
+          "message": "Unrecognized key: \"unsafe_override\""
+        }
+      ]
+    }
+  ],
+  "scope": "Local schema export/validation only; no provider or database request.",
+  "passed": true
+}

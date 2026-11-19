@@ -1,0 +1,15 @@
+{
+  "caseId": "FC2-sponsor",
+  "input": "Show clearly labeled fictional food sponsors in ZIP90032.",
+  "toolName": "get_nearby_sponsors",
+  "args": {
+    "category": "food",
+    "zip": "90032"
+  },
+  "rawRenderedArguments": "{\n  \"category\": \"food\",\n  \"zip\": \"90032\"\n}",
+  "context": "Same conversation after FC1 and its manually supplied local mock response.",
+  "model": "gemini-4-hydrogen",
+  "functionCallingEnabled": true,
+  "providerAdapterExecuted": false,
+  "capturedAt": "2026-11-19T02:06:44.925Z"
+}
