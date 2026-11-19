@@ -1,0 +1,92 @@
+[
+  {
+    "provider": "gemini",
+    "captureFile": "docs/mfalujo23/ai-experiments/lab3/gemini-normalization.json",
+    "captureSha256": "06ca3dab78a9ec8ee3b519e8e5564916cb7464591d77dfa42af4fdbf741ce32e",
+    "tool": "Google AI Studio",
+    "modelLabel": "Gemini 4 Hydrogen",
+    "modelId": "gemini-4-hydrogen",
+    "labels": [
+      "valid",
+      "missing_property_id",
+      "negative_price",
+      "malformed_zip",
+      "unknown_field"
+    ],
+    "examplesFile": "docs/mfalujo23/ai-experiments/lab3/extracted/gemini-returned-property-examples.json",
+    "examplesSha256": "dad1011d33d9e9a0fa0c8e510d5baaaa41a1b7107730b3e52fc35ba126331b6c",
+    "returnedJsonSpans": [
+      {
+        "start": 7172,
+        "end": 7580,
+        "jsonSha256": "4559a9102114d525e671bebf56ab2020573a312e4db2edac76fb19dbe00e4d7c"
+      },
+      {
+        "start": 7853,
+        "end": 8086,
+        "jsonSha256": "2e4c31d46d9bd0b7483e6de005c5dc9bece4a661113792863b0ee473ccd93929"
+      },
+      {
+        "start": 8287,
+        "end": 8588,
+        "jsonSha256": "52189e742ca8fcba587dd9a97373628ee404fa8a342529ff2385858c1586297f"
+      },
+      {
+        "start": 8780,
+        "end": 9197,
+        "jsonSha256": "21be4885ffc6036b45da4cbf8a51b895f5cc35f842929458cbb46fc27c2a6ec9"
+      },
+      {
+        "start": 9467,
+        "end": 9772,
+        "jsonSha256": "ed58743494936ab043ae06159f4fb6136be16ccf06a1bf77fa696d1813a97146"
+      }
+    ],
+    "ignoredOtherJsonObjects": 0
+  },
+  {
+    "provider": "chatgpt",
+    "captureFile": "docs/mfalujo23/ai-experiments/lab3/chatgpt-normalization.json",
+    "captureSha256": "bb03bc9aeeeb7a0070511e99604f2a8056c82eedafebe62e0da52ace17ddd6ea",
+    "tool": "ChatGPT website",
+    "modelLabel": "Instant",
+    "modelId": "not exposed by visible selector",
+    "labels": [
+      "valid",
+      "missing_property_id",
+      "negative_price",
+      "malformed_zip",
+      "unknown_field"
+    ],
+    "examplesFile": "docs/mfalujo23/ai-experiments/lab3/extracted/chatgpt-returned-property-examples.json",
+    "examplesSha256": "dbd856e6f01569b82daba24a6bd097c2980c7d5f32cd519ce33cd9f9fa7ea24d",
+    "returnedJsonSpans": [
+      {
+        "start": 7037,
+        "end": 7487,
+        "jsonSha256": "b80945cbc7a9c946c844cc24ef06c4a44609f91830f4e4a920be008fd7f8c561"
+      },
+      {
+        "start": 7669,
+        "end": 8011,
+        "jsonSha256": "a31a35c7a1bf7ed819abc1f646fcca61e828306e11bedb7bce2dd433998a619f"
+      },
+      {
+        "start": 8196,
+        "end": 8595,
+        "jsonSha256": "d3c543a8af797912353bf88dfd1f4f0a46ce3216b9002a1ce503b1cdcdebc20b"
+      },
+      {
+        "start": 8770,
+        "end": 9178,
+        "jsonSha256": "18c72aa68f3f8e51b1040bdf8f9632b7db78ca044632ec071e4ba8095923345d"
+      },
+      {
+        "start": 9365,
+        "end": 9815,
+        "jsonSha256": "783728f2d7f95a6900cfab5ae46912fbe9933ddb8d869e8d6dcd45e1e05abfd8"
+      }
+    ],
+    "ignoredOtherJsonObjects": 3
+  }
+]

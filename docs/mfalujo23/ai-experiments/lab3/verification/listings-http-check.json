@@ -1,0 +1,37 @@
+{
+  "url": "http://127.0.0.1:3043/listings",
+  "status": 200,
+  "headers": {
+    "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+    "x-nextjs-cache": "HIT",
+    "x-nextjs-prerender": "1",
+    "x-nextjs-stale-time": "300",
+    "X-Powered-By": "Next.js",
+    "Cache-Control": "s-maxage=31536000",
+    "ETag": "\"5p10vrvjzkc9q\"",
+    "Content-Type": "text/html; charset=utf-8",
+    "Content-Length": "15913",
+    "Date": "Thu, 19 Nov 2026 01:44:33 GMT",
+    "Connection": "keep-alive",
+    "Keep-Alive": "timeout=5"
+  },
+  "articleCount": 5,
+  "allAcceptedSeedIdentifiersRendered": true,
+  "listingIds": [
+    "1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+    "3c4d5e6f-7a8b-4c9d-ae0f-1a2b3c4d5e6f",
+    "4d5e6f7a-8b9c-4d0e-bf1a-2b3c4d5e6f7a",
+    "6f7a8b9c-0d1e-4f2a-9b3c-4d5e6f7a8b9c",
+    "7a8b9c0d-1e2f-4a3b-8c4d-5e6f7a8b9c0d"
+  ],
+  "startupCommand": [
+    "node",
+    "node_modules/next/dist/bin/next",
+    "start",
+    "--hostname",
+    "127.0.0.1",
+    "--port",
+    "3043"
+  ],
+  "scope": "Actual local production server HTTP response; no browser or hosted deployment claim."
+}

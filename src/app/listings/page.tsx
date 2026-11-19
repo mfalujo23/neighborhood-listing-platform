@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import rawFixtures from '../../../data/generated/mfalujo23-synthetic-properties.json'
+import rawFixtures from '../../../data/generated/gemini-ai-studio-seed-attempt2.json'
 import ListingsExplorer from '../../components/ListingsExplorer'
 import styles from '../../components/listings.module.css'
 import { validatePropertyCollection } from '../../schemas/property'
