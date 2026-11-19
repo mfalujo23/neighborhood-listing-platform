@@ -2,12 +2,8 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import type { PropertyListing } from '../schemas/property'
+import type { PropertyCardProps } from '../types'
 import styles from './listings.module.css'
-
-interface PropertyCardProps {
-  property: PropertyListing
-}
 
 export function PropertyCard({ property }: PropertyCardProps) {
   const [saved, setSaved] = useState(false)
@@ -29,7 +25,11 @@ export function PropertyCard({ property }: PropertyCardProps) {
         <p className={styles.price}>
           {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(property.price)}
         </p>
-        <p>{property.bedrooms} beds · {property.bathrooms} baths · {property.square_feet.toLocaleString('en-US')} sq ft</p>
+        <ul aria-label={`Property facts for ${property.street}`} className={styles.facts}>
+          <li>{property.bedrooms} beds</li>
+          <li>{property.bathrooms} baths</li>
+          <li>{property.square_feet.toLocaleString('en-US')} sq ft</li>
+        </ul>
         <button
           type="button"
           aria-pressed={saved}

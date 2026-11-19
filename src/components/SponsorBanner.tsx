@@ -1,13 +1,8 @@
 import { recordSponsorImpression } from '../actions/record-sponsor-impression'
 import { getActiveSponsorForProperty } from '../actions/get-sponsor'
 import SponsorPlacement from './SponsorPlacement'
+import type { SponsorBannerProps } from '../types'
 
-interface SponsorBannerProps {
-  propertyId: string
-  targetZip: string
-  placement?: string
-  pageContext?: 'home' | 'property_detail' | 'services'
-}
 export default async function SponsorBanner({ propertyId, targetZip, placement = 'sidebar', pageContext = 'home' }: SponsorBannerProps) {
   const sponsor = await getActiveSponsorForProperty(propertyId, targetZip, placement)
   if (sponsor) await recordSponsorImpression({ sponsorId: sponsor.id, placement, pageContext })

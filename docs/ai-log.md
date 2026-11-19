@@ -202,3 +202,15 @@ Canvas submission, or instructor credit is asserted by this record.
 ## Actual consolidated ChatGPT and Gemini source review
 
 One matching experiment per tool covered Labs2,4,6,8–16. The [complete disposition and six-column journal](mfalujo23/consolidated-model-review.md) links exact prompts, actual outputs, independent reproductions, rejected/already-implemented findings and the later261-test gate. The original243-test source prompt and later251-test browser-fix checkpoint are preserved chronologically; no repeated per-lab runs or retroactive credit are invented.
+
+
+## Michael Falujo (mfalujo23) - Lab 2 component alignment
+
+| Date | Tool / model | Prompt | Output used | Output rejected | Verification | Git trace |
+| --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-19T21:50:51.840Z | Google AI Studio / Gemini 4 Hydrogen (gemini-4-hydrogen) | [Exact props-only prompt](mfalujo23/ai-experiments/lab2-props/lab2-props-prompt.txt) | Required Property, indexed ID/ZIP and optional/default/readonly prop semantics | Callback rename onFilterChange was not applied; existing onApply stays compatible | Actual raw declarations are preserved; separate imported compiler harness checks the accepted contracts. Gemini did not execute tests. | Base 3e48dad16d9df3aa07630c90f0858f511e6c237c; Lab 2 candidate, not yet published |
+| 2026-11-19 | Codex / exact identifier not captured | Align the actual components with Canvas using shared canonical types, a facts list, Tailwind grid and a business-named local sponsor link | Shared type aliases/props, native facts list and safe local Imaginary Garden Shop page | No duplicate data schemas/casts, whole-card restyling, invented marketing facts, human reviews or student-executed test claims | Assistant-run focused component/schema tests, lint and TypeScript checks are recorded in the separate verification receipt; full combined gate remains pending | Same isolated candidate; related PR 5 and integration PR 14 |
+
+[Raw response](mfalujo23/ai-experiments/lab2-props/lab2-props-response.ts.txt), [capture metadata](mfalujo23/ai-experiments/lab2-props/lab2-props-observation.json) and [screenshot](mfalujo23/ai-experiments/lab2-props/lab2-props-studio.jpg). The run was temporary, with no selected API key or code execution; structured output was off for the requested TypeScript interfaces.
+
+[Component/type verification](mfalujo23/evidence/lab2-alignment/verification.json), [actual focused output](mfalujo23/evidence/lab2-alignment/focused-tests.txt).

@@ -13,14 +13,16 @@
 .button[aria-pressed='true'] { background: #14532d; border-color: #14532d; }
 .secondaryButton { background: #fff; color: #1d4ed8; }
 .sponsor { border-left: 5px solid #a16207; background: #fffbeb; }
+.sponsorLink { display: inline-block; min-height: 44px; padding-block: 0.65rem; color: #1e40af; text-decoration: underline; }
 .results { scroll-margin-top: 1rem; }
 .note { color: #475569; font-size: 0.9rem; }
-.grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
 .card { min-width: 0; overflow: hidden; border: 1px solid #cbd5e1; border-radius: 0.75rem; background: #fff; box-shadow: 0 2px 5px rgb(15 23 42 / 6%); }
 .image { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #dbeafe; }
 .cardBody { padding: 1.1rem; }
 .cardBody h3 { margin: 0.5rem 0; font-size: 1.15rem; }
 .cardBody p { margin-block: 0.6rem; }
+.facts { margin-block: 0.6rem; padding-left: 1.25rem; }
+.facts li { margin-block: 0.15rem; }
 .cardBody .button { width: 100%; margin-top: 0.5rem; }
 .price { font-size: 1.3rem; font-weight: 700; }
 .details { margin-top: 1rem; }
@@ -28,7 +30,7 @@
 .details p { overflow-wrap: anywhere; }
 .empty { padding: 1rem; border: 1px dashed #64748b; border-radius: 0.35rem; }
 .button:focus-visible, .secondaryButton:focus-visible, .field:focus-visible,
-.details summary:focus-visible, .intro a:focus-visible, .skipLink:focus-visible {
+.details summary:focus-visible, .intro a:focus-visible, .sponsorLink:focus-visible, .skipLink:focus-visible {
   outline: 3px solid #1d4ed8;
   outline-offset: 3px;
 }
@@ -36,11 +38,9 @@
 .skipLink:focus { left: 1rem; }
 
 @media (min-width: 640px) {
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .filterForm { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (min-width: 1024px) {
-  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .filterForm { grid-template-columns: 1fr 1fr auto auto; }
 }

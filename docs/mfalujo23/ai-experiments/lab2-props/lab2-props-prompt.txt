@@ -1,0 +1,8 @@
+Return TypeScript prop interfaces only for a fictional React coursework app. Do not return JSX, implementation code, or claims that tests ran. Reuse the existing Property, Sponsor, and PropertyFilters types; do not redefine their data fields.
+
+Draft these three interfaces:
+1. PropertyCardProps: the component always receives one validated Property.
+2. SponsorBannerProps: requires the property ID and target ZIP, using indexed types from Property (property_id and zip_code). The existing placement and page context settings have defaults, so those settings may be omitted. Page context must be home, property_detail, or services.
+3. SearchFiltersProps: may receive a readonly list of locations and an optional callback that receives PropertyFilters (city: string; maxPrice: number or null).
+
+Keep required values required, optional settings optional, and callback types explicit. Choose clear prop names.

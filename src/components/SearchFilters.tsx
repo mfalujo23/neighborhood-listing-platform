@@ -1,17 +1,10 @@
 'use client'
 
 import { useId, useState, type FormEvent } from 'react'
+import type { SearchFiltersProps } from '../types'
 import styles from './listings.module.css'
 
-export interface PropertyFilters {
-  city: string
-  maxPrice: number | null
-}
-
-interface SearchFiltersProps {
-  locations?: readonly string[]
-  onApply?: (filters: PropertyFilters) => void
-}
+export type { PropertyFilters } from '../types'
 
 export function SearchFilters({ locations = [], onApply }: SearchFiltersProps) {
   const formId = useId()
