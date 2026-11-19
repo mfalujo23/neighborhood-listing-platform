@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { ServiceCreateSchema, ServiceListResponseSchema } from '@/schemas/service'
 import { createSupabaseUserClient as createUserClient } from '@/lib/supabaseServer'
+import { JsonBodyError, readJsonBody } from '@/lib/request-controls'
 
 export async function GET() {
   try {
@@ -42,11 +43,11 @@ export async function POST(request: Request) {
 
   let body: unknown
   try {
-    body = await request.json()
-  } catch {
+    body = await readJsonBody(request)
+  } catch (error) {
     return NextResponse.json(
-      { error: 'Request body must be valid JSON.' },
-      { status: 400 },
+      { error: error instanceof JsonBodyError ? error.message : 'Request body must be valid JSON.' },
+      { status: error instanceof JsonBodyError ? error.status : 400 },
     )
   }
 
@@ -73,8 +74,13 @@ export async function POST(request: Request) {
       .eq('id', authData.user.id)
       .maybeSingle()
 
+    if (profileError) {
+      return NextResponse.json(
+        { error: 'Account authorization is temporarily unavailable.' },
+        { status: profileError.code === '42501' ? 403 : 503 },
+      )
+    }
     if (
-      profileError ||
       !profile ||
       !['provider', 'merchant'].includes(profile.role)
     ) {

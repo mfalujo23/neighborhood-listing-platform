@@ -25,6 +25,20 @@ const server = createServer(async (request, response) => {
   const url = new URL(request.url ?? '/', 'http://127.0.0.1')
   if (url.pathname === '/_fixture' && request.method === 'GET') return json(response, 200, { localOnly: true, database: 'disposable fictional PostgreSQL', services: 3 })
   if (request.headers.apikey !== 'synthetic-midterm-public-key') return json(response, 403, { code: '42501', message: 'Local fixture key required.' })
+  // Synthetic session/profile responses exist only for local route-status tests.
+  // They are not hosted Supabase Auth, real users, or a production auth bypass.
+  const syntheticToken = request.headers.authorization?.replace(/^Bearer /, '')
+  const knownTokens = ['synthetic-exam-profile-outage', 'synthetic-exam-profile-denied', 'synthetic-exam-admin-session']
+  if (url.pathname === '/auth/v1/user' && request.method === 'GET') {
+    if (!knownTokens.includes(syntheticToken)) return json(response, 401, { message: 'Synthetic session required.' })
+    return json(response, 200, { id: '33333333-3333-4333-8333-333333333333' })
+  }
+  if (url.pathname === '/rest/v1/profiles' && request.method === 'GET') {
+    if (syntheticToken === 'synthetic-exam-profile-outage') return json(response, 503, { code: '08006', message: 'Synthetic profile transport unavailable.' })
+    if (syntheticToken === 'synthetic-exam-profile-denied') return json(response, 403, { code: '42501', message: 'Synthetic profile read denied.' })
+    if (syntheticToken === 'synthetic-exam-admin-session') return json(response, 200, [{ role: 'admin' }])
+    return json(response, 403, { code: '42501', message: 'Synthetic session required.' })
+  }
   try {
     if (url.pathname === '/rest/v1/services' && request.method === 'GET') {
       const result = await db.transaction(async (tx) => {

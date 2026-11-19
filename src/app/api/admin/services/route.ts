@@ -2,6 +2,7 @@ import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
 import { getSupabaseAdmin } from '../../../../lib/supabaseServer'
 import { ServiceAdminUpdateSchema } from '../../../../schemas/service'
+import { JsonBodyError, readJsonBody } from '../../../../lib/request-controls'
 
 export async function PATCH(request: Request) {
   const authorization = request.headers.get('authorization')
@@ -41,7 +42,13 @@ export async function PATCH(request: Request) {
       .eq('id', authData.user.id)
       .maybeSingle()
 
-    if (profileError || profile?.role !== 'admin') {
+    if (profileError) {
+      return NextResponse.json(
+        { error: 'Account authorization is temporarily unavailable.' },
+        { status: profileError.code === '42501' ? 403 : 503 },
+      )
+    }
+    if (profile?.role !== 'admin') {
       return NextResponse.json(
         { error: 'Administrator access required.' },
         { status: 403 },
@@ -50,11 +57,11 @@ export async function PATCH(request: Request) {
 
     let body: unknown
     try {
-      body = await request.json()
-    } catch {
+      body = await readJsonBody(request)
+    } catch (error) {
       return NextResponse.json(
-        { error: 'Request body must be valid JSON.' },
-        { status: 400 },
+        { error: error instanceof JsonBodyError ? error.message : 'Request body must be valid JSON.' },
+        { status: error instanceof JsonBodyError ? error.status : 400 },
       )
     }
 

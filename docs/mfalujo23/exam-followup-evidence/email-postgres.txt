@@ -1,0 +1,1 @@
+BOOKING EMAIL CONTRACT:4actual migrated PostgreSQL INSERT/runtime comparisons PASS

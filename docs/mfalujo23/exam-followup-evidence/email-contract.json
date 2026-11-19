@@ -1,0 +1,39 @@
+{
+  "localOnly": true,
+  "fictionalDataOnly": true,
+  "method": "Actual anon INSERTs into migrated bookings table; rollback each case",
+  "results": [
+    {
+      "label": "plus",
+      "sqlAccepted": true,
+      "sqlErrorCode": null,
+      "runtimeAccepted": true,
+      "matched": true,
+      "transactionRolledBack": true
+    },
+    {
+      "label": "percent",
+      "sqlAccepted": true,
+      "sqlErrorCode": null,
+      "runtimeAccepted": true,
+      "matched": true,
+      "transactionRolledBack": true
+    },
+    {
+      "label": "apostrophe",
+      "sqlAccepted": false,
+      "sqlErrorCode": "23514",
+      "runtimeAccepted": false,
+      "matched": true,
+      "transactionRolledBack": true
+    },
+    {
+      "label": "exclamation",
+      "sqlAccepted": false,
+      "sqlErrorCode": "23514",
+      "runtimeAccepted": false,
+      "matched": true,
+      "transactionRolledBack": true
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+
+ RUN  v5.1.0 <workspace>/work/exam-services-followup-work
+
+
+ Test Files  9 passed (9)
+      Tests  117 passed (117)
+   Start at  08:48:02
+   Duration  25.09s (import 39%, environment 32%, transform 16%, tests 12%, worker 1%)
+

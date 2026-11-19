@@ -1,0 +1,33 @@
+(node:25140) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///<workspace>/work/exam-services-followup-work/tests/webhook.test.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\<workspace>\work\exam-services-followup-work\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+▶ Lab 9: signature, idempotency, consent, and privacy
+  ✔ accepts a valid signed form and returns XML (186.5951ms)
+  ✔ rejects invalid and missing signatures without persisting an event (28.4372ms)
+  ✔ rejects a payload changed after signing (9.9768ms)
+  ✔ uses the configured callback URL rather than Host headers (11.3061ms)
+  ✔ rejects missing and malformed required fields even when signed (20.4823ms)
+  ✔ rejects ambiguous repeated form fields (21.9104ms)
+  ✔ enforces methods and an exact documented content type (57.4898ms)
+  ✔ rejects oversized streamed bodies before signature or persistence (15.9272ms)
+  ✔ prevents two sends when duplicate requests arrive concurrently (45.1555ms)
+  ✔ retains duplicate protection across separate local adapter instances (121.095ms)
+  ✔ sends nothing without explicit consent, or with the default-disabled flag (125.1115ms)
+  ✔ never reports a successful SMS without a configured client (25.4911ms)
+  ✔ does not send twice after an ambiguous provider failure (40.0345ms)
+  ✔ escapes project-name XML text (154.6781ms)
+  ✔ stores and logs only minimal redacted fields (30.5076ms)
+  ✔ fails closed on hosted deployments without a durable store (11.5293ms)
+  ✔ does not send when the event store is unavailable (11.9977ms)
+  ✔ handles atomic hosted insert and duplicate conflicts using a fake transport (7.0582ms)
+  ✔ surfaces hosted storage failures instead of treating them as duplicates (7.1074ms)
+✔ Lab 9: signature, idempotency, consent, and privacy (955.1099ms)
+ℹ tests 19
+ℹ suites 1
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3175.9632

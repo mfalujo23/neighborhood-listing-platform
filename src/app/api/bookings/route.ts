@@ -1,16 +1,24 @@
 import { NextResponse } from 'next/server'
 import { BookingCreateSchema } from '@/schemas/booking'
 import { createSupabaseUserClient } from '@/lib/supabaseServer'
+import { bookingRequestBudget, JsonBodyError, readJsonBody } from '@/lib/request-controls'
 
 export async function POST(request: Request) {
+  const capacity = bookingRequestBudget.take()
+  if (!capacity.allowed) {
+    return NextResponse.json(
+      { error: 'Too many booking requests. Try again shortly.' },
+      { status: 429, headers: { 'Retry-After': String(capacity.retryAfter), 'Cache-Control': 'no-store' } },
+    )
+  }
   let body: unknown
 
   try {
-    body = await request.json()
-  } catch {
+    body = await readJsonBody(request)
+  } catch (error) {
     return NextResponse.json(
-      { error: 'Request body must be valid JSON.' },
-      { status: 400 },
+      { error: error instanceof JsonBodyError ? error.message : 'Request body must be valid JSON.' },
+      { status: error instanceof JsonBodyError ? error.status : 400 },
     )
   }
 

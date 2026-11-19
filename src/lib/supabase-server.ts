@@ -12,6 +12,9 @@ export function getSupabaseAdmin() {
   if (!supabaseUrl || !supabaseServiceKey) {
     throw new Error('Supabase administrator configuration is missing.')
   }
+  if (supabaseServiceKey.startsWith('sb_publishable_')) {
+    throw new Error('Privileged Supabase configuration requires a server secret key.')
+  }
 
   return createClient(supabaseUrl, supabaseServiceKey, {
     auth: { persistSession: false, autoRefreshToken: false },

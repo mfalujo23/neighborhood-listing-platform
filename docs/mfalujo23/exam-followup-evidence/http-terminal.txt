@@ -1,0 +1,95 @@
+CHECK approved active public services
+PASS approved active public services: 200
+CHECK capacity request 1
+PASS capacity request 1: 201
+CHECK capacity request 2
+PASS capacity request 2: 201
+CHECK capacity request 3
+PASS capacity request 3: 201
+CHECK capacity request 4
+PASS capacity request 4: 201
+CHECK capacity request 5
+PASS capacity request 5: 201
+CHECK capacity request 6
+PASS capacity request 6: 201
+CHECK capacity request 7
+PASS capacity request 7: 201
+CHECK capacity request 8
+PASS capacity request 8: 201
+CHECK capacity request 9
+PASS capacity request 9: 201
+CHECK capacity request 10
+PASS capacity request 10: 201
+CHECK capacity request 11
+PASS capacity request 11: 201
+CHECK capacity request 12
+PASS capacity request 12: 201
+CHECK capacity request 13
+PASS capacity request 13: 201
+CHECK capacity request 14
+PASS capacity request 14: 201
+CHECK capacity request 15
+PASS capacity request 15: 201
+CHECK capacity request 16
+PASS capacity request 16: 201
+CHECK capacity request 17
+PASS capacity request 17: 201
+CHECK capacity request 18
+PASS capacity request 18: 201
+CHECK capacity request 19
+PASS capacity request 19: 201
+CHECK capacity request 20
+PASS capacity request 20: 201
+CHECK capacity request 21
+PASS capacity request 21: 201
+CHECK capacity request 22
+PASS capacity request 22: 201
+CHECK capacity request 23
+PASS capacity request 23: 201
+CHECK capacity request 24
+PASS capacity request 24: 201
+CHECK capacity request 25
+PASS capacity request 25: 201
+CHECK capacity request 26
+PASS capacity request 26: 201
+CHECK capacity request 27
+PASS capacity request 27: 201
+CHECK capacity request 28
+PASS capacity request 28: 201
+CHECK capacity request 29
+PASS capacity request 29: 201
+CHECK capacity request 30
+PASS capacity request 30: 201
+CHECK capacity request 31
+PASS capacity request 31: 429
+CHECK unsupported body type
+PASS unsupported body type: 415
+CHECK actual oversize body
+PASS actual oversize body: 413
+CHECK malformed JSON
+PASS malformed JSON: 400
+CHECK database-incompatible apostrophe email
+PASS database-incompatible apostrophe email: 400
+CHECK supported percent email reaches actual local SQL insert
+PASS supported percent email reaches actual local SQL insert: 201
+CHECK service sign-in required
+PASS service sign-in required: 401
+CHECK admin booking sign-in required
+PASS admin booking sign-in required: 401
+CHECK unsupported booking method
+PASS unsupported booking method: 405
+CHECK synthetic-exam-profile-outage service
+PASS synthetic-exam-profile-outage service: 503
+CHECK synthetic-exam-profile-outage admin service
+PASS synthetic-exam-profile-outage admin service: 503
+CHECK synthetic-exam-profile-outage admin bookings
+PASS synthetic-exam-profile-outage admin bookings: 503
+CHECK synthetic-exam-profile-denied service
+PASS synthetic-exam-profile-denied service: 403
+CHECK synthetic-exam-profile-denied admin service
+PASS synthetic-exam-profile-denied admin service: 403
+CHECK synthetic-exam-profile-denied admin bookings
+PASS synthetic-exam-profile-denied admin bookings: 403
+CHECK verified synthetic admin still receives bounded type rejection
+PASS verified synthetic admin still receives bounded type rejection: 415
+EXAM PRODUCTION LOOPBACK HTTP: 47 checks PASS;30accepted,31st429;profile503/403;no cloud/provider calls.

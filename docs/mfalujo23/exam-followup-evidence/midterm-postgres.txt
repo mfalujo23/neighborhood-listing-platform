@@ -1,0 +1,51 @@
+fresh-exam: Exact role accepted by server: admin: PASS {"rows":[{"role":"admin"}],"affectedRows":1}
+fresh-exam: Exact role accepted by server: merchant: PASS {"rows":[{"role":"merchant"}],"affectedRows":1}
+fresh-exam: Exact role accepted by server: provider: PASS {"rows":[{"role":"provider"}],"affectedRows":1}
+fresh-exam: Exact role accepted by server: client: PASS {"rows":[{"role":"client"}],"affectedRows":1}
+fresh-exam: New legacy role rejected: owner: PASS {"error":{"code":"23514","message":"new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""}}
+fresh-exam: New legacy role rejected: public: PASS {"error":{"code":"23514","message":"new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""}}
+fresh-exam: New legacy role rejected: user: PASS {"error":{"code":"23514","message":"new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""}}
+fresh-exam: New legacy role rejected: property_professional: PASS {"error":{"code":"23514","message":"new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""}}
+fresh-exam: New legacy role rejected: local_sponsor: PASS {"error":{"code":"23514","message":"new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""}}
+fresh-exam: Browser cannot create admin identity: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"profiles\""}}
+fresh-exam: Authenticated merchant may create own profile: PASS {"rows":[{"role":"merchant"}],"affectedRows":1}
+fresh-exam: Anonymous sees two approved active services: PASS {"rows":[{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2"},{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb5"}],"affectedRows":0}
+fresh-exam: Anonymous cannot read draft service: PASS {"rows":[],"affectedRows":0}
+fresh-exam: Provider updates own draft: PASS {"rows":[{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1"}],"affectedRows":1}
+fresh-exam: Provider cannot update other draft: PASS {"rows":[],"affectedRows":0}
+fresh-exam: Provider may edit own suspended service: PASS {"rows":[{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb7"}],"affectedRows":1}
+fresh-exam: Provider may delete own suspended service: PASS {"rows":[{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb7"}],"affectedRows":1}
+fresh-exam: Provider cannot self-publish draft: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"services\""}}
+fresh-exam: Administrator may suspend an approved service: PASS {"rows":[{"status":"suspended"}],"affectedRows":1}
+fresh-exam: Merchant inserts own draft: PASS {"rows":[{"status":"draft"}],"affectedRows":1}
+fresh-exam: Anonymous submits private booking: PASS {"rows":[],"affectedRows":1}
+fresh-exam: Anonymous cannot read contact information: PASS {"error":{"code":"42501","message":"permission denied for table bookings"}}
+fresh-exam: Client cannot read bookings: PASS {"rows":[],"affectedRows":0}
+fresh-exam: Administrator reads all bookings: PASS {"rows":[{"id":"dddddddd-dddd-4ddd-8ddd-ddddddddddd1"},{"id":"dddddddd-dddd-4ddd-8ddd-ddddddddddd2"}],"affectedRows":0}
+legacy-preservation: Exact role accepted by server: admin: PASS {"rows":[{"role":"admin"}],"affectedRows":1}
+legacy-preservation: Exact role accepted by server: merchant: PASS {"rows":[{"role":"merchant"}],"affectedRows":1}
+legacy-preservation: Exact role accepted by server: provider: PASS {"rows":[{"role":"provider"}],"affectedRows":1}
+legacy-preservation: Exact role accepted by server: client: PASS {"rows":[{"role":"client"}],"affectedRows":1}
+legacy-preservation: New legacy role rejected: owner: PASS {"error":{"code":"23514","message":"new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""}}
+legacy-preservation: New legacy role rejected: public: PASS {"error":{"code":"23514","message":"new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""}}
+legacy-preservation: New legacy role rejected: user: PASS {"error":{"code":"23514","message":"new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""}}
+legacy-preservation: New legacy role rejected: property_professional: PASS {"error":{"code":"23514","message":"new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""}}
+legacy-preservation: New legacy role rejected: local_sponsor: PASS {"error":{"code":"23514","message":"new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""}}
+legacy-preservation: Browser cannot create admin identity: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"profiles\""}}
+legacy-preservation: Authenticated merchant may create own profile: PASS {"rows":[{"role":"merchant"}],"affectedRows":1}
+legacy-preservation: Anonymous sees two approved active services: PASS {"rows":[{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2"},{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb5"}],"affectedRows":0}
+legacy-preservation: Anonymous cannot read draft service: PASS {"rows":[],"affectedRows":0}
+legacy-preservation: Provider updates own draft: PASS {"rows":[{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb1"}],"affectedRows":1}
+legacy-preservation: Provider cannot update other draft: PASS {"rows":[],"affectedRows":0}
+legacy-preservation: Provider may edit own suspended service: PASS {"rows":[{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb7"}],"affectedRows":1}
+legacy-preservation: Provider may delete own suspended service: PASS {"rows":[{"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb7"}],"affectedRows":1}
+legacy-preservation: Provider cannot self-publish draft: PASS {"error":{"code":"42501","message":"new row violates row-level security policy for table \"services\""}}
+legacy-preservation: Administrator may suspend an approved service: PASS {"rows":[{"status":"suspended"}],"affectedRows":1}
+legacy-preservation: Merchant inserts own draft: PASS {"rows":[{"status":"draft"}],"affectedRows":1}
+legacy-preservation: Anonymous submits private booking: PASS {"rows":[],"affectedRows":1}
+legacy-preservation: Anonymous cannot read contact information: PASS {"error":{"code":"42501","message":"permission denied for table bookings"}}
+legacy-preservation: Client cannot read bookings: PASS {"rows":[],"affectedRows":0}
+legacy-preservation: Administrator reads all bookings: PASS {"rows":[{"id":"dddddddd-dddd-4ddd-8ddd-ddddddddddd1"},{"id":"dddddddd-dddd-4ddd-8ddd-ddddddddddd2"}],"affectedRows":0}
+legacy-preservation: Existing legacy profile remains readable to server: PASS {"rows":[{"id":"66666666-6666-4666-8666-666666666666"}],"affectedRows":0}
+legacy-preservation: Legacy profile updates require an exact allowed role: PASS {"error":{"code":"23514","message":"new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""}}
+MIDTERM LOCAL POSTGRESQL: 50/50 checks passed.

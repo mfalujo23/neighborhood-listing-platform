@@ -1,0 +1,422 @@
+approved active public services
+GET /api/services
+HTTP 200
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"data":[{"title":"Fictional plumbing review","hourly_rate":85,"duration_minutes":45,"coverage_radius_miles":8,"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb6"},{"title":"Provider A approved","hourly_rate":75,"duration_minutes":60,"coverage_radius_miles":10,"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2"},{"title":"Provider B approved","hourly_rate":80,"duration_minutes":45,"coverage_radius_miles":5,"id":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb5"}]}
+
+capacity request 1
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 2
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 3
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 4
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 5
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 6
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 7
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 8
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 9
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 10
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 11
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 12
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 13
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 14
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 15
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 16
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 17
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 18
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 19
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 20
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 21
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 22
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 23
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 24
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 25
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 26
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 27
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 28
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 29
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 30
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+capacity request 31
+POST /api/bookings
+HTTP 429
+content-type: application/json
+retry-after: 58
+cache-control: no-store
+
+{"error":"Too many booking requests. Try again shortly."}
+
+unsupported body type
+POST /api/bookings
+HTTP 415
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Content-Type must be application/json."}
+
+actual oversize body
+POST /api/bookings
+HTTP 413
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Request body is too large."}
+
+malformed JSON
+POST /api/bookings
+HTTP 400
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Request body must be valid JSON."}
+
+database-incompatible apostrophe email
+POST /api/bookings
+HTTP 400
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Invalid booking details.","details":[{"origin":"string","code":"invalid_format","format":"regex","pattern":"/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$/","path":["client_email"],"message":"Enter an email address in the supported format."}]}
+
+supported percent email reaches actual local SQL insert
+POST /api/bookings
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"message":"Booking request submitted."}
+
+service sign-in required
+POST /api/services
+HTTP 401
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Sign-in is required."}
+
+admin booking sign-in required
+GET /api/admin/bookings
+HTTP 401
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Sign-in is required."}
+
+unsupported booking method
+PUT /api/bookings
+HTTP 405
+content-type: null
+retry-after: null
+cache-control: null
+
+
+
+synthetic-exam-profile-outage service
+POST /api/services
+HTTP 503
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Account authorization is temporarily unavailable."}
+
+synthetic-exam-profile-outage admin service
+PATCH /api/admin/services
+HTTP 503
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Account authorization is temporarily unavailable."}
+
+synthetic-exam-profile-outage admin bookings
+GET /api/admin/bookings
+HTTP 503
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Account authorization is temporarily unavailable."}
+
+synthetic-exam-profile-denied service
+POST /api/services
+HTTP 403
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Account authorization is temporarily unavailable."}
+
+synthetic-exam-profile-denied admin service
+PATCH /api/admin/services
+HTTP 403
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Account authorization is temporarily unavailable."}
+
+synthetic-exam-profile-denied admin bookings
+GET /api/admin/bookings
+HTTP 403
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Account authorization is temporarily unavailable."}
+
+verified synthetic admin still receives bounded type rejection
+PATCH /api/admin/services
+HTTP 415
+content-type: application/json
+retry-after: null
+cache-control: null
+
+{"error":"Content-Type must be application/json."}

@@ -42,7 +42,13 @@ export async function GET(request: Request) {
       .eq('id', authData.user.id)
       .maybeSingle()
 
-    if (profileError || profile?.role !== 'admin') {
+    if (profileError) {
+      return NextResponse.json(
+        { error: 'Account authorization is temporarily unavailable.' },
+        { status: profileError.code === '42501' ? 403 : 503 },
+      )
+    }
+    if (profile?.role !== 'admin') {
       return NextResponse.json(
         { error: 'Administrator access required.' },
         { status: 403 },
@@ -55,7 +61,7 @@ export async function GET(request: Request) {
       .order('created_at', { ascending: false })
 
     if (error) {
-      console.error('Admin bookings query error:', error)
+      console.error('Admin bookings query failed', { code: error.code })
       return NextResponse.json(
         { error: 'Could not retrieve bookings.' },
         { status: 500 },
@@ -63,8 +69,8 @@ export async function GET(request: Request) {
     }
 
     return NextResponse.json({ data }, { status: 200 })
-  } catch (error) {
-    console.error('Admin bookings route error:', error)
+  } catch {
+    console.error('Admin bookings route failed')
     return NextResponse.json(
       { error: 'Server configuration or request error.' },
       { status: 500 },

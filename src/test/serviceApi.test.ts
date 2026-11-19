@@ -6,6 +6,8 @@ vi.mock('server-only', () => ({}))
 
 import { GET, POST } from '../app/api/services/route'
 import { ServiceCreateSchema } from '../schemas/service'
+import { BookingCreateSchema } from '../schemas/booking'
+import { bookingRequestBudget } from '../lib/request-controls'
 import { POST as createBooking } from '../app/api/bookings/route'
 
 const owner = '11111111-1111-4111-8111-111111111111'
@@ -28,7 +30,7 @@ function fixture(role = 'provider', validSession = true) {
     from: vi.fn((table: string) => table === 'profiles' ? profileChain : serviceChain),
   }
   transport.createClient.mockReturnValue(client)
-  return { client, serviceChain }
+  return { client, serviceChain, profileChain }
 }
 
 function request(body: unknown, authorized = true) {
@@ -39,6 +41,7 @@ function request(body: unknown, authorized = true) {
 }
 
 beforeEach(() => {
+  bookingRequestBudget.reset()
   vi.clearAllMocks()
   vi.stubEnv('SUPABASE_URL', 'https://synthetic-backend.invalid')
   vi.stubEnv('SUPABASE_ANON_KEY', 'synthetic-public-key-not-a-credential')
@@ -46,6 +49,12 @@ beforeEach(() => {
 afterEach(() => vi.unstubAllEnvs())
 
 describe('Service contract and route guards (local mocked transport, no provider requests)', () => {
+  it('aligns booking email syntax with the required database CHECK', () => {
+    const base = { service_id: 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2', requested_date: '2027-01-01', notes: 'Fictional appointment request' }
+    expect(BookingCreateSchema.safeParse({ ...base, client_email: 'person%tag@example.test' }).success).toBe(true)
+    expect(BookingCreateSchema.safeParse({ ...base, client_email: "o'neal@example.test" }).success).toBe(false)
+    expect(BookingCreateSchema.safeParse({ ...base, client_email: 'person!tag@example.test' }).success).toBe(false)
+  })
   it.each([
     { ...valid, title: 'tiny' }, { ...valid, hourly_rate: -1 },
     { ...valid, duration_minutes: 14 }, { ...valid, duration_minutes: 15.5 },
@@ -72,6 +81,14 @@ describe('Service contract and route guards (local mocked transport, no provider
     const f = fixture('client')
     expect((await POST(request(valid))).status).toBe(403)
     expect(f.serviceChain.insert).not.toHaveBeenCalled()
+  })
+  it('distinguishes a profile lookup outage from a role denial', async () => {
+    const f = fixture('provider')
+    f.profileChain.maybeSingle.mockResolvedValue({ data: null, error: { code: '08006' } })
+    const response = await POST(request(valid))
+    expect(response.status).toBe(503)
+    expect(f.serviceChain.insert).not.toHaveBeenCalled()
+    expect(await response.json()).toEqual({ error: 'Account authorization is temporarily unavailable.' })
   })
   it.each(['provider', 'merchant'])('binds a %s draft to verified session identity', async (role) => {
     const f = fixture(role)
@@ -113,6 +130,16 @@ describe('Service contract and route guards (local mocked transport, no provider
     const body = { service_id: 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2', client_email: 'client@example.test', requested_date: '2027-02-30', notes: 'Fictional appointment request', admin: true }
     expect((await createBooking(request(body, false))).status).toBe(400)
     expect(transport.createClient).not.toHaveBeenCalled()
+  })
+  it('bounds anonymous route capacity without pretending to limit direct database access', async () => {
+    const insert = vi.fn().mockResolvedValue({ error: null })
+    transport.createClient.mockReturnValue({ from: vi.fn().mockReturnValue({ insert }) })
+    const body = { service_id: 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2', client_email: 'client@example.test', requested_date: '2027-01-01', notes: 'Fictional bounded booking burst' }
+    for (let i = 0; i < 30; i += 1) expect((await createBooking(request(body, false))).status).toBe(201)
+    const blocked = await createBooking(request(body, false))
+    expect(blocked.status).toBe(429)
+    expect(Number(blocked.headers.get('retry-after'))).toBeGreaterThan(0)
+    expect(insert).toHaveBeenCalledTimes(30)
   })
   it.each([['42501', 403], ['23514', 400], ['08006', 503]] as const)('maps booking database failure%s to%i without contact data', async (code, status) => {
     transport.createClient.mockReturnValue({ from: vi.fn().mockReturnValue({ insert: vi.fn().mockResolvedValue({ error: { code } }) }) })

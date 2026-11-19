@@ -1,0 +1,50 @@
+▲ Next.js 16.4.6 (webpack)
+✓ Running next.config took 211ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 30.7s
+  Running TypeScript ...
+  Finished TypeScript in 19.9s ...
+  Collecting page data using 15 workers ...
+[Upstash Redis] Unable to find environment variable: `UPSTASH_REDIS_REST_URL`. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] Unable to find environment variable: `UPSTASH_REDIS_REST_TOKEN`. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] The 'url' property is missing or undefined in your Redis config. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] The 'token' property is missing or undefined in your Redis config. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+  Generating static pages using 15 workers (0/12) ...
+[Upstash Redis] Unable to find environment variable: `UPSTASH_REDIS_REST_URL`. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] Unable to find environment variable: `UPSTASH_REDIS_REST_TOKEN`. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] The 'url' property is missing or undefined in your Redis config. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+[Upstash Redis] The 'token' property is missing or undefined in your Redis config. To create a database instantly (no signup needed), run: curl -X POST https://upstash.com/start-redis
+  Generating static pages using 15 workers (3/12) 
+  Generating static pages using 15 workers (6/12) 
+  Generating static pages using 15 workers (9/12) 
+✓ Generating static pages using 15 workers (12/12) in 4.2s
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+
+Redirects
+┌ source: /:path+/
+├ destination: /:path+
+└ permanent: true
+
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/admin/bookings
+├ ƒ /api/admin/services
+├ ƒ /api/bookings
+├ ƒ /api/listings
+├ ƒ /api/services
+├ ƒ /api/sponsors/redirect
+├ ƒ /api/webhooks/twilio
+├ ƒ /api/webhooks/voice
+├ ○ /listings
+├ ○ /services
+└ ○ /voice-simulator
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
