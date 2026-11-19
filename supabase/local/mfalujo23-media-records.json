@@ -1,0 +1,92 @@
+{
+  "fixtureOnly": true,
+  "clock": "2026-11-19T12:00:00.000Z",
+  "assets": [
+    {
+      "asset_id": "fictional-property",
+      "public_path": "/mfalujo23-media/property-1280.webp",
+      "source_path": "assets/mfalujo23-media/source/property-generated-v1.png",
+      "sha256": "57ae20ac3a5ae69e356e841690732614e6b1ea99b9213877c4ba8abe29012a7a",
+      "approval_status": "approved",
+      "approval_scope": "fixture_test",
+      "human_reviewed": false,
+      "approval_actor": "test-fixture-only",
+      "approval_date": "2026-11-19",
+      "production_status": "draft"
+    },
+    {
+      "asset_id": "fictional-partner",
+      "public_path": "/mfalujo23-media/partner-banner.svg",
+      "source_path": "assets/mfalujo23-media/source/partner-banner.svg",
+      "sha256": "63350d898019ff7dc9957ffc3c719ea5de3af67f641c644f67aef450312bc4c1",
+      "approval_status": "approved",
+      "approval_scope": "fixture_test",
+      "human_reviewed": false,
+      "approval_actor": "test-fixture-only",
+      "approval_date": "2026-11-19",
+      "production_status": "draft"
+    },
+    {
+      "asset_id": "home-navigation",
+      "public_path": "/mfalujo23-media/home-icon.svg",
+      "source_path": "assets/mfalujo23-media/source/home-icon.svg",
+      "sha256": "79ec126fd5e05d771b5caee7014f53ab959eb23c78a18082c313bd45306ece82",
+      "approval_status": "approved",
+      "approval_scope": "fixture_test",
+      "human_reviewed": false,
+      "approval_actor": "test-fixture-only",
+      "approval_date": "2026-11-19",
+      "production_status": "draft"
+    }
+  ],
+  "copies": [
+    {
+      "copy_id": "draft-1",
+      "brief_id": "fictional-garden-v1",
+      "copy_text": "Fictional Garden Partner: a fictional gardening guide. Classroom demo only.",
+      "starts_on": "2026-11-19",
+      "ends_on": "2026-11-26",
+      "approval_status": "draft",
+      "approval_scope": "production",
+      "human_reviewed": false,
+      "approval_actor": null,
+      "approval_date": null
+    },
+    {
+      "copy_id": "draft-2",
+      "brief_id": "fictional-garden-v1",
+      "copy_text": "Classroom demo only. Explore a fictional gardening guide from Fictional Garden Partner.",
+      "starts_on": "2026-11-19",
+      "ends_on": "2026-11-26",
+      "approval_status": "draft",
+      "approval_scope": "production",
+      "human_reviewed": false,
+      "approval_actor": null,
+      "approval_date": null
+    },
+    {
+      "copy_id": "draft-3",
+      "brief_id": "fictional-garden-v1",
+      "copy_text": "Explore Fictional Garden Partner and a fictional gardening guide. Classroom demo only.",
+      "starts_on": "2026-11-19",
+      "ends_on": "2026-11-26",
+      "approval_status": "draft",
+      "approval_scope": "production",
+      "human_reviewed": false,
+      "approval_actor": null,
+      "approval_date": null
+    },
+    {
+      "copy_id": "fixture-approved-1",
+      "brief_id": "fictional-garden-v1",
+      "copy_text": "Fictional Garden Partner: a fictional gardening guide. Classroom demo only.",
+      "starts_on": "2026-11-19",
+      "ends_on": "2026-11-26",
+      "approval_status": "approved",
+      "approval_scope": "fixture_test",
+      "human_reviewed": false,
+      "approval_actor": "test-fixture-only",
+      "approval_date": "2026-11-19"
+    }
+  ]
+}

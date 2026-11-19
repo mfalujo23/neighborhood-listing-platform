@@ -1,0 +1,25 @@
+PREPARED PROMPT -- PROVIDER EXPERIMENT NOT YET PERFORMED
+
+Use the generated src/schemas/property.schema.json as the record schema for an
+array response in the actual authorized Gemini/AI Studio structured-output
+experiment. Preserve the provider's real configuration and raw output.
+
+Prompt:
+Generate exactly five invented property listing records for a classroom web
+development exercise. Return only a JSON array, with each record conforming
+exactly to the supplied PropertyListing JSON Schema. Do not add fields.
+Use unmistakably fictional street and city names, valid US state/DC codes,
+valid ZIP or ZIP+4 syntax, valid synthetic UUIDs, and nonnegative numeric values.
+Use only these amenity strings: parking, pool, garden, balcony,
+air_conditioning, pet_friendly. Do not repeat an amenity within one record.
+Include zero or more fictional local_sponsors, each with sponsor_id and name.
+Do not use real property offers, real people, private data, credentials, or
+actual sponsor endorsements. The records must be labeled as synthetic in the
+surrounding submission documentation; they are not real offers.
+
+After the genuine provider run:
+1. Save its unedited raw JSON and provider settings as actual evidence.
+2. Validate every returned record with the canonical runtime PropertySchema.
+3. Record exact accepted/rejected output and any schema compatibility issue.
+4. Do not replace the provider output with the Codex-authored local fixture
+   while describing it as Gemini output.

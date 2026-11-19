@@ -1,0 +1,14 @@
+(node:7540) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/release-verified-candidate/src/release/gates.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\mfalujo\Documents\Codex\2026-11-18\https-calstatela-instructure-com-https-calstatela\work\release-verified-candidate\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"artifact":"axe-home-after.json","passed":true,"route":"/","violations":0,"incomplete":0}
+{"artifact":"axe-listings-after-unsaved.json","passed":true,"route":"/listings","violations":0,"incomplete":0}
+{"artifact":"axe-listings-after-saved.json","passed":true,"route":"/listings","violations":0,"incomplete":0}
+{"artifact":"axe-services-after.json","passed":true,"route":"/services","violations":0,"incomplete":0}
+{"artifact":"axe-media-after.json","passed":true,"route":"/media-demo","violations":0,"incomplete":0}
+{"artifact":"axe-media-partner.json","passed":true,"route":"/media-demo/partner","violations":0,"incomplete":0}
+{"artifact":"axe-voice-simulator.json","passed":true,"route":"/voice-simulator","violations":0,"incomplete":0}
+{"artifact":"axe-sponsor-simulator.json","passed":true,"route":"/sponsor-simulator","violations":0,"incomplete":0}
+{"artifact":"axe-dashboard-demo.json","passed":true,"route":"/dashboard-demo","violations":0,"incomplete":0}
+{"artifact":"axe-realtor-dashboard.json","passed":true,"route":"/realtor-dashboard","violations":0,"incomplete":0}

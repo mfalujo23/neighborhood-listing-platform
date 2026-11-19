@@ -1,0 +1,61 @@
+{
+  "trace": [
+    {
+      "key": "Tab",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.424 0.199 265.638) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "focusVisible": true,
+      "href": "/listings",
+      "tag": "A",
+      "text": "Browse homes"
+    },
+    {
+      "key": "Tab",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.424 0.199 265.638) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "focusVisible": true,
+      "href": "/services",
+      "tag": "A",
+      "text": "Find services"
+    },
+    {
+      "key": "Tab",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.424 0.199 265.638) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "focusVisible": true,
+      "href": "/voice-simulator",
+      "tag": "A",
+      "text": "Try text assistant"
+    },
+    {
+      "key": "Tab",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.424 0.199 265.638) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "focusVisible": true,
+      "href": "/dashboard-demo",
+      "tag": "A",
+      "text": "View sample dashboard"
+    },
+    {
+      "key": "Shift+Tab",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.424 0.199 265.638) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "focusVisible": true,
+      "href": "/voice-simulator",
+      "tag": "A",
+      "text": "Try text assistant"
+    },
+    {
+      "key": "Shift+Tab",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.424 0.199 265.638) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "focusVisible": true,
+      "href": "/services",
+      "tag": "A",
+      "text": "Find services"
+    },
+    {
+      "key": "Shift+Tab",
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.424 0.199 265.638) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "focusVisible": true,
+      "href": "/listings",
+      "tag": "A",
+      "text": "Browse homes"
+    }
+  ],
+  "destination": "http://127.0.0.1:3003/listings"
+}

@@ -1,0 +1,57 @@
+{
+  "localOnly": true,
+  "version": "PostgreSQL 18.6 (PGlite 0.5.16) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.13 (e13ee988ce3d87a738dd8f3661d02223308c412a), 32-bit",
+  "sources": [
+    {
+      "path": "supabase/migrations/20261029140000_exam_services_persistence.sql",
+      "sha256": "ebf3d013e8312cbe1d53dfbfd9037ed4ba028cc45684a62a4c68c980088631a1"
+    },
+    {
+      "path": "supabase/migrations/20261118000400_restore_backend_contracts_rls.sql",
+      "sha256": "4629aa9c6534259112dfcb0d70bac77b77fc3947c20691dc5db568caeb66e2b6"
+    },
+    {
+      "path": "supabase/migrations/20261118000700_midterm_profile_roles.sql",
+      "sha256": "a1057235e63ed72ea58f228fe2bab3cf2858f0960d9622a6b04853dd85f5465d"
+    }
+  ],
+  "sqlSha256": "f51756580c6a1e737b791edb959c49f61e7aba73460e8ed083f9428c9ff4a635",
+  "freshApply": "passed",
+  "constraints": [
+    {
+      "conname": "profiles_backend_role_check",
+      "convalidated": true,
+      "definition": "CHECK ((role = ANY (ARRAY['client'::text, 'provider'::text, 'merchant'::text, 'admin'::text, 'user'::text, 'public'::text, 'owner'::text, 'property_professional'::text, 'local_sponsor'::text])))"
+    },
+    {
+      "conname": "profiles_exam_role_check",
+      "convalidated": true,
+      "definition": "CHECK ((role = ANY (ARRAY['admin'::text, 'merchant'::text, 'provider'::text, 'client'::text])))"
+    }
+  ],
+  "tables": [
+    {
+      "tablename": "bookings"
+    },
+    {
+      "tablename": "profiles"
+    },
+    {
+      "tablename": "properties"
+    },
+    {
+      "tablename": "service_categories"
+    },
+    {
+      "tablename": "service_category_mappings"
+    },
+    {
+      "tablename": "services"
+    }
+  ],
+  "replayError": {
+    "code": "55000",
+    "message": "FRESH_MIDTERM_PROJECT_REQUIRED"
+  },
+  "limitation": "Executed only in disposable local PostgreSQL with local auth stub. No cloud application or Supabase Auth/PostgREST was performed."
+}

@@ -1,0 +1,35 @@
+{
+  "mode": "deterministic-local-mock",
+  "promptVersion": "mfalujo23-voice-v1.0.0",
+  "knowledgeVersion": "fictional-facts-v1.0.0",
+  "providerDashboardVerified": false,
+  "providerModelsRun": [],
+  "recordingEnabled": false,
+  "savedTranscriptsEnabled": false,
+  "telephonyEnabled": false,
+  "outboundSmsEnabled": false,
+  "followupsSubmitted": false,
+  "credentialValues": "none required or included",
+  "plannedMappingsNotApplied": {
+    "vapi.model.messages.system": "src/voice/prompt.ts:SYSTEM_PROMPT",
+    "vapi.tools": "src/voice/tools.ts:toolDefinitions; config/mfalujo23-voice-tools.schema.json; adapt and validate the provider's current tool envelope before use",
+    "vapi.knowledgeSource": "src/voice/fixtures.ts; fictional demo approval state only",
+    "vapi.firstMessage": "Disclose AI assistance and fictional teaching data; do not imply an actual real estate agent.",
+    "vapi.artifactPlan.recordingEnabled": false,
+    "vapi.artifactPlan.loggingEnabled": false,
+    "vapi.artifactPlan.pcapEnabled": false,
+    "vapi.artifactPlan.transcriptPlan.enabled": false,
+    "vapi.artifactPlan.fullMessageHistoryEnabled": false,
+    "vapi.retentionVerification": "disabled in this local harness; actual provider retention configuration unverified",
+    "vapi.assistantId": null,
+    "twilio.phoneNumber": null,
+    "twilio.voiceWebhook": "not connected; use the no-cost local text simulator",
+    "toolTimeoutMs": "5000 proposed for a future provider adapter; current fault injection is immediate local logic"
+  },
+  "routing": {
+    "correlationId": "random mock UUID with no caller identifiers",
+    "callbackDeduplication": "per-session in-memory event IDs; simulator only",
+    "emergency": "direct user to local emergency services; no dispatch or transfer",
+    "unknownOrFailure": "acknowledge uncertainty; retry or manual human contact; no promise of a callback"
+  }
+}

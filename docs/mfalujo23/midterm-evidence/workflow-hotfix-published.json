@@ -1,0 +1,11 @@
+{
+  "commit": {
+    "commit_sha": "aac017dfe343381d037006a8be72eecd21688f47",
+    "content_sha": "c0776739afe581c31b94018a262ddc249de3eeab"
+  },
+  "verifiedExact": true,
+  "contentSha": "c0776739afe581c31b94018a262ddc249de3eeab",
+  "sha256": "6400375304a0f4fd7d7ac354d3a35424b3196eecaf7eef6a9617eb04ef965115",
+  "historyStillExists": true,
+  "credentialValidityNotTested": true
+}

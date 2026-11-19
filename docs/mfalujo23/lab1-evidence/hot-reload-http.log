@@ -1,0 +1,4 @@
+GET / after one header edit: 200
+New h2 present: true
+Old h2 absent: true
+Exit code: 0

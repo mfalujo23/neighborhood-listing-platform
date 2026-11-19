@@ -1,0 +1,20 @@
+{
+  "route": "/media-demo",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T02:37:22.663Z",
+  "violations": [
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "help": "Elements must have their visible text as part of their accessible name",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axeAPI",
+      "targets": [
+        [
+          "a[href$=\"partner\"]"
+        ]
+      ]
+    }
+  ],
+  "incomplete": [],
+  "passedRules": 25
+}

@@ -1,0 +1,9 @@
+
+ RUN  v5.1.0 C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/neighborhood-listing-platform
+
+
+ Test Files  4 passed (4)
+      Tests  58 passed (58)
+   Start at  15:23:32
+   Duration  718ms (import 76%, transform 14%, tests 7%, worker 3%)
+

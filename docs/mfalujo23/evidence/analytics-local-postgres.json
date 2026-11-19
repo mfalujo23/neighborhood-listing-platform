@@ -1,0 +1,704 @@
+{
+  "localOnly": true,
+  "version": "PostgreSQL 18.6 (PGlite 0.5.16) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.13 (e13ee988ce3d87a738dd8f3661d02223308c412a), 32-bit",
+  "migrationPath": "supabase/migrations/20261118000600_minimized_analytics.sql",
+  "migrationSha256": "818404ef24c25ca3f26e7a993e2b453ec9c66cbcc1a368b5371b6e4d29ad13a6",
+  "fixtureRows": 30,
+  "checks": [
+    {
+      "name": "Anonymous raw analytics read denied",
+      "role": "anon",
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "permission denied for table analytics_events"
+        }
+      }
+    },
+    {
+      "name": "Anonymous aggregate RPC denied",
+      "role": "anon",
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "permission denied for function analytics_sponsor_ctr"
+        }
+      }
+    },
+    {
+      "name": "Client profile sees zero event rows",
+      "role": "authenticated",
+      "actual": {
+        "rows": []
+      }
+    },
+    {
+      "name": "Property professional sees own property only",
+      "role": "authenticated",
+      "actual": {
+        "rows": [
+          {
+            "property_id": "70000000-0000-4000-8000-000000000001"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Other property cannot be read through the aggregate",
+      "role": "authenticated",
+      "actual": {
+        "rows": []
+      }
+    },
+    {
+      "name": "Administrator CTR uses exact distinct counts",
+      "role": "authenticated",
+      "actual": {
+        "rows": [
+          {
+            "neighborhood": "90032",
+            "impression_count": 4,
+            "clicked_impressions": 2,
+            "ctr_percent": "50.0000000000000000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Realtor own-property CTR matches three opportunities",
+      "role": "authenticated",
+      "actual": {
+        "rows": [
+          {
+            "neighborhood": "90032",
+            "impression_count": 3,
+            "clicked_impressions": 2,
+            "ctr_percent": "66.6666666666666667"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Live source has no fabricated fixture counts",
+      "role": "authenticated",
+      "actual": {
+        "rows": []
+      }
+    },
+    {
+      "name": "Bounded window returns exact fixture count and no hashes",
+      "role": "authenticated",
+      "actual": {
+        "rows": [
+          {
+            "result": {
+              "events": [
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000100",
+                  "tool_name": null,
+                  "event_name": "listing_view",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000051",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000101",
+                  "tool_name": null,
+                  "event_name": "filter_used",
+                  "filter_key": "bedrooms",
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000051",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000102",
+                  "tool_name": null,
+                  "event_name": "sponsor_impression",
+                  "filter_key": null,
+                  "sponsor_id": "fictional-sponsor-a",
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": "90032",
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000051",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000103",
+                  "tool_name": null,
+                  "event_name": "sponsor_click",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": "70000000-0000-4000-8000-000000000102",
+                  "correlation_id": "70000000-0000-4000-8000-000000000051",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000104",
+                  "tool_name": null,
+                  "event_name": "call_started",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000051",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000105",
+                  "tool_name": null,
+                  "event_name": "intent_category",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000051",
+                  "intent_category": "property_details",
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000106",
+                  "tool_name": "get_property_details",
+                  "event_name": "tool_success",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": true,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000051",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000107",
+                  "tool_name": null,
+                  "event_name": "call_completed",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000051",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": "resolved",
+                  "pipeline_latency_ms": 800
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000108",
+                  "tool_name": null,
+                  "event_name": "listing_view",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000052",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000109",
+                  "tool_name": null,
+                  "event_name": "filter_used",
+                  "filter_key": "bedrooms",
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000052",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000110",
+                  "tool_name": null,
+                  "event_name": "sponsor_impression",
+                  "filter_key": null,
+                  "sponsor_id": "fictional-sponsor-a",
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": "90032",
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000052",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000111",
+                  "tool_name": null,
+                  "event_name": "sponsor_click",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": "70000000-0000-4000-8000-000000000110",
+                  "correlation_id": "70000000-0000-4000-8000-000000000052",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000112",
+                  "tool_name": null,
+                  "event_name": "call_started",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000052",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000113",
+                  "tool_name": null,
+                  "event_name": "intent_category",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000052",
+                  "intent_category": "property_details",
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000114",
+                  "tool_name": "get_property_details",
+                  "event_name": "tool_success",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": true,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000052",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000116",
+                  "tool_name": null,
+                  "event_name": "listing_view",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000053",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000117",
+                  "tool_name": null,
+                  "event_name": "filter_used",
+                  "filter_key": "bedrooms",
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000053",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000118",
+                  "tool_name": null,
+                  "event_name": "sponsor_impression",
+                  "filter_key": null,
+                  "sponsor_id": "fictional-sponsor-a",
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": "90032",
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000053",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000119",
+                  "tool_name": null,
+                  "event_name": "call_started",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000053",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000120",
+                  "tool_name": null,
+                  "event_name": "intent_category",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000053",
+                  "intent_category": "property_details",
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000121",
+                  "tool_name": "get_property_details",
+                  "event_name": "tool_success",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": false,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000053",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000122",
+                  "tool_name": null,
+                  "event_name": "escalation",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000053",
+                  "intent_category": null,
+                  "escalation_reason": "webhook_timeout",
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000123",
+                  "tool_name": null,
+                  "event_name": "call_completed",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000053",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": "unresolved",
+                  "pipeline_latency_ms": 1000
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000124",
+                  "tool_name": null,
+                  "event_name": "listing_view",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000002",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000054",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000125",
+                  "tool_name": null,
+                  "event_name": "filter_used",
+                  "filter_key": "bedrooms",
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000002",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000054",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000126",
+                  "tool_name": null,
+                  "event_name": "sponsor_impression",
+                  "filter_key": null,
+                  "sponsor_id": "fictional-sponsor-a",
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000002",
+                  "neighborhood": "90032",
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000054",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000127",
+                  "tool_name": null,
+                  "event_name": "call_started",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000002",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000054",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000128",
+                  "tool_name": null,
+                  "event_name": "intent_category",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000002",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000054",
+                  "intent_category": "unknown",
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000129",
+                  "tool_name": "get_property_details",
+                  "event_name": "tool_success",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-17T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000002",
+                  "neighborhood": null,
+                  "tool_success": true,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000054",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": null,
+                  "pipeline_latency_ms": null
+                },
+                {
+                  "source": "fixture",
+                  "event_id": "70000000-0000-4000-8000-000000000115",
+                  "tool_name": null,
+                  "event_name": "call_completed",
+                  "filter_key": null,
+                  "sponsor_id": null,
+                  "occurred_at": "2026-11-18T12:00:00+00:00",
+                  "property_id": "70000000-0000-4000-8000-000000000001",
+                  "neighborhood": null,
+                  "tool_success": null,
+                  "impression_id": null,
+                  "correlation_id": "70000000-0000-4000-8000-000000000052",
+                  "intent_category": null,
+                  "escalation_reason": null,
+                  "completion_outcome": "resolved",
+                  "pipeline_latency_ms": 999
+                }
+              ],
+              "truncated": false,
+              "sponsorCtr": [
+                {
+                  "ctr_percent": 50,
+                  "neighborhood": "90032",
+                  "impression_count": 4,
+                  "clicked_impressions": 2
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Authenticated clients cannot directly insert events",
+      "role": "authenticated",
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "permission denied for table analytics_events"
+        }
+      }
+    },
+    {
+      "name": "Duplicate event primary key cannot inflate counts",
+      "actual": {
+        "code": "23505",
+        "message": "duplicate key value violates unique constraint \"analytics_events_pkey\""
+      }
+    },
+    {
+      "name": "Database rejects fields belonging to a different event type",
+      "actual": {
+        "code": "23514",
+        "message": "new row for relation \"analytics_events\" violates check constraint \"analytics_event_minimized_shape\""
+      }
+    },
+    {
+      "name": "Anonymous retention procedure is denied",
+      "role": "anon",
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "permission denied for function purge_expired_analytics"
+        }
+      }
+    },
+    {
+      "name": "Service-only retention actually removes expired fixtures (rolled back)",
+      "role": "service_role",
+      "actual": {
+        "rows": [
+          {
+            "deleted": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "Forward migration reapplication preserves all event IDs",
+      "actual": {
+        "preserved": 31
+      }
+    }
+  ],
+  "limitation": "Disposable PostgreSQL in PGlite, synthetic profiles/properties/events and local auth stubs only. No cloud migration, real participant or provider data."
+}

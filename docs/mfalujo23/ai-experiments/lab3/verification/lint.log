@@ -1,0 +1,8 @@
+Command: node C:\Users\mfalujo\Documents\Codex\2026-11-18\https-calstatela-instructure-com-https-calstatela\work\lab1-tools11\node_modules\npm\bin\npm-cli.js run lint -- --max-warnings 0
+
+
+> neighborhood-listing-platform@0.1.0 lint
+> eslint src --max-warnings 0
+
+
+Exit code: 0

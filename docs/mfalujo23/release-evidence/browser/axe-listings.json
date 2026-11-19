@@ -1,0 +1,32 @@
+{
+  "route": "/listings",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T02:34:33.422Z",
+  "violations": [
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "help": "Elements must have their visible text as part of their accessible name",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axeAPI",
+      "targets": [
+        [
+          "article:nth-child(1) > .listings_cardBody___XZmq > .listings_button__UoNC_[type=\"button\"]"
+        ],
+        [
+          "article:nth-child(2) > .listings_cardBody___XZmq > .listings_button__UoNC_[type=\"button\"]"
+        ],
+        [
+          "article:nth-child(3) > .listings_cardBody___XZmq > .listings_button__UoNC_[type=\"button\"]"
+        ],
+        [
+          "article:nth-child(4) > .listings_cardBody___XZmq > .listings_button__UoNC_[type=\"button\"]"
+        ],
+        [
+          "article:nth-child(5) > .listings_cardBody___XZmq > .listings_button__UoNC_[type=\"button\"]"
+        ]
+      ]
+    }
+  ],
+  "incomplete": [],
+  "passedRules": 23
+}

@@ -1,0 +1,21 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "operation": "new image generation",
+  "modelName": "not exposed by the built-in tool result",
+  "capturedAtUTC": "2026-11-19T00:21:06Z",
+  "localDate": "2026-11-18 America/Los_Angeles",
+  "prompt": "Use case: photorealistic-natural. Asset type: property-listing hero image for a clearly labeled fictional classroom website. Create one photorealistic photograph-style exterior of an entirely invented modest detached home: light cream stucco, a dark simple pitched roof, a natural wood entrance, a small front garden with low shrubs, and a short plain path. Landscape 16:9 composition, front three-quarter viewpoint at eye level, centered home with modest breathing room for a responsive crop. Natural daytime light, realistic building proportions and everyday materials; no luxury or investment promise. This is an AI-generated fictional property, not a photograph of an existing listing. Avoid people, faces, vehicles, license plates, house numbers, street signs, readable text, logos, brands, watermarks, distinctive real landmarks, or any real/private address. Opaque background.",
+  "toolArtifact": "01a1f0c5-65d0-7f43-a735-8d79969add51/exec-57a878a6-40b7-4932-8e5e-f1e154f10292.png",
+  "workspaceSource": "assets/mfalujo23-media/source/property-generated-v1.png",
+  "format": "png",
+  "width": 1672,
+  "height": 941,
+  "bytes": 3052760,
+  "sha256": "57ae20ac3a5ae69e356e841690732614e6b1ea99b9213877c4ba8abe29012a7a",
+  "generationDisclosure": "AI-generated fictional property; not a photograph of an existing listing.",
+  "productionHumanApproval": "pending; no stakeholder approval or real listing permission claimed",
+  "inspection": "Generated image was displayed and visually inspected: cream house, wood entrance, garden; no visible people, readable text, house number, brand or watermark.",
+  "originalPreserved": true,
+  "optimizationRun": false,
+  "notes": "Work held at coordinator request after generation and safe workspace persistence. No source publication, provider performance measurement, or Gemini run."
+}

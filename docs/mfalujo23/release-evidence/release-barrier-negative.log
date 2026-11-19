@@ -1,0 +1,5 @@
+(node:38380) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/release-verified-candidate/src/release/gates.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\mfalujo\Documents\Codex\2026-11-18\https-calstatela-instructure-com-https-calstatela\work\release-verified-candidate\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+RELEASE_BLOCKED: RELEASE_EVIDENCE_RECORD_REQUIRED

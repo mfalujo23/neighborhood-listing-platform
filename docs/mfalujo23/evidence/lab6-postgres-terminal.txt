@@ -1,0 +1,2 @@
+SPONSOR LOCAL POSTGRESQL UUID: C, B, A; pending D excluded; role/privacy/counter checks PASS; real outer and inner EXPLAIN captured.
+SPONSOR LOCAL POSTGRESQL TEXT: C, B, A; pending D excluded; role/privacy/counter checks PASS; real outer and inner EXPLAIN captured.

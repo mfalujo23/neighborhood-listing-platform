@@ -1,0 +1,45 @@
+[
+  {
+    "trigger": "media partner link",
+    "destination": "http://127.0.0.1:3003/media-demo/partner",
+    "headings": [
+      "Fictional Garden Partner",
+      "Local accessibility audit"
+    ]
+  },
+  {
+    "trigger": "Try text assistant",
+    "destination": "http://127.0.0.1:3003/voice-simulator",
+    "headings": [
+      "Voice workflow simulator",
+      "Try a fictional request",
+      "Mock result",
+      "Ten scripted scenarios",
+      "Scope and provenance",
+      "Local accessibility audit"
+    ]
+  },
+  {
+    "trigger": "View sample dashboard",
+    "destination": "http://127.0.0.1:3003/dashboard-demo",
+    "headings": [
+      "Privacy-focused dashboard demo",
+      "Try the event pipeline",
+      "Filter the dashboard",
+      "Fictional decision metrics",
+      "Sponsor click-through rate",
+      "Successful inquiry completion",
+      "Webhook timeout / fallback rate",
+      "Property inquiry conversion",
+      "Latency samples below 1000ms",
+      "Call completion",
+      "Tool success",
+      "Escalation",
+      "Daily event volume (UTC)",
+      "Sponsor CTR by neighborhood",
+      "Inquiry categories",
+      "Study preparation",
+      "Local accessibility audit"
+    ]
+  }
+]

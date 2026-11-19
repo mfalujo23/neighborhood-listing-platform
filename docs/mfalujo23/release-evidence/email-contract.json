@@ -1,0 +1,30 @@
+{
+  "localOnly": true,
+  "fictionalDataOnly": true,
+  "results": [
+    {
+      "label": "plus",
+      "sqlAccepted": true,
+      "runtimeAccepted": true,
+      "matched": true
+    },
+    {
+      "label": "percent",
+      "sqlAccepted": true,
+      "runtimeAccepted": true,
+      "matched": true
+    },
+    {
+      "label": "apostrophe",
+      "sqlAccepted": false,
+      "runtimeAccepted": false,
+      "matched": true
+    },
+    {
+      "label": "exclamation",
+      "sqlAccepted": false,
+      "runtimeAccepted": false,
+      "matched": true
+    }
+  ]
+}
