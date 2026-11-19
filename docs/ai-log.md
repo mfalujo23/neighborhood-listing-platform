@@ -132,3 +132,19 @@
 ### Associated Commit
 
 `f5bf704` — Complete Week 6 sponsor matching engine.
+
+
+## Lab 3: observed provider reviews and returned-data validation
+
+| Step / Tool | Prompt Summary | Model Output Used | Model Output Rejected & Rationale | Verification Method | Associated Git Commit |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| AI Studio / Gemini 4 Hydrogen, High | Generate five records from supplied fictional notes under the configured schema; exact prompt/settings: [attempt 1](mfalujo23/ai-experiments/lab3/attempt1-settings.json) | Recorded the actual structured-output setting and first response as evidence | Outer object containing encoded JSON was rejected; it was not silently repaired into accepted data | Canonical collection validator returned invalid_type at the root, expected array | 50030fbf26d6d80c5c59b3ce12d7c9678e5a505e |
+| AI Studio / Gemini 4 Hydrogen, High | Correct only the output shape; [exact second prompt](mfalujo23/ai-experiments/lab3/attempt2-prompt.txt) | Exact second-response JSON array is the active five-record fixture | This capture records structured output as off; no successful structured-mode claim is made for attempt 2 | All five records pass unchanged; active page validates before rendering; original local fixture bytes preserved | 50030fbf26d6d80c5c59b3ce12d7c9678e5a505e |
+| AI Studio / Gemini 4 Hydrogen, High | Review ambiguity, normalization, amenities and five examples; [exact prompt](mfalujo23/ai-experiments/lab3/normalization-prompt.txt), [full output](mfalujo23/ai-experiments/lab3/gemini-normalization.json) | Normalized Property/Sponsor/junction storage, embedded read projection, controlled amenities; returned valid and negative examples | No unconfirmed v4-only UUID or business-semantic change; exported minLength warning does not replace existing runtime trim | Executed five returned examples: one accepted; four rejected only for missing ID, negative price, malformed ZIP or hoa_fee | 50030fbf26d6d80c5c59b3ce12d7c9678e5a505e |
+| ChatGPT website / Instant; version not exposed | Same [review prompt](mfalujo23/ai-experiments/lab3/normalization-prompt.txt); [full output](mfalujo23/ai-experiments/lab3/chatgpt-normalization.json) | Normalization and controlled-enum recommendations; all five complete returned records | Three earlier partial/schema illustrations excluded from the complete-record tests; intentionally invalid records remain negative cases | Executed five complete examples: one accepted; four rejected for intended faults, including virtual_tour_url | 50030fbf26d6d80c5c59b3ce12d7c9678e5a505e |
+| Local Node/Zod validation / Codex | Validate actual returned examples and both raw seed attempts against the canonical source without changing constraints | Assertion-based validator, captured exact issues, twelve provider-data regression cases, portable source/prompt capture | Model predictions alone are not treated as executed results; original local fixtures are not relabeled as Gemini output | scripts/verify-lab3-provider-data.ts; providerPropertyData.test.ts; exact output in extracted/canonical-zod-validation-terminal.txt | 50030fbf26d6d80c5c59b3ce12d7c9678e5a505e |
+
+The published integration uses the exact returned second-attempt JSON bytes.
+ADR 001 records the controlled-amenity decision, storage/projection distinction,
+accepted/rejected recommendations and unresolved business questions.
+
