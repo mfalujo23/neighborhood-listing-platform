@@ -29,12 +29,12 @@ function AssetImage({ asset, baseline = false, broken = false, navigation = fals
   </div>
 }
 
-export default function MediaDemo({ assets, displayCopy, baseline = false, productionCount }: { assets: MediaAsset[]; displayCopy: { text: string; disclosure: string; endsOn: string } | null; baseline?: boolean; productionCount: number }) {
+export default function MediaDemo({ assets, displayCopy, baseline = false, productionCount, classroomApproval = null }: { assets: MediaAsset[]; displayCopy: { text: string; disclosure: string; endsOn: string } | null; baseline?: boolean; productionCount: number; classroomApproval?: { variantId: string; approverDisplayName: string; decisionDate: string } | null }) {
   const reviewDrafts=providerCopyDrafts.length?providerCopyDrafts:copyDrafts
   const [broken, setBroken] = useState(false)
   const [copyText, setCopyText] = useState(reviewDrafts[0].text)
   const [endDate, setEndDate] = useState(fictionalSponsorBrief.endsOn)
-  const [validation, setValidation] = useState('Draft review sandbox. Validation never approves or publishes copy.')
+  const [validation, setValidation] = useState('Review sandbox. Validation does not change approval or publish copy.')
   const [copyExpired, setCopyExpired] = useState(false)
   const [metrics, setMetrics] = useState<Awaited<ReturnType<typeof captureMediaPerformance>> | null>(null)
   const lcp = useRef<number | null>(null)
@@ -66,7 +66,7 @@ export default function MediaDemo({ assets, displayCopy, baseline = false, produ
     try {
       const response = await fetch('/api/media/validate-copy', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(input) })
       const result = await response.json()
-      setValidation(response.ok ? 'Server validated the draft. Human approval is still required; nothing published.' : `Server validation: ${result.error?.code ?? 'UNAVAILABLE'}. Nothing published.`)
+      setValidation(response.ok ? 'Server validated this review input. This check does not change approval or publish copy.' : `Server validation: ${result.error?.code ?? 'UNAVAILABLE'}. Nothing published.`)
     } catch { setValidation('Validation service unavailable. Nothing published.') }
   }
   return <main className={styles.main}>
@@ -80,15 +80,16 @@ export default function MediaDemo({ assets, displayCopy, baseline = false, produ
       <p>AI-generated fictional cream house, wood entrance and front garden. Test-only asset approval; production human review pending.</p>
       <button onClick={() => setBroken(!broken)} aria-pressed={broken}>{broken ? 'Restore property image' : 'Simulate missing property image'}</button>
     </section>
-    <aside className={styles.panel} aria-labelledby="partner-title"><p className={styles.label}>{!copyExpired && displayCopy ? displayCopy.disclosure : 'House message · no active approved fixture copy'}</p><h2 id="partner-title">Asset B — Fictional Garden Partner</h2>
+    <aside className={styles.panel} aria-labelledby="partner-title"><p className={styles.label}>{!copyExpired && displayCopy ? displayCopy.disclosure : 'House message · no active approved classroom copy'}</p><h2 id="partner-title">Asset B — Fictional Garden Partner</h2>
       <div className={styles.banner}><AssetImage asset={banner} /></div>
       {!copyExpired && displayCopy ? <p>{displayCopy.text}</p> : <p>The fictional copy is inactive or expired. No campaign text is displayed.</p>}
-      <p>Classroom test fixture. Human production approval is pending ({productionCount} assets approved).</p>
+      <p>Partner artwork remains a test fixture. Production asset approval is pending ({productionCount} assets approved).</p>
+      {classroomApproval && <p>Classroom copy approved by {classroomApproval.approverDisplayName} on {classroomApproval.decisionDate}. Production approval is not recorded.</p>}
       <Link href="/media-demo/partner">View fictional partner example</Link>
     </aside>
     <section className={styles.panel}><h2>Asset C — navigation graphic</h2><p>The house icon in the Home link is decorative because the adjacent “Home” text provides its accessible name. It uses <code>alt=&quot;&quot;</code> and a fixed 32px box.</p></section>
-    <section className={styles.panel}><h2>Draft review queue</h2><p>Draft copy requires human approval.</p>
-      {providerDraftDataAvailable?<table><caption>Unpublished draft variants</caption><thead><tr><th scope="col">Variant</th><th scope="col">Draft text</th><th scope="col">Characters</th><th scope="col">Status</th></tr></thead><tbody>{providerDraftReviewRows.map(row=><tr key={row.record.id}><th scope="row">{row.record.id}</th><td>{row.record.text}</td><td>{row.characterCount}</td><td>Awaiting human approval</td></tr>)}</tbody></table>:<p>Draft queue unavailable.</p>}
+    <section className={styles.panel}><h2>Copy review queue</h2><p>{classroomApproval ? "Variant 2 is approved for this classroom demo. Variants 1 and 3 remain drafts." : "Draft copy requires human approval."}</p>
+      {providerDraftDataAvailable?<table><caption>Original variants and separate classroom review status</caption><thead><tr><th scope="col">Variant</th><th scope="col">Draft text</th><th scope="col">Characters</th><th scope="col">Status</th></tr></thead><tbody>{providerDraftReviewRows.map(row=><tr key={row.record.id}><th scope="row">{row.record.id}</th><td>{row.record.text}</td><td>{row.characterCount}</td><td>{classroomApproval?.variantId === row.record.id ? `Classroom approved ${classroomApproval.decisionDate}` : "Awaiting human approval"}</td></tr>)}</tbody></table>:<p>Draft queue unavailable.</p>}
       <label>Review draft<select onChange={(event) => {const draft=reviewDrafts[Number(event.target.value)];if(draft)setCopyText(draft.text)}}>{reviewDrafts.map((draft, index) => <option key={draft.id} value={index}>Draft {index + 1}</option>)}</select></label>
       <label>Draft text (maximum 120 characters)<textarea value={copyText} maxLength={120} onChange={(event) => setCopyText(event.target.value)} /></label><p>{copyText.length} / 120 characters</p>
       <label>Offer end date (UTC)<input type="date" value={endDate} onChange={(event) => setEndDate(event.target.value)} /></label>

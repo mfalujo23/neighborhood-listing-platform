@@ -53,3 +53,9 @@ Generation: Google AI Studio, gemini-4-hydrogen, High, structuredOutputs=false, 
 Actual generated lengths:83/102/110, independently recounted; exact phrase traces checked. All3 remain draft. The same full critique prompt was sent to both tools. Gemini preferred variant 1; ChatGPT preferred variant 2. Used: source-supported phrases, exact URL, count/trace checks and a review queue. Rejected: treating model critique as human approval, silently accepting presents/lists implications, or deleting UTC from raw output without considering the omitted review context. The generation instruction supplied UTC; the review source prefix did not.
 
 Human decision is pending as of this record; no actor/UUID, stakeholder endorsement or production authorization is fabricated. The existing classroom card remains test-only. Browser transport observations are actual4fresh foreground runs on the media-correction build, separate from provider model performance. No real UAT or telephony run is claimed.
+
+## Actual user classroom decision, November 19, 2026
+
+The user explicitly approved the exact 102-character variant-2 for the classroom demo under Michael Falujo. `config/mfalujo23-classroom-copy-approval.json` records the actual date with date-only precision and exact text/raw-generation/text hashes. This is a separate decision record; no provider draft or critique was rewritten, no Auth UUID was invented, and no production or business stakeholder approval is asserted. Variants 1 and 3 remain unapproved.
+
+Used: a strict classroom-only selector and per-request campaign gates, with separate UI review status. Rejected: backdating, treating classroom approval as production clearance, changing a model's draft status in the raw evidence, or broadening the existing production gate. The frozen media68 publication is PR13 head c4dab3930cacc6286043c7b427248f5ebb9264a6. This follow-up changes no asset binaries or earlier measurements.

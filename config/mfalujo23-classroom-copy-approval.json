@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "scope": "classroom_demo",
+  "decision": "approved",
+  "decisionDate": "2026-11-19",
+  "decisionTimePrecision": "date_only",
+  "approverDisplayName": "Michael Falujo",
+  "provenance": "explicit_user_instruction",
+  "variantId": "variant-2",
+  "approvedText": "Fictional Garden Partner: a fictional gardening guide (URL: /media-demo/partner). Classroom demo only.",
+  "characterCount": 102,
+  "generationRawSha256": "869393f6e9b7c94a9ccb60d4ef654b0f0f6affaac262fa3350191fe5b948805c",
+  "approvedTextSha256": "7fa8f9694c3863f4013dd0d0bf2bf44363f51514be82f256088fe84ec05bf64c"
+}
