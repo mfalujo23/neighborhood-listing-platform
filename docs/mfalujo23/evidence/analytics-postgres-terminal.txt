@@ -1,0 +1,1 @@
+ANALYTICS LOCAL POSTGRESQL: 15 checks PASS; 30 fictional events; CTR 2/4=50%; ownership/auth/dedup/shape/retention/idempotence verified.
