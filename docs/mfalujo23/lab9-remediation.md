@@ -1,5 +1,7 @@
 # Lab 9: Telephony webhook remediation
 
+This file records the original remediation checkpoint. Its historical 503 results are superseded for signed, valid processing failures by [the tested voice fallback](lab9-fallback.md); the original test/HTTP captures below are preserved.
+
 Prepared for `mfalujo23` with Codex assistance on November 18, 2026. This is new remediation work; it does not change the authorship or pre-merge review history of Gabriela's PR #33.
 
 ## Implemented behavior

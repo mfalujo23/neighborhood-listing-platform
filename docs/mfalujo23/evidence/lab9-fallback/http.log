@@ -1,0 +1,91 @@
+Command: node scripts/verify-voice-fallback-http.mjs
+
+(node:27524) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/lab9-fallback-verified-snapshot/src/lib/telephony-webhook.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\mfalujo\Documents\Codex\2026-11-18\https-calstatela-instructure-com-https-calstatela\work\lab9-fallback-verified-snapshot\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "scope": "Actual loopback Next.js HTTP requests with a fictional local PostgREST timeout server; no Supabase cloud, carrier, Vapi, calls or SMS",
+  "results": [
+    {
+      "name": "authenticated-valid-storage-timeout",
+      "status": 200,
+      "contentType": "text/xml; charset=utf-8",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Say>We are temporarily unavailable. Please try again later.</Say><Hangup/></Response>",
+      "elapsedMs": 5045
+    },
+    {
+      "name": "invalid-signature-before-failing-store",
+      "status": 403,
+      "contentType": "text/plain;charset=UTF-8",
+      "body": "Invalid signature",
+      "elapsedMs": 36
+    },
+    {
+      "name": "unsupported-method",
+      "status": 405,
+      "contentType": "text/plain;charset=UTF-8",
+      "body": "Method Not Allowed",
+      "elapsedMs": 8
+    },
+    {
+      "name": "unsupported-content-type",
+      "status": 415,
+      "contentType": "text/plain;charset=UTF-8",
+      "body": "Unsupported Media Type",
+      "elapsedMs": 8
+    },
+    {
+      "name": "signed-invalid-required-field",
+      "status": 400,
+      "contentType": "text/plain;charset=UTF-8",
+      "body": "Missing or invalid required webhook fields",
+      "elapsedMs": 6
+    },
+    {
+      "name": "oversized-body",
+      "status": 413,
+      "contentType": "text/plain;charset=UTF-8",
+      "body": "Payload Too Large",
+      "elapsedMs": 9
+    },
+    {
+      "name": "authenticated-valid-missing-sms-adapter",
+      "status": 200,
+      "contentType": "text/xml; charset=utf-8",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Say>We are temporarily unavailable. Please try again later.</Say><Hangup/></Response>",
+      "elapsedMs": 45
+    }
+  ],
+  "storeRequestCount": 1,
+  "storeRequestBodies": [
+    {
+      "event_id": "CA00000000000000000000000000000001",
+      "call_status": "ringing",
+      "phone_suffix": "***0199",
+      "processed_at": "2026-11-19T02:03:39.524Z"
+    }
+  ],
+  "storedBodyContainsOnlyMinimalFields": true,
+  "businessAccepted": false,
+  "eventLogLines": [
+    {
+      "eventId": "CA00000000000000000000000000000001",
+      "status": "processing_unavailable",
+      "phoneSuffix": "***0199"
+    },
+    {
+      "eventId": "CA00000000000000000000000000000001",
+      "status": "sms_client_unavailable",
+      "phoneSuffix": "***0199"
+    },
+    {
+      "eventId": "CA00000000000000000000000000000001",
+      "status": "processing_unavailable",
+      "phoneSuffix": "***0199"
+    }
+  ],
+  "passed": true
+}
+
+Exit code: 0

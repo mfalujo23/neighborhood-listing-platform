@@ -17,6 +17,16 @@ let directory;
 let logs;
 let handler;
 
+async function assertUnavailableVoiceResponse(response) {
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get('content-type'), 'text/xml; charset=utf-8');
+  const xml = await response.text();
+  assert.match(xml, /^<\?xml version="1\.0" encoding="UTF-8"\?><Response><Say>[^<]+<\/Say><Hangup\/><\/Response>$/);
+  assert.match(xml, /temporarily unavailable.*try again later/);
+  assert.doesNotMatch(xml, /recorded|sent|transfer|<Dial|<Redirect|<Record|<Message/);
+  return xml;
+}
+
 function request(payload = fixture, options = {}) {
   const signature = options.signature === undefined
     ? computeSignature(env.TWILIO_AUTH_TOKEN, env.PUBLIC_CALLBACK_URL, payload)
@@ -137,9 +147,10 @@ describe('Lab 9: signature, idempotency, consent, and privacy', () => {
       eventId: fixture.CallSid, toPhone: fixture.From, hasExplicitConsent: true, env, logger: (line) => logs.push(line),
     });
     assert.deepEqual(result, { sent: false, reason: 'client_unavailable' });
-    assert.equal((await handler(request({ ...fixture, Consent: 'true' }))).status, 503);
+    await assertUnavailableVoiceResponse(await handler(request({ ...fixture, Consent: 'true' })));
     assert.equal(fs.readdirSync(directory).length, 0);
     assert.ok(logs.every((line) => !line.includes('sms_dispatched')));
+    assert.ok(logs.some((line) => JSON.parse(line).status === 'processing_unavailable'));
   });
 
   it('does not send twice after an ambiguous provider failure', async () => {
@@ -147,8 +158,10 @@ describe('Lab 9: signature, idempotency, consent, and privacy', () => {
     let attempts = 0;
     handler = makeHandler({ smsClient: { send: async () => { attempts += 1; throw new Error('Synthetic ambiguous failure'); } } });
     const payload = { ...fixture, Consent: 'true' };
-    assert.equal((await handler(request(payload))).status, 503);
-    assert.equal((await handler(request(payload))).status, 200);
+    await assertUnavailableVoiceResponse(await handler(request(payload)));
+    const retry = await handler(request(payload));
+    assert.equal(retry.status, 200);
+    assert.equal(await retry.text(), '<?xml version="1.0" encoding="UTF-8"?><Response></Response>');
     assert.equal(attempts, 1);
     assert.ok(logs.every((line) => !line.includes('sms_dispatched')));
   });
@@ -175,7 +188,9 @@ describe('Lab 9: signature, idempotency, consent, and privacy', () => {
     env.WEBHOOK_STORE_DRIVER = 'local-file';
     assert.throws(() => configuredEventStore(env), /durable/);
     handler = createVoiceWebhookHandler({ env, logger: (line) => logs.push(line) });
-    assert.equal((await handler(request())).status, 503);
+    await assertUnavailableVoiceResponse(await handler(request()));
+    assert.equal(fs.readdirSync(directory).length, 0);
+    assert.ok(logs.every((line) => !line.includes('event_accepted')));
   });
 
   it('does not send when the event store is unavailable', async () => {
@@ -185,8 +200,47 @@ describe('Lab 9: signature, idempotency, consent, and privacy', () => {
       store: { claim: async () => { throw new Error('Synthetic storage failure'); } },
       smsClient: { send: async () => { sends += 1; } },
     });
-    assert.equal((await handler(request({ ...fixture, Consent: 'true' }))).status, 503);
+    await assertUnavailableVoiceResponse(await handler(request({ ...fixture, Consent: 'true' })));
     assert.equal(sends, 0);
+    assert.equal(fs.readdirSync(directory).length, 0);
+    assert.ok(logs.some((line) => JSON.parse(line).status === 'processing_unavailable'));
+  });
+
+  it('keeps raw errors and caller data out of fallback XML and failure logs', async () => {
+    const payload = { ...fixture, Consent: 'true', Transcript: 'private-fictional-transcript', RecordingUrl: 'https://private.invalid/audio' };
+    env.ENABLE_OUTBOUND_SMS = 'true';
+    env.PROJECT_NAME = '<script>caller-controlled-name</script>';
+    let sends = 0;
+    handler = makeHandler({
+      store: { claim: async () => { throw new Error([payload.From, payload.Transcript, payload.RecordingUrl, env.TWILIO_AUTH_TOKEN, env.PROJECT_NAME].join(' ')); } },
+      smsClient: { send: async () => { sends += 1; } },
+    });
+    const xml = await assertUnavailableVoiceResponse(await handler(request(payload)));
+    const visible = xml + logs.join('\n');
+    for (const forbidden of [payload.From, payload.Transcript, payload.RecordingUrl, env.TWILIO_AUTH_TOKEN, env.PROJECT_NAME]) {
+      assert.ok(!visible.includes(forbidden));
+    }
+    assert.equal(sends, 0);
+    assert.equal(fs.readdirSync(directory).length, 0);
+    assert.equal(logs.length, 1);
+    assert.deepEqual(JSON.parse(logs[0]), { eventId: fixture.CallSid, status: 'processing_unavailable', phoneSuffix: '***0199' });
+  });
+
+  it('rejects an invalid signature before attempting an unavailable store or SMS adapter', async () => {
+    env.ENABLE_OUTBOUND_SMS = 'true';
+    let claims = 0;
+    let sends = 0;
+    handler = makeHandler({
+      store: { claim: async () => { claims += 1; throw new Error('must not run'); } },
+      smsClient: { send: async () => { sends += 1; } },
+    });
+    const response = await handler(request({ ...fixture, Consent: 'true' }, { signature: 'forged-signature' }));
+    assert.equal(response.status, 403);
+    assert.equal(await response.text(), 'Invalid signature');
+    assert.equal(claims, 0);
+    assert.equal(sends, 0);
+    assert.equal(logs.length, 0);
+    assert.equal(fs.readdirSync(directory).length, 0);
   });
 
   it('handles atomic hosted insert and duplicate conflicts using a fake transport', async () => {

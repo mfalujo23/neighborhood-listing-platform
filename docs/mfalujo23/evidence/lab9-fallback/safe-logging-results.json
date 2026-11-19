@@ -1,0 +1,26 @@
+{
+  "scope": "Direct local execution with fictional numbers and transcript; no external requests",
+  "response": {
+    "status": 200,
+    "contentType": "text/xml; charset=utf-8",
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Say>Thank you for calling Neighborhood Listing Platform. Your request has been recorded.</Say></Response>"
+  },
+  "actualLogLines": [
+    "{\"eventId\":\"CA00000000000000000000000000000001\",\"status\":\"event_accepted\",\"phoneSuffix\":\"***0199\"}",
+    "{\"eventId\":\"CA00000000000000000000000000000001\",\"status\":\"sms_no_consent\",\"phoneSuffix\":\"***0199\"}"
+  ],
+  "actualStoredRecord": {
+    "eventId": "CA00000000000000000000000000000001",
+    "status": "ringing",
+    "phoneSuffix": "***0199",
+    "processedAt": "2026-11-19T02:00:24.751Z"
+  },
+  "rawInputValuesAbsentFromLogsAndStore": {
+    "From": true,
+    "To": true,
+    "Transcript": true,
+    "RecordingUrl": true
+  },
+  "tokenAbsent": true,
+  "passed": true
+}

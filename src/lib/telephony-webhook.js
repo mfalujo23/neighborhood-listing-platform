@@ -5,6 +5,7 @@ import path from 'node:path';
 const MAX_BODY_BYTES = 16 * 1024;
 const XML_TYPE = 'text/xml; charset=utf-8';
 const EMPTY_TWIML = '<?xml version="1.0" encoding="UTF-8"?><Response></Response>';
+const UNAVAILABLE_TWIML = '<?xml version="1.0" encoding="UTF-8"?><Response><Say>We are temporarily unavailable. Please try again later.</Say><Hangup/></Response>';
 const CALL_STATUSES = new Set([
   'queued', 'ringing', 'in-progress', 'completed', 'busy', 'failed', 'no-answer', 'canceled',
 ]);
@@ -140,6 +141,12 @@ export function methodNotAllowed() {
   return new Response('Method Not Allowed', { status: 405, headers: { Allow: 'POST' } });
 }
 
+function unavailableVoiceResponse() {
+  // Acknowledges delivery of voice instructions, not successful processing.
+  // Do not include caller data, raw errors, or a claim that work was recorded.
+  return new Response(UNAVAILABLE_TWIML, { status: 200, headers: { 'Content-Type': XML_TYPE } });
+}
+
 export function createVoiceWebhookHandler({ store, smsClient, env = process.env, logger = console.log } = {}) {
   return async function handleVoiceWebhook(request) {
     if (request.method !== 'POST') return methodNotAllowed();
@@ -169,7 +176,8 @@ export function createVoiceWebhookHandler({ store, smsClient, env = process.env,
     const hasExplicitConsent = Consent === 'true';
     if (hasExplicitConsent && env.ENABLE_OUTBOUND_SMS === 'true' && typeof smsClient?.send !== 'function') {
       logEvent({ eventId: CallSid, status: 'sms_client_unavailable', phone: From }, logger);
-      return new Response('Outbound SMS adapter is not configured', { status: 503 });
+      logEvent({ eventId: CallSid, status: 'processing_unavailable', phone: From }, logger);
+      return unavailableVoiceResponse();
     }
 
     try {
@@ -190,7 +198,7 @@ export function createVoiceWebhookHandler({ store, smsClient, env = process.env,
     } catch {
       // Keep a claim after ambiguous delivery failure: retries must not send twice.
       logEvent({ eventId: CallSid, status: 'processing_unavailable', phone: From }, logger);
-      return new Response('Webhook processing is temporarily unavailable', { status: 503 });
+      return unavailableVoiceResponse();
     }
   };
 }

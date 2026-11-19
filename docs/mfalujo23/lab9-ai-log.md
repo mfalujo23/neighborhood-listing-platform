@@ -18,3 +18,9 @@ This log was drafted by Codex during remediation on November 18, 2026. It record
 - Required teammate/instructor review is recorded truthfully, including any approved solo exception.
 - Hosted Supabase migration/configuration and real persistent idempotency are tested only in an authorized environment before claiming those results.
 - Any Gemini or AI Studio requirement remains outstanding; no such interaction was performed by this agent.
+# Voice fallback follow-up
+
+| Tool | Task summary | Output used | Output rejected | Verification | Source trace |
+| --- | --- | --- | --- | --- | --- |
+| Codex | Implement explicit generic-unavailable TwiML HTTP 200 for authenticated, valid voice-handler processing exceptions and an unavailable SMS adapter. Include a temporarily-unavailable Say message and Hangup; do not claim recording, SMS or transfer. Keep signature/body/method rejection statuses, durable-store enforcement and safe failure logging. Add XML, side-effect, privacy and actual loopback HTTP timeout checks. | Fixed generic XML fallback, immediate return, controlled failure status, focused tests and a local HTTP fault-injection runner. | Treating HTTP 200 as business acceptance; interpolating raw exceptions/caller data; bypassing the durable store; claiming a live carrier test. | Exact local checks and raw output in evidence/lab9-fallback; no live provider validation. | Follow-up to PR #6, parent 2e1d3d344d6aec5a51214ce04d6265b73c8b0986; changed source src/lib/telephony-webhook.js and tests/webhook.test.js. |
+
