@@ -39,7 +39,6 @@ export default function VoiceSimulator() {
     <main className={styles.page}>
       <Link className={styles.back} href="/">BarrioList home</Link>
       <header className={styles.header}>
-        <p className={styles.eyebrow}>CIS 3610 · Labs 10–12</p>
         <h1>Voice workflow simulator</h1>
         <p>Explore tool boundaries and failure recovery with fictional property facts.</p>
         <p className={styles.notice}><strong>Deterministic text mock.</strong> No AI provider, microphone, real call, SMS, or contact request is connected. Gemini and Vapi have not run this conversation.</p>

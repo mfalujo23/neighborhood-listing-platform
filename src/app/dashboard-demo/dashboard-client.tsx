@@ -43,7 +43,7 @@ export default function DashboardDemo() {
   }
   return <main className={styles.main}>
     <nav><Link href="/">Home</Link><Link href="/listings">Fictional listings</Link><Link href="/voice-simulator">Voice mock</Link></nav>
-    <header><p className={styles.eyebrow}>LABS 13–14 · LOCAL FIXTURE MODE</p><h1>Privacy-focused dashboard demo</h1>
+    <header><p className={styles.eyebrow}>Fictional sample data</p><h1>Privacy-focused dashboard demo</h1>
       <p>This public demonstration uses prewritten fictional events in volatile browser memory. No model, real call, user study or provider latency was measured. The protected analytics route is separate.</p>
     </header>
     <section className={styles.panel} aria-labelledby="controls-title"><h2 id="controls-title">Try the event pipeline</h2>
