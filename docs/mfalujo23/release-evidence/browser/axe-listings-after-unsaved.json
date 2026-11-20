@@ -1,0 +1,9 @@
+{
+  "state": "listings-favorites-unsaved-fixed",
+  "route": "/listings",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T02:47:33.694Z",
+  "violations": [],
+  "incomplete": [],
+  "passedRules": 24
+}

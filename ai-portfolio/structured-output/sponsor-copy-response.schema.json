@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "brief_id",
+    "variants"
+  ],
+  "properties": {
+    "brief_id": {
+      "type": "string",
+      "enum": [
+        "fictional-garden-v1"
+      ]
+    },
+    "variants": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "text",
+          "character_count",
+          "status",
+          "fact_trace",
+          "connective_wording"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 119
+          },
+          "character_count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 119
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft"
+            ]
+          },
+          "fact_trace": {
+            "type": "array",
+            "minItems": 3,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "phrase",
+                "fact_id"
+              ],
+              "properties": {
+                "phrase": {
+                  "type": "string"
+                },
+                "fact_id": {
+                  "type": "string",
+                  "enum": [
+                    "business_name",
+                    "offer",
+                    "address",
+                    "url",
+                    "starts_on",
+                    "ends_on",
+                    "disclaimer"
+                  ]
+                }
+              }
+            }
+          },
+          "connective_wording": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

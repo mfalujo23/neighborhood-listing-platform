@@ -1,0 +1,7 @@
+(node:38840) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/neighborhood-listing-platform/src/release/gates.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\mfalujo\Documents\Codex\2026-11-18\https-calstatela-instructure-com-https-calstatela\work\neighborhood-listing-platform\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"artifact":"axe-listings.json","passed":false,"route":"/listings","violations":1,"incomplete":0}
+{"artifact":"axe-services.json","passed":false,"route":"/services","violations":0,"incomplete":1}
+{"artifact":"axe-media-demo.json","passed":false,"route":"/media-demo","violations":1,"incomplete":0}

@@ -1,0 +1,29 @@
+Lab 9: signature, idempotency, consent, and privacy
+  ✔ accepts a valid signed form and returns XML (40.4009ms)
+  ✔ rejects invalid and missing signatures without persisting an event (2.8649ms)
+  ✔ rejects a payload changed after signing (1.1544ms)
+  ✔ uses the configured callback URL rather than Host headers (1.1282ms)
+  ✔ rejects missing and malformed required fields even when signed (1.6642ms)
+  ✔ rejects ambiguous repeated form fields (0.892ms)
+  ✔ enforces methods and an exact documented content type (8.409ms)
+  ✔ rejects oversized streamed bodies before signature or persistence (2.6937ms)
+  ✔ prevents two sends when duplicate requests arrive concurrently (6.9722ms)
+  ✔ retains duplicate protection across separate local adapter instances (9.6924ms)
+  ✔ sends nothing without explicit consent, or with the default-disabled flag (10.6668ms)
+  ✔ never reports a successful SMS without a configured client (5.0285ms)
+  ✔ does not send twice after an ambiguous provider failure (7.7872ms)
+  ✔ escapes project-name XML text (8.4874ms)
+  ✔ stores and logs only minimal redacted fields (6.4318ms)
+  ✔ fails closed on hosted deployments without a durable store (1.159ms)
+  ✔ does not send when the event store is unavailable (1.1479ms)
+  ✔ handles atomic hosted insert and duplicate conflicts using a fake transport (1.8485ms)
+  ✔ surfaces hosted storage failures instead of treating them as duplicates (2.1692ms)
+✔ Lab 9: signature, idempotency, consent, and privacy (122.7483ms)
+ℹ tests 19
+ℹ suites 1
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 324.6128

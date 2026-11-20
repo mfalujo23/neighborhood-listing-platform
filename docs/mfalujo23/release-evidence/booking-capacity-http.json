@@ -1,0 +1,45 @@
+{
+  "localOnly": true,
+  "fictionalDataOnly": true,
+  "providerCalls": 0,
+  "method": "POST",
+  "path": "/api/bookings",
+  "attempts": 31,
+  "accepted": 30,
+  "rejected": 1,
+  "checks": [
+    {
+      "request": 1,
+      "status": 201,
+      "headers": {
+        "content-type": "application/json",
+        "retry-after": null,
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff"
+      },
+      "body": "{\"message\":\"Booking request submitted.\"}"
+    },
+    {
+      "request": 30,
+      "status": 201,
+      "headers": {
+        "content-type": "application/json",
+        "retry-after": null,
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff"
+      },
+      "body": "{\"message\":\"Booking request submitted.\"}"
+    },
+    {
+      "request": 31,
+      "status": 429,
+      "headers": {
+        "content-type": "application/json",
+        "retry-after": "60",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff"
+      },
+      "body": "{\"error\":\"Too many booking requests. Try again shortly.\"}"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "generatedAt": "2026-11-19T00:03:24.536Z",
+  "mode": "Fictional deterministic local execution; no real participant, provider measurement, database or HTTP network called by this export script.",
+  "fixtureEventCount": 30,
+  "defaultOff": {
+    "status": "disabled"
+  },
+  "accepted": 30,
+  "duplicate": {
+    "status": "duplicate"
+  },
+  "conflict": {
+    "status": "conflict"
+  },
+  "fixtureSummary": {
+    "eventCount": 30,
+    "bounds": {
+      "start": "2026-11-17T00:00:00.000Z",
+      "endExclusive": "2026-11-19T00:00:00.000Z"
+    },
+    "latencySource": "fixture",
+    "metrics": {
+      "sponsorCtr": {
+        "numerator": 2,
+        "denominator": 4,
+        "percent": 50,
+        "definition": "Distinct matched impression IDs clicked / distinct impression IDs in the UTC window."
+      },
+      "inquiryCompletion": {
+        "numerator": 2,
+        "denominator": 4,
+        "percent": 50,
+        "definition": "Started property/correlation sessions resolved without escalation / started sessions. Successful-inquiry proxy; no caller identity or first-call history."
+      },
+      "webhookFallback": {
+        "numerator": 1,
+        "denominator": 4,
+        "percent": 25,
+        "definition": "Started sessions with webhook_timeout or fallback_transfer / started sessions."
+      },
+      "propertyInquiry": {
+        "numerator": 3,
+        "denominator": 4,
+        "percent": 75,
+        "definition": "Listing-view sessions with a property-details, availability or booking intent / listing-view sessions."
+      },
+      "latencySla": {
+        "numerator": 2,
+        "denominator": 3,
+        "percent": 66.66666666666666,
+        "definition": "Completed sessions with supplied fixture latency <1000ms / completed sessions with that latency source. Missing measurements excluded."
+      },
+      "callCompletion": {
+        "numerator": 3,
+        "denominator": 4,
+        "percent": 75,
+        "definition": "Started sessions with a completion event / started sessions."
+      },
+      "toolSuccess": {
+        "numerator": 3,
+        "denominator": 4,
+        "percent": 75,
+        "definition": "Successful tool-result events / all tool-result events."
+      },
+      "escalation": {
+        "numerator": 1,
+        "denominator": 4,
+        "percent": 25,
+        "definition": "Started sessions with any escalation / started sessions."
+      }
+    },
+    "daily": [
+      {
+        "day": "2026-11-17",
+        "count": 29
+      },
+      {
+        "day": "2026-11-18",
+        "count": 1
+      }
+    ],
+    "categories": [
+      {
+        "category": "property_details",
+        "count": 3
+      },
+      {
+        "category": "unknown",
+        "count": 1
+      }
+    ],
+    "neighborhoods": [
+      {
+        "neighborhood": "90032",
+        "impressions": 4,
+        "clickedImpressions": 2,
+        "percent": 50
+      }
+    ]
+  },
+  "providerOnlyLatencyMetric": {
+    "numerator": 0,
+    "denominator": 0,
+    "percent": null,
+    "definition": "Completed sessions with supplied provider_measured latency <1000ms / completed sessions with that latency source. Missing measurements excluded."
+  },
+  "invalidClientResponse": {
+    "status": 400,
+    "headers": {
+      "cache-control": "no-store",
+      "content-type": "application/json",
+      "referrer-policy": "no-referrer",
+      "vary": "Authorization"
+    },
+    "body": "{\"error\":{\"code\":\"INVALID_EVENT_OR_CONSENT\"}}"
+  },
+  "eventsAfterRevocation": 0,
+  "actualParticipantSessions": 0,
+  "actualProviderSamples": 0
+}

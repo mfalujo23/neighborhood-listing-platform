@@ -1,0 +1,22 @@
+{
+  "caseId": "FC3-followup-draft",
+  "observedTool": "request_agent_followup",
+  "observedArguments": {
+    "property_id": "demo-001",
+    "consent": true,
+    "preferred_channel": "email"
+  },
+  "execution": "Actual local strict validator and fictional mock adapter; no provider calls or external effects.",
+  "toolSourceSha256": "15c285ecc10225d850b76efb52c158300836a798a68692a9839ea52496497daf",
+  "executedAtUTC": "2026-11-19T02:13:51.770Z",
+  "result": {
+    "ok": true,
+    "data": {
+      "kind": "followup-draft",
+      "submitted": false,
+      "consent": true,
+      "property_id": "demo-001",
+      "preferred_channel": "email"
+    }
+  }
+}

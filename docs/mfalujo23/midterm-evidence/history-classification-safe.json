@@ -1,0 +1,287 @@
+{
+  "original_redaction": {
+    "findings": 13,
+    "secret_already_redacted": 13
+  },
+  "findings": [
+    {
+      "RuleID": "generic-api-key",
+      "File": ".next/dev/cache/.rscinfo",
+      "Fingerprint": "cc9698c5bb698f6071a7474eb380fb3489fce79b:.next/dev/cache/.rscinfo:generic-api-key:1",
+      "Commit": "cc9698c5bb698f6071a7474eb380fb3489fce79b",
+      "StartLine": 1,
+      "fields": [
+        {
+          "field": "encryption.key",
+          "type": "str"
+        },
+        {
+          "field": "encryption.expire_at",
+          "type": "int"
+        }
+      ],
+      "classification": "Next-generated server-action or preview encryption/signing material in historical build artifacts; exposure finding"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".next/dev/server/server-reference-manifest.json",
+      "Fingerprint": "cc9698c5bb698f6071a7474eb380fb3489fce79b:.next/dev/server/server-reference-manifest.json:generic-api-key:4",
+      "Commit": "cc9698c5bb698f6071a7474eb380fb3489fce79b",
+      "StartLine": 4,
+      "fields": [
+        {
+          "field": "node",
+          "type": "dict"
+        },
+        {
+          "field": "edge",
+          "type": "dict"
+        },
+        {
+          "field": "encryptionKey",
+          "type": "str"
+        }
+      ],
+      "classification": "Next-generated server-action or preview encryption/signing material in historical build artifacts; exposure finding"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".next/dev/server/preview-props.json",
+      "Fingerprint": "cc9698c5bb698f6071a7474eb380fb3489fce79b:.next/dev/server/preview-props.json:generic-api-key:3",
+      "Commit": "cc9698c5bb698f6071a7474eb380fb3489fce79b",
+      "StartLine": 3,
+      "fields": [
+        {
+          "field": "previewModeId",
+          "type": "str"
+        },
+        {
+          "field": "previewModeSigningKey",
+          "type": "str"
+        },
+        {
+          "field": "previewModeEncryptionKey",
+          "type": "str"
+        }
+      ],
+      "classification": "Next-generated server-action or preview encryption/signing material in historical build artifacts; exposure finding"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".next/dev/server/preview-props.json",
+      "Fingerprint": "cc9698c5bb698f6071a7474eb380fb3489fce79b:.next/dev/server/preview-props.json:generic-api-key:4",
+      "Commit": "cc9698c5bb698f6071a7474eb380fb3489fce79b",
+      "StartLine": 4,
+      "fields": [
+        {
+          "field": "previewModeId",
+          "type": "str"
+        },
+        {
+          "field": "previewModeSigningKey",
+          "type": "str"
+        },
+        {
+          "field": "previewModeEncryptionKey",
+          "type": "str"
+        }
+      ],
+      "classification": "Next-generated server-action or preview encryption/signing material in historical build artifacts; exposure finding"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".github/workflows/deploy.yml",
+      "Fingerprint": "59b8effd16ee8103e09c5ce7d91a7f83ca158b6c:.github/workflows/deploy.yml:generic-api-key:32",
+      "Commit": "59b8effd16ee8103e09c5ce7d91a7f83ca158b6c",
+      "StartLine": 32,
+      "environment_fields": [
+        {
+          "name": "SUPABASE_ANON_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        }
+      ],
+      "classification": "Workflow environment assignment; see value class without disclosed value"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".github/workflows/deploy.yml",
+      "Fingerprint": "59b8effd16ee8103e09c5ce7d91a7f83ca158b6c:.github/workflows/deploy.yml:generic-api-key:33",
+      "Commit": "59b8effd16ee8103e09c5ce7d91a7f83ca158b6c",
+      "StartLine": 33,
+      "environment_fields": [
+        {
+          "name": "SUPABASE_SERVICE_ROLE_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        }
+      ],
+      "classification": "Workflow environment assignment; see value class without disclosed value"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".github/workflows/deploy.yml",
+      "Fingerprint": "59b8effd16ee8103e09c5ce7d91a7f83ca158b6c:.github/workflows/deploy.yml:generic-api-key:35",
+      "Commit": "59b8effd16ee8103e09c5ce7d91a7f83ca158b6c",
+      "StartLine": 35,
+      "environment_fields": [
+        {
+          "name": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        }
+      ],
+      "classification": "Workflow environment assignment; see value class without disclosed value"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".github/workflows/deploy.yml",
+      "Fingerprint": "e291b52d2c8b9891e07e452e6843d0394febc352:.github/workflows/deploy.yml:generic-api-key:1",
+      "Commit": "e291b52d2c8b9891e07e452e6843d0394febc352",
+      "StartLine": 1,
+      "environment_fields": [
+        {
+          "name": "SUPABASE_ANON_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        },
+        {
+          "name": "SUPABASE_SERVICE_ROLE_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        },
+        {
+          "name": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        }
+      ],
+      "classification": "Workflow environment assignment; see value class without disclosed value"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".github/workflows/deploy.yml",
+      "Fingerprint": "e291b52d2c8b9891e07e452e6843d0394febc352:.github/workflows/deploy.yml:generic-api-key:1",
+      "Commit": "e291b52d2c8b9891e07e452e6843d0394febc352",
+      "StartLine": 1,
+      "environment_fields": [
+        {
+          "name": "SUPABASE_ANON_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        },
+        {
+          "name": "SUPABASE_SERVICE_ROLE_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        },
+        {
+          "name": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        }
+      ],
+      "classification": "Workflow environment assignment; see value class without disclosed value"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".github/workflows/deploy.yml",
+      "Fingerprint": "e291b52d2c8b9891e07e452e6843d0394febc352:.github/workflows/deploy.yml:generic-api-key:1",
+      "Commit": "e291b52d2c8b9891e07e452e6843d0394febc352",
+      "StartLine": 1,
+      "environment_fields": [
+        {
+          "name": "SUPABASE_ANON_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        },
+        {
+          "name": "SUPABASE_SERVICE_ROLE_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        },
+        {
+          "name": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        }
+      ],
+      "classification": "Workflow environment assignment; see value class without disclosed value"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".github/workflows/deploy.yml",
+      "Fingerprint": "bdad531445fb51e34563520c6fd0cebe0aa7e4aa:.github/workflows/deploy.yml:generic-api-key:37",
+      "Commit": "bdad531445fb51e34563520c6fd0cebe0aa7e4aa",
+      "StartLine": 37,
+      "environment_fields": [
+        {
+          "name": "SUPABASE_SERVICE_ROLE_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        }
+      ],
+      "classification": "Workflow environment assignment; see value class without disclosed value"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".github/workflows/deploy.yml",
+      "Fingerprint": "6426fa9ef3440ead95839ca496e65ee007b9b59e:.github/workflows/deploy.yml:generic-api-key:36",
+      "Commit": "6426fa9ef3440ead95839ca496e65ee007b9b59e",
+      "StartLine": 36,
+      "environment_fields": [
+        {
+          "name": "SUPABASE_ANON_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        }
+      ],
+      "classification": "Workflow environment assignment; see value class without disclosed value"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": ".github/workflows/deploy.yml",
+      "Fingerprint": "60185cc33ba6595ca5f1928bfd0a783761f2ec02:.github/workflows/deploy.yml:generic-api-key:36",
+      "Commit": "60185cc33ba6595ca5f1928bfd0a783761f2ec02",
+      "StartLine": 36,
+      "environment_fields": [
+        {
+          "name": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+          "assigned_value_class": "Literal sb_publishable_-format public client key; variable name does not confer service-role privileges",
+          "jwt_three_segment_syntax": false,
+          "supabase_secret_prefix": false,
+          "supabase_publishable_prefix": true
+        }
+      ],
+      "classification": "Workflow environment assignment; see value class without disclosed value"
+    }
+  ]
+}

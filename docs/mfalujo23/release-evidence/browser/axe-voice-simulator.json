@@ -1,0 +1,8 @@
+{
+  "route": "/voice-simulator",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T02:36:30.981Z",
+  "violations": [],
+  "incomplete": [],
+  "passedRules": 23
+}

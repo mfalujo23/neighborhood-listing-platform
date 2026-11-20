@@ -1,0 +1,76 @@
+{
+"brief_id": "fictional-garden-v1",
+"reviews": [
+{
+"id": "variant-1",
+"recomputed_character_count": 83,
+"under_120": true,
+"supported_claims": [
+"Fictional Garden Partner (business_name)",
+"a fictional gardening guide (offer)",
+"Classroom demo only. (disclaimer)"
+],
+"unsupported_claims": [],
+"language_flags": [],
+"trace_errors": [
+"Permitted omissions: address, url, starts_on, and ends_on are omitted.",
+"Connective wording 'presents' is editorial framing not explicitly supplied in SOURCE FACTS, though it does not assert free, downloadable, physical-location, urgency, or guarantee claims."
+],
+"verdict": "needs_human_review",
+"reason": "Recomputed length is 83 characters (under 120) and matches the claimed count. Exact business_name, offer, and disclaimer ('Classroom demo only.') are present, and all fact_trace phrases are exact substrings mapped to the correct source facts. No prohibited claims, urgency, superlatives, guarantees, discriminatory phrasing, or real endorsements appear. URL and dates are omitted, avoiding unstated domain or active-status implications. Remains a draft requiring review and explicit approval by a named human reviewer; passing critique is not approval."
+},
+{
+"id": "variant-2",
+"recomputed_character_count": 102,
+"under_120": true,
+"supported_claims": [
+"Fictional Garden Partner (business_name)",
+"a fictional gardening guide (offer)",
+"/media-demo/partner (url)",
+"Classroom demo only. (disclaimer)"
+],
+"unsupported_claims": [],
+"language_flags": [],
+"trace_errors": [
+"Permitted omissions: address, starts_on, and ends_on are omitted.",
+"Connective wording includes '(URL:', which introduces a 'URL:' label derived from the source field name rather than source text, and does not assert a live webpage or full domain."
+],
+"verdict": "needs_human_review",
+"reason": "Recomputed length is 102 characters (under 120) and matches the claimed count. Exact business_name, offer, url, and disclaimer ('Classroom demo only.') appear verbatim, and all four fact_trace entries are exact substrings mapped accurately. No prohibited availability, free, download, physical-location, urgency, superlative, guarantee, or endorsement wording appears. URL limitation: '/media-demo/partner' is a relative path with no host domain, protocol, or evidence of a live destination; dates are omitted and no campaign is claimed live or approved. Remains a draft requiring review and sign-off by a named human reviewer; passing critique is not approval."
+},
+{
+"id": "variant-3",
+"recomputed_character_count": 110,
+"under_120": true,
+"supported_claims": [
+"Fictional Garden Partner (business_name)",
+"a fictional gardening guide (offer)",
+"2026-11-19 (starts_on)",
+"2026-11-26 (ends_on)",
+"Classroom demo only. (disclaimer)"
+],
+"unsupported_claims": [
+"UTC (timezone qualifier not present in SOURCE FACTS)"
+],
+"language_flags": [],
+"trace_errors": [
+"Permitted omissions: address and url are omitted.",
+"'UTC.' is placed in connective_wording even though 'UTC' is a substantive timezone claim not supplied in SOURCE FACTS rather than purely connective wording.",
+"Connective wording 'lists' is added editorial framing not supplied in SOURCE FACTS."
+],
+"verdict": "needs_human_review",
+"reason": "Recomputed length is 110 characters (under 120) and matches the claimed count. Exact business_name, offer, starts_on, ends_on, and disclaimer ('Classroom demo only.') are present, and all five fact_trace entries are exact substrings mapped accurately. No prohibited free, download, physical-location, urgency, superlative, guarantee, discriminatory, or endorsement language appears. However, 'UTC' is not present in SOURCE FACTS and is misclassified under connective_wording. Date limitation: the date range omits whether the end date is inclusive and has no current-date context, so campaign active status is not established or claimed. Remains a draft requiring review and approval by a named human reviewer; passing critique is not approval."
+}
+],
+"comparison": {
+"most_fact_faithful_id": "variant-1",
+"why": "Variant-1 includes every required element verbatim (business_name, offer, disclaimer) in 83 characters with zero unsupported qualifiers or unstated assumptions. Variant-3 introduces 'UTC' (absent from SOURCE FACTS) inside connective_wording, and Variant-2 exposes a relative URL path ('/media-demo/partner') without a host domain or destination context, whereas Variant-1 stays strictly within the core supplied facts while using only a neutral connective verb ('presents').",
+"remaining_human_decisions": [
+"Assign a named human reviewer to verify and explicitly approve any selected draft before classroom or demo use.",
+"Decide whether to include the relative URL ('/media-demo/partner' in variant-2) and, if so, confirm how the hosting context resolves or labels a relative demo path.",
+"Decide whether campaign dates ('2026-11-19' and '2026-11-26') should be included and whether a timezone qualifier (such as 'UTC' in variant-3) is authorized in the canonical source facts.",
+"Confirm whether the editorial verbs 'presents' (variant-1) or 'lists' (variant-3) or colon punctuation (variant-2) best match the intended classroom demo tone without implying live availability.",
+"Confirm whether the omitted 'address' fact ('No physical location; fictional classroom setting') needs to be surfaced in accompanying UI or caption text."
+]
+}
+}

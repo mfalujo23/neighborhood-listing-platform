@@ -1,0 +1,9 @@
+{
+  "state": "home-keyboard-activation-diagnostic",
+  "route": "/",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T02:46:36.913Z",
+  "violations": [],
+  "incomplete": [],
+  "passedRules": 19
+}

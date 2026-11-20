@@ -1,0 +1,1 @@
+AUTH SESSION HTTP: 28 actual local HTTP checks PASS; official SDK cookies/refresh/revoke, role scope and CSRF; no provider requests.

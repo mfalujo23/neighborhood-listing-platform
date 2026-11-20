@@ -1,0 +1,8 @@
+{
+  "route": "/sponsor-simulator",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T02:36:32.390Z",
+  "violations": [],
+  "incomplete": [],
+  "passedRules": 21
+}

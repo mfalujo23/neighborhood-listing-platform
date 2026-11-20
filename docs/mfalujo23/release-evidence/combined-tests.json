@@ -1,0 +1,105 @@
+{
+  "localOnly": true,
+  "providerFlagsDisabled": true,
+  "credentialsOmittedFromChildEnvironment": true,
+  "executedAt": "2026-11-19T03:17:49.171Z",
+  "status": "passed",
+  "results": [
+    {
+      "name": "unit and component tests",
+      "command": [
+        "node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "src/test",
+        "--no-cache",
+        "--no-fsModuleCache"
+      ],
+      "exit": 0,
+      "durationMs": 6259
+    },
+    {
+      "name": "webhook signature, consent and idempotency tests",
+      "command": [
+        "node",
+        "--test",
+        "tests/webhook.test.js"
+      ],
+      "exit": 0,
+      "durationMs": 369
+    },
+    {
+      "name": "backend PostgreSQL roles",
+      "command": [
+        "node",
+        "scripts/verify-local-backend.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 3027
+    },
+    {
+      "name": "midterm fresh and legacy PostgreSQL roles",
+      "command": [
+        "node",
+        "scripts/verify-local-midterm.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 2713
+    },
+    {
+      "name": "booking email PostgreSQL/runtime contract",
+      "command": [
+        "node",
+        "scripts/verify-booking-email-contract.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 1598
+    },
+    {
+      "name": "sponsor PostgreSQL eligibility and roles",
+      "command": [
+        "node",
+        "scripts/verify-local-sponsors.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 2710
+    },
+    {
+      "name": "analytics PostgreSQL privacy and aggregates",
+      "command": [
+        "node",
+        "scripts/verify-local-analytics.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 1936
+    },
+    {
+      "name": "canonical provider and legacy read-only analytics roles",
+      "command": [
+        "node",
+        "scripts/verify-local-analytics-provider.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 1597
+    },
+    {
+      "name": "media approval-record validation",
+      "command": [
+        "node",
+        "scripts/verify-mfalujo23-media-records.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 1560
+    },
+    {
+      "name": "fictional local backup recovery and restored RLS",
+      "command": [
+        "node",
+        "scripts/verify-local-restore.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 2465
+    }
+  ],
+  "limitation": "Local assertions and disposable PostgreSQL only; no hosted authentication, deployment, human UAT or provider call is established."
+}

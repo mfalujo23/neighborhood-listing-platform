@@ -1,0 +1,9 @@
+first CallSid claim: {"affectedRows":1,"rows":[]}
+same CallSid retry rejected atomically: {"error":{"code":"23505","message":"duplicate key value violates unique constraint \"telephony_webhook_events_pkey\""}}
+different CallSid accepted: {"affectedRows":1,"rows":[]}
+anonymous claim denied: {"error":{"code":"42501","message":"permission denied for table telephony_webhook_events"}}
+authenticated claim denied: {"error":{"code":"42501","message":"permission denied for table telephony_webhook_events"}}
+full phone string rejected: {"error":{"code":"23514","message":"new row for relation \"telephony_webhook_events\" violates check constraint \"telephony_webhook_events_phone_suffix_check\""}}
+non-provider identifier rejected: {"error":{"code":"23514","message":"new row for relation \"telephony_webhook_events\" violates check constraint \"telephony_webhook_events_event_id_check\""}}
+PostgreSQL version: PostgreSQL 18.6 (PGlite 0.5.16) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.13 (e13ee988ce3d87a738dd8f3661d02223308c412a), 32-bit
+PASS: 7 checks; 2 distinct minimal event records persisted.

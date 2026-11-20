@@ -1,0 +1,54 @@
+
+ RUN  v5.1.0 C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/vapi-live-callback-work
+
+ ✓ src/test/vapiLive.test.ts > live tool contracts > uses three separately generated strict UUID contracts 5ms
+ ✓ src/test/vapiLive.test.ts > live tool contracts > rejects privileged key types before constructing a request 1ms
+ ✓ src/test/vapiLive.test.ts > live tool contracts > accepts only an explicitly anon legacy JWT key type 0ms
+ ✓ src/test/vapiLive.test.ts > live tool contracts > rejects unsafe database URL http://public.example 0ms
+ ✓ src/test/vapiLive.test.ts > live tool contracts > rejects unsafe database URL https://user:password@project.example 0ms
+ ✓ src/test/vapiLive.test.ts > live tool contracts > rejects unsafe database URL https://project.example/path 0ms
+ ✓ src/test/vapiLive.test.ts > live tool contracts > rejects unsafe database URL https://project.example/?secret=x 0ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > uses only publishable apikey, fixed public projection and approved UUID filter 23ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > returns NOT_FOUND for anonymous empty reads 2ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > omits a SQL-null optional description without inventing a value 1ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > fails closed on unexpected property payload 0 1ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > fails closed on unexpected property payload 1 0ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > fails closed on unexpected property payload 2 0ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > fails closed on unexpected property payload 3 0ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > fails closed on unexpected property payload 4 0ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > does not request a database for invalid direct input 1ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > never returns raw database errors 1ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > bounds database response bodies 1ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > uses the real eligible sponsor RPC and revalidates safe eligible output 10ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > does not query sponsors for a different property ZIP 1ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > returns an actual empty list without inventing a house sponsor 1ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > fails closed on malformed sponsor projection 0 1ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > fails closed on malformed sponsor projection 1 1ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > fails closed on malformed sponsor projection 2 1ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > filters unsafe campaign destinations even if returned by the RPC 1ms
+ ✓ src/test/vapiLive.test.ts > approved database reads > uses2500ms production query budget and actually aborts a delayed transport 26ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > denies invalid auth before data work 0 3ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > denies invalid auth before data work 1 1ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > denies invalid auth before data work 2 1ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > denies invalid auth before data work 3 0ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > fails closed for missing server configuration 0ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > rejects the wrong assistant without querying 2ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > rejects conflicting assistant identities 1ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > requires a call context and rejects raw dashboard parameter bodies 0ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > returns a correlated single-line result and ignores unpersisted PII metadata 1ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > translates real adapter504 into HTTP200 error without a result 1ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > rejects invalid tool get_property_details without database or action 1ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > rejects invalid tool get_nearby_sponsors without database or action 0ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > rejects invalid tool request_agent_followup without database or action 0ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > rejects invalid tool delete_all_records without database or action 0ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > truthfully reports followup unavailable and performs zero network calls 1ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > accepts protocol arguments encoded as JSON strings and validates their content 1ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > returns one result for every independent read-only call 1ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > rejects duplicate IDs and oversized lists before data access 1ms
+ ✓ src/test/vapiLive.test.ts > authenticated provider envelope > enforces method, content-type, JSON and body-size boundaries 1ms
+
+ Test Files  1 passed (1)
+      Tests  45 passed (45)
+   Start at  09:42:30
+   Duration  636ms (import 46%, transform 29%, tests 23%, worker 2%)
+

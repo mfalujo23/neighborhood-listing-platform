@@ -1,0 +1,13 @@
+{
+  "caseId": "FC1-property",
+  "input": "This is a fictional classroom test. What is the listed price and bedroom count for property demo-001?",
+  "toolName": "get_property_details",
+  "args": {
+    "property_id": "demo-001"
+  },
+  "rawRenderedArguments": "{\n  \"property_id\": \"demo-001\"\n}",
+  "model": "gemini-4-hydrogen",
+  "functionCallingEnabled": true,
+  "providerAdapterExecuted": false,
+  "capturedAt": "2026-11-19T01:48:36.562Z"
+}

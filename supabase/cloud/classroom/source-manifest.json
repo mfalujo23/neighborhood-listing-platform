@@ -1,0 +1,78 @@
+{
+  "sourceCommit": "9429aeaef638f7714cfcd9df3e6e66c84ea8b0b0",
+  "sourceTree": "0c3977d719f82aa27e6b12c14bde26f5a4a6bf8c",
+  "copiedForReproductionOnly": true,
+  "executedByThisCopyOperation": false,
+  "copies": [
+    {
+      "path": "supabase/cloud/classroom/01-preflight.sql",
+      "sha256": "0597f55b7a95991592ad6e73046fa65bbf2065a2d3635e267cf2d50951e69328",
+      "bytes": 768,
+      "copyOf": "fresh-cloud-plan/01-preflight-read-only.sql",
+      "exactBytesPreserved": true
+    },
+    {
+      "path": "supabase/cloud/classroom/02-fresh-core.sql",
+      "sha256": "6df19fde0e4fa5d7216b9d3ba6ba7733b2f3b71f09b4272c47820a53f94f6788",
+      "bytes": 24630,
+      "copyOf": "fresh-cloud-plan/02-fresh-core.sql",
+      "exactBytesPreserved": true
+    },
+    {
+      "path": "supabase/cloud/classroom/03-schema-audit.sql",
+      "sha256": "48203e11681600e9af5b8827ace726966884da137caca2ef9f0a60e9db29e412",
+      "bytes": 1208,
+      "copyOf": "fresh-cloud-plan/03-schema-audit-read-only.sql",
+      "exactBytesPreserved": true
+    },
+    {
+      "path": "supabase/cloud/classroom/04-fictional-seed.sql",
+      "sha256": "996e106caa4ca8a09347011d4244cf9b61e8247107041f8cc26c5266b6e0be08",
+      "bytes": 3501,
+      "copyOf": "fresh-cloud-plan/04-fictional-seed-after-real-auth.sql",
+      "exactBytesPreserved": true
+    },
+    {
+      "path": "supabase/cloud/classroom/10-sponsors.sql",
+      "sha256": "8b3abf6355ee10ad878673c910b4b0e651d6b0304b46fc5f1dd29b46af32f5c5",
+      "bytes": 19904,
+      "copyOf": "optional-platform-plan/ready-after-core-auth/10-sponsors.sql",
+      "exactBytesPreserved": true
+    },
+    {
+      "path": "supabase/cloud/classroom/20-analytics.sql",
+      "sha256": "7055759a2187212e2f7d0314a6cdd2a4ee1219d5a6d1d02b2fa2c9f03e18f169",
+      "bytes": 18093,
+      "copyOf": "optional-platform-plan/ready-after-core-auth/20-analytics.sql",
+      "exactBytesPreserved": true
+    },
+    {
+      "path": "supabase/cloud/classroom/30-telephony.sql",
+      "sha256": "fde628a4991c122ba6b9e638f2d344bfcc62d5f65b283104c830329eb1e0d96c",
+      "bytes": 7154,
+      "copyOf": "optional-platform-plan/ready-after-core-auth/30-telephony.sql",
+      "exactBytesPreserved": true
+    },
+    {
+      "path": "supabase/cloud/classroom/40-catalog-audit.sql",
+      "sha256": "de2abe724edd67c4606898a1692f04851901635196bc8f8a27a91c089366fd17",
+      "bytes": 2520,
+      "copyOf": "optional-platform-plan/40-catalog-audit-read-only.sql",
+      "exactBytesPreserved": true
+    },
+    {
+      "path": "supabase/cloud/classroom/42-function-grants.sql",
+      "sha256": "06afc3096ca01a71ab7946a15288b1eccc80128048897100a74e77abaa537e5b",
+      "bytes": 1434,
+      "copyOf": "optional-platform-plan/42-function-grants-one-grid-read-only.sql",
+      "exactBytesPreserved": true
+    },
+    {
+      "path": "supabase/cloud/classroom/90-containment.sql",
+      "sha256": "0376e43e95df011d8db39653bd34724690e31f4964d3ad3957f265cd0ab00b2a",
+      "bytes": 1748,
+      "copyOf": "optional-platform-plan/90-containment-preserve-data.sql",
+      "exactBytesPreserved": true
+    }
+  ]
+}

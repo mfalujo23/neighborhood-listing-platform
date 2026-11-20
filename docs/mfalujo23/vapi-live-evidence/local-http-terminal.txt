@@ -1,0 +1,1 @@
+{"scope":"Actual loopback HTTP and disposable PGlite PostgreSQL anon RLS/RPC verification. Local HTTP bridge emulates only the fixed PostgREST read/RPC wire contract; this is not hosted Supabase, actual PostgREST, Vapi, Twilio, a call, or delivery evidence.","passed":17,"failed":0,"queryTimeoutMs":2500,"abortedSponsorConnections":2}

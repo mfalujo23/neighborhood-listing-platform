@@ -1,0 +1,9 @@
+{
+  "state": "media-partner-destination",
+  "route": "/media-demo/partner",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T02:49:06.456Z",
+  "violations": [],
+  "incomplete": [],
+  "passedRules": 19
+}

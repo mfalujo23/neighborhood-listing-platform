@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import '../../global.css';
+import LocalAccessibilityAudit from '../components/LocalAccessibilityAudit';
 
 export const metadata: Metadata = {
   title: 'BarrioList',
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        {process.env.ENABLE_LOCAL_ACCESSIBILITY_AUDIT === 'true' && <LocalAccessibilityAudit />}
+      </body>
     </html>
   );
 }

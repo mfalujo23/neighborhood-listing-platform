@@ -1,26 +1,15 @@
 -- Midterm services, categories, mappings, and bookings.
 begin;
 
--- Keep the existing Lab 5 profile roles and add the midterm roles.
-alter table public.profiles
-  drop constraint if exists profiles_role_check;
-
-alter table public.profiles
-  drop constraint if exists profiles_role_midterm_check;
-
-alter table public.profiles
-  add constraint profiles_role_midterm_check
-  check (
-    role in (
-      'user',
-      'property_professional',
-      'local_sponsor',
-      'admin',
-      'client',
-      'provider',
-      'merchant'
-    )
-  );
+-- Fresh-project profile contract. Existing rows are retained. Existing deployments
+-- use the forward repair migrations rather than replaying this migration.
+create table if not exists public.profiles (
+  id uuid primary key references auth.users(id) on delete cascade,
+  role text not null default 'client'
+    check (role in ('admin', 'merchant', 'provider', 'client')),
+  email text,
+  created_at timestamptz not null default timezone('utc'::text, now())
+);
 
 create table if not exists public.service_categories (
   id uuid primary key default gen_random_uuid(),
@@ -37,6 +26,7 @@ create table if not exists public.services (
   hourly_rate numeric(10, 2) not null check (hourly_rate >= 0),
   duration_minutes integer not null check (duration_minutes >= 15),
   coverage_radius_miles integer not null check (coverage_radius_miles > 0),
+  coverage_active boolean not null default true,
   status text not null default 'draft'
     check (status in ('draft', 'pending', 'approved', 'suspended')),
   created_at timestamptz not null default now()
@@ -53,7 +43,7 @@ create table if not exists public.bookings (
   id uuid primary key default gen_random_uuid(),
   service_id uuid not null references public.services(id) on delete cascade,
   client_email text not null
-    check (client_email ~* '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$'),
+    check (client_email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'),
   requested_date date not null,
   notes text not null check (char_length(notes) between 10 and 2000),
   created_at timestamptz not null default now()
@@ -86,7 +76,7 @@ create policy "Users can create a basic own profile"
   on public.profiles for insert to authenticated
   with check (
     id = (select auth.uid())
-    and role = 'property_professional'
+    and role in ('client', 'provider', 'merchant')
   );
 
 drop policy if exists "Clients can create their own profile" on public.profiles;
@@ -106,7 +96,7 @@ create policy "Public can read active service categories"
 drop policy if exists "Public can read approved services" on public.services;
 create policy "Public can read approved services"
   on public.services for select to anon, authenticated
-  using (status = 'approved');
+  using (status = 'approved' and coverage_active is true);
 
 drop policy if exists "Providers can read their own services" on public.services;
 create policy "Providers can read their own services"
@@ -115,7 +105,7 @@ create policy "Providers can read their own services"
     provider_id = (select auth.uid())
     and exists (
       select 1 from public.profiles p
-      where p.id = (select auth.uid()) and p.role = 'provider'
+      where p.id = (select auth.uid()) and p.role in ('provider', 'merchant')
     )
   );
 
@@ -127,7 +117,7 @@ create policy "Providers can create draft services"
     and status = 'draft'
     and exists (
       select 1 from public.profiles p
-      where p.id = (select auth.uid()) and p.role = 'provider'
+      where p.id = (select auth.uid()) and p.role in ('provider', 'merchant')
     )
   );
 
@@ -140,7 +130,7 @@ create policy "Providers can update their draft or suspended services"
     and status in ('draft', 'suspended')
     and exists (
       select 1 from public.profiles p
-      where p.id = (select auth.uid()) and p.role = 'provider'
+      where p.id = (select auth.uid()) and p.role in ('provider', 'merchant')
     )
   )
   with check (
@@ -154,10 +144,10 @@ create policy "Providers can delete their draft services"
   on public.services for delete to authenticated
   using (
     provider_id = (select auth.uid())
-    and status = 'draft'
+    and status in ('draft', 'suspended')
     and exists (
       select 1 from public.profiles p
-      where p.id = (select auth.uid()) and p.role = 'provider'
+      where p.id = (select auth.uid()) and p.role in ('provider', 'merchant')
     )
   );
 
@@ -168,7 +158,7 @@ create policy "Public can read visible service category mappings"
   using (
     exists (
       select 1 from public.services s
-      where s.id = service_id and s.status = 'approved'
+      where s.id = service_id and s.status = 'approved' and s.coverage_active is true
     )
     and exists (
       select 1 from public.service_categories c
@@ -187,7 +177,7 @@ create policy "Providers can add categories to their draft services"
       where s.id = service_id
         and s.provider_id = (select auth.uid())
         and s.status in ('draft', 'suspended')
-        and p.role = 'provider'
+        and p.role in ('provider', 'merchant')
     )
   );
 
@@ -202,7 +192,7 @@ create policy "Providers can remove categories from their draft services"
       where s.id = service_id
         and s.provider_id = (select auth.uid())
         and s.status in ('draft', 'suspended')
-        and p.role = 'provider'
+        and p.role in ('provider', 'merchant')
     )
   );
 
@@ -213,7 +203,7 @@ create policy "Visitors can submit bookings for approved services"
   with check (
     exists (
       select 1 from public.services s
-      where s.id = service_id and s.status = 'approved'
+      where s.id = service_id and s.status = 'approved' and s.coverage_active is true
     )
   );
 
@@ -227,7 +217,7 @@ create policy "Providers can read bookings for their services"
       join public.profiles p on p.id = s.provider_id
       where s.id = service_id
         and s.provider_id = (select auth.uid())
-        and p.role = 'provider'
+        and p.role in ('provider', 'merchant')
     )
   );
 
@@ -248,7 +238,7 @@ grant insert, delete on public.service_category_mappings to authenticated;
 grant insert on public.bookings to anon, authenticated;
 grant select on public.bookings to authenticated;
 
-grant all privileges on public.service_categories,
+grant select, insert, update, delete on public.profiles, public.service_categories,
   public.services,
   public.service_category_mappings,
   public.bookings to service_role;

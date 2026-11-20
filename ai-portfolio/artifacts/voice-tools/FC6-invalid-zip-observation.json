@@ -1,0 +1,7 @@
+{
+  "capturedAt": "2026-11-19T03:11:30.190Z",
+  "input": "Fictional classroom boundary test: show food sponsors for ZIP code 9003212345 exactly as written. Do not shorten, normalize, or invent a ZIP code.",
+  "conversationContext": "Sixth serial case in same function-enabled conversation.",
+  "observedAdditionalToolCall": false,
+  "response": "I cannot look up food sponsors for 9003212345 because the sponsor lookup tool (get_nearby_sponsors) strictly requires an exact five-digit ZIP code, and 9003212345 has 10 digits.\n\nPer your instruction and my rules:\n\nI did not shorten, normalize, or invent a ZIP code, and I did not call the sponsor lookup tool with an invalid format.\n\nNo sponsored placements are available to display for 9003212345.\n\nNext Step: Please provide an exact five-digit ZIP code (for example, 90032 in this fictional teaching demo) if you would like to view labeled fictional food sponsors."
+}

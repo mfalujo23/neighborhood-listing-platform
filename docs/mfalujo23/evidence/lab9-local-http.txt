@@ -1,0 +1,68 @@
+CASE valid-first-event
+HTTP/1.1 200 OK
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
+content-type: text/xml; charset=utf-8
+Date: Wed, 18 Nov 2026 22:41:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?><Response><Say>Thank you for calling Neighborhood Listing Platform. Your request has been recorded.</Say></Response>
+
+CASE identical-provider-retry
+HTTP/1.1 200 OK
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
+content-type: text/xml; charset=utf-8
+Date: Wed, 18 Nov 2026 22:41:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?><Response></Response>
+
+CASE invalid-signature
+HTTP/1.1 403 Forbidden
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
+content-type: text/plain;charset=UTF-8
+Date: Wed, 18 Nov 2026 22:41:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+Invalid signature
+
+CASE signed-missing-required-field
+HTTP/1.1 400 Bad Request
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
+content-type: text/plain;charset=UTF-8
+Date: Wed, 18 Nov 2026 22:41:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+Missing or invalid required webhook fields
+
+CASE unsupported-method
+HTTP/1.1 405 Method Not Allowed
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
+allow: POST
+content-type: text/plain;charset=UTF-8
+Date: Wed, 18 Nov 2026 22:41:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+Method Not Allowed
+
+CASE unsupported-content-type
+HTTP/1.1 415 Unsupported Media Type
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
+content-type: text/plain;charset=UTF-8
+Date: Wed, 18 Nov 2026 22:41:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+Unsupported Media Type
+
+HTTP_MATRIX_RESULT {"passed":true,"actual":[200,200,403,400,405,415],"expected":[200,200,403,400,405,415]}

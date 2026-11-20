@@ -1,0 +1,9 @@
+{
+  "state": "final-friendly-booking-errors",
+  "route": "/services",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T03:02:40.105Z",
+  "violations": [],
+  "incomplete": [],
+  "passedRules": 25
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "get_property_details",
+    "description": "Return only a fictional approved listing, by exact ID or address.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "property_id": {
+          "type": "string",
+          "description": "Exact fictional ID such as demo-001. Supply exactly one of property_id or address."
+        },
+        "address": {
+          "type": "string",
+          "description": "Exact fictional address; use only when property_id is absent."
+        }
+      }
+    }
+  },
+  {
+    "name": "get_nearby_sponsors",
+    "description": "Return labeled fictional sponsored content for a five-digit ZIP and optional category.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "zip": {
+          "type": "string",
+          "description": "Exactly five digits; fictional test ZIP90032."
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "food",
+            "home-services",
+            "retail"
+          ]
+        }
+      },
+      "required": [
+        "zip"
+      ]
+    }
+  },
+  {
+    "name": "request_agent_followup",
+    "description": "Validate an explicitly consented fictional follow-up draft. Never submits or contacts anyone.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "consent": {
+          "type": "boolean",
+          "description": "Must be true from explicit current consent. False is rejected by the local validator."
+        },
+        "property_id": {
+          "type": "string",
+          "description": "Exact fictional listing ID such as demo-001."
+        },
+        "preferred_channel": {
+          "type": "string",
+          "enum": [
+            "email",
+            "phone"
+          ]
+        }
+      },
+      "required": [
+        "consent",
+        "property_id",
+        "preferred_channel"
+      ]
+    }
+  }
+]

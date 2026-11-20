@@ -1,0 +1,125 @@
+{
+  "status": "passed",
+  "sourceCommit": "ea73cfd8430f152a78a283b3e6d7a01cfd8c6a58",
+  "sourceTree": "ff8f5a5db3933f13902e31285b4d5d1574003d34",
+  "projectRef": "emzgyjdasctljwnbcuov",
+  "scope": "Actual loopback Next production callback backed by the approved hosted database. Synthetic local request envelopes; not provider-issued calls or Vapi delivery evidence.",
+  "startedAt": "2026-11-19T19:06:14.495Z",
+  "completedAt": "2026-11-19T19:06:17.429Z",
+  "providerApiCalls": 0,
+  "applicationWriteRequestsInitiatedByHarness": 0,
+  "coreBookingsBefore": 2,
+  "coreBookingsAfter": 2,
+  "allSixCoreTablesUnchanged": true,
+  "fixedFetchInstrumentationPositiveControlsPassed": true,
+  "finalCounters": {
+    "properties": 2,
+    "sponsors": 1,
+    "blocked": 0
+  },
+  "callerOrRecordingDataUsed": false,
+  "privilegedKeyPassedToNext": false,
+  "evidenceType": "Allowlisted summary of an actual retained result; not a new execution.",
+  "inputResultSha256": "e621942f2d64af6f3f374ea271a6652eebf64a6117b10f6bbdfa7fd6c5f3afe3",
+  "cases": [
+    {
+      "name": "wrong_token_rejected_before_data",
+      "outcome": "passed",
+      "status": 401,
+      "databaseFetches": {
+        "properties": 0,
+        "sponsors": 0,
+        "blocked": 0
+      }
+    },
+    {
+      "name": "wrong_assistant_rejected_before_data",
+      "outcome": "passed",
+      "status": 403,
+      "databaseFetches": {
+        "properties": 0,
+        "sponsors": 0,
+        "blocked": 0
+      }
+    },
+    {
+      "name": "invalid_zip_rejected_without_data",
+      "outcome": "passed",
+      "status": 200,
+      "databaseFetches": {
+        "properties": 0,
+        "sponsors": 0,
+        "blocked": 0
+      },
+      "toolError": "INVALID_ARGUMENTS"
+    },
+    {
+      "name": "actual_approved_property_facts",
+      "outcome": "passed",
+      "status": 200,
+      "databaseFetches": {
+        "properties": 1,
+        "sponsors": 0,
+        "blocked": 0
+      },
+      "publicFactsMatchActualDatabase": true,
+      "privateFieldsAbsent": true,
+      "fields": [
+        "amenities",
+        "bathrooms",
+        "bedrooms",
+        "city",
+        "id",
+        "price",
+        "square_feet",
+        "state",
+        "street",
+        "title",
+        "zip_code"
+      ]
+    },
+    {
+      "name": "actual_cba_sponsor_reads",
+      "outcome": "passed",
+      "status": 200,
+      "databaseFetches": {
+        "properties": 1,
+        "sponsors": 1,
+        "blocked": 0
+      },
+      "fictionalSponsorOrder": [
+        "C",
+        "B",
+        "A"
+      ],
+      "pendingDAbsent": true
+    },
+    {
+      "name": "false_consent_rejected_without_action",
+      "outcome": "passed",
+      "status": 200,
+      "databaseFetches": {
+        "properties": 0,
+        "sponsors": 0,
+        "blocked": 0
+      },
+      "toolError": "INVALID_ARGUMENTS"
+    },
+    {
+      "name": "valid_consent_followup_is_truly_unavailable",
+      "outcome": "passed",
+      "status": 200,
+      "databaseFetches": {
+        "properties": 0,
+        "sponsors": 0,
+        "blocked": 0
+      },
+      "exactErrorField": "UNAVAILABLE: Human follow-up transport is not configured. No request was submitted and no call or message was sent.",
+      "returnedResult": false,
+      "zeroDatabaseFetches": true,
+      "requestOrCallOrMessageClaimed": false,
+      "responseCorrelationOmittedFromPublicEvidence": true
+    }
+  ],
+  "caseCount": 7
+}

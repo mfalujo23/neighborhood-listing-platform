@@ -1,0 +1,178 @@
+{
+  "summaries": [
+    {
+      "path": "core-auth.json",
+      "inputResultSha256": "ebc1b111ebf134c93cb29ed4be9fba312a75de0e8e4f6c526af57367a2b4e91d",
+      "caseCount": 40,
+      "sourceCommit": "cca10f44952dcf85f9237c3312a35f448e30bb6d"
+    },
+    {
+      "path": "addons.json",
+      "inputResultSha256": "e9d36b5e5f672e5659b818279e04bc49276c0fbca2a40ac14526477e33d2c198",
+      "caseCount": 49,
+      "sourceCommit": "ea73cfd8430f152a78a283b3e6d7a01cfd8c6a58"
+    },
+    {
+      "path": "booking-http.json",
+      "inputResultSha256": "1a095671846cf7a2239ae6556fa04ee783e545505221b94462f0763f7f012604",
+      "caseCount": 16,
+      "sourceCommit": "ea73cfd8430f152a78a283b3e6d7a01cfd8c6a58"
+    },
+    {
+      "path": "callback-http.json",
+      "inputResultSha256": "e621942f2d64af6f3f374ea271a6652eebf64a6117b10f6bbdfa7fd6c5f3afe3",
+      "caseCount": 7,
+      "sourceCommit": "ea73cfd8430f152a78a283b3e6d7a01cfd8c6a58"
+    },
+    {
+      "path": "browser-auth.json",
+      "inputResultSha256": "8538763d84c45b8cd9c5cc32c003b7ebc242b51198419b2f290616693d252694",
+      "caseCount": 7,
+      "sourceCommit": "3384e88811d70d72a355b08b879f1839d3c86287"
+    }
+  ],
+  "publicBrowserBooking": {
+    "pre": {
+      "status": "passed",
+      "phase": "pre",
+      "projectRef": "emzgyjdasctljwnbcuov",
+      "observedAtUTC": "2026-11-19T19:33:16.513Z",
+      "scope": "Read-only verification around a separately performed public browser booking. No UI or application write performed by this verifier.",
+      "bookingRows": 2,
+      "priorMarkerRows": 0,
+      "sixCoreFingerprintsSavedPrivately": true,
+      "serverReadRequests": 6,
+      "writeRequests": 0,
+      "authOperations": 0,
+      "identifiersOrContactsRecorded": false,
+      "rowDeletedOrRestored": false,
+      "inputResultSha256": "23d2668bc9b6f87122aff9237fea4e622a3294d262da355a6ed0c892ec7755a8"
+    },
+    "post": {
+      "status": "passed",
+      "phase": "post",
+      "projectRef": "emzgyjdasctljwnbcuov",
+      "observedAtUTC": "2026-11-19T19:34:30.300Z",
+      "scope": "Read-only verification around a separately performed public browser booking. No UI or application write performed by this verifier.",
+      "bookingRows": 3,
+      "matchingNewRows": 1,
+      "previousBookingsUnchanged": true,
+      "otherFiveCoreTablesUnchanged": true,
+      "serverReadRequests": 6,
+      "writeRequests": 0,
+      "authOperations": 0,
+      "identifiersOrContactsRecorded": false,
+      "rowDeletedOrRestored": false,
+      "inputResultSha256": "695c7f3ef7a8476e038ce81520a4776050a109d608e2e835783c463a6557d86c"
+    }
+  },
+  "publicCallback": {
+    "status": "passed",
+    "sourceCommit": "9429aeaef638f7714cfcd9df3e6e66c84ea8b0b0",
+    "projectRef": "emzgyjdasctljwnbcuov",
+    "publicOrigin": "https://neighborhood-listing-platform-sable.vercel.app",
+    "startedAtUTC": "2026-11-19T19:37:59.024Z",
+    "completedAtUTC": "2026-11-19T19:38:01.449Z",
+    "scope": "Actual public deployment callback with synthetic request envelopes, backed by the approved hosted database. Not a provider-issued call.",
+    "providerApiCalls": 0,
+    "callerOrRecordingDataUsed": false,
+    "applicationWriteRequestsInitiatedByHarness": 0,
+    "privilegedKeyPassedToPublicCallback": false,
+    "remoteDatabaseFetchCountersInstrumented": false,
+    "publicSourceHealthVerified": true,
+    "coreBookingsBefore": 3,
+    "coreBookingsAfter": 3,
+    "allSixCoreTablesUnchanged": true,
+    "parentCoreReadRequests": 12,
+    "publicCallbackRequests": 7,
+    "publicHealthReads": 1,
+    "cases": [
+      {
+        "name": "wrong_token_rejected",
+        "outcome": "passed",
+        "status": 401
+      },
+      {
+        "name": "wrong_assistant_rejected",
+        "outcome": "passed",
+        "status": 403
+      },
+      {
+        "name": "invalid_zip_rejected",
+        "outcome": "passed",
+        "status": 200
+      },
+      {
+        "name": "actual_approved_property_facts",
+        "outcome": "passed",
+        "status": 200,
+        "publicFactsMatchActualDatabase": true,
+        "privateFieldsAbsent": true
+      },
+      {
+        "name": "actual_cba_sponsors",
+        "outcome": "passed",
+        "status": 200,
+        "fictionalSponsorOrder": [
+          "C",
+          "B",
+          "A"
+        ],
+        "pendingDAbsent": true
+      },
+      {
+        "name": "false_consent_rejected",
+        "outcome": "passed",
+        "status": 200
+      },
+      {
+        "name": "valid_consent_followup_unavailable",
+        "outcome": "passed",
+        "status": 200,
+        "exactErrorField": "UNAVAILABLE: Human follow-up transport is not configured. No request was submitted and no call or message was sent.",
+        "returnedResult": false,
+        "requestOrCallOrMessageClaimed": false
+      }
+    ],
+    "inputResultSha256": "66b2b5bef0f95e30b0a0451044554c0c71f4c48beaaee99bb4e1d61d061ebfee"
+  },
+  "applicationRollback": {
+    "source": "Observed Vercel UI and public in-app browser",
+    "domain": "https://neighborhood-listing-platform-sable.vercel.app",
+    "rollbackStartedAtUTC": "2026-11-19T19:38:46.470Z",
+    "previousReleaseObservedAtUTC": "2026-11-19T19:39:01.482Z",
+    "restoredObservedAtUTC": "2026-11-19T19:39:40.075Z",
+    "oldSource": "d0db83a2b7886f2a1a543529d2f11770adbfcfe3",
+    "restoredSource": "9429aeaef638f7714cfcd9df3e6e66c84ea8b0b0",
+    "method": "Promote an existing built production deployment, then promote the tested built production deployment back",
+    "oldPublicHomeVerified": true,
+    "newPublicHomeVerified": true,
+    "restoredHealth": {
+      "status": "ok",
+      "commit": "9429aeaef638f7714cfcd9df3e6e66c84ea8b0b0",
+      "database": "not_checked",
+      "voice_provider": "not_checked"
+    },
+    "databaseRollbackPerformed": false,
+    "backupsOrRpoRtoMeasured": false,
+    "inputResultSha256": "bdff1a05d36cca693b8be6db1245cc4d030421f6a450da47712ef0afa4514e22",
+    "databaseIntegrity": {
+      "status": "passed",
+      "projectRef": "emzgyjdasctljwnbcuov",
+      "observedAtUTC": "2026-11-19T19:40:33.039Z",
+      "scope": "Read-only six-core-table comparison after the separately observed application deployment rollback and restore. No SQL rollback or application write by this verifier.",
+      "baseline": "Passed public callback with all six core fingerprints unchanged",
+      "bookings": 3,
+      "allSixCoreTablesUnchanged": true,
+      "serverReadRequests": 6,
+      "writeRequests": 0,
+      "authOperations": 0,
+      "identifiersOrContactsRecorded": false,
+      "rowDeletedOrRestored": false,
+      "inputResultSha256": "8cdde16ad32278b5eefd00e7f5987587cc2894227b237604920a07426a42edc8"
+    }
+  },
+  "rawResultsPreserved": true,
+  "privateInputsReadByExporter": false,
+  "networkRequestsByExporter": 0
+}

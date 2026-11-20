@@ -1,0 +1,126 @@
+Act as an independent factual and safety reviewer of the three supplied draft sponsor blurbs. Use only the fictional source facts below. Do not invent stakeholder intent, approval, model settings, user tests or deployment results.
+
+For each candidate:
+1. Recompute the character count, including spaces/punctuation; flag any text with 120 or more characters.
+2. Check every factual phrase against the source. Flag free/download/availability/physical-location implications that are not supplied.
+3. Flag unverifiable, discriminatory, urgency, superlative, guarantee or real-endorsement wording. Match complete words/phrases; do not flag "best" merely because it occurs inside a different word.
+4. Verify exact business name, guide fact and "Classroom demo only." disclaimer.
+5. Verify every fact_trace phrase is an exact substring and maps to the named source fact. Identify omissions or unsupported connective wording.
+6. Explain any date/URL limitation without claiming a campaign is live or approved.
+7. Keep every candidate as draft requiring a named human reviewer; passing critique is not human approval.
+
+Return JSON with:
+{
+  "brief_id": "fictional-garden-v1",
+  "reviews": [{"id":"...", "recomputed_character_count":0, "under_120":true, "supported_claims":[], "unsupported_claims":[], "language_flags":[], "trace_errors":[], "verdict":"needs_human_review", "reason":"..."}],
+  "comparison": {"most_fact_faithful_id":"...", "why":"...", "remaining_human_decisions":[]}
+}
+
+SOURCE FACTS:
+{
+  "brief_id": "fictional-garden-v1",
+  "business_name": "Fictional Garden Partner",
+  "offer": "a fictional gardening guide",
+  "address": "No physical location; fictional classroom setting",
+  "url": "/media-demo/partner",
+  "starts_on": "2026-11-19",
+  "ends_on": "2026-11-26",
+  "disclaimer": "Classroom demo only."
+}
+
+CANDIDATE DRAFT JSON FOLLOWS:
+
+
+ACTUAL AI STUDIO OUTPUT:
+{
+"brief_id": "fictional-garden-v1",
+"variants": [
+{
+"id": "variant-1",
+"text": "Fictional Garden Partner presents a fictional gardening guide. Classroom demo only.",
+"character_count": 83,
+"status": "draft",
+"fact_trace": [
+{
+"phrase": "Fictional Garden Partner",
+"fact_id": "business_name"
+},
+{
+"phrase": "a fictional gardening guide",
+"fact_id": "offer"
+},
+{
+"phrase": "Classroom demo only.",
+"fact_id": "disclaimer"
+}
+],
+"connective_wording": [
+"presents",
+"."
+]
+},
+{
+"id": "variant-2",
+"text": "Fictional Garden Partner: a fictional gardening guide (URL: /media-demo/partner). Classroom demo only.",
+"character_count": 102,
+"status": "draft",
+"fact_trace": [
+{
+"phrase": "Fictional Garden Partner",
+"fact_id": "business_name"
+},
+{
+"phrase": "a fictional gardening guide",
+"fact_id": "offer"
+},
+{
+"phrase": "/media-demo/partner",
+"fact_id": "url"
+},
+{
+"phrase": "Classroom demo only.",
+"fact_id": "disclaimer"
+}
+],
+"connective_wording": [
+":",
+"(URL:",
+")."
+]
+},
+{
+"id": "variant-3",
+"text": "Fictional Garden Partner lists a fictional gardening guide, 2026-11-19 to 2026-11-26 UTC. Classroom demo only.",
+"character_count": 110,
+"status": "draft",
+"fact_trace": [
+{
+"phrase": "Fictional Garden Partner",
+"fact_id": "business_name"
+},
+{
+"phrase": "a fictional gardening guide",
+"fact_id": "offer"
+},
+{
+"phrase": "2026-11-19",
+"fact_id": "starts_on"
+},
+{
+"phrase": "2026-11-26",
+"fact_id": "ends_on"
+},
+{
+"phrase": "Classroom demo only.",
+"fact_id": "disclaimer"
+}
+],
+"connective_wording": [
+"lists",
+",",
+"to",
+"UTC."
+]
+}
+]
+}

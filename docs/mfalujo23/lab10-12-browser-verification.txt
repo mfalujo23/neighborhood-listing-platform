@@ -1,0 +1,14 @@
+LOCAL BROWSER VERIFICATION - NOVEMBER 18, 2026
+
+Performed by the coordinating Codex agent on the local Next.js /voice-simulator page. The implementation agent inspected the saved screenshot afterward. No student personal testing, provider session, or real call is claimed.
+
+Observed actions and outcomes:
+1. Opened /voice-simulator. The notice said no AI provider, microphone, real call, SMS, or contact request was connected. The consent checkbox was unchecked.
+2. Ran "Tell me about demo-001." with no injected failure. The page returned approved-within-fictional-fixture property data and a random mock correlation ID. Provider requests / submitted follow-ups showed 0 / 0.
+3. Clicked Repeat callback. The result was duplicate; no follow-up was sent.
+4. Clicked Run all ten mock scenarios. The page reported "10 of 10 expected outcomes matched" and displayed each actual outcome in its table.
+5. Selected Mock provider unavailable and ran the known-listing query. The page reported unavailable, with no call, transfer, or follow-up request placed.
+
+Evidence: evidence/voice-simulator-results.jpg. The screenshot includes the unavailable result, unchecked consent, 0/0 provider/follow-up count, and the ten matched table rows. The original user-facing image is outputs/Voice-simulator-results.jpg in the task workspace.
+
+The displayed durations measure local browser JavaScript only. They are not Gemini/Vapi response times, speech-to-text/text-to-speech performance, provider uptime, or actual call latency.

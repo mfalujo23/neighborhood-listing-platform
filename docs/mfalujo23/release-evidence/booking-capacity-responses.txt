@@ -1,0 +1,26 @@
+REQUEST 1
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: no-store
+x-content-type-options: nosniff
+
+{"message":"Booking request submitted."}
+
+REQUEST 30
+HTTP 201
+content-type: application/json
+retry-after: null
+cache-control: no-store
+x-content-type-options: nosniff
+
+{"message":"Booking request submitted."}
+
+REQUEST 31
+HTTP 429
+content-type: application/json
+retry-after: 60
+cache-control: no-store
+x-content-type-options: nosniff
+
+{"error":"Too many booking requests. Try again shortly."}

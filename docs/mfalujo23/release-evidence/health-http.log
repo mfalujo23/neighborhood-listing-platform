@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+Content-Security-Policy: base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Referrer-Policy: no-referrer
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+Cross-Origin-Opener-Policy: same-origin
+Strict-Transport-Security: max-age=31536000
+Cache-Control: no-store
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
+content-type: application/json
+Date: Thu, 19 Nov 2026 02:32:22 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+{"status":"ok","level":"liveness","service":"neighborhood-listing-platform","commit":"local","checks":{"application":"running","database":"not_checked","voice_provider":"not_checked"}}

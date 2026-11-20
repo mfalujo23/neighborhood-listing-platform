@@ -1,0 +1,22 @@
+{
+  "name": "Project checks",
+  "triggers": [
+    "push",
+    "pull_request"
+  ],
+  "permissions": {
+    "contents": "read"
+  },
+  "jobs": [
+    "verify"
+  ],
+  "commands": [
+    "npm install --global npm@11.21.3",
+    "npm ci --ignore-scripts",
+    "npm run lint -- --max-warnings 0",
+    "npm run typecheck",
+    "npm test",
+    "npm run build"
+  ]
+}
+Failure masking absent: true

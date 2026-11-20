@@ -1,0 +1,14 @@
+file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/release-verified-candidate/config/source-preflight.mjs:11
+        throw new Error('VERIFY_IN_CLEAN_SNAPSHOT: private environment files are present; their contents were not read.')
+              ^
+
+Error: VERIFY_IN_CLEAN_SNAPSHOT: private environment files are present; their contents were not read.
+    at visit (file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/release-verified-candidate/config/source-preflight.mjs:11:15)
+    at async visit (file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/release-verified-candidate/config/source-preflight.mjs:13:59)
+    at async visit (file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/release-verified-candidate/config/source-preflight.mjs:13:59)
+    at async visit (file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/release-verified-candidate/config/source-preflight.mjs:13:59)
+    at async visit (file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/release-verified-candidate/config/source-preflight.mjs:13:59)
+    at async assertCleanSourceEnvironment (file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/release-verified-candidate/config/source-preflight.mjs:16:3)
+    at async file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/release-verified-candidate/scripts/verify-release.mjs:7:1
+
+Node.js v24.22.3

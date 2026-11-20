@@ -1,0 +1,29 @@
+{
+  "caseId": "FC2-sponsor",
+  "observedTool": "get_nearby_sponsors",
+  "observedArguments": {
+    "category": "food",
+    "zip": "90032"
+  },
+  "execution": "Actual local strict validator and fictional mock adapter; no provider calls or external effects.",
+  "toolSourceSha256": "15c285ecc10225d850b76efb52c158300836a798a68692a9839ea52496497daf",
+  "executedAtUTC": "2026-11-19T02:06:53.557Z",
+  "result": {
+    "ok": true,
+    "data": {
+      "kind": "sponsors",
+      "sponsors": [
+        {
+          "id": "sponsor-demo-001",
+          "name": "Demo Corner Cafe",
+          "zip": "90032",
+          "category": "food",
+          "approvedText": "Fictional cafe used only to demonstrate a sponsored placement.",
+          "sponsored": true
+        }
+      ],
+      "disclosure": "Sponsored: these fictional placements are advertising examples, separate from property facts.",
+      "factsVersion": "fictional-facts-v1.0.0"
+    }
+  }
+}

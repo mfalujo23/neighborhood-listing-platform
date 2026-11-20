@@ -1,0 +1,15 @@
+export interface PropertyCardProps {
+  property: Property;
+}
+
+export interface SponsorBannerProps {
+  propertyId: Property['property_id'];
+  targetZip: Property['zip_code'];
+  placement?: string;
+  pageContext?: 'home' | 'property_detail' | 'services';
+}
+
+export interface SearchFiltersProps {
+  locations?: readonly string[];
+  onFilterChange?: (filters: PropertyFilters) => void;
+}

@@ -1,0 +1,8 @@
+{
+  "route": "/realtor-dashboard",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T02:37:27.601Z",
+  "violations": [],
+  "incomplete": [],
+  "passedRules": 19
+}

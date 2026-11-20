@@ -132,3 +132,103 @@
 ### Associated Commit
 
 `f5bf704` — Complete Week 6 sponsor matching engine.
+
+
+## Lab 3: observed provider reviews and returned-data validation
+
+| Step / Tool | Prompt Summary | Model Output Used | Model Output Rejected & Rationale | Verification Method | Associated Git Commit |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| AI Studio / Gemini 4 Hydrogen, High | Generate five records from supplied fictional notes under the configured schema; exact prompt/settings: [attempt 1](mfalujo23/ai-experiments/lab3/attempt1-settings.json) | Recorded the actual structured-output setting and first response as evidence | Outer object containing encoded JSON was rejected; it was not silently repaired into accepted data | Canonical collection validator returned invalid_type at the root, expected array | 50030fbf26d6d80c5c59b3ce12d7c9678e5a505e |
+| AI Studio / Gemini 4 Hydrogen, High | Correct only the output shape; [exact second prompt](mfalujo23/ai-experiments/lab3/attempt2-prompt.txt) | Exact second-response JSON array is the active five-record fixture | This capture records structured output as off; no successful structured-mode claim is made for attempt 2 | All five records pass unchanged; active page validates before rendering; original local fixture bytes preserved | 50030fbf26d6d80c5c59b3ce12d7c9678e5a505e |
+| AI Studio / Gemini 4 Hydrogen, High | Review ambiguity, normalization, amenities and five examples; [exact prompt](mfalujo23/ai-experiments/lab3/normalization-prompt.txt), [full output](mfalujo23/ai-experiments/lab3/gemini-normalization.json) | Normalized Property/Sponsor/junction storage, embedded read projection, controlled amenities; returned valid and negative examples | No unconfirmed v4-only UUID or business-semantic change; exported minLength warning does not replace existing runtime trim | Executed five returned examples: one accepted; four rejected only for missing ID, negative price, malformed ZIP or hoa_fee | 50030fbf26d6d80c5c59b3ce12d7c9678e5a505e |
+| ChatGPT website / Instant; version not exposed | Same [review prompt](mfalujo23/ai-experiments/lab3/normalization-prompt.txt); [full output](mfalujo23/ai-experiments/lab3/chatgpt-normalization.json) | Normalization and controlled-enum recommendations; all five complete returned records | Three earlier partial/schema illustrations excluded from the complete-record tests; intentionally invalid records remain negative cases | Executed five complete examples: one accepted; four rejected for intended faults, including virtual_tour_url | 50030fbf26d6d80c5c59b3ce12d7c9678e5a505e |
+| Local Node/Zod validation / Codex | Validate actual returned examples and both raw seed attempts against the canonical source without changing constraints | Assertion-based validator, captured exact issues, twelve provider-data regression cases, portable source/prompt capture | Model predictions alone are not treated as executed results; original local fixtures are not relabeled as Gemini output | scripts/verify-lab3-provider-data.ts; providerPropertyData.test.ts; exact output in extracted/canonical-zod-validation-terminal.txt | 50030fbf26d6d80c5c59b3ce12d7c9678e5a505e |
+
+The published integration uses the exact returned second-attempt JSON bytes.
+ADR 001 records the controlled-amenity decision, storage/projection distinction,
+accepted/rejected recommendations and unresolved business questions.
+
+
+
+## Midterm services and booking implementation
+
+| Step / Tool | Prompt Summary | Model Output Used | Model Output Rejected & Rationale | Verification Method | Associated Git Commit |
+| --- | --- | --- | --- | --- | --- |
+| Codex | Complete Version B services and booking UI using the exact required paths and grid. | Mounted /services, validated responses, shared booking schema, semantic cards, keyboard/focus handling, server-only supabaseServer.ts. | Unchecked runtime casts and event.currentTarget access after await could crash the interface. | DOM keyboard/API tests and exact isolated lint/type/test/build checks linked below. | Backend base5a51dcb; implementation f4ea7ab7adb0a4a50e7506f602bfda92282b2ae5. |
+| Codex | Enforce the four required roles while retaining existing data. | Fresh canonical profile table and forward007 constraint that blocks all new legacy roles. | Broadening new role choices for historical rows would not meet the requirement; no silent legacy conversion. | Actual disposable PostgreSQL fresh/legacy assertions, raw42501/23514/empty rows, preserved profile data and reapplication. | f4ea7ab7adb0a4a50e7506f602bfda92282b2ae5. |
+| Codex | Verify administrator approval/suspension and privacy boundaries. | Strict authorized service status updates; receipt-only booking insertion. | Provider elevation, unknown update fields, contact-data echoes and hidden fixture fallback. | API/admin tests plus actual local SQL; optional fixture preview is clearly labeled and has no hosted Auth. | f4ea7ab7adb0a4a50e7506f602bfda92282b2ae5. |
+
+The [personal midterm journal](mfalujo23/midterm-ai-log.md) and
+[verification record](mfalujo23/midterm-verification.md) contain the source paths
+and actual local evidence. These rows are new implementation work and do not
+attribute earlier teammate work to this account. No new ChatGPT/Gemini/AI Studio
+midterm experiment or student manual test is invented. Hosted migration/Auth,
+required model checkpoints, review and student defense remain separate evidence.
+
+
+## Midterm post-publication provider critique
+
+The actual matching ChatGPT/Gemini prompts, rendered outputs, accepted/rejected findings and verification chronology are recorded in the [personal journal](mfalujo23/midterm-ai-log.md#post-publication-model-review). These reviews postdate f4ea7ab and are not credited as producing that earlier code. The next release/security changes are separate local follow-up work until their actual publication.
+
+
+## Release and security follow-up
+
+The [personal release journal](mfalujo23/release-ai-log.md) records local coding assistance, actual browser findings, accepted/rejected changes and verification boundaries. Source-gate logs do not stand in for hosted database/Auth, human UAT, carrier calls, final deployment or rollback evidence. The consolidated matching provider review is one experiment per tool, with later actual captures recorded separately.
+
+
+## 2026-11-18 - mfalujo23 Lab 1 remediation and matching model critique
+
+Lab 1 implementation and matching model-review evidence are recorded below.
+
+See the [personal Lab 1 AI journal](mfalujo23/lab1-ai-log.md) for the exact
+matching prompt, two observed ChatGPT/Gemini differences, useful and rejected
+output, verification, and implementation commit links. The
+[provider captures](mfalujo23/ai-experiments/README.md) preserve the actual output.
+
+| Tool | Prompt | Output used | Output rejected or qualified | Verification | Commit |
+| --- | --- | --- | --- | --- | --- |
+| Codex | Repair the inherited shell, setup, authorization initialization, and checks. | Purpose, three accessible cards, pinned tooling, lazy privileged client, strict CI. | Earlier team evidence was not credited to this account; fake credentials and tolerated failures were rejected. | Actual local responsive/Fast Refresh checks and successful hosted lint/types/33 Vitest + 5 webhook tests/build. | `fae1a1e`, `0790888`, `4fd8974`, `716883f`; full links in the personal journal. |
+| ChatGPT website, Instant; exact version not exposed | App Shell Architect; same complete prompt as Gemini. | Plain-language stack explanation, src layout, inherited-history safety, and planned-voice honesty used to critique existing work. | Tablet-three-column example; no command-result or student-check claims accepted. | Captured completed rendered response compared with source/course requirements and actual 375/768/1280 evidence. | Critique of source `fae1a1e`; new docs tracked in PR 4, exact new SHA pending publication. |
+| Gemini 4 Hydrogen, AI Studio, High thinking | Same App Shell Architect prompt; temporary chat. | Fresh/inherited workflow distinction, tool explanations, and proposed 1/2/3-column verification. | No-src-dir flag conflicts with the course; nested section/card headings require h3 cards; sample missing routes were not copied. | Actual Markdown capture compared with source/specification; no suggested generator commands executed. | Critique of source `fae1a1e`; new docs tracked in PR 4, exact new SHA pending publication. |
+
+The model experiments followed the implementation and are documented as critique,
+not retroactive generation history. AI Studio Drive access was not granted;
+no persisted saved prompt title is claimed. Student understanding, personal
+checks, required review or a documented instructor-approved solo alternative,
+and any required AI Studio prompt persistence remain pending. No merge,
+Canvas submission, or instructor credit is asserted by this record.
+
+
+## Actual consolidated ChatGPT and Gemini source review
+
+One matching experiment per tool covered Labs2,4,6,8–16. The [complete disposition and six-column journal](mfalujo23/consolidated-model-review.md) links exact prompts, actual outputs, independent reproductions, rejected/already-implemented findings and the later261-test gate. The original243-test source prompt and later251-test browser-fix checkpoint are preserved chronologically; no repeated per-lab runs or retroactive credit are invented.
+
+
+## Michael Falujo (mfalujo23) - Lab 2 component alignment
+
+| Date | Tool / model | Prompt | Output used | Output rejected | Verification | Git trace |
+| --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-19T21:50:51.840Z | Google AI Studio / Gemini 4 Hydrogen (gemini-4-hydrogen) | [Exact props-only prompt](mfalujo23/ai-experiments/lab2-props/lab2-props-prompt.txt) | Required Property, indexed ID/ZIP and optional/default/readonly prop semantics | Callback rename onFilterChange was not applied; existing onApply stays compatible | Actual raw declarations are preserved; separate imported compiler harness checks the accepted contracts. Gemini did not execute tests. | Base 3e48dad16d9df3aa07630c90f0858f511e6c237c; Lab 2 candidate, not yet published |
+| 2026-11-19 | Codex / exact identifier not captured | Align the actual components with Canvas using shared canonical types, a facts list, Tailwind grid and a business-named local sponsor link | Shared type aliases/props, native facts list and safe local Imaginary Garden Shop page | No duplicate data schemas/casts, whole-card restyling, invented marketing facts, human reviews or student-executed test claims | Assistant-run focused component/schema tests, lint and TypeScript checks are recorded in the separate verification receipt; full combined gate remains pending | Same isolated candidate; related PR 5 and integration PR 14 |
+
+[Raw response](mfalujo23/ai-experiments/lab2-props/lab2-props-response.ts.txt), [capture metadata](mfalujo23/ai-experiments/lab2-props/lab2-props-observation.json) and [screenshot](mfalujo23/ai-experiments/lab2-props/lab2-props-studio.jpg). The run was temporary, with no selected API key or code execution; structured output was off for the requested TypeScript interfaces.
+
+[Component/type verification](mfalujo23/evidence/lab2-alignment/verification.json), [actual focused output](mfalujo23/evidence/lab2-alignment/focused-tests.txt).
+
+
+## Public listings read view - November 19, 2026
+
+| Tool/date | Prompt | Decision | Verification | Trace |
+| --- | --- | --- | --- | --- |
+| Codex; model version not exposed; November 19, 2026 | Add a separate listings view reading the existing public route. Preserve the five Gemini fixtures and existing tasks. Validate the actual 15-field response; provide loading, empty, error and retry states. No new credentials or database writes. | Used one client-safe public response contract, strict collection validation, bounded GET and accessible state messages. Rejected casting the distinct Gemini property shape, silently using fixtures after failure, exposing raw errors or adding inquiry tables without a defined contract. | 20 focused tests, scoped lint and full types passed. Schema keys match the retained public-route observation. Checks used mocked responses; Later full-gate and rendered local checks are recorded below. No new provider experiment was performed. | Input source 3e48dad16d9df3aa07630c90f0858f511e6c237c; new follow-up is in this candidate. Existing integration PR: https://github.com/mfalujo23/neighborhood-listing-platform/pull/14 |
+
+Combined verification on November 19, 2026: `node scripts/verify-release.mjs` passed 401 unit tests across 33 files, 21 webhook tests, all ten local phases, lint, types, production build and the fictional loopback capacity check. The normal build kept the local accessibility control off and used no provider credentials. This full gate preceded the one-declaration CSS reflow correction.
+
+The later reflow correction removed only `body` min-width:320px. Existing listing/booking UI tests (62 across six files), lint, types, normal build and separate local QA build passed. [Actual local browser checks](mfalujo23/evidence/listings-browser-review.json) then verified keyboard controls, the real approved-data read, controlled error/retry without fixture fallback, 320/375/768/1280 reflow and three passing axe audits. These were read-only checks, not human usability sessions or a hosted-page test. Assigned-partner review remains pending. No additional provider-model experiment was performed.
+
+
+## Michael Falujo (mfalujo23) - Property detail page
+
+| Date | Tool / model | Prompt | Output used | Output rejected | Verification | Git trace |
+| --- | --- | --- | --- | --- | --- | --- |
+| November 19, 2026 (America/Los_Angeles) | Codex; exact model identifier not exposed | Add the required /listings/[propertyId] page using the existing five validated Gemini fixtures. Preserve Save and native details, reject unknown IDs and add a named card link. No schema/SQL/provider writes. | Awaited Next 16 params, shared runtime validation, fixed internal links, pre-rendered known IDs, escaped text and generic unavailable page | Duplicate fixtures/schemas, raw HTML, invented sponsor destinations, public audit controls and unperformed browser/provider claims | Assistant-run 417 unit tests, 21 webhook tests, strict lint/types, normal production build and 9 actual loopback HTTP checks passed. Normal audit control off. [Results](mfalujo23/evidence/property-detail/verification.json), [HTTP](mfalujo23/evidence/property-detail/http-results.json), [actual output](mfalujo23/evidence/property-detail/test-build-output.txt). Rendered browser checks are separate. | Base 96c078949cef9b91ea13980da1dd26cf4b34ea5f; isolated candidate related to [PR 14](https://github.com/mfalujo23/neighborhood-listing-platform/pull/14). No new commit, review, merge, deployment or live defense is claimed. |

@@ -1,0 +1,91 @@
+{
+  "checkedAt": "2026-11-20T00:36:50.857Z",
+  "environment": "Credential-free audit-enabled local production build",
+  "baseCommit": "96c078949cef9b91ea13980da1dd26cf4b34ea5f",
+  "checks": [
+    {
+      "name": "Keyboard listing controls",
+      "pass": true,
+      "details": "Space saves first listing; Enter expands its inline facts; Tab reaches named full-page link with 3px visible outline; Enter opens correct standalone page."
+    },
+    {
+      "name": "Keyboard return",
+      "pass": true,
+      "details": "Enter on Back to all sample listings returned to five sample records."
+    },
+    {
+      "name": "Malformed route",
+      "pass": true,
+      "details": "The actual browser displayed 404 and This page could not be found, without reflecting the input. Separate normal-build HTTP receipt verifies status codes for five valid records and three rejected IDs."
+    }
+  ],
+  "detailAudit": {
+    "route": "/listings/1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+    "engine": "axe-core 4.14.1",
+    "checkedAt": "2026-11-20T00:37:13.422Z",
+    "violations": [],
+    "incomplete": [],
+    "passedRules": 22
+  },
+  "reflow": [
+    {
+      "heading": "101 Imaginary Garden Lane",
+      "innerWidth": 320,
+      "main": 305,
+      "scrollWidth": 305
+    },
+    {
+      "heading": "101 Imaginary Garden Lane",
+      "innerWidth": 375,
+      "main": 360,
+      "scrollWidth": 360
+    },
+    {
+      "heading": "101 Imaginary Garden Lane",
+      "innerWidth": 768,
+      "main": 753,
+      "scrollWidth": 753
+    },
+    {
+      "heading": "101 Imaginary Garden Lane",
+      "innerWidth": 1280,
+      "main": 1200,
+      "scrollWidth": 1265
+    }
+  ],
+  "listingsAudit": {
+    "route": "/listings",
+    "engine": "axe-core 4.14.1",
+    "checkedAt": "2026-11-20T00:37:32.711Z",
+    "violations": [],
+    "incomplete": [],
+    "passedRules": 26
+  },
+  "listingsReflow": [
+    {
+      "fullDetailsLinks": 5,
+      "innerWidth": 320,
+      "scrollWidth": 305
+    },
+    {
+      "fullDetailsLinks": 5,
+      "innerWidth": 375,
+      "scrollWidth": 360
+    },
+    {
+      "fullDetailsLinks": 5,
+      "innerWidth": 768,
+      "scrollWidth": 753
+    },
+    {
+      "fullDetailsLinks": 5,
+      "innerWidth": 1280,
+      "scrollWidth": 1265
+    }
+  ],
+  "limits": [
+    "Assistant-run functional/accessibility checks; no participant task times, ease scores or human sessions were collected.",
+    "Axe results cover the rendered listings and first full-detail route; keyboard, focus and viewport checks are recorded separately.",
+    "This local QA build enables a visible audit control; the ordinary published build keeps it disabled."
+  ]
+}

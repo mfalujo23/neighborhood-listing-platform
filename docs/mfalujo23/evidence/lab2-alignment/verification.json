@@ -1,0 +1,96 @@
+{
+  "sourceBase": "3e48dad16d9df3aa07630c90f0858f511e6c237c",
+  "scope": "Isolated Lab2 alignment with the published3e48 source. No full gate/build, hosted request, new browser measurement, provider execution, Git object or ref update.",
+  "actualChecks": [
+    {
+      "command": "node node_modules/vitest/vitest.mjs run src/test/lab2Components.test.tsx src/test/propertyCardAccessibility.test.tsx src/test/property.test.ts src/test/providerPropertyData.test.ts --no-cache --no-fsModuleCache",
+      "exitCode": 0,
+      "tests": 31,
+      "files": 4
+    },
+    {
+      "command": "node node_modules/eslint/bin/eslint.js <eight changed TS/TSX files> --max-warnings 0",
+      "exitCode": 0,
+      "warnings": 0
+    },
+    {
+      "command": "node node_modules/next/dist/bin/next typegen",
+      "exitCode": 0,
+      "productionBuildRun": false
+    },
+    {
+      "command": "node node_modules/typescript/bin/tsc --noEmit",
+      "exitCode": 0,
+      "rawProviderDeclarationsAndAdaptedCallbackTypesCompiled": true
+    }
+  ],
+  "exitCodesRecordedFromActualToolResults": true,
+  "newBehaviorCases": [
+    "Native facts-list values within the labelled article",
+    "Business-named local sponsor link and Tab/Shift+Tab order",
+    "Empty result and reset over the five validated Gemini records",
+    "Local sponsor destination and return route",
+    "Expanded details remain open through Enter/Space favorite toggles"
+  ],
+  "preserved": [
+    "Five exact Gemini fixture bytes and canonical schema",
+    "Save button name/state and native details behavior",
+    "Existing card styling, focus colors and approved Fictional Garden Partner/media copy",
+    "Existing onApply callers and optional/default filter semantics"
+  ],
+  "providerExperiment": {
+    "observedAtUTC": "2026-11-19T21:50:51.840Z",
+    "tool": "Google AI Studio",
+    "model": "gemini-4-hydrogen",
+    "capturedRawArtifacts": [
+      {
+        "path": "docs/mfalujo23/ai-experiments/lab2-props/lab2-props-prompt.txt",
+        "sha256": "b8d5454be3500cbb4685fbc99233f2c3ab217d153ae81b1a1cb266a1478967bf",
+        "bytes": 905
+      },
+      {
+        "path": "docs/mfalujo23/ai-experiments/lab2-props/lab2-props-response.ts.txt",
+        "sha256": "626d54dd5b8a1d2ba570f19c1b648e4459d9b7a3de3ee64d1476b5c2f4492309",
+        "bytes": 383
+      },
+      {
+        "path": "docs/mfalujo23/ai-experiments/lab2-props/lab2-props-observation.json",
+        "sha256": "7f8a27bf893fc1ac29a7ab92dc4250306ab5a2af575a97cf836edce6deb4fb2b",
+        "bytes": 781
+      },
+      {
+        "path": "docs/mfalujo23/ai-experiments/lab2-props/lab2-props-studio.jpg",
+        "sha256": "be248714a9f42092965f34fbae444aa5dbc3eb56e57baf2038a80e7c8bbb9cf3",
+        "bytes": 75576
+      }
+    ],
+    "modelDidNotExecuteTests": true,
+    "accepted": [
+      "Required property; canonical indexed propertyId/ZIP; optional placement/pageContext",
+      "Readonly optional locations and optional filter callback"
+    ],
+    "rejected": [
+      "Renaming onApply to onFilterChange would break existing callers; keep onApply and verify an explicit type-only mapping"
+    ],
+    "canonicalDataContractsUnchanged": true,
+    "rawResponseExactBytesPreserved": true,
+    "rawResponsePublishedAsTextReason": "The unimported raw declarations are evidence data. A .ts.txt suffix keeps them out of the broad TypeScript project include without changing their bytes; the separate compiler harness adds real imports and assertions.",
+    "compilerHarness": "src/test/lab2ProviderProps.typecheck.ts",
+    "fullGateNotRun": true
+  },
+  "staticNewLinkContrast": {
+    "scope": "Static new-link colors from authored CSS, not rendered/axe certification",
+    "foreground": "#1e40af",
+    "background": "#fffbeb",
+    "contrastRatio": 8.411,
+    "normalTextMinimum": 4.5,
+    "passed": true
+  },
+  "entireExistingAiLogPrefixBytesPreserved": 18491,
+  "legacyTypePath": "Unused extensionless src/types is removed to make the required directory. Its exact183bytes are retained in work evidence and original Git history.",
+  "limits": [
+    "Computed responsive layout and rendered axe must be checked on the later combined build",
+    "Full combined lint/types/tests/build is root-coordinator owned",
+    "No genuine assigned peer review, human UAT or student-performed command is claimed"
+  ]
+}

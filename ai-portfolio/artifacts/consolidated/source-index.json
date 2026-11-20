@@ -1,0 +1,158 @@
+{
+  "characters": 34086,
+  "sha256": "730484c94216b607fc9eb6e60fbcd77e851f2e4ce11ba2677d98beefc1b94dba",
+  "snippets": [
+    {
+      "file": "src/components/PropertyCard.tsx",
+      "sha256": "7c789eefa28cac8548295e8732d01ff970f96b7146d4c3e38fbea969182c4fd3",
+      "start": 1,
+      "end": 53
+    },
+    {
+      "file": "src/components/ServiceCard.tsx",
+      "sha256": "7f315ac02b35ac20fe23241f866c479468ee2677cbbfb0f634e388cefc0ba716",
+      "start": 1,
+      "end": 44
+    },
+    {
+      "file": "docs/requirements.md",
+      "sha256": "a7bee1fd5066ccca31320fbe095de26087b7dd5cca4e8b825d224ad4e119b37e",
+      "start": 1,
+      "end": 37
+    },
+    {
+      "file": "src/lib/sponsorMatcher.ts",
+      "sha256": "68f4cde57ee950c6bba609330de314ad6ec0efbce5ac8a7a6d1dec81e8b3b414",
+      "start": 65,
+      "end": 124
+    },
+    {
+      "file": "src/lib/sponsorRuntime.ts",
+      "sha256": "5838b3443b91e992a8d62aef985617218ec56aa87a43b3ccf94ab374e28b8e8f",
+      "start": 1,
+      "end": 59
+    },
+    {
+      "file": ".github/workflows/deploy.yml",
+      "sha256": "4efaff8049850b8a77679d708d9c9dc58bde1dccbd04258d2068dc49f9830b7a",
+      "start": 1,
+      "end": 39
+    },
+    {
+      "file": "src/release/gates.ts",
+      "sha256": "587c64dbd6b78980e7edbb8408233e2dfc105567a86bebd115919eac533f13e3",
+      "start": 1,
+      "end": 32
+    },
+    {
+      "file": "scripts/verify-all.mjs",
+      "sha256": "d26c8b6e19e31b3acc6c9b5b569a8312701b8a0e31a8a6530f63b9c24a6e3016",
+      "start": 1,
+      "end": 44
+    },
+    {
+      "file": "src/lib/telephony-webhook.js",
+      "sha256": "57790ec7b29b38534f48c307b6c2a3c6569404636502ade1fcb0579041fd894e",
+      "start": 23,
+      "end": 46
+    },
+    {
+      "file": "src/lib/telephony-webhook.js",
+      "sha256": "57790ec7b29b38534f48c307b6c2a3c6569404636502ade1fcb0579041fd894e",
+      "start": 90,
+      "end": 131
+    },
+    {
+      "file": "src/lib/telephony-webhook.js",
+      "sha256": "57790ec7b29b38534f48c307b6c2a3c6569404636502ade1fcb0579041fd894e",
+      "start": 187,
+      "end": 218
+    },
+    {
+      "file": "src/voice/prompt.ts",
+      "sha256": "bc891282fa7642a5bb5899cb85c3e77b3dd6059caf3431b03ede99d2ff28dd64",
+      "start": 1,
+      "end": 13
+    },
+    {
+      "file": "src/voice/tools.ts",
+      "sha256": "15c285ecc10225d850b76efb52c158300836a798a68692a9839ea52496497daf",
+      "start": 1,
+      "end": 74
+    },
+    {
+      "file": "src/voice/simulator.ts",
+      "sha256": "0152319a5970a2e9aa0b3c184d2b0967bc0423c6d3e05ea073033dd3e82ac4f8",
+      "start": 17,
+      "end": 67
+    },
+    {
+      "file": "src/voice/simulator.ts",
+      "sha256": "0152319a5970a2e9aa0b3c184d2b0967bc0423c6d3e05ea073033dd3e82ac4f8",
+      "start": 94,
+      "end": 121
+    },
+    {
+      "file": "docs/mfalujo23/lab13-uat-plan.md",
+      "sha256": "26b0770da3e026499afa592e8e103c41bc05b49c0956dbcc7e5b3c078f16c6fb",
+      "start": 1,
+      "end": 28
+    },
+    {
+      "file": "src/analytics/schema.ts",
+      "sha256": "351e23bfc5b0f8e7e91282df551e9ed878c65c4fdc7b38ec4d5543381c453486",
+      "start": 1,
+      "end": 32
+    },
+    {
+      "file": "src/analytics/metrics.ts",
+      "sha256": "db64d304c3e646ae42e6fcf82acaf23a246c153e3557fa10ef6e168b4f397489",
+      "start": 1,
+      "end": 65
+    },
+    {
+      "file": "src/analytics/http.ts",
+      "sha256": "336d9e45578fcd337815172b122d462524c8b7e926eed130f77ac9d5cbd66d86",
+      "start": 33,
+      "end": 79
+    },
+    {
+      "file": "supabase/migrations/20261119000100_analytics_provider_role_compat.sql",
+      "sha256": "a4ac0d881339bbdfd29ab20bfe1f060c0350d598f073525182cc05799b7a1cde",
+      "start": 1,
+      "end": 12
+    },
+    {
+      "file": "config/security-headers.mjs",
+      "sha256": "afef7945884a74dc4d70e6ff134373778b4e0b83ba421fcb8c755d5ddf3093f7",
+      "start": 1,
+      "end": 17
+    },
+    {
+      "file": "src/lib/request-controls.ts",
+      "sha256": "619648414850b458b4c5e7b7a33abaf0c217a4b59301bde0fd1faf80575f8a99",
+      "start": 1,
+      "end": 47
+    },
+    {
+      "file": "src/components/LocalAccessibilityAudit.tsx",
+      "sha256": "e0e253cafe46211d557f630b7bc4e0b69aed43c0624d172ba9ac2c1887ae7adf",
+      "start": 14,
+      "end": 63
+    },
+    {
+      "file": "scripts/verify-local-restore.mjs",
+      "sha256": "e0562c4517de88174e0231ce26b3fa6625fc3e6c450815efd3f92a3c026a00ec",
+      "start": 1,
+      "end": 59
+    },
+    {
+      "file": "src/release/smoke.ts",
+      "sha256": "4fd3a8b22d4d4788d84988bb799e309418b4b9e7750a5806615857eddc9779a3",
+      "start": 1,
+      "end": 49
+    }
+  ],
+  "actualSeparateRunsPerLab": false,
+  "sourceCandidate": "C:\\Users\\mfalujo\\Documents\\Codex\\2026-11-18\\https-calstatela-instructure-com-https-calstatela\\work\\release-verified-candidate"
+}

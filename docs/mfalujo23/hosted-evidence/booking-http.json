@@ -1,0 +1,109 @@
+{
+  "status": "passed",
+  "sourceCommit": "ea73cfd8430f152a78a283b3e6d7a01cfd8c6a58",
+  "sourceTree": "ff8f5a5db3933f13902e31285b4d5d1574003d34",
+  "projectRef": "emzgyjdasctljwnbcuov",
+  "scope": "Actual local Next production build backed by the newly approved hosted Supabase project; not a Vercel-deployment claim.",
+  "startedAt": "2026-11-19T18:45:34.959Z",
+  "completedAt": "2026-11-19T18:45:44.294Z",
+  "positiveBookings": 1,
+  "authMutations": 0,
+  "deletes": 0,
+  "updates": 0,
+  "providerCalls": 0,
+  "liveRateLimitFlood": false,
+  "rowsPreserved": true,
+  "evidenceType": "Allowlisted summary of an actual retained result; not a new execution.",
+  "inputResultSha256": "1a095671846cf7a2239ae6556fa04ee783e545505221b94462f0763f7f012604",
+  "cases": [
+    {
+      "name": "public_services_exact_five_column_projection",
+      "status": 200,
+      "rowCount": 1,
+      "columns": [
+        "coverage_radius_miles",
+        "duration_minutes",
+        "hourly_rate",
+        "id",
+        "title"
+      ]
+    },
+    {
+      "name": "caller_query_cannot_expand_public_projection",
+      "status": 200,
+      "rowCount": 1,
+      "columns": [
+        "coverage_radius_miles",
+        "duration_minutes",
+        "hourly_rate",
+        "id",
+        "title"
+      ]
+    },
+    {
+      "name": "booking_collection_is_not_readable_via_route",
+      "status": 405
+    },
+    {
+      "name": "service_create_requires_signin_without_auth_mutation",
+      "status": 401
+    },
+    {
+      "name": "admin_booking_read_requires_signin",
+      "status": 401
+    },
+    {
+      "name": "wrong_content_type",
+      "status": 415
+    },
+    {
+      "name": "malformed_json",
+      "status": 400
+    },
+    {
+      "name": "unknown_payload_key_denied",
+      "status": 400,
+      "issueCount": 1
+    },
+    {
+      "name": "invalid_service_uuid_denied",
+      "status": 400,
+      "issueCount": 1
+    },
+    {
+      "name": "invalid_email_denied",
+      "status": 400,
+      "issueCount": 1
+    },
+    {
+      "name": "invalid_calendar_date_denied",
+      "status": 400,
+      "issueCount": 1
+    },
+    {
+      "name": "short_notes_denied",
+      "status": 400,
+      "issueCount": 1
+    },
+    {
+      "name": "oversized_body_denied",
+      "status": 413
+    },
+    {
+      "name": "real_hosted_draft_target_policy_denied",
+      "status": 403
+    },
+    {
+      "name": "approved_fictional_booking_1",
+      "status": 201
+    },
+    {
+      "name": "inserted_fixture_exact_fields_verified_1",
+      "status": 200,
+      "verifiedRows": 1,
+      "rawIdentifiersRecorded": false,
+      "rowsPreserved": true
+    }
+  ],
+  "caseCount": 16
+}

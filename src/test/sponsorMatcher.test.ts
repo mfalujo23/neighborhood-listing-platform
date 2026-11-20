@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { selectSponsor } from '../lib/sponsorMatcher'
+import { explainSponsorEligibility, selectSponsor } from '../lib/sponsorMatcher'
 import type {
   MatchingContext,
   SponsorCandidate,
@@ -27,6 +27,15 @@ describe('Contextual Sponsor Matching Engine', () => {
     impressions: 10,
     destinationUrl: 'https://example.com/cafe',
   }
+
+  test.each([undefined, null, true, 123])('rejects a non-string sponsor ID without regular-expression coercion: %s', (id) => {
+    expect(Reflect.apply(explainSponsorEligibility, null, [context, { ...base, id }])).toMatchObject({ eligible: false, reason: 'invalid_identity' })
+  })
+
+  test('rejects numeric context and campaign ZIPs without throwing', () => {
+    expect(Reflect.apply(explainSponsorEligibility, null, [{ ...context, zipCode: 90032 }, base])).toMatchObject({ eligible: false, reason: 'invalid_context' })
+    expect(Reflect.apply(explainSponsorEligibility, null, [context, { ...base, zipCodes: [90032] }])).toMatchObject({ eligible: false, reason: 'invalid_campaign_scope' })
+  })
 
   test('selects an exact ZIP match, even outside its radius', () => {
     const candidate = {

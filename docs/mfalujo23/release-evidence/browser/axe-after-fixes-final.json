@@ -1,0 +1,68 @@
+{
+  "scope": "Local production automated WCAG2/2.1 A/AA checks; no screen-reader or hosted-session claim",
+  "reports": [
+    {
+      "state": "home-after-navigation-fix",
+      "route": "/",
+      "engine": "axe-core 4.14.1",
+      "checkedAt": "2026-11-19T02:45:58.215Z",
+      "violations": [],
+      "incomplete": [],
+      "passedRules": 19
+    },
+    {
+      "state": "listings-favorites-unsaved-fixed",
+      "route": "/listings",
+      "engine": "axe-core 4.14.1",
+      "checkedAt": "2026-11-19T02:47:33.694Z",
+      "violations": [],
+      "incomplete": [],
+      "passedRules": 24
+    },
+    {
+      "state": "listings-one-favorite-saved-fixed",
+      "route": "/listings",
+      "engine": "axe-core 4.14.1",
+      "checkedAt": "2026-11-19T02:47:52.960Z",
+      "violations": [],
+      "incomplete": [],
+      "passedRules": 24
+    },
+    {
+      "state": "services-named-region-fixed",
+      "route": "/services",
+      "engine": "axe-core 4.14.1",
+      "checkedAt": "2026-11-19T02:47:55.546Z",
+      "violations": [],
+      "incomplete": [],
+      "passedRules": 22
+    },
+    {
+      "state": "media-link-visible-name-fixed",
+      "route": "/media-demo",
+      "engine": "axe-core 4.14.1",
+      "checkedAt": "2026-11-19T02:49:03.351Z",
+      "violations": [],
+      "incomplete": [],
+      "passedRules": 25
+    },
+    {
+      "state": "media-partner-destination",
+      "route": "/media-demo/partner",
+      "engine": "axe-core 4.14.1",
+      "checkedAt": "2026-11-19T02:49:06.456Z",
+      "violations": [],
+      "incomplete": [],
+      "passedRules": 19
+    },
+    {
+      "state": "final-friendly-booking-errors",
+      "route": "/services",
+      "engine": "axe-core 4.14.1",
+      "checkedAt": "2026-11-19T03:02:40.105Z",
+      "violations": [],
+      "incomplete": [],
+      "passedRules": 25
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "status": "passed",
+  "phase": "hosted_addon_verification",
+  "verifierVersion": 2,
+  "sourceCommit": "ea73cfd8430f152a78a283b3e6d7a01cfd8c6a58",
+  "projectRef": "emzgyjdasctljwnbcuov",
+  "startedAtUTC": "2026-11-19T18:44:38.117Z",
+  "completedAtUTC": "2026-11-19T18:44:48.226Z",
+  "metadataIsNotPermissionProof": true,
+  "applicationRowsInserted": 0,
+  "applicationRowsDeleted": 0,
+  "writeRpcsCalled": 0,
+  "passwordsChanged": 0,
+  "evidenceType": "Allowlisted summary of an actual retained result; not a new execution.",
+  "inputResultSha256": "e9d36b5e5f672e5659b818279e04bc49276c0fbca2a40ac14526477e33d2c198",
+  "cases": [
+    {
+      "name": "secret_key_exact_reviewed_metadata_union",
+      "outcome": "passed",
+      "status": 200,
+      "metadataPaths": 17,
+      "permissionProof": false
+    },
+    {
+      "name": "exact_core_and_classroom_addon_fixtures_verified",
+      "outcome": "passed",
+      "coreTables": 6,
+      "optionalTablesInCatalog": 5,
+      "sponsors": 4,
+      "analyticsFixtureEvents": 2,
+      "bookingRows": 1
+    },
+    {
+      "name": "real_signin_getUser_provider_a",
+      "outcome": "passed",
+      "protectedRole": "provider",
+      "passwordStatus": 200,
+      "getUserStatus": 200
+    },
+    {
+      "name": "real_signin_getUser_provider_b",
+      "outcome": "passed",
+      "protectedRole": "provider",
+      "passwordStatus": 200,
+      "getUserStatus": 200
+    },
+    {
+      "name": "real_signin_getUser_admin",
+      "outcome": "passed",
+      "protectedRole": "admin",
+      "passwordStatus": 200,
+      "getUserStatus": 200
+    },
+    {
+      "name": "real_signin_getUser_client",
+      "outcome": "passed",
+      "protectedRole": "client",
+      "passwordStatus": 200,
+      "getUserStatus": 200
+    },
+    {
+      "name": "real_signin_getUser_merchant",
+      "outcome": "passed",
+      "protectedRole": "merchant",
+      "passwordStatus": 200,
+      "getUserStatus": 200
+    },
+    {
+      "name": "anonymous_public_rpc_C_B_A_pending_D_hidden",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 3,
+      "expectedRows": 3
+    },
+    {
+      "name": "provider_public_rpc_same_classroom_results",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 3,
+      "expectedRows": 3
+    },
+    {
+      "name": "wrong_zip_rpc_empty",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "private_property_rpc_empty",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "service_cannot_execute_public_only_read_RPC_despite_metadata",
+      "outcome": "passed",
+      "status": 403,
+      "sqlstate": "42501",
+      "rowCount": 0
+    },
+    {
+      "name": "anonymous_direct_sponsor_table_denied",
+      "outcome": "passed",
+      "status": 401,
+      "sqlstate": "42501",
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "merchant_reads_its_four_classroom_campaigns",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 4,
+      "expectedRows": 4
+    },
+    {
+      "name": "provider_a_direct_private_sponsor_rows_hidden",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_b_direct_private_sponsor_rows_hidden",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "client_direct_private_sponsor_rows_hidden",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "admin_direct_private_sponsor_rows_hidden",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "anonymous_junction_denied",
+      "outcome": "passed",
+      "status": 401,
+      "sqlstate": "42501",
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "property_provider_reads_own_links",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 4,
+      "expectedRows": 4
+    },
+    {
+      "name": "client_links_hidden",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "anonymous_analytics_denied",
+      "outcome": "passed",
+      "status": 401,
+      "sqlstate": "42501",
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_a_analytics_RLS_count",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "provider_b_analytics_RLS_count",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "admin_analytics_RLS_count",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 2,
+      "expectedRows": 2
+    },
+    {
+      "name": "merchant_analytics_RLS_count",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "client_analytics_RLS_count",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_b_cannot_read_a_analytics",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_a_fixture_window_RPC",
+      "outcome": "passed",
+      "status": 200,
+      "expectedRows": 1
+    },
+    {
+      "name": "provider_b_fixture_window_RPC",
+      "outcome": "passed",
+      "status": 200,
+      "expectedRows": 1
+    },
+    {
+      "name": "admin_fixture_window_RPC",
+      "outcome": "passed",
+      "status": 200,
+      "expectedRows": 2
+    },
+    {
+      "name": "merchant_fixture_window_RPC",
+      "outcome": "passed",
+      "status": 200,
+      "expectedRows": 0
+    },
+    {
+      "name": "client_fixture_window_RPC",
+      "outcome": "passed",
+      "status": 200,
+      "expectedRows": 0
+    },
+    {
+      "name": "provider_measured_window_empty",
+      "outcome": "passed",
+      "status": 200
+    },
+    {
+      "name": "no_CTR_invented_from_listing_only_seed",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0
+    },
+    {
+      "name": "anonymous_analytics_RPC_denied",
+      "outcome": "passed",
+      "status": 401,
+      "sqlstate": "42501",
+      "rowCount": 0
+    },
+    {
+      "name": "service_cannot_execute_analytics_event_window_despite_metadata",
+      "outcome": "passed",
+      "status": 403,
+      "sqlstate": "42501",
+      "rowCount": 0
+    },
+    {
+      "name": "service_cannot_execute_analytics_sponsor_ctr_despite_metadata",
+      "outcome": "passed",
+      "status": 403,
+      "sqlstate": "42501",
+      "rowCount": 0
+    },
+    {
+      "name": "anonymous_impression_table_read_denied",
+      "outcome": "passed",
+      "status": 401,
+      "sqlstate": "42501",
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "anonymous_telephony_table_read_denied",
+      "outcome": "passed",
+      "status": 401,
+      "sqlstate": "42501",
+      "rowCount": 0
+    },
+    {
+      "name": "merchant_impression_table_read_denied",
+      "outcome": "passed",
+      "status": 403,
+      "sqlstate": "42501",
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "merchant_telephony_table_read_denied",
+      "outcome": "passed",
+      "status": 403,
+      "sqlstate": "42501",
+      "rowCount": 0
+    },
+    {
+      "name": "service_impression_table_read_denied",
+      "outcome": "passed",
+      "status": 403,
+      "sqlstate": "42501",
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "service_telephony_table_read_denied",
+      "outcome": "passed",
+      "status": 403,
+      "sqlstate": "42501",
+      "rowCount": 0
+    },
+    {
+      "name": "merchant_pending_sponsor_noop_update",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 1,
+      "expectedRows": 1
+    },
+    {
+      "name": "provider_a_pending_sponsor_noop_update",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "client_pending_sponsor_noop_update",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "admin_pending_sponsor_noop_update",
+      "outcome": "passed",
+      "status": 200,
+      "sqlstate": null,
+      "rowCount": 0,
+      "expectedRows": 0
+    },
+    {
+      "name": "core_and_addon_values_and_counts_unchanged",
+      "outcome": "passed",
+      "bookingRows": 1
+    }
+  ],
+  "caseCount": 49
+}

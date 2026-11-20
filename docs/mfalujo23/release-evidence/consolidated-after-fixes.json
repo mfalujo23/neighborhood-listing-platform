@@ -1,0 +1,35 @@
+{
+  "localOnly": true,
+  "sourceCheckpoint": "Consolidated review follow-up",
+  "results": {
+    "numericSponsorId": {
+      "returned": {
+        "eligible": false,
+        "reason": "invalid_identity",
+        "geography": "none"
+      }
+    },
+    "numericCampaignZip": {
+      "returned": {
+        "eligible": false,
+        "reason": "invalid_campaign_scope",
+        "geography": "none"
+      }
+    },
+    "numericContextZip": {
+      "returned": {
+        "eligible": false,
+        "reason": "invalid_context",
+        "geography": "none"
+      }
+    },
+    "reorderedIdenticalAnalytics": {
+      "eventCount": 1
+    },
+    "nestedEnv": {
+      "legacyRootOnlyPredicateRejected": false,
+      "recursivePreflightRejected": true,
+      "actualNestedFileExists": true
+    }
+  }
+}

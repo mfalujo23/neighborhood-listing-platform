@@ -1,0 +1,86 @@
+{
+  "checkedAtUTC": "2026-11-20T00:27:24.494851+00:00",
+  "base": "96c078949cef9b91ea13980da1dd26cf4b34ea5f",
+  "scope": "Actual loopback normal production build. Existing fictional fixtures only; audit control off; no provider credentials, API/database writes or hosted verification.",
+  "serverStopped": true,
+  "cases": [
+    {
+      "path": "/listings",
+      "status": 200,
+      "namedDetailLinks": 5,
+      "passed": true
+    },
+    {
+      "path": "/listings/1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+      "status": 200,
+      "street": "101 Imaginary Garden Lane",
+      "bedrooms": 2,
+      "bathrooms": 1.5,
+      "zipCode": "90032",
+      "bodySHA256": "372a9ad4d0e6c93886dca61eb3185f44233d8466fd19a28236bb0805380c9c17",
+      "passed": true
+    },
+    {
+      "path": "/listings/3c4d5e6f-7a8b-4c9d-ae0f-1a2b3c4d5e6f",
+      "status": 200,
+      "street": "202 Fictional Terrace",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "zipCode": "90031-1234",
+      "bodySHA256": "0c2191866a397317a05fcbf88b2f2d1138a2892f66eeb8644116bebe0a479ffa",
+      "passed": true
+    },
+    {
+      "path": "/listings/4d5e6f7a-8b9c-4d0e-bf1a-2b3c4d5e6f7a",
+      "status": 200,
+      "street": "303 Make-Believe Court",
+      "bedrooms": 4,
+      "bathrooms": 2.5,
+      "zipCode": "90032",
+      "bodySHA256": "143390950955ee89b6d3e34babad49bac8eed03dce29eb421f585983b6940c7d",
+      "passed": true
+    },
+    {
+      "path": "/listings/6f7a8b9c-0d1e-4f2a-9b3c-4d5e6f7a8b9c",
+      "status": 200,
+      "street": "404 Invented Studio Walk",
+      "bedrooms": 0,
+      "bathrooms": 1,
+      "zipCode": "90731",
+      "bodySHA256": "b3b9b3b2da9c86b747d0e70e76d828ba84800d8609f397e287a34cb88f312af4",
+      "passed": true
+    },
+    {
+      "path": "/listings/7a8b9c0d-1e2f-4a3b-8c4d-5e6f7a8b9c0d",
+      "status": 200,
+      "street": "505 Placeholder Avenue",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "zipCode": "90031",
+      "bodySHA256": "c55c8a20c07c329bb668933c03c4c638a04469aba6879e4833222b1f86f6b2ce",
+      "passed": true
+    },
+    {
+      "path": "/listings/not-a-uuid",
+      "status": 404,
+      "noUntrustedIdentifierInVisibleText": true,
+      "bodySHA256": "0445f79070b971d53e1c46bd773d9fe10d9b730c8a86775c769da7a0c857c021",
+      "passed": true
+    },
+    {
+      "path": "/listings/99999999-9999-4999-8999-999999999999",
+      "status": 404,
+      "noUntrustedIdentifierInVisibleText": true,
+      "bodySHA256": "0445f79070b971d53e1c46bd773d9fe10d9b730c8a86775c769da7a0c857c021",
+      "passed": true
+    },
+    {
+      "path": "/listings/%3Cscript%3E",
+      "status": 404,
+      "noUntrustedIdentifierInVisibleText": true,
+      "bodySHA256": "0445f79070b971d53e1c46bd773d9fe10d9b730c8a86775c769da7a0c857c021",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

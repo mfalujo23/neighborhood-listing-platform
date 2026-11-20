@@ -1,0 +1,18 @@
+{
+  "route": "/services",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T02:36:28.319Z",
+  "violations": [],
+  "incomplete": [
+    {
+      "id": "aria-prohibited-attr",
+      "help": "Elements must only use permitted ARIA attributes",
+      "targets": [
+        [
+          ".mt-6"
+        ]
+      ]
+    }
+  ],
+  "passedRules": 22
+}

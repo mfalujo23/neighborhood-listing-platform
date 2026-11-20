@@ -1,0 +1,82 @@
+{
+  "localOnly": true,
+  "version": "PostgreSQL 18.6 (PGlite 0.5.16) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.13 (e13ee988ce3d87a738dd8f3661d02223308c412a), 32-bit",
+  "sqlPath": "supabase/local/mfalujo23-media-fixture.sql",
+  "sha256": "11bb2e049bd9678cd2b902d838604d230a6aed7cb04a840c4c9057e8b86a6d9a",
+  "approvalMeaning": "Fixture/test records only. No real person, stakeholder or hosted administrator approved these assets or drafts.",
+  "checks": [
+    {
+      "name": "Three actual local asset records explicitly carry test-only clearance and pending production status",
+      "actual": [
+        {
+          "asset_id": "fictional-partner",
+          "approval_status": "approved",
+          "approval_scope": "fixture_test",
+          "human_reviewed": false,
+          "production_status": "draft"
+        },
+        {
+          "asset_id": "fictional-property",
+          "approval_status": "approved",
+          "approval_scope": "fixture_test",
+          "human_reviewed": false,
+          "production_status": "draft"
+        },
+        {
+          "asset_id": "home-navigation",
+          "approval_status": "approved",
+          "approval_scope": "fixture_test",
+          "human_reviewed": false,
+          "production_status": "draft"
+        }
+      ]
+    },
+    {
+      "name": "No asset has human-reviewed production approval",
+      "actual": []
+    },
+    {
+      "name": "Only the separate test fixture is display-eligible on the injected date",
+      "actual": [
+        {
+          "copy_id": "fixture-approved-1",
+          "copy_text": "Fictional Garden Partner: a fictional gardening guide. Classroom demo only.",
+          "approval_scope": "fixture_test",
+          "human_reviewed": false
+        }
+      ]
+    },
+    {
+      "name": "No copy remains eligible after the offer end date",
+      "actual": []
+    },
+    {
+      "name": "SQL character limit rejects121-character copy",
+      "actual": {
+        "code": "23514",
+        "message": "new row for relation \"marketing_copy_records\" violates check constraint \"marketing_copy_records_copy_text_check\""
+      }
+    },
+    {
+      "name": "SQL dates reject inverted campaigns",
+      "actual": {
+        "code": "23514",
+        "message": "new row for relation \"marketing_copy_records\" violates check constraint \"marketing_copy_records_check\""
+      }
+    },
+    {
+      "name": "Production status cannot be approved with human_reviewed=false",
+      "actual": {
+        "code": "23514",
+        "message": "new row for relation \"marketing_copy_records\" violates check constraint \"marketing_copy_records_check1\""
+      }
+    },
+    {
+      "name": "Production approval cannot omit its actor even with a true review flag",
+      "actual": {
+        "code": "23514",
+        "message": "new row for relation \"marketing_copy_records\" violates check constraint \"marketing_copy_records_check1\""
+      }
+    }
+  ]
+}

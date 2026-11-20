@@ -1,0 +1,16 @@
+{
+  "caseId": "FC3-followup-draft",
+  "input": "For fictional property demo-001, I explicitly consent right now to a fictional follow-up draft with preferred channel email. Do not send or submit anything and do not ask for a real address.",
+  "toolName": "request_agent_followup",
+  "args": {
+    "property_id": "demo-001",
+    "consent": true,
+    "preferred_channel": "email"
+  },
+  "rawRenderedArguments": "{\n  \"property_id\": \"demo-001\",\n  \"consent\": true,\n  \"preferred_channel\": \"email\"\n}",
+  "context": "Same conversation after FC1/FC2 and manually supplied local mock responses.",
+  "model": "gemini-4-hydrogen",
+  "functionCallingEnabled": true,
+  "providerAdapterExecuted": false,
+  "capturedAt": "2026-11-19T02:13:39.561Z"
+}

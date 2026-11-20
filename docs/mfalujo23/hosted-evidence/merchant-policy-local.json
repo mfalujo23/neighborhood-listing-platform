@@ -1,0 +1,249 @@
+{
+  "scope": "Disposable local PostgreSQL; local Auth stand-ins only. No hosted requests or provider calls.",
+  "migrationPath": "supabase/migrations/20261119000200_sponsor_merchant_draft_permissions.sql",
+  "migrationSha256": "e363c50973876b10de85364d9c0ef967dd07978ad47243122227c5594ced4ccf",
+  "executedAtUTC": "2026-11-19T19:27:08.989Z",
+  "status": "passed",
+  "checksPassed": 35,
+  "allFixtureRowsPreserved": true,
+  "matcherFunctionBodyUnchanged": true,
+  "checks": [
+    {
+      "name": "generic005 permits provider-owned draft before repair",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 1
+    },
+    {
+      "name": "forward migration preserves all nine table fingerprints",
+      "outcome": "passed"
+    },
+    {
+      "name": "merchant may create own pending inactive draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 1
+    },
+    {
+      "name": "merchant may edit own pending inactive draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 1
+    },
+    {
+      "name": "merchant cannot assign new draft to another owner",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "merchant cannot insert an approved campaign",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "provider cannot create a sponsor-owner draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "provider cannot read merchant draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 0
+    },
+    {
+      "name": "provider cannot update merchant draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 0
+    },
+    {
+      "name": "otherProvider cannot create a sponsor-owner draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "otherProvider cannot read merchant draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 0
+    },
+    {
+      "name": "otherProvider cannot update merchant draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 0
+    },
+    {
+      "name": "client cannot create a sponsor-owner draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "client cannot read merchant draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 0
+    },
+    {
+      "name": "client cannot update merchant draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 0
+    },
+    {
+      "name": "admin cannot create a sponsor-owner draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "admin cannot read merchant draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 0
+    },
+    {
+      "name": "admin cannot update merchant draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 0
+    },
+    {
+      "name": "merchant cannot escalate approval",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "merchant cannot escalate status",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "merchant cannot escalate legacy active",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "merchant cannot escalate active",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "merchant cannot escalate owner",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "merchant cannot delete draft",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "anonymous direct sponsor read denied",
+      "role": "anon",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "anonymous direct junction read denied",
+      "role": "anon",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "browser direct impression read denied",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "service direct impression read denied",
+      "role": "service_role",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "anonymous eligible C/B/A RPC remains available",
+      "role": "anon",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 3
+    },
+    {
+      "name": "service cannot invoke public eligible RPC",
+      "role": "service_role",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "browser cannot invoke impression RPC",
+      "role": "authenticated",
+      "outcome": "passed",
+      "sqlstate": "42501",
+      "rows": null
+    },
+    {
+      "name": "service may invoke narrow impression RPC",
+      "role": "service_role",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 1
+    },
+    {
+      "name": "service may approve pending campaign",
+      "role": "service_role",
+      "outcome": "passed",
+      "sqlstate": null,
+      "rows": 1
+    },
+    {
+      "name": "second migration run is idempotent with unchanged data and matcher RPC body",
+      "outcome": "passed"
+    },
+    {
+      "name": "unknown policy stops atomic migration for review",
+      "outcome": "passed",
+      "sqlstate": "55000"
+    }
+  ]
+}

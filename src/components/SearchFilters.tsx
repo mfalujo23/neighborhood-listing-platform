@@ -1,47 +1,50 @@
-import React from 'react';
+'use client'
 
-export const SearchFilters: React.FC = () => {
+import { useId, useState, type FormEvent } from 'react'
+import type { SearchFiltersProps } from '../types'
+import styles from './listings.module.css'
+
+export type { PropertyFilters } from '../types'
+
+export function SearchFilters({ locations = [], onApply }: SearchFiltersProps) {
+  const formId = useId()
+  const [city, setCity] = useState('')
+  const [maxPrice, setMaxPrice] = useState('')
+
+  function applyFilters(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    onApply?.({ city, maxPrice: maxPrice === '' ? null : Number(maxPrice) })
+  }
+
+  function resetFilters() {
+    setCity('')
+    setMaxPrice('')
+    onApply?.({ city: '', maxPrice: null })
+  }
+
   return (
-    <section aria-labelledby="search-heading" className="bg-gray-50 p-4 rounded-lg mb-6 border border-gray-200">
-      <h2 id="search-heading" className="sr-only">Search and Filter Properties</h2>
-      <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+    <section aria-labelledby={`${formId}-heading`} className={styles.filters}>
+      <h2 id={`${formId}-heading`}>Find a synthetic listing</h2>
+      <form onSubmit={applyFilters} aria-labelledby={`${formId}-heading`} className={styles.filterForm}>
         <div>
-          <label htmlFor="location-select" className="block text-sm font-medium text-gray-700 mb-1">
-            Location
-          </label>
-          <select
-            id="location-select"
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
-          >
-            <option value="">All Locations</option>
-            <option value="cityville">Cityville</option>
-            <option value="pleasantville">Pleasantville</option>
-            <option value="seaside">Seaside</option>
+          <label htmlFor={`${formId}-city`}>City</label>
+          <select id={`${formId}-city`} value={city} onChange={(event) => setCity(event.target.value)} className={styles.field}>
+            <option value="">All cities</option>
+            {locations.map((location) => <option key={location} value={location}>{location}</option>)}
           </select>
         </div>
-
         <div>
-          <label htmlFor="price-select" className="block text-sm font-medium text-gray-700 mb-1">
-            Max Price
-          </label>
-          <select
-            id="price-select"
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
-          >
-            <option value="">Any Price</option>
-            <option value="2000">$2,000 / mo</option>
-            <option value="3000">$3,000 / mo</option>
-            <option value="4000">$4,000 / mo</option>
+          <label htmlFor={`${formId}-price`}>Maximum price</label>
+          <select id={`${formId}-price`} value={maxPrice} onChange={(event) => setMaxPrice(event.target.value)} className={styles.field}>
+            <option value="">Any price</option>
+            <option value="400000">$400,000</option>
+            <option value="600000">$600,000</option>
+            <option value="800000">$800,000</option>
           </select>
         </div>
-
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-md font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
-        >
-          Apply Filters
-        </button>
+        <button type="submit" className={styles.button}>Apply filters</button>
+        <button type="button" onClick={resetFilters} className={styles.secondaryButton}>Reset filters</button>
       </form>
     </section>
-  );
-};
+  )
+}
