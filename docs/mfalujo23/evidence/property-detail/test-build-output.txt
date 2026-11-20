@@ -1,0 +1,115 @@
+UNIT OUTPUT
+
+ RUN  v5.1.0 <workspace>
+
+
+ Test Files  34 passed (34)
+      Tests  417 passed (417)
+   Start at  16:24:24
+   Duration  12.80s (import 31%, environment 27%, tests 25%, transform 16%, worker 1%)
+
+    Isolate  34 workers spawned · ~892ms startup each (spawn + environment, per file)
+             at least ~1.13s faster with isolate: false — reuses workers across files instead of one per file
+
+
+WEBHOOK OUTPUT
+(node:22264) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///<workspace>/tests/webhook.test.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\<workspace>\package.json.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+▶ Lab 9: signature, idempotency, consent, and privacy
+  ✔ accepts a valid signed form and returns XML (22.4362ms)
+  ✔ rejects invalid and missing signatures without persisting an event (1.9801ms)
+  ✔ rejects a payload changed after signing (0.8619ms)
+  ✔ uses the configured callback URL rather than Host headers (1.0145ms)
+  ✔ rejects missing and malformed required fields even when signed (1.4483ms)
+  ✔ rejects ambiguous repeated form fields (0.7884ms)
+  ✔ enforces methods and an exact documented content type (4.7283ms)
+  ✔ rejects oversized streamed bodies before signature or persistence (1.5374ms)
+  ✔ prevents two sends when duplicate requests arrive concurrently (5.2288ms)
+  ✔ retains duplicate protection across separate local adapter instances (3.9722ms)
+  ✔ sends nothing without explicit consent, or with the default-disabled flag (7.6741ms)
+  ✔ never reports a successful SMS without a configured client (1.9427ms)
+  ✔ does not send twice after an ambiguous provider failure (5.0047ms)
+  ✔ escapes project-name XML text (4.1224ms)
+  ✔ stores and logs only minimal redacted fields (4.4514ms)
+  ✔ fails closed on hosted deployments without a durable store (1.4413ms)
+  ✔ does not send when the event store is unavailable (1.0228ms)
+  ✔ keeps raw errors and caller data out of fallback XML and failure logs (0.9764ms)
+  ✔ rejects an invalid signature before attempting an unavailable store or SMS adapter (0.8711ms)
+  ✔ handles atomic hosted insert and duplicate conflicts using a fake transport (0.7601ms)
+  ✔ surfaces hosted storage failures instead of treating them as duplicates (0.6632ms)
+✔ Lab 9: signature, idempotency, consent, and privacy (74.3417ms)
+ℹ tests 21
+ℹ suites 1
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 184.9249
+
+BUILD OUTPUT
+
+> neighborhood-listing-platform@0.1.0 build
+> next build --webpack
+
+▲ Next.js 16.4.6 (webpack)
+✓ Running next.config.mjs took 32ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 10.0s
+  Running TypeScript ...
+  Finished TypeScript in 4.0s ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/26) ...
+  Generating static pages using 15 workers (6/26) 
+  Generating static pages using 15 workers (12/26) 
+  Generating static pages using 15 workers (19/26) 
+✓ Generating static pages using 15 workers (26/26) in 648ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/admin/bookings
+├ ƒ /api/admin/services
+├ ƒ /api/analytics
+├ ƒ /api/analytics/events
+├ ƒ /api/auth/sign-in
+├ ƒ /api/auth/sign-out
+├ ƒ /api/bookings
+├ ƒ /api/health
+├ ƒ /api/listings
+├ ƒ /api/media/validate-copy
+├ ƒ /api/services
+├ ƒ /api/sponsors/redirect
+├ ƒ /api/voice/tools
+├ ƒ /api/webhooks/twilio
+├ ƒ /api/webhooks/voice
+├ ○ /dashboard-demo
+├ ○ /listings
+├   /listings/[propertyId]
+│ ├ ● /listings/1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d
+│ ├ ● /listings/3c4d5e6f-7a8b-4c9d-ae0f-1a2b3c4d5e6f
+│ ├ ● /listings/4d5e6f7a-8b9c-4d0e-bf1a-2b3c4d5e6f7a
+│ └ ● [+2 more paths]
+├ ○ /listings/live
+├ ○ /listings/sponsors/imaginary-garden-shop
+├ ƒ /login
+├ ƒ /media-demo
+├ ƒ /media-demo/baseline
+├ ○ /media-demo/partner
+├ ƒ /realtor-dashboard
+├ ○ /services
+├ ○ /sponsor-simulator
+└ ○ /voice-simulator
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import type { PropertyCardProps } from '../types'
 import styles from './listings.module.css'
@@ -44,6 +45,9 @@ export function PropertyCard({ property }: PropertyCardProps) {
           <p>Amenities: {property.amenities.map((amenity) => amenity.replaceAll('_', ' ')).join(', ') || 'None listed'}.</p>
           <p>Fictional local sponsors: {property.local_sponsors.map((sponsor) => sponsor.name).join(', ') || 'None'}.</p>
         </details>
+        <Link href={`/listings/${encodeURIComponent(property.property_id)}`} className={styles.detailLink}>
+          Full details for {property.street}
+        </Link>
       </div>
     </article>
   )

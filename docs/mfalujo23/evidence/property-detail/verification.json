@@ -1,0 +1,93 @@
+{
+  "checkedAtUTC": "2026-11-20T00:28:50.686516+00:00",
+  "base": "96c078949cef9b91ea13980da1dd26cf4b34ea5f",
+  "scope": "Isolated fixture-only property-detail route, not a hosted deployment or completed defense. No schema, SQL, credential, provider or database writes.",
+  "sourceFiles": [
+    {
+      "path": "src/components/PropertyCard.tsx",
+      "sha256": "3e7162057f6f190b70a1c029bdf8b7984ada589a40a878ab251bb1a64012d374"
+    },
+    {
+      "path": "src/components/listings.module.css",
+      "sha256": "3baf76caccd9a6b30c818087b5fd4053dee601490ba9639ebf0e09e1f6fda888"
+    },
+    {
+      "path": "src/lib/syntheticProperties.ts",
+      "sha256": "2e673f69e651b01fbd10e6fe81bd6710c6bfdae2612634c9450ac478c6c790aa"
+    },
+    {
+      "path": "src/app/listings/[propertyId]/page.tsx",
+      "sha256": "5016ee8e109ce8066ef9b5a13b4d8d2c8d8eb3a4ebf72de903753f1b383ae07e"
+    },
+    {
+      "path": "src/app/listings/[propertyId]/not-found.tsx",
+      "sha256": "2e45ce24265f6fa8f0312f6f111445dafeb0c344d76c353f1beb6d4c19e7ecd1"
+    },
+    {
+      "path": "src/test/propertyDetail.test.tsx",
+      "sha256": "6516126d8b2097e1264241576cc53edc603b6a957a59d8e663e6288ae945ae92"
+    }
+  ],
+  "normalChecks": [
+    {
+      "name": "lint",
+      "exitCode": 0,
+      "elapsedSeconds": 17.097,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "typegen",
+      "exitCode": 0,
+      "elapsedSeconds": 0.657,
+      "sha256": "8b0db89a1e25137a4cb79143a4ea63ae347e6f5f2247f026d984e133255d3084"
+    },
+    {
+      "name": "types",
+      "exitCode": 0,
+      "elapsedSeconds": 4.41,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "unit",
+      "exitCode": 0,
+      "elapsedSeconds": 13.481,
+      "sha256": "44fd9181d1b543cda624210f03056ca169f2cdc1090618e6d23f9aababb6e645"
+    },
+    {
+      "name": "webhook",
+      "exitCode": 0,
+      "elapsedSeconds": 0.26,
+      "sha256": "9a0937e6cb4920dbb01f33be9a548318b2b381cdde0ae125e8eee9a8d362de34"
+    },
+    {
+      "name": "build",
+      "exitCode": 0,
+      "elapsedSeconds": 27.087,
+      "sha256": "eca8a46c9a31a7cc414adf5ba10a8a00be6eca89bf4f90b562a8f28005870552"
+    }
+  ],
+  "unitTests": 417,
+  "unitFiles": 34,
+  "webhookTests": 21,
+  "focusedTests": 47,
+  "focusedTestFiles": 5,
+  "normalBuildAccessibilityControl": false,
+  "httpChecks": 9,
+  "knownPropertyHTTP200": 5,
+  "invalidOrUnknownHTTP404": 3,
+  "listingIndexHTTP200": 1,
+  "fixtureAndSchemaBytesUnchanged": true,
+  "newDependencies": false,
+  "preservedBehavior": [
+    "Native expandable card details",
+    "Save button accessible name/state",
+    "Existing filter/reset controls",
+    "Canonical five Gemini records and strict property schema"
+  ],
+  "boundaries": [
+    "Each requested ID and the entire collection validate before a detail page renders",
+    "Unknown or malformed IDs get a generic404 before streaming",
+    "Sponsors expose only canonical names and explicit fictional disclosure",
+    "Rendered UI, accessibility and reflow checks are separate from these command-line results."
+  ]
+}

@@ -14,6 +14,7 @@
 .secondaryButton { background: #fff; color: #1d4ed8; }
 .sponsor { border-left: 5px solid #a16207; background: #fffbeb; }
 .sponsorLink { display: inline-block; min-height: 44px; padding-block: 0.65rem; color: #1e40af; text-decoration: underline; }
+.detailLink { display: inline-flex; align-items: center; min-height: 44px; padding-block: 0.65rem; color: #1e40af; text-decoration: underline; overflow-wrap: anywhere; }
 .results { scroll-margin-top: 1rem; }
 .note { color: #475569; font-size: 0.9rem; }
 .card { min-width: 0; overflow: hidden; border: 1px solid #cbd5e1; border-radius: 0.75rem; background: #fff; box-shadow: 0 2px 5px rgb(15 23 42 / 6%); }
@@ -30,7 +31,7 @@
 .details p { overflow-wrap: anywhere; }
 .empty { padding: 1rem; border: 1px dashed #64748b; border-radius: 0.35rem; }
 .button:focus-visible, .secondaryButton:focus-visible, .field:focus-visible,
-.details summary:focus-visible, .intro a:focus-visible, .sponsorLink:focus-visible, .skipLink:focus-visible {
+.details summary:focus-visible, .intro a:focus-visible, .sponsorLink:focus-visible, .detailLink:focus-visible, .skipLink:focus-visible {
   outline: 3px solid #1d4ed8;
   outline-offset: 3px;
 }
