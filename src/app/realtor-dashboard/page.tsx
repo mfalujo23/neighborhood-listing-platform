@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { headers } from 'next/headers'
 import { createServerAnalyticsDependencies } from '../../analytics/server'
-import SummaryView from '../../analytics/SummaryView'
+import DashboardFilters from '../../analytics/DashboardFilters'
 import type { AnalyticsSummary } from '../../analytics/metrics'
 import { createRenderSessionClient } from '../../auth/server'
 import SignOutButton from '../../auth/SignOutButton'
+import { filterDashboard } from './actions'
 
 export const dynamic = 'force-dynamic'
 export default async function RealtorDashboardPage() {
@@ -19,6 +20,5 @@ export default async function RealtorDashboardPage() {
   let summary: AnalyticsSummary | null = null
   try { summary = await dependencies.read(access.principal, { from, through }) }
   catch { /* Display a coarse failure without backend details. */ }
-  if (!summary) return <main className="max-w-3xl mx-auto p-6"><h1>Analytics unavailable</h1><p>No partial or stale metrics are displayed. Please try again shortly.</p><SignOutButton /></main>
-  return <main className="max-w-6xl mx-auto p-6"><h1>Protected realtor dashboard</h1><SignOutButton /><p>Server-authorized property scope. {summary.latencySource === 'fixture' ? 'Explicit fictional fixture mode.' : 'Verified provider source; missing measurements remain insufficient data.'}</p><p>{from} through {through}, UTC.</p><SummaryView summary={summary} /></main>
+  return <main className="max-w-6xl mx-auto p-6"><h1>Protected realtor dashboard</h1><SignOutButton /><p>Only properties allowed by your verified account are included.</p><DashboardFilters initialFilter={{ from, through }} initialState={{ summary, filter: summary ? { from, through } : null, error: summary ? null : 'Analytics could not be loaded. Please try again. No old results are displayed.' }} filterAction={filterDashboard} /></main>
 }

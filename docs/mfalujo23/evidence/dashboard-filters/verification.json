@@ -1,0 +1,251 @@
+{
+  "checkedAt": "2026-11-23T17:24:24.971Z",
+  "sourceBase": "e55188fae5b1625de9c8d698b7b78100603621f7",
+  "scope": "Protected dashboard UTC date and optional property filters. Local verification and signed-in browser evidence are described separately below.",
+  "changes": [
+    "Labeled From, Through and optional Property ID fields use a Server Action instead of URL query values.",
+    "Every submit verifies the cookie session and role, validates dates and UUID, and uses the existing ownership-scoped reader.",
+    "Pending and failure states hide old metrics. Generic focused errors allow a corrected retry."
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/app/realtor-dashboard/page.tsx",
+      "sha256": "b93649ca9da5ea55b33c09e714c964159ef03c2bdea93849bbf83077eda2af90"
+    },
+    {
+      "path": "src/app/realtor-dashboard/actions.ts",
+      "sha256": "640cdd309396522783f8dc2e703f3be7f4d4e9dd9294a6e4516049cd43e8eb97"
+    },
+    {
+      "path": "src/analytics/DashboardFilters.tsx",
+      "sha256": "dcbfba519fb82d492cf695201e359c43b953d9dfe8dbde24aac6842c84583a21"
+    },
+    {
+      "path": "src/analytics/dashboard-state.ts",
+      "sha256": "229129790f69f38ca550b9c75dbb346671b3f40d86276e4dddce98056a598433"
+    },
+    {
+      "path": "src/analytics/dashboard-filters.module.css",
+      "sha256": "af4ab06cda66538559e15c04220d1706f992c63d792297e3ca787c57d1b9151d"
+    },
+    {
+      "path": "src/test/dashboardAction.test.ts",
+      "sha256": "8330dfa0400e7e94d97b339225cf3d5bf453c719f90b96442da17b96ce82afe1"
+    },
+    {
+      "path": "src/test/dashboardFilters.test.tsx",
+      "sha256": "fe493f1390d52e2a6612144f0747c29b754fc129dfc78fc105ae20c66d05937d"
+    }
+  ],
+  "unitTests": 443,
+  "unitFiles": 36,
+  "webhookTests": 21,
+  "newDashboardTests": 22,
+  "checks": [
+    {
+      "name": "strict lint",
+      "command": [
+        "node",
+        "node_modules/eslint/bin/eslint.js",
+        "src",
+        "config",
+        "next.config.mjs",
+        "scripts/verify-all.mjs",
+        "scripts/verify-release.mjs",
+        "--max-warnings",
+        "0"
+      ],
+      "exit": 0,
+      "durationMs": 3838
+    },
+    {
+      "name": "TypeScript",
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "exit": 0,
+      "durationMs": 1531
+    },
+    {
+      "name": "all local tests",
+      "command": [
+        "node",
+        "scripts/verify-all.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 28641
+    },
+    {
+      "name": "production build",
+      "command": [
+        "node",
+        "node_modules/next/dist/bin/next",
+        "build",
+        "--webpack"
+      ],
+      "exit": 0,
+      "durationMs": 25019
+    },
+    {
+      "name": "actual fictional loopback booking API capacity",
+      "command": [
+        "node",
+        "scripts/verify-booking-http-capacity.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 5990
+    }
+  ],
+  "localTestPhases": [
+    {
+      "name": "unit and component tests",
+      "command": [
+        "node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "src/test",
+        "--no-cache",
+        "--no-fsModuleCache"
+      ],
+      "exit": 0,
+      "durationMs": 12891
+    },
+    {
+      "name": "webhook signature, consent and idempotency tests",
+      "command": [
+        "node",
+        "--test",
+        "tests/webhook.test.js"
+      ],
+      "exit": 0,
+      "durationMs": 365
+    },
+    {
+      "name": "backend PostgreSQL roles",
+      "command": [
+        "node",
+        "scripts/verify-local-backend.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 2437
+    },
+    {
+      "name": "midterm fresh and legacy PostgreSQL roles",
+      "command": [
+        "node",
+        "scripts/verify-local-midterm.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 2349
+    },
+    {
+      "name": "booking email PostgreSQL/runtime contract",
+      "command": [
+        "node",
+        "scripts/verify-booking-email-contract.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 1535
+    },
+    {
+      "name": "sponsor PostgreSQL eligibility and roles",
+      "command": [
+        "node",
+        "scripts/verify-local-sponsors.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 2665
+    },
+    {
+      "name": "analytics PostgreSQL privacy and aggregates",
+      "command": [
+        "node",
+        "scripts/verify-local-analytics.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 1398
+    },
+    {
+      "name": "canonical provider and legacy read-only analytics roles",
+      "command": [
+        "node",
+        "scripts/verify-local-analytics-provider.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 1447
+    },
+    {
+      "name": "media approval-record validation",
+      "command": [
+        "node",
+        "scripts/verify-mfalujo23-media-records.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 1318
+    },
+    {
+      "name": "fictional local backup recovery and restored RLS",
+      "command": [
+        "node",
+        "scripts/verify-local-restore.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 2143
+    }
+  ],
+  "initialGateFailure": "The first strict gate stopped at a new test helper TypeScript signature. The helper was corrected before this complete passing run.",
+  "loopbackCapacity": {
+    "attempts": 31,
+    "accepted201": 30,
+    "rejected429": 1,
+    "retryAfterPresent": true,
+    "fictionalDisposableDatabaseOnly": true
+  },
+  "existingBearerApiDatabaseAuthorizationAndFixturesUnchanged": true,
+  "renderedBrowserVerification": {
+    "scope": "Local production build with existing Supabase test-account session and read-only sample analytics",
+    "limitations": [
+      "Narrow viewport reflow was not verified: requested widths were not applied by this browser; observed width remained 1280 CSS pixels.",
+      "These checks are functional verification, not participant usability testing."
+    ],
+    "writesPerformed": false,
+    "checks": [
+      {
+        "name": "Authorized sign-in shows date and property filters",
+        "pass": true
+      },
+      {
+        "name": "One-day and specific-property filters return the expected single sample event",
+        "pass": true
+      },
+      {
+        "name": "Empty date window reports zero events and insufficient data",
+        "pass": true
+      },
+      {
+        "name": "Invalid property and reversed dates show safe errors without stale results",
+        "pass": true
+      },
+      {
+        "name": "Correcting errors restores results and retains entered values",
+        "pass": true
+      },
+      {
+        "name": "Keyboard submission and visible 3px focus outline",
+        "pass": true
+      },
+      {
+        "name": "Filter values stay out of the URL",
+        "pass": true
+      },
+      {
+        "name": "After sign-out protected dashboard denies access and hides filters",
+        "pass": true
+      }
+    ]
+  },
+  "productionDeploymentVerification": "Pending separately; this commit receipt does not claim the new version is deployed.",
+  "humanUsabilityEvidence": "Assistant-operated checks are not a human participant session."
+}
