@@ -43,5 +43,5 @@
 }
 
 @media (min-width: 1024px) {
-  .filterForm { grid-template-columns: 1fr 1fr auto auto; }
+  .filterForm { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) auto auto; }
 }

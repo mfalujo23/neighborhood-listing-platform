@@ -241,3 +241,12 @@ The required discovery review used the existing team questions and de-identified
 The required analytics comparison used the same fictional fixture with both tools. The calculations were checked against the saved local results. The chosen inquiry-flow count chart is a next design to evaluate; the current required daily chart remains unchanged. See [the comparison](mfalujo23/lab14-model-comparison.md) and [process log](mfalujo23/lab13-14-ai-log.md).
 
 The browser runs were performed by an assistant under Michael Falujo's direction. Their capture records identify November 19, 2026, Pacific time. This commit adds and corrects documentation only. It does not claim new application tests, participant sessions, stakeholder approvals or other students' work.
+
+
+## Listing search and sponsor explanation - November 23, 2026
+
+| Tool | Prompt | Used | Rejected | Verification |
+| --- | --- | --- | --- | --- |
+| AI coding assistant; exact model identifier not exposed | Use classmate feedback to add address/city/ZIP search and clarify the sample gardening sponsor. Keep the existing data and filters. | Labeled search over existing fields, combined filters and reset, responsive layout, and clear missing-information text. | Invented neighborhood fields, services or hours; treating a tool's inability to operate controls as an application failure; claiming incomplete human tests passed. | Assistant-run lint, types, 421 unit/component tests, 21 webhook tests, local database checks and production build passed. [Source-check receipt](mfalujo23/evidence/listing-search/verification.json). |
+
+This change uses partial written-content feedback, not a completed participant session. The local production build also passed in-app browser checks for search, combined filters, empty/reset states, keyboard focus, sponsor navigation and reflow at 320, 375, 768 and 1280 pixels. Hosted verification remains separate and pending. The earlier partner approval applies to its reviewed source, not this new search change. Base: `1de4e52545b0dfc5be877569e78140a50f7cd70a`; related [PR 14](https://github.com/mfalujo23/neighborhood-listing-platform/pull/14).

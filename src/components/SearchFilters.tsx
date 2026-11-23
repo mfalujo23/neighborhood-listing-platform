@@ -8,24 +8,30 @@ export type { PropertyFilters } from '../types'
 
 export function SearchFilters({ locations = [], onApply }: SearchFiltersProps) {
   const formId = useId()
+  const [search, setSearch] = useState('')
   const [city, setCity] = useState('')
   const [maxPrice, setMaxPrice] = useState('')
 
   function applyFilters(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    onApply?.({ city, maxPrice: maxPrice === '' ? null : Number(maxPrice) })
+    onApply?.({ search: search.trim(), city, maxPrice: maxPrice === '' ? null : Number(maxPrice) })
   }
 
   function resetFilters() {
+    setSearch('')
     setCity('')
     setMaxPrice('')
-    onApply?.({ city: '', maxPrice: null })
+    onApply?.({ search: '', city: '', maxPrice: null })
   }
 
   return (
     <section aria-labelledby={`${formId}-heading`} className={styles.filters}>
       <h2 id={`${formId}-heading`}>Find a synthetic listing</h2>
       <form onSubmit={applyFilters} aria-labelledby={`${formId}-heading`} className={styles.filterForm}>
+        <div>
+          <label htmlFor={`${formId}-search`}>Address, city or ZIP</label>
+          <input id={`${formId}-search`} type="search" maxLength={160} value={search} onChange={(event) => setSearch(event.target.value)} className={styles.field} />
+        </div>
         <div>
           <label htmlFor={`${formId}-city`}>City</label>
           <select id={`${formId}-city`} value={city} onChange={(event) => setCity(event.target.value)} className={styles.field}>

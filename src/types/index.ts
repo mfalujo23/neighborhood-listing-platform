@@ -16,6 +16,7 @@ export interface SponsorBannerProps {
 }
 
 export interface PropertyFilters {
+  search: string
   city: string
   maxPrice: number | null
 }
