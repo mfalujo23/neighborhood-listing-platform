@@ -1,0 +1,104 @@
+[
+  {
+    "type": "function",
+    "async": false,
+    "function": {
+      "name": "get_property_details",
+      "description": "Read public approved property facts. Never infer missing facts.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "property_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "property_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "server": {
+      "url": "https://replace-with-your-public-host.example/api/voice/tools",
+      "credentialId": "REPLACE_WITH_ACTUAL_SAVED_CREDENTIAL_ID",
+      "timeoutSeconds": 10
+    }
+  },
+  {
+    "type": "function",
+    "async": false,
+    "function": {
+      "name": "get_nearby_sponsors",
+      "description": "Read labeled eligible sponsored placements for an approved property and five-digit ZIP.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "property_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "zip": {
+            "type": "string",
+            "pattern": "^[0-9]{5}$"
+          }
+        },
+        "required": [
+          "property_id",
+          "zip"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "server": {
+      "url": "https://replace-with-your-public-host.example/api/voice/tools",
+      "credentialId": "REPLACE_WITH_ACTUAL_SAVED_CREDENTIAL_ID",
+      "timeoutSeconds": 10
+    }
+  },
+  {
+    "type": "function",
+    "async": false,
+    "function": {
+      "name": "request_agent_followup",
+      "description": "Check an explicitly consented follow-up request. Returns unavailable until a real protected transport is configured; never claims delivery.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "consent": {
+            "type": "boolean",
+            "const": true
+          },
+          "property_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "preferred_channel": {
+            "type": "string",
+            "enum": [
+              "email",
+              "phone"
+            ]
+          }
+        },
+        "required": [
+          "consent",
+          "property_id",
+          "preferred_channel"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "server": {
+      "url": "https://replace-with-your-public-host.example/api/voice/tools",
+      "credentialId": "REPLACE_WITH_ACTUAL_SAVED_CREDENTIAL_ID",
+      "timeoutSeconds": 10
+    }
+  }
+]

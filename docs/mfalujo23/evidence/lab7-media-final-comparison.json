@@ -1,0 +1,559 @@
+{
+  "profile": {
+    "rasterBytesPerSecond": 65536,
+    "initialRasterDelayMs": 400,
+    "scope": "Only personal raster image bodies; HTML/JS/CSS/SVG are not throttled",
+    "allResponsesCacheControl": "no-store",
+    "browserDevtoolsCacheDisabled": false,
+    "chromeSlow3G": false
+  },
+  "protocol": "Four fresh foreground observations; viewport confirmed, all images complete before pressing Capture browser metrics. Server no-store headers; no browser DevTools cache setting.",
+  "limitations": [
+    "Single observations, not field Core Web Vitals or statistical benchmarks.",
+    "LCP candidate differs across observations; report the actual candidate.",
+    "Page totals include recorded framework/prefetch requests and are observational.",
+    "Initial background/incomplete/reload diagnostics are retained separately and excluded."
+  ],
+  "runs": [
+    {
+      "capturedAtUTC": "2026-11-19T02:01:18.884Z",
+      "page": "/media-demo/baseline",
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1
+      },
+      "lcpMs": 5444,
+      "lcpElement": "H1:no-asset-id",
+      "lcpDiagnostics": {
+        "observerStatus": "observing",
+        "supportedEntryTypes": [
+          "element",
+          "event",
+          "first-input",
+          "interaction-contentful-paint",
+          "largest-contentful-paint",
+          "layout-shift",
+          "long-animation-frame",
+          "longtask",
+          "mark",
+          "measure",
+          "navigation",
+          "paint",
+          "resource",
+          "soft-navigation",
+          "visibility-state"
+        ],
+        "visibilityState": "visible",
+        "documentHidden": false,
+        "documentHasFocus": true,
+        "observedLcpAvailable": true
+      },
+      "observedDocumentAndResourceTransferBytes": 679624,
+      "observedEncodedDocumentAndResourceBytes": 656224,
+      "resourceEntryCount": 77,
+      "pageWeightDefinition": "Sum of available navigation/resource timing entries before the separate MIME HEAD requests. Earlier interactions, development HMR, caching and buffer limits can affect this observation; use a fresh controlled reload.",
+      "lcpDefinition": "Last observed largest-contentful-paint startTime from this navigation; null means unavailable.",
+      "cacheNote": "Zero transfer bytes can indicate a cache hit. Use DevTools cache-disabled hard reload and record network settings for comparison.",
+      "telemetry": "Local in-memory audit only; no external recipient, storage, provider or user identity.",
+      "records": [
+        {
+          "assetId": "home-navigation",
+          "path": "/mfalujo23-media/home-icon.svg",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+          "initiatorType": "img",
+          "complete": true,
+          "renderedCssWidth": 32,
+          "naturalWidth": 48,
+          "naturalHeight": 48,
+          "transferBytes": 614,
+          "encodedBodyBytes": 314,
+          "downloadMs": 0.6000000014901161,
+          "requestDurationMs": 8.199999999254942,
+          "contentType": "image/svg+xml",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+              "initiatorType": "link",
+              "transferBytes": 614,
+              "encodedBodyBytes": 314,
+              "downloadMs": 0.6999999992549419
+            },
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+              "initiatorType": "img",
+              "transferBytes": 614,
+              "encodedBodyBytes": 314,
+              "downloadMs": 0.6000000014901161
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        },
+        {
+          "assetId": "fictional-property",
+          "path": "/mfalujo23-media/property-baseline-1280.jpg",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/property-baseline-1280.jpg",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/property-baseline-1280.jpg",
+          "initiatorType": "link",
+          "complete": true,
+          "renderedCssWidth": 998,
+          "naturalWidth": 1280,
+          "naturalHeight": 720,
+          "transferBytes": 360929,
+          "encodedBodyBytes": 360629,
+          "downloadMs": 5501.699999999255,
+          "requestDurationMs": 5931.10000000149,
+          "contentType": "image/jpeg",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/property-baseline-1280.jpg",
+              "initiatorType": "link",
+              "transferBytes": 360929,
+              "encodedBodyBytes": 360629,
+              "downloadMs": 5501.699999999255
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        },
+        {
+          "assetId": "fictional-partner",
+          "path": "/mfalujo23-media/partner-banner.svg",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+          "initiatorType": "img",
+          "complete": true,
+          "renderedCssWidth": 640,
+          "naturalWidth": 640,
+          "naturalHeight": 240,
+          "transferBytes": 1006,
+          "encodedBodyBytes": 706,
+          "downloadMs": 0.6999999992549419,
+          "requestDurationMs": 10.800000000745058,
+          "contentType": "image/svg+xml",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+              "initiatorType": "img",
+              "transferBytes": 1006,
+              "encodedBodyBytes": 706,
+              "downloadMs": 0.6999999992549419
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        }
+      ]
+    },
+    {
+      "capturedAtUTC": "2026-11-19T02:01:55.015Z",
+      "page": "/media-demo",
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1
+      },
+      "lcpMs": 2952,
+      "lcpElement": "IMG:fictional-property",
+      "lcpDiagnostics": {
+        "observerStatus": "observing",
+        "supportedEntryTypes": [
+          "element",
+          "event",
+          "first-input",
+          "interaction-contentful-paint",
+          "largest-contentful-paint",
+          "layout-shift",
+          "long-animation-frame",
+          "longtask",
+          "mark",
+          "measure",
+          "navigation",
+          "paint",
+          "resource",
+          "soft-navigation",
+          "visibility-state"
+        ],
+        "visibilityState": "visible",
+        "documentHidden": false,
+        "documentHasFocus": true,
+        "observedLcpAvailable": true
+      },
+      "observedDocumentAndResourceTransferBytes": 561469,
+      "observedEncodedDocumentAndResourceBytes": 526369,
+      "resourceEntryCount": 116,
+      "pageWeightDefinition": "Sum of available navigation/resource timing entries before the separate MIME HEAD requests. Earlier interactions, development HMR, caching and buffer limits can affect this observation; use a fresh controlled reload.",
+      "lcpDefinition": "Last observed largest-contentful-paint startTime from this navigation; null means unavailable.",
+      "cacheNote": "Zero transfer bytes can indicate a cache hit. Use DevTools cache-disabled hard reload and record network settings for comparison.",
+      "telemetry": "Local in-memory audit only; no external recipient, storage, provider or user identity.",
+      "records": [
+        {
+          "assetId": "home-navigation",
+          "path": "/mfalujo23-media/home-icon.svg",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+          "initiatorType": "img",
+          "complete": true,
+          "renderedCssWidth": 32,
+          "naturalWidth": 48,
+          "naturalHeight": 48,
+          "transferBytes": 614,
+          "encodedBodyBytes": 314,
+          "downloadMs": 1,
+          "requestDurationMs": 9.699999999254942,
+          "contentType": "image/svg+xml",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+              "initiatorType": "link",
+              "transferBytes": 614,
+              "encodedBodyBytes": 314,
+              "downloadMs": 1.5999999977648258
+            },
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+              "initiatorType": "img",
+              "transferBytes": 614,
+              "encodedBodyBytes": 314,
+              "downloadMs": 1
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        },
+        {
+          "assetId": "fictional-property",
+          "path": "/mfalujo23-media/property-1280.webp",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/property-1280.webp?w=1280",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/property-1280.webp?w=1280",
+          "initiatorType": "link",
+          "complete": true,
+          "renderedCssWidth": 998,
+          "naturalWidth": 998,
+          "naturalHeight": 561,
+          "transferBytes": 161392,
+          "encodedBodyBytes": 161092,
+          "downloadMs": 2457.300000000745,
+          "requestDurationMs": 2878.199999999255,
+          "contentType": "image/webp",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/property-1280.webp?w=1280",
+              "initiatorType": "link",
+              "transferBytes": 161392,
+              "encodedBodyBytes": 161092,
+              "downloadMs": 2457.300000000745
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        },
+        {
+          "assetId": "fictional-partner",
+          "path": "/mfalujo23-media/partner-banner.svg",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+          "initiatorType": "img",
+          "complete": true,
+          "renderedCssWidth": 640,
+          "naturalWidth": 640,
+          "naturalHeight": 240,
+          "transferBytes": 1006,
+          "encodedBodyBytes": 706,
+          "downloadMs": 0.5,
+          "requestDurationMs": 7.899999998509884,
+          "contentType": "image/svg+xml",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+              "initiatorType": "img",
+              "transferBytes": 1006,
+              "encodedBodyBytes": 706,
+              "downloadMs": 0.5
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        }
+      ]
+    },
+    {
+      "capturedAtUTC": "2026-11-19T02:02:52.344Z",
+      "page": "/media-demo/baseline",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "lcpMs": 5620,
+      "lcpElement": "P:no-asset-id",
+      "lcpDiagnostics": {
+        "observerStatus": "observing",
+        "supportedEntryTypes": [
+          "element",
+          "event",
+          "first-input",
+          "interaction-contentful-paint",
+          "largest-contentful-paint",
+          "layout-shift",
+          "long-animation-frame",
+          "longtask",
+          "mark",
+          "measure",
+          "navigation",
+          "paint",
+          "resource",
+          "soft-navigation",
+          "visibility-state"
+        ],
+        "visibilityState": "visible",
+        "documentHidden": false,
+        "documentHasFocus": true,
+        "observedLcpAvailable": true
+      },
+      "observedDocumentAndResourceTransferBytes": 708801,
+      "observedEncodedDocumentAndResourceBytes": 681201,
+      "resourceEntryCount": 91,
+      "pageWeightDefinition": "Sum of available navigation/resource timing entries before the separate MIME HEAD requests. Earlier interactions, development HMR, caching and buffer limits can affect this observation; use a fresh controlled reload.",
+      "lcpDefinition": "Last observed largest-contentful-paint startTime from this navigation; null means unavailable.",
+      "cacheNote": "Zero transfer bytes can indicate a cache hit. Use DevTools cache-disabled hard reload and record network settings for comparison.",
+      "telemetry": "Local in-memory audit only; no external recipient, storage, provider or user identity.",
+      "records": [
+        {
+          "assetId": "home-navigation",
+          "path": "/mfalujo23-media/home-icon.svg",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+          "initiatorType": "img",
+          "complete": true,
+          "renderedCssWidth": 32,
+          "naturalWidth": 48,
+          "naturalHeight": 48,
+          "transferBytes": 614,
+          "encodedBodyBytes": 314,
+          "downloadMs": 4.699999999254942,
+          "requestDurationMs": 187.10000000149012,
+          "contentType": "image/svg+xml",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+              "initiatorType": "link",
+              "transferBytes": 614,
+              "encodedBodyBytes": 314,
+              "downloadMs": 3.2999999970197678
+            },
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+              "initiatorType": "img",
+              "transferBytes": 614,
+              "encodedBodyBytes": 314,
+              "downloadMs": 4.699999999254942
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        },
+        {
+          "assetId": "fictional-property",
+          "path": "/mfalujo23-media/property-baseline-1280.jpg",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/property-baseline-1280.jpg",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/property-baseline-1280.jpg",
+          "initiatorType": "link",
+          "complete": true,
+          "renderedCssWidth": 313,
+          "naturalWidth": 1280,
+          "naturalHeight": 720,
+          "transferBytes": 360929,
+          "encodedBodyBytes": 360629,
+          "downloadMs": 5503.800000000745,
+          "requestDurationMs": 5932.300000000745,
+          "contentType": "image/jpeg",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/property-baseline-1280.jpg",
+              "initiatorType": "link",
+              "transferBytes": 360929,
+              "encodedBodyBytes": 360629,
+              "downloadMs": 5503.800000000745
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        },
+        {
+          "assetId": "fictional-partner",
+          "path": "/mfalujo23-media/partner-banner.svg",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+          "initiatorType": "img",
+          "complete": true,
+          "renderedCssWidth": 313,
+          "naturalWidth": 640,
+          "naturalHeight": 240,
+          "transferBytes": 1006,
+          "encodedBodyBytes": 706,
+          "downloadMs": 0.5,
+          "requestDurationMs": 13.5,
+          "contentType": "image/svg+xml",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+              "initiatorType": "img",
+              "transferBytes": 1006,
+              "encodedBodyBytes": 706,
+              "downloadMs": 0.5
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        }
+      ]
+    },
+    {
+      "capturedAtUTC": "2026-11-19T02:03:16.592Z",
+      "page": "/media-demo",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "lcpMs": 1876,
+      "lcpElement": "IMG:fictional-property",
+      "lcpDiagnostics": {
+        "observerStatus": "observing",
+        "supportedEntryTypes": [
+          "element",
+          "event",
+          "first-input",
+          "interaction-contentful-paint",
+          "largest-contentful-paint",
+          "layout-shift",
+          "long-animation-frame",
+          "longtask",
+          "mark",
+          "measure",
+          "navigation",
+          "paint",
+          "resource",
+          "soft-navigation",
+          "visibility-state"
+        ],
+        "visibilityState": "visible",
+        "documentHidden": false,
+        "documentHasFocus": true,
+        "observedLcpAvailable": true
+      },
+      "observedDocumentAndResourceTransferBytes": 343383,
+      "observedEncodedDocumentAndResourceBytes": 323283,
+      "resourceEntryCount": 66,
+      "pageWeightDefinition": "Sum of available navigation/resource timing entries before the separate MIME HEAD requests. Earlier interactions, development HMR, caching and buffer limits can affect this observation; use a fresh controlled reload.",
+      "lcpDefinition": "Last observed largest-contentful-paint startTime from this navigation; null means unavailable.",
+      "cacheNote": "Zero transfer bytes can indicate a cache hit. Use DevTools cache-disabled hard reload and record network settings for comparison.",
+      "telemetry": "Local in-memory audit only; no external recipient, storage, provider or user identity.",
+      "records": [
+        {
+          "assetId": "home-navigation",
+          "path": "/mfalujo23-media/home-icon.svg",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+          "initiatorType": "img",
+          "complete": true,
+          "renderedCssWidth": 32,
+          "naturalWidth": 48,
+          "naturalHeight": 48,
+          "transferBytes": 614,
+          "encodedBodyBytes": 314,
+          "downloadMs": 0.8999999985098839,
+          "requestDurationMs": 6.299999997019768,
+          "contentType": "image/svg+xml",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+              "initiatorType": "link",
+              "transferBytes": 614,
+              "encodedBodyBytes": 314,
+              "downloadMs": 3.100000001490116
+            },
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/home-icon.svg",
+              "initiatorType": "img",
+              "transferBytes": 614,
+              "encodedBodyBytes": 314,
+              "downloadMs": 0.8999999985098839
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        },
+        {
+          "assetId": "fictional-property",
+          "path": "/mfalujo23-media/property-640.webp",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/property-640.webp?w=640",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/property-640.webp?w=640",
+          "initiatorType": "link",
+          "complete": true,
+          "renderedCssWidth": 313,
+          "naturalWidth": 328,
+          "naturalHeight": 184,
+          "transferBytes": 47506,
+          "encodedBodyBytes": 47206,
+          "downloadMs": 720.5999999977648,
+          "requestDurationMs": 1146.699999999255,
+          "contentType": "image/webp",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/property-640.webp?w=640",
+              "initiatorType": "link",
+              "transferBytes": 47506,
+              "encodedBodyBytes": 47206,
+              "downloadMs": 720.5999999977648
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        },
+        {
+          "assetId": "fictional-partner",
+          "path": "/mfalujo23-media/partner-banner.svg",
+          "currentSrc": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+          "requestURL": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+          "initiatorType": "img",
+          "complete": true,
+          "renderedCssWidth": 313,
+          "naturalWidth": 640,
+          "naturalHeight": 240,
+          "transferBytes": 1006,
+          "encodedBodyBytes": 706,
+          "downloadMs": 0.6000000014901161,
+          "requestDurationMs": 7.5,
+          "contentType": "image/svg+xml",
+          "headerStatus": 200,
+          "matchingImageRequests": [
+            {
+              "requestURL": "http://127.0.0.1:3004/mfalujo23-media/partner-banner.svg",
+              "initiatorType": "img",
+              "transferBytes": 1006,
+              "encodedBodyBytes": 706,
+              "downloadMs": 0.6000000014901161
+            }
+          ],
+          "timingSelection": "Latest positive-transfer exact currentSrc match among img/link; otherwise latest exact match. HEAD fetch entries excluded.",
+          "contentTypeSource": "Separate same-origin HEAD request; ResourceTiming does not expose MIME."
+        }
+      ]
+    }
+  ]
+}

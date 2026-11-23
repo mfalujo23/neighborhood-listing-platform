@@ -1,0 +1,212 @@
+1. Review of Existing Team Questions (Q1–Q8)
+
+Q1 (Workflow)
+
+Leading assumption: Assumes the respondent currently shares and updates both neighborhood and property information.
+
+Privacy risk: Low, though asking about sharing with buyers/clients could invite specific client examples if not framed generally.
+
+Accessibility problem: None found.
+
+Smallest neutral rewrite: "If you share or update neighborhood or property information for prospective buyers or clients, how do you handle that process in general terms?"
+
+Q2 (Workflow)
+
+Leading assumption: Assumes a "current publishing process" exists, contains "manual steps," and creates a time burden ("take up the most time").
+
+Privacy risk: None found.
+
+Accessibility problem: None found.
+
+Smallest neutral rewrite: "In your current sharing or publishing process, are there any steps that feel manual or time-consuming, or does the process already work well for you?"
+
+Q3 (Audience)
+
+Leading assumption: Assumes the respondent has a defined "primary target audience" and publishes "local content" that people find and interact with.
+
+Privacy risk: Asking "Who is your primary target audience" in housing risks prompting demographic or protected housing trait descriptions or identifiable client groups.
+
+Accessibility problem: None found.
+
+Smallest neutral rewrite: "Without sharing personal, demographic, or client details, what general roles (such as buyers or community readers) use your local information, if any, and how do they reach it?"
+
+Q4 (Content Approval)
+
+Leading assumption: Assumes listings or local banners go live on a community platform and require formal approval steps or compliance checks.
+
+Privacy risk: None found.
+
+Accessibility problem: None found.
+
+Smallest neutral rewrite: "Before a listing or local banner is published on a platform, are any approval steps or compliance checks required in your workflow, or does that not apply?"
+
+Q5 (Content Approval)
+
+Leading assumption: Assumes information changes after publication and that the respondent actively handles updates or corrections.
+
+Privacy risk: None found.
+
+Accessibility problem: None found.
+
+Smallest neutral rewrite: "If information changes after publication, how are updates or corrections handled, if at all?"
+
+Q6 (Success Measures)
+
+Leading assumption: Assumes the respondent uses featured neighborhood listings or local sponsorships and tracks specific success metrics for them.
+
+Privacy risk: Minor risk if a respondent offers identifiable client response details instead of general signals.
+
+Accessibility problem: None found.
+
+Smallest neutral rewrite: "If you evaluate neighborhood listings or local sponsorships, what signals or outcomes—if any—matter to you, or do you not track specific metrics?"
+
+Q7 (Accessibility & Usability)
+
+Leading assumption: Assumes formal "accessibility standards" or "device preferences" are known and "essential."
+
+Privacy risk: Low, provided the question asks about general access needs rather than any specific client's health or disability status.
+
+Accessibility problem: Limits devices to "(mobile vs. desktop)," leaving out tablets, assistive tools (such as screen readers or keyboard navigation), and readability needs, while assuming familiarity with formal standards terminology.
+
+Smallest neutral rewrite: "What devices, formats, or general access needs (such as mobile screens, desktop, clear readability, or assistive tools) matter—or are not an issue—for people using this information?"
+
+Q8 (General Pain Points)
+
+Leading assumption: Assumes the respondent uses local listing or ad management platforms and experiences a "biggest frustration."
+
+Privacy risk: None found.
+
+Accessibility problem: None found.
+
+Smallest neutral rewrite: "If you use any local listing or ad tools, what works well, what challenges come up—if any—or do current tools already meet your needs?"
+
+2. Eight Final Neutral Questions (Preserving Q1–Q8 Correspondence)
+
+Q1 (Workflow): If you share or update neighborhood or property information, how do you currently handle that process in general terms, or is that not part of your work?
+
+Q2 (Workflow): In your current sharing or publishing process, which steps—if any—feel manual or time-consuming, or does the workflow already feel manageable?
+
+Q3 (Audience Roles & Channels): Without sharing personal, demographic, or client details, what general roles (for example, buyers, sellers, or local readers) use your local information, if any, and through what channels do they usually find it?
+
+Q4 (Content Approval): Before a listing or local sponsor banner is published, are any review, approval, or compliance steps needed in your workflow, or does nothing like that apply?
+
+Q5 (Content Corrections): If information changes after publication, how are updates or corrections handled, if any are needed?
+
+Q6 (Success Measures): How, if at all, do you tell whether a neighborhood listing or local sponsorship is useful or successful, and are there any metrics you do or do not find helpful?
+
+Q7 (Accessibility & Usability): What devices, formats, or general usability and access needs (such as mobile viewing, desktop, clear text, or assistive tools) are important—or not a concern—for people using your materials?
+
+Q8 (Overall Tool Experience): Thinking about any local listing or ad tools you use today, what works well, what difficulties come up—if any—or do current tools already meet your needs?
+
+3. Theme Table for Existing Team-Reported Notes (P1-01 through P1-06)
+
+Note: P1 is a team-reported source, not an independently verified interview. Context labels (P1-01, P1-02) describe who P1 is and do not prove a product need.
+
+Theme ID	Supporting P1 Line IDs	Grounded Paraphrase	Inference or Uncertainty
+T1: Participant Role & Context	P1-01, P1-02	Team notes describe P1 as an active local real estate agent doing buyer representation and neighborhood listing management.	Context only, not proof of a product need. Original interview, participant consent, and instructor approval are not independently verified. Does not represent all agents or brokerages.
+T2: Manual Curation & Direct Sharing	P1-03	P1 manually gathers neighborhood summaries, nearby local spots, and property links and sends them directly to active buyers.	Frequency, time spent, tools used, and whether P1 wants automation instead of direct manual sending are not stated.
+T3: Mobile-First Viewing Context	P1-04	Client communication mostly happens on mobile devices while buyers tour properties or view links on the go.	Suggests mobile readability matters for shared links, but gives no evidence of specific assistive technology needs, desktop use, or completed usability testing.
+T4: Control Over Adjacent Sponsor Ads	P1-05	P1 requires quick review and approval authority over any sponsor or partner ad shown next to her property information.	"Quick" has no defined time limit. Unclear who else holds approval rights, how rejections work, or whether sponsors agree to this control.
+T5: Response & Link Engagement Signals	P1-06	Success is described using direct client inquiry responses and time spent engaging with shared neighborhood links.	Exact metric formulas, tracking methods, privacy limits, and target thresholds are not defined.
+4. Candidate User Stories and Acceptance Criteria
+
+Note: Acceptance criteria below describe intended candidate behavior only; they do not establish that the current application implements these features.
+
+Story 1: Single Shareable Neighborhood & Property View
+
+Supporting P1 line IDs: P1-03 (observation); P1-01, P1-02 (context).
+
+Source observation vs. proposed feature:
+
+Source observation: P1 manually compiles neighborhood summaries, nearby local spots, and property links to send to active buyers (P1-03).
+
+Proposed feature (Design inference): Let an agent combine those items into one shareable page/link instead of assembling separate links manually. Inferred that one link reduces manual assembly; does not prove P1 will stop using direct messaging.
+
+User Story: As a local real estate agent, I want to group a neighborhood summary, nearby local spots, and property links into one shareable view so that I can send buyers a single organized link.
+
+Acceptance Criteria:
+
+Given a draft neighborhood view containing a summary, nearby local spots, and property links, When the author generates a shareable link, Then the system creates a single URL displaying those sections without requiring demographic housing inputs.
+
+Given an existing neighborhood view, When the author edits the summary, local spots, or property links, Then the saved changes appear in the view preview.
+
+Story 2: Mobile-Readable Shared View
+
+Supporting P1 line IDs: P1-04 (observation); P1-03 (shared link context).
+
+Source observation vs. proposed feature:
+
+Source observation: Client communication happens primarily on mobile devices while buyers tour properties or view links on the go (P1-04).
+
+Proposed feature (Design inference): Format shared neighborhood and property views with a responsive mobile layout. Specific WCAG levels, assistive tools, and usability test results remain unverified.
+
+User Story: As a buyer reviewing shared links on the go, I want neighborhood and property pages to display cleanly on a mobile screen so that I can read them while touring properties.
+
+Acceptance Criteria:
+
+Given a shared neighborhood link opened on a mobile screen width, When the page finishes loading, Then text, local spots, and property links stack cleanly without horizontal scrolling or clipped content.
+
+Given links or controls on the mobile view, When a user navigates or taps them, Then each item is clearly labeled and usable without switching to a desktop device.
+
+Story 3: Pre-Display Sponsor Ad Review Hold
+
+Supporting P1 line IDs: P1-05 (observation); P1-01, P1-02 (context).
+
+Source observation vs. proposed feature:
+
+Source observation: P1 requires quick review and approval authority over any sponsor or partner ad displayed next to her property information (P1-05).
+
+Proposed feature (Design inference): Hold proposed sponsor or partner ads in a hidden pending state until an explicit approval decision is recorded. This does not assume self-service sponsor publishing, real-time push alerts, or defined production role permissions.
+
+User Story: As an agent managing property information, I want proposed sponsor or partner ads to stay hidden until approved so that unapproved ads never appear alongside my listings.
+
+Acceptance Criteria:
+
+Given a sponsor or partner ad assigned near property information with a pending status, When a visitor opens the public property or neighborhood view, Then the pending ad is not displayed.
+
+Given a pending sponsor ad in a review list, When the designated reviewer records an approve or reject status, Then only an approved ad becomes eligible for display, and a rejected ad remains hidden.
+
+Story 4: Aggregate Inquiry & Link Engagement Summary
+
+Supporting P1 line IDs: P1-06 (observation); P1-03 (shared link context).
+
+Source observation vs. proposed feature:
+
+Source observation: Success is measured by direct client inquiry responses and time spent engaging with shared neighborhood links (P1-06).
+
+Proposed feature (Design inference): Show basic, non-identifying aggregate counts of inquiry actions and link viewing duration. Does not track protected housing traits, store personal client profiles, or guarantee commercial outcomes.
+
+User Story: As an agent sharing neighborhood links, I want to view basic aggregate inquiry counts and link engagement time so that I can see whether shared pages are useful to buyers.
+
+Acceptance Criteria:
+
+Given a shared neighborhood link, When visitors view the page or submit an inquiry action, Then the system records aggregate engagement duration and inquiry counts without collecting demographic housing traits or personal browsing profiles.
+
+Given recorded aggregate activity for a shared link, When the author views the summary, Then the interface shows descriptive counts and duration only, with no promised sales or commercial guarantees.
+
+5. Questions Requiring Confirmation & Unsupported Conclusions to Reject
+A. Questions Still Requiring Stakeholder or Instructor-Proxy Confirmation
+
+Source of truth & verification: Where are the original interview notes, participant consent records, and instructor sign-off stored (since the "live/approved" tag in the file is not independent proof)? Also, what is the authoritative source of truth for property info, neighborhood summaries, and local spot data?
+
+Approval owner & workflow: In P1-05, does approval authority belong only to the agent, or also to a brokerage, platform admin, or compliance team? What turnaround time counts as "quick," and what happens after a rejection?
+
+Update cadence: How often do neighborhood summaries, local spots, property availability, and sponsor ads change, and who owns post-publication updates?
+
+Allowed sponsor claims & destinations: What ad content, promotional claims, Fair Housing rules, and external destination URLs are permitted for local sponsors or partners?
+
+Metric definitions & privacy: For P1-06, how is "time spent engaging" calculated (active vs. idle tab time), how are off-platform direct inquiries (calls/texts/emails) counted, and what user notice or consent is required?
+
+Full accessibility & device scope: Beyond mobile viewing (P1-04), what desktop, tablet, assistive technology, or accessibility standards are required?
+
+B. Unsupported Conclusions That Must Be Rejected
+
+No verified interview, consent, or instructor approval: The "live/approved" label in the inherited notes does not prove independent consent, instructor approval, or an audited primary interview.
+
+No direct local sponsor interview: P1 is a real estate agent, not a sponsor. The notes provide zero evidence about local sponsors' needs, budgets, ad workflows, or willingness to accept agent approval control.
+
+No completed usability testing: P1-04 reports mobile usage in the field, not a usability test, prototype evaluation, or accessibility audit.
+
+No generalization or guaranteed results: One team-reported source (P1) does not establish market-wide frequency, shared stakeholder preferences, or guaranteed business outcomes.
+
+No proof of current app implementation: Candidate stories and acceptance criteria reflect intended behavior derived from notes, not verified functionality in the existing codebase.

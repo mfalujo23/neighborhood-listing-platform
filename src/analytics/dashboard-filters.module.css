@@ -1,0 +1,11 @@
+.dashboard { overflow-wrap: anywhere; }
+.form { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1rem; align-items: start; margin: 1rem 0; }
+.form > div { min-width: 0; }
+.form label { display: block; font-weight: 600; margin-bottom: .4rem; }
+.form input, .form button { box-sizing: border-box; width: 100%; min-width: 0; min-height: 44px; padding: .6rem; border: 1px solid #475569; border-radius: .25rem; font: inherit; }
+.form input { background: white; color: #111827; }
+.form button { background: #164e3c; color: white; cursor: pointer; align-self: end; }
+.form button:disabled { cursor: wait; opacity: .7; }
+.form p { margin: .4rem 0 0; }
+.form input:focus-visible, .form button:focus-visible, .error:focus { outline: 3px solid #1d4ed8; outline-offset: 3px; }
+.error { padding: .75rem; border: 1px solid #991b1b; }

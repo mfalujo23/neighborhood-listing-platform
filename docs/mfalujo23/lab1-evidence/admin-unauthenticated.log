@@ -1,0 +1,3 @@
+GET /api/admin/bookings -> 401 {"error":"Sign-in is required."}
+PATCH /api/admin/services -> 401 {"error":"Sign-in is required."}
+Exit code: 0

@@ -1,0 +1,154 @@
+{
+  "clock": "2026-11-19T12:00:00.000Z",
+  "brief": {
+    "id": "fictional-garden-v1",
+    "businessName": "Fictional Garden Partner",
+    "offer": "a fictional gardening guide",
+    "address": "No physical location; fictional classroom setting",
+    "url": "/media-demo/partner",
+    "startsOn": "2026-11-19",
+    "endsOn": "2026-11-26",
+    "disclaimer": "Classroom demo only.",
+    "permittedTexts": [
+      "Fictional Garden Partner: a fictional gardening guide. Classroom demo only.",
+      "Classroom demo only. Explore a fictional gardening guide from Fictional Garden Partner.",
+      "Explore Fictional Garden Partner and a fictional gardening guide. Classroom demo only."
+    ]
+  },
+  "variants": [
+    {
+      "id": "draft-1",
+      "briefId": "fictional-garden-v1",
+      "text": "Fictional Garden Partner: a fictional gardening guide. Classroom demo only.",
+      "startsOn": "2026-11-19",
+      "endsOn": "2026-11-26",
+      "status": "draft",
+      "approval": {
+        "scope": "production",
+        "actor": null,
+        "humanReviewed": false,
+        "date": null
+      },
+      "factTrace": [
+        {
+          "phrase": "Fictional Garden Partner",
+          "fact": "businessName"
+        },
+        {
+          "phrase": "a fictional gardening guide",
+          "fact": "offer"
+        },
+        {
+          "phrase": "Classroom demo only.",
+          "fact": "disclaimer"
+        }
+      ],
+      "characterCount": 75,
+      "validation": {
+        "valid": true,
+        "value": {
+          "briefId": "fictional-garden-v1",
+          "text": "Fictional Garden Partner: a fictional gardening guide. Classroom demo only.",
+          "startsOn": "2026-11-19",
+          "endsOn": "2026-11-26"
+        },
+        "status": "draft",
+        "humanApprovalRequired": true
+      }
+    },
+    {
+      "id": "draft-2",
+      "briefId": "fictional-garden-v1",
+      "text": "Classroom demo only. Explore a fictional gardening guide from Fictional Garden Partner.",
+      "startsOn": "2026-11-19",
+      "endsOn": "2026-11-26",
+      "status": "draft",
+      "approval": {
+        "scope": "production",
+        "actor": null,
+        "humanReviewed": false,
+        "date": null
+      },
+      "factTrace": [
+        {
+          "phrase": "Fictional Garden Partner",
+          "fact": "businessName"
+        },
+        {
+          "phrase": "a fictional gardening guide",
+          "fact": "offer"
+        },
+        {
+          "phrase": "Classroom demo only.",
+          "fact": "disclaimer"
+        }
+      ],
+      "characterCount": 87,
+      "validation": {
+        "valid": true,
+        "value": {
+          "briefId": "fictional-garden-v1",
+          "text": "Classroom demo only. Explore a fictional gardening guide from Fictional Garden Partner.",
+          "startsOn": "2026-11-19",
+          "endsOn": "2026-11-26"
+        },
+        "status": "draft",
+        "humanApprovalRequired": true
+      }
+    },
+    {
+      "id": "draft-3",
+      "briefId": "fictional-garden-v1",
+      "text": "Explore Fictional Garden Partner and a fictional gardening guide. Classroom demo only.",
+      "startsOn": "2026-11-19",
+      "endsOn": "2026-11-26",
+      "status": "draft",
+      "approval": {
+        "scope": "production",
+        "actor": null,
+        "humanReviewed": false,
+        "date": null
+      },
+      "factTrace": [
+        {
+          "phrase": "Fictional Garden Partner",
+          "fact": "businessName"
+        },
+        {
+          "phrase": "a fictional gardening guide",
+          "fact": "offer"
+        },
+        {
+          "phrase": "Classroom demo only.",
+          "fact": "disclaimer"
+        }
+      ],
+      "characterCount": 86,
+      "validation": {
+        "valid": true,
+        "value": {
+          "briefId": "fictional-garden-v1",
+          "text": "Explore Fictional Garden Partner and a fictional gardening guide. Classroom demo only.",
+          "startsOn": "2026-11-19",
+          "endsOn": "2026-11-26"
+        },
+        "status": "draft",
+        "humanApprovalRequired": true
+      }
+    }
+  ],
+  "fixtureDisplay": {
+    "visible": true,
+    "text": "Fictional Garden Partner: a fictional gardening guide. Classroom demo only.",
+    "endsOn": "2026-11-26",
+    "disclosure": "Sponsored · fictional classroom fixture · test-only approval"
+  },
+  "productionDisplay": {
+    "visible": false,
+    "reason": "COPY_NOT_APPROVED"
+  },
+  "expiredDisplay": {
+    "visible": false,
+    "reason": "CAMPAIGN_EXPIRED"
+  }
+}

@@ -1,0 +1,42 @@
+1. Calculation check
+In baseline (2026-11-17 through 2026-11-18, UTC [2026-11-17T00:00:00Z, 2026-11-19T00:00:00Z)), all 30 events fall in-window: 29 on 2026-11-17 and 1 (call_completed, 0115) on 2026-11-18.
+
+Sponsor CTR: 2/4 (50%) distinct clicked impressions (0102, 0110) over 4 distinct impressions.
+
+Call completion: 3/4 (75%) started propertyId+correlationId sessions (0051–0053 of 4) completed (0054 did not; 2 resolved, 1 unresolved).
+
+Inquiry categories: property_details = 3, unknown = 1.
+
+Tool success: 3/4 (75%) tool_success events succeeded (0121 failed).
+
+Escalation: 1/4 (25%) started sessions escalated (0053, webhook_timeout).
+
+Latency threshold: Under <1000ms (excluding 1000), 2/3 completions pass (800ms, 999ms; 1000ms excluded). These fictional latencies cannot establish provider SLAs or performance.
+
+2. Edge cases
+
+exact_retry: Identical 0103 retry counts once; CTR stays 2/4 (50%).
+
+another_click_same_impression: Click 0401 on 0102 still counts impression 0102 once; CTR stays 2/4 (50%).
+
+utc_and_same_window_cohort: 0901 (16:00-08:00 Nov 16 = 2026-11-17T00:00:00Z) enters window, while click 0902 (16:00-08:00 Nov 18 = 2026-11-19T00:00:00Z) hits exclusive midnight and is excluded. 0903 (2026-11-16T23:59:59Z) precedes the window, so click 0904 cannot match; CTR drops to 2/5 (40%).
+
+wrong_property_or_correlation: Clicks 0405 (wrong propertyId) and 0406 (wrong correlationId) fail join checks; CTR stays 2/4 (50%), and normal ingestion rejects unmatched clicks.
+
+small_property_B: Property ...0002 has denominators <3 (0/1 CTR, 0/1 completion, 1/1 tool success, 0/1 escalation), requiring Insufficient data with counts instead of percentages.
+
+conflicting_retry: Reusing 0100 with altered occurredAt rejects the dataset.
+
+invalidShapeProbe: Unknown extraField is rejected by schema validation.
+
+3. One chart recommendation
+Replace the daily unique-event bar chart (retaining its HTML table pattern) with a Horizontal Rate-and-Count Bar Chart covering the minimum viable metric set: Sponsor CTR (% distinct impressions), Call Completion (% started sessions), Tool Failure (% tool results), and Escalation (% started sessions).
+
+Axes/labels: Y-axis lists the four metrics with denominator units; X-axis shows 0–100%, annotated with exact numerator/denominator counts and top intent_category counts (property_details: 3, unknown: 1).
+
+Small/empty groups: For denominators <3 (e.g., Property B) or 0, suppress bars/percentages and show Insufficient data (n/d) or No events recorded (empty data never proves zero failures).
+
+Accessibility & decision: Pair with an equivalent HTML data table and summary text. This directly informs which inquiry-flow issue to inspect next (e.g., 25% tool failure/escalation vs 50% CTR) without mixing event types across two UTC days; no implementation or user test has occurred.
+
+4. Privacy and limits
+Retain only eventId, occurredAt, propertyId, correlationId, source, name, and allowlisted properties—no recordings, transcripts, phone numbers, IP/UA hashes, contacts, or free-text notes. Keep collection opt-in (off by default, local store cleared on revoke/reload), send filters in request bodies, enforce server-side role/ownership rules, isolate source=fixture from provider_measured, and establish scheduled 30-day purges. While arithmetic, deduplication, UTC boundaries, and joins work as designed, this fictional fixture cannot prove real demand, causality, revenue, unique people, caller resolution, or provider performance.

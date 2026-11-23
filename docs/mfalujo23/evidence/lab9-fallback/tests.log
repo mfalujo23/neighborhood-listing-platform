@@ -1,0 +1,52 @@
+Command: node C:\Users\mfalujo\Documents\Codex\2026-11-18\https-calstatela-instructure-com-https-calstatela\work\lab1-tools11\node_modules\npm\bin\npm-cli.js test
+
+
+> neighborhood-listing-platform@0.1.0 test
+> vitest run src/test && node --test tests/webhook.test.js
+
+
+ RUN  v5.1.0 C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/lab9-fallback-verified-snapshot
+
+
+ Test Files  3 passed (3)
+      Tests  43 passed (43)
+   Start at  17:58:31
+   Duration  1.58s (import 85%, transform 12%, tests 2%, worker 1%)
+
+(node:36728) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/lab9-fallback-verified-snapshot/tests/webhook.test.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to \\?\C:\Users\mfalujo\Documents\Codex\2026-11-18\https-calstatela-instructure-com-https-calstatela\work\lab9-fallback-verified-snapshot\package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+▶ Lab 9: signature, idempotency, consent, and privacy
+  ✔ accepts a valid signed form and returns XML (29.3943ms)
+  ✔ rejects invalid and missing signatures without persisting an event (1.8567ms)
+  ✔ rejects a payload changed after signing (1.3327ms)
+  ✔ uses the configured callback URL rather than Host headers (1.1501ms)
+  ✔ rejects missing and malformed required fields even when signed (1.5562ms)
+  ✔ rejects ambiguous repeated form fields (0.8961ms)
+  ✔ enforces methods and an exact documented content type (5.1673ms)
+  ✔ rejects oversized streamed bodies before signature or persistence (1.7732ms)
+  ✔ prevents two sends when duplicate requests arrive concurrently (7.2106ms)
+  ✔ retains duplicate protection across separate local adapter instances (5.6642ms)
+  ✔ sends nothing without explicit consent, or with the default-disabled flag (10.5455ms)
+  ✔ never reports a successful SMS without a configured client (1.909ms)
+  ✔ does not send twice after an ambiguous provider failure (6.7354ms)
+  ✔ escapes project-name XML text (5.8455ms)
+  ✔ stores and logs only minimal redacted fields (6.555ms)
+  ✔ fails closed on hosted deployments without a durable store (1.8989ms)
+  ✔ does not send when the event store is unavailable (1.4394ms)
+  ✔ keeps raw errors and caller data out of fallback XML and failure logs (1.293ms)
+  ✔ rejects an invalid signature before attempting an unavailable store or SMS adapter (1.0248ms)
+  ✔ handles atomic hosted insert and duplicate conflicts using a fake transport (0.964ms)
+  ✔ surfaces hosted storage failures instead of treating them as duplicates (0.6778ms)
+✔ Lab 9: signature, idempotency, consent, and privacy (97.2416ms)
+ℹ tests 21
+ℹ suites 1
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 274.8719
+
+Exit code: 0

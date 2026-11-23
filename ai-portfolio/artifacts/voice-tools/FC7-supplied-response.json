@@ -1,0 +1,17 @@
+{
+  "caseId": "FC7-model-timeout-dialogue",
+  "observedTool": "get_property_details",
+  "observedArguments": {
+    "property_id": "demo-002"
+  },
+  "execution": "Actual local strict validator with an immediate deterministic mock timeout injection; no timed network or provider request occurred.",
+  "toolSourceSha256": "15c285ecc10225d850b76efb52c158300836a798a68692a9839ea52496497daf",
+  "executedAtUTC": "2026-11-19T03:12:12.805Z",
+  "result": {
+    "ok": false,
+    "error": {
+      "code": "TIMEOUT",
+      "message": "Simulated tool timeout; no network request was attempted."
+    }
+  }
+}

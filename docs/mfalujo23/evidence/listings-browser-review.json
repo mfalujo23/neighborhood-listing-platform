@@ -1,0 +1,195 @@
+{
+  "checkedAtUTC": "2026-11-19T22:34:10.253Z",
+  "scope": "Separate local production QA build, accessibility control on; read-only approved public database key; no participant sessions",
+  "runtimeSourceSha256": "3b1a052659908f7423c660fe69541106974edb3bca99c0faacfd3f990cc7adfe",
+  "cases": [
+    {
+      "name": "Keyboard save control",
+      "pressed": "true"
+    },
+    {
+      "name": "Keyboard details",
+      "text": "SYNTHETIC LISTING\n\n101 Imaginary Garden Lane\n\nDemo Grove, CA 90032\n\n$425,000\n\n2 beds\n1.5 baths\n1,100 sq ft\nSaved to favorites\nView details for 101 Imaginary Garden Lane\n\nAmenities: parking, garden.\n\nFictional local sponsors: Imaginary Garden Shop."
+    },
+    {
+      "name": "City and price filter",
+      "text": "1 of 5 listings shown."
+    },
+    {
+      "name": "Empty result",
+      "text": "Synthetic property listings\n\n0 of 5 listings shown.\n\nSaved choices reset when this page reloads.\n\nNo listings match these filters. Try another city or price, or reset the filters."
+    },
+    {
+      "name": "Reset filters",
+      "text": "5 of 5 listings shown."
+    },
+    {
+      "name": "Keyboard sponsor navigation",
+      "url": "http://127.0.0.1:3007/listings/sponsors/imaginary-garden-shop",
+      "text": "SPONSORED · FICTIONAL CLASSROOM EXAMPLE\n\nImaginary Garden Shop\n\nThis is a fictional classroom sponsor. No business paid for this example.\n\nBack to listings"
+    },
+    {
+      "name": "Real public API results render",
+      "route": "/listings/live",
+      "articles": 1,
+      "text": "Home\nSample neighborhood\nExample listings\n\nThese approved fictional properties are examples for demonstration.\n\nAvailable properties\nFictional approved listing\n\n20 Example Way\nTest City, CA 90032\n\nPrice: $600,000.00\nBedrooms: 3\nBathrooms: 2\nSize: 1,200 square feet",
+      "writesPerformed": false
+    },
+    {
+      "name": "Visible keyboard focus",
+      "observed": {
+        "focusVisible": true,
+        "outline": "rgb(29, 78, 216) solid 3px",
+        "tag": "A",
+        "text": "Sample neighborhood"
+      }
+    }
+  ],
+  "sponsorAudit": {
+    "route": "/listings/sponsors/imaginary-garden-shop",
+    "engine": "axe-core 4.14.1",
+    "checkedAt": "2026-11-19T22:34:31.030Z",
+    "violations": [],
+    "incomplete": [],
+    "passedRules": 19
+  },
+  "liveAudit": {
+    "route": "/listings/live",
+    "engine": "axe-core 4.14.1",
+    "checkedAt": "2026-11-19T22:35:47.090Z",
+    "violations": [],
+    "incomplete": [],
+    "passedRules": 21
+  },
+  "listingAudit": {
+    "route": "/listings",
+    "engine": "axe-core 4.14.1",
+    "checkedAt": "2026-11-19T22:33:33.357Z",
+    "violations": [],
+    "incomplete": [],
+    "passedRules": 26
+  },
+  "responsive": [
+    {
+      "cards": 5,
+      "columns": "312px",
+      "documentWidth": 360,
+      "route": "/listings",
+      "width": 375
+    },
+    {
+      "cards": 5,
+      "clientWidth": 753,
+      "columns": "342.5px 342.5px",
+      "documentWidth": 753,
+      "route": "/listings",
+      "width": 768
+    },
+    {
+      "cards": 5,
+      "clientWidth": 1265,
+      "columns": "370.656px 370.672px 370.656px",
+      "documentWidth": 1265,
+      "route": "/listings",
+      "width": 1280
+    },
+    {
+      "cards": 5,
+      "clientWidth": 305,
+      "columns": "272px",
+      "documentWidth": 320,
+      "route": "/listings",
+      "width": 320
+    },
+    {
+      "articles": 1,
+      "clientWidth": 305,
+      "documentWidth": 320,
+      "route": "/listings/live",
+      "width": 320
+    }
+  ],
+  "finalRuntimeSourceSha256": "e07870e33c6ee0d2d22cd74e74ae3c3e11ca61e6e91ada26ffbfcc7df00ae441",
+  "priorResponsiveFinding": "At 320px, inherited body min-width:320px exceeded the305px content area with its scrollbar. The single declaration was removed and rebuilt; initial375/768/1280 checks passed.",
+  "finalResponsive": [
+    {
+      "articles": 1,
+      "bodyMinWidth": "0px",
+      "clientWidth": 320,
+      "documentWidth": 320,
+      "route": "/listings/live",
+      "width": 320
+    },
+    {
+      "bodyMinWidth": "0px",
+      "cards": 5,
+      "clientWidth": 305,
+      "columns": "257px",
+      "documentWidth": 305,
+      "route": "/listings",
+      "width": 320
+    },
+    {
+      "bodyMinWidth": "0px",
+      "cards": 5,
+      "clientWidth": 360,
+      "columns": "312px",
+      "documentWidth": 360,
+      "route": "/listings",
+      "width": 375
+    },
+    {
+      "bodyMinWidth": "0px",
+      "cards": 5,
+      "clientWidth": 753,
+      "columns": "342.5px 342.5px",
+      "documentWidth": 753,
+      "route": "/listings",
+      "width": 768
+    },
+    {
+      "bodyMinWidth": "0px",
+      "cards": 5,
+      "clientWidth": 1265,
+      "columns": "370.656px 370.672px 370.656px",
+      "documentWidth": 1265,
+      "route": "/listings",
+      "width": 1280
+    }
+  ],
+  "finalLiveAudit": {
+    "route": "/listings/live",
+    "engine": "axe-core 4.14.1",
+    "checkedAt": "2026-11-19T22:40:43.769Z",
+    "violations": [],
+    "incomplete": [],
+    "passedRules": 21
+  },
+  "finalListingAudit": {
+    "route": "/listings",
+    "engine": "axe-core 4.14.1",
+    "checkedAt": "2026-11-19T22:40:54.409Z",
+    "violations": [],
+    "incomplete": [],
+    "passedRules": 26
+  },
+  "finalSponsorAudit": {
+    "route": "/listings/sponsors/imaginary-garden-shop",
+    "engine": "axe-core 4.14.1",
+    "checkedAt": "2026-11-19T22:41:06.308Z",
+    "violations": [],
+    "incomplete": [],
+    "passedRules": 19
+  },
+  "completedPositiveChecksAtUTC": "2026-11-19T22:41:14.807Z",
+  "configurationFailure": {
+    "scope": "Controlled local production server started with all database configuration omitted; hosted project unchanged",
+    "beforeRetry": "Home\nSample neighborhood\nExample listings\n\nThese approved fictional properties are examples for demonstration.\n\nAvailable properties\n\nListings could not be loaded. Please try again.\n\nRetry loading listings",
+    "afterRetry": "Home\nSample neighborhood\nExample listings\n\nThese approved fictional properties are examples for demonstration.\n\nAvailable properties\n\nListings could not be loaded. Please try again.\n\nRetry loading listings",
+    "alert": "Listings could not be loaded. Please try again.",
+    "cardsDisplayed": 0
+  },
+  "completedAtUTC": "2026-11-19T22:42:06.848Z",
+  "completedHumanSessions": 0,
+  "browserZoom": "No new browser zoom test; 320/375/768/1280 are actual viewport reflow measurements."
+}

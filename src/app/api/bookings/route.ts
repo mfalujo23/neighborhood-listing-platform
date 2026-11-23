@@ -1,35 +1,28 @@
-import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
-import { z } from 'zod'
-
-const BookingSchema = z
-  .object({
-    service_id: z.string().uuid(),
-    client_email: z.string().trim().email().max(254),
-    requested_date: z
-      .string()
-      .regex(/^\d{4}-\d{2}-\d{2}$/)
-      .refine((value) => {
-        const date = new Date(`${value}T00:00:00.000Z`)
-        return !Number.isNaN(date.getTime()) && date.toISOString().startsWith(value)
-      }),
-    notes: z.string().trim().min(10).max(2000),
-  })
-  .strict()
+import { BookingCreateSchema } from '@/schemas/booking'
+import { createSupabaseUserClient } from '@/lib/supabaseServer'
+import { bookingRequestBudget, JsonBodyError, readJsonBody } from '@/lib/request-controls'
 
 export async function POST(request: Request) {
+  const capacity = bookingRequestBudget.take()
+  if (!capacity.allowed) {
+    return NextResponse.json(
+      { error: 'Too many booking requests. Try again shortly.' },
+      { status: 429, headers: { 'Retry-After': String(capacity.retryAfter), 'Cache-Control': 'no-store' } },
+    )
+  }
   let body: unknown
 
   try {
-    body = await request.json()
-  } catch {
+    body = await readJsonBody(request)
+  } catch (error) {
     return NextResponse.json(
-      { error: 'Request body must be valid JSON.' },
-      { status: 400 },
+      { error: error instanceof JsonBodyError ? error.message : 'Request body must be valid JSON.' },
+      { status: error instanceof JsonBodyError ? error.status : 400 },
     )
   }
 
-  const parsed = BookingSchema.safeParse(body)
+  const parsed = BookingCreateSchema.safeParse(body)
 
   if (!parsed.success) {
     return NextResponse.json(
@@ -40,7 +33,7 @@ export async function POST(request: Request) {
 
   const url = process.env.SUPABASE_URL
   const key =
-    process.env.SUPABASE_ANON_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY
+    process.env.SUPABASE_ANON_KEY || process.env.SUPABASE_PUBLISHABLE_KEY
 
   if (!url || !key) {
     return NextResponse.json(
@@ -50,12 +43,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const supabase = createClient(url, key, {
-      auth: {
-        persistSession: false,
-        autoRefreshToken: false,
-      },
-    })
+    const supabase = createSupabaseUserClient()
 
     const { error } = await supabase.from('bookings').insert({
       service_id: parsed.data.service_id,
@@ -65,10 +53,11 @@ export async function POST(request: Request) {
     })
 
     if (error) {
-      console.error('Booking insert error:', error)
+      console.error('Booking insert failed', { code: error.code })
+      const status = error.code === '42501' ? 403 : error.code?.startsWith('23') ? 400 : 503
       return NextResponse.json(
         { error: 'Could not submit booking request.' },
-        { status: 400 },
+        { status },
       )
     }
 
@@ -76,8 +65,8 @@ export async function POST(request: Request) {
       { message: 'Booking request submitted.' },
       { status: 201 },
     )
-  } catch (error) {
-    console.error('Booking route error:', error)
+  } catch {
+    console.error('Booking route failed')
     return NextResponse.json(
       { error: 'Server configuration or request error.' },
       { status: 500 },

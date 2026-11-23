@@ -1,0 +1,43 @@
+Review the supplied material for CIS 3610 Lab 4: Discovery, Responsible Outreach, and Product Requirements. Use only the public, de-identified source material below.
+
+Source status matters. These are existing Team Aster materials authored by gavy1997. P1 is a team-reported source, not a new Michael Falujo interview. The source file labels the notes as live/approved, but instructor approval, participant consent and the original interview are not independently verified here. Do not treat that label as new approval evidence. Do not contact anyone, identify P1, invent another participant, or claim that any new interview or test occurred.
+
+Public source URLs, pinned to the current inherited files:
+Questions: https://github.com/mfalujo23/neighborhood-listing-platform/blob/fa9d5780041996cc81c8ca1a25a9703f80d8c2cd/docs/lab4-discovery-outreach.md
+Notes: https://github.com/mfalujo23/neighborhood-listing-platform/blob/fa9d5780041996cc81c8ca1a25a9703f80d8c2cd/docs/lab4-personas-themes.md
+Upstream team work: https://github.com/gavy1997/neighborhood-listing-platform/pull/6
+https://github.com/gavy1997/neighborhood-listing-platform/pull/7
+https://github.com/gavy1997/neighborhood-listing-platform/pull/8
+
+EXACT EXISTING TEAM QUESTIONS
+Q1 (Workflow): How do you currently share and update neighborhood or property information with prospective buyers or clients?
+Q2 (Workflow): What manual steps in your current publishing process take up the most time?
+Q3 (Audience): Who is your primary target audience, and how do they typically find or interact with your local content?
+Q4 (Content Approval): What approval steps or compliance checks must happen before a listing or local banner goes live on a community platform?
+Q5 (Content Approval): How do you handle content updates or corrections when information changes after publication?
+Q6 (Success Measures): What specific metrics or outcomes indicate that a featured neighborhood listing or local sponsorship is successful for you?
+Q7 (Accessibility & Usability): What accessibility standards or device preferences (mobile vs. desktop) are essential for your clients and stakeholders?
+Q8 (General Pain Points): What is the biggest frustration you experience with current local listing or ad management platforms?
+
+EXACT EXISTING TEAM-REPORTED NOTES
+P1-01 (Participant): Property Professional P1 (Active Local Real Estate Agent)
+P1-02 (Context): Conducts active buyer representation and neighborhood listing management.
+P1-03 (Workflow Observation): Manually compiles neighborhood summaries, nearby local spots, and property links to send directly to active buyers.
+P1-04 (Workflow Observation): Finds that client communication happens primarily on mobile devices while buyers tour properties or review links on the go.
+P1-05 (Workflow Observation): Requires quick review and approval authority over any sponsor or partner ad displayed next to her property information.
+P1-06 (Success Metrics): Measured by direct client inquiry responses and time spent engaging with shared neighborhood links.
+
+TASK
+Return these five short sections. Keep the language simple.
+
+1. Review the eight questions. For Q1–Q8, state any leading assumption, privacy risk or accessibility problem, or say none found. Give the smallest neutral rewrite where needed. Do not ask for names, contact lists, protected housing traits, sensitive personal data or identifiable client records.
+
+2. Propose exactly eight final neutral questions covering workflow, audience roles/channels, content approval/corrections, success measures and accessibility. Preserve their Q1–Q8 correspondence so the changes can be compared. Open wording must allow the participant to say a problem or need does not exist.
+
+3. Group the existing notes into a small theme table: theme ID, supporting P1 line IDs, grounded paraphrase, and any inference or uncertainty. Account for P1-01 through P1-06. Treat participant/context labels as context, not as proof of a product need. Do not invent frequency, quotes, business results, interview details or stakeholder preferences beyond the notes.
+
+4. Propose a small set of candidate user stories and Given/When/Then acceptance criteria. For each, identify supporting P1 line IDs and label design inferences. Separate a source observation from a proposed feature. Criteria describe intended behavior; they do not establish that the current app implements it. Do not add real-time alerts, self-service approval, demographics-based housing targeting, production permissions or guaranteed commercial outcomes without evidence.
+
+5. List the questions that still require stakeholder or instructor-proxy confirmation, including any unclear source of truth, approval owner, update cadence, allowed sponsor claim/destination or metric definition. State any unsupported conclusion that must be rejected.
+
+The supplied notes do not establish a local sponsor's direct interview or completed usability testing. Preserve that boundary. No new outreach is required to complete this source-based review. Your response will be compared line by line against the supplied notes, not treated as independent research or a test result.

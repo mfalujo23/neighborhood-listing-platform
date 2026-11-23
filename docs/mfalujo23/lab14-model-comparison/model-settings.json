@@ -1,0 +1,22 @@
+{
+  "capturedAtUTC": "2026-11-20T01:08:14.661Z",
+  "input": {
+    "file": "prompt.txt",
+    "sha256": "0a490243fe3176c5a62d2c42082ce9b0eaf2ebae40357f9f5013b92b7a012572",
+    "bytes": 21549,
+    "identicalCompletePrompt": true
+  },
+  "chatgpt": {
+    "tool": "ChatGPT browser UI",
+    "visibleModelLabel": "Instant",
+    "exactVersion": "not shown"
+  },
+  "gemini": {
+    "tool": "Google AI Studio",
+    "visibleModelLabel": "Gemini 4 Hydrogen",
+    "modelId": "gemini-4-hydrogen",
+    "apiKeySelected": false
+  },
+  "capture": "Rendered final responses only; no model thoughts included.",
+  "assistance": "Browser operation and comparison prepared with an assistant under Michael Falujo’s direction."
+}

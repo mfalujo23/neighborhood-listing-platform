@@ -1,0 +1,181 @@
+{
+  "startedAt": "2026-11-19T01:13:27.593Z",
+  "environment": "disposable local PGlite fixture, not hosted Supabase",
+  "layouts": [
+    {
+      "gridColumns": "296px",
+      "scrollWidth": 360,
+      "width": 375
+    },
+    {
+      "gridColumns": "340px 340px",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "gridColumns": "362.656px 362.672px 362.656px",
+      "scrollWidth": 1280,
+      "width": 1280
+    }
+  ],
+  "keyboard": [
+    {
+      "label": null,
+      "tag": "A",
+      "text": "Back to BarrioList"
+    },
+    {
+      "label": "Request a booking for Fictional plumbing review",
+      "tag": "BUTTON",
+      "text": "Request a booking"
+    },
+    {
+      "action": "Enter opens first booking",
+      "focus": {
+        "id": "booking-heading",
+        "label": null,
+        "tag": "H2"
+      }
+    },
+    {
+      "key": "Tab",
+      "focus": {
+        "id": "client_email",
+        "name": "client_email",
+        "tag": "INPUT",
+        "text": ""
+      }
+    },
+    {
+      "key": "Tab",
+      "focus": {
+        "id": "requested_date",
+        "name": "requested_date",
+        "tag": "INPUT",
+        "text": ""
+      }
+    },
+    {
+      "key": "Tab",
+      "focus": {
+        "id": "requested_date",
+        "name": "requested_date",
+        "tag": "INPUT",
+        "text": ""
+      }
+    },
+    {
+      "key": "Tab",
+      "focus": {
+        "id": "requested_date",
+        "name": "requested_date",
+        "tag": "INPUT",
+        "text": ""
+      }
+    },
+    {
+      "key": "Tab",
+      "focus": {
+        "id": "requested_date",
+        "name": "requested_date",
+        "tag": "INPUT",
+        "text": ""
+      }
+    },
+    {
+      "key": "Tab",
+      "focus": {
+        "id": "notes",
+        "name": "notes",
+        "tag": "TEXTAREA",
+        "text": ""
+      }
+    },
+    {
+      "key": "Tab",
+      "focus": {
+        "id": "",
+        "name": null,
+        "tag": "BUTTON",
+        "text": "Send booking request"
+      }
+    },
+    {
+      "key": "Tab",
+      "focus": {
+        "id": "",
+        "name": null,
+        "tag": "BUTTON",
+        "text": "Cancel"
+      }
+    },
+    {
+      "key": "Shift+Tab",
+      "focus": {
+        "id": "",
+        "name": null,
+        "tag": "BUTTON",
+        "text": "Send booking request"
+      }
+    }
+  ],
+  "invalid": {
+    "alerts": [
+      "Invalid email address",
+      "Too small: expected string to have >=10 characters"
+    ],
+    "focus": "client_email",
+    "invalid": [
+      {
+        "describedBy": "client_email-error",
+        "id": "client_email"
+      },
+      {
+        "describedBy": "notes-error",
+        "id": "notes"
+      }
+    ]
+  },
+  "success": {
+    "focus": {
+      "tag": "P",
+      "text": "Booking request submitted."
+    },
+    "formPresent": false,
+    "statuses": [
+      "Booking request submitted."
+    ]
+  },
+  "cancel": {
+    "focusLabel": "Request a booking for Provider A approved",
+    "focusStyle": {
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 0px 0px 2px, oklch(0.511 0.262 276.966) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "outline": "solid"
+    },
+    "focusText": "Request a booking",
+    "formPresent": false
+  },
+  "outage": {
+    "alerts": [
+      "Your request could not be submitted. Please try again."
+    ],
+    "formRetained": true,
+    "sendEnabled": true,
+    "valuesRetained": "Fictional local outage check, no real request."
+  },
+  "retry": {
+    "focusText": "Back to BarrioList\n\nLocal preview with fictional services. Booking requests stay in a disposable local database.\n\nNeighborhood services\n\nBrowse approved local services and request an appointment. Only the provider and authorized administrators can review booking details.\n\nFictional plumbing review\nHourly rate: $85.00\nDuration: 45 minutes\nCoverage radius: 8 miles\nRequest a booking\nProvider A approved\nHourly rate: $75.00\nDuration: 60 minutes\nCoverage radius: 10 miles\nRequest a booking\nProvider B approved\nHourly rate: $80.00\nDuration: 45 minutes\nCoverage radius: 5 miles\nRequest a booking\nRequest a booking: Provider A approved\n\nEnter an email address, a calendar date, and 10–2000 characters describing the request. Do not include sensitive information.\n\nEmail\nRequested date\nWhat do you need?\n\nYour request could not be submitted. Please try again.\n\nSend booking request\nCancel",
+    "formRetained": true,
+    "statuses": []
+  },
+  "retryAfterUnsandboxedFixture": {
+    "focus": {
+      "tag": "P",
+      "text": "Booking request submitted."
+    },
+    "formPresent": false,
+    "statuses": [
+      "Booking request submitted."
+    ]
+  }
+}

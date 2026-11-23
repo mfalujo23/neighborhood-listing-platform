@@ -1,0 +1,123 @@
+{
+  "scope": "Actual local strict validators and deterministic mock dispatcher. No model response, live call, network timeout, SMS or contact is inferred.",
+  "executedAtUTC": "2026-11-19T02:39:11.694Z",
+  "toolSourceSha256": "15c285ecc10225d850b76efb52c158300836a798a68692a9839ea52496497daf",
+  "validationIssuesForTenDigitZip": [
+    {
+      "origin": "string",
+      "code": "invalid_format",
+      "format": "regex",
+      "pattern": "/^\\d{5}$/",
+      "path": [
+        "zip"
+      ],
+      "message": "Invalid string: must match pattern /^\\d{5}$/"
+    }
+  ],
+  "cases": [
+    {
+      "name": "ten-digit ZIP",
+      "tool": "get_nearby_sponsors",
+      "args": {
+        "zip": "9003212345"
+      },
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "INVALID_ARGUMENTS",
+          "message": "Provide a five-digit ZIP and an optional allowed category."
+        }
+      }
+    },
+    {
+      "name": "property ID and address together",
+      "tool": "get_property_details",
+      "args": {
+        "property_id": "demo-001",
+        "address": "101 Example Court"
+      },
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "INVALID_ARGUMENTS",
+          "message": "Provide a property ID or an address, without extra fields."
+        }
+      }
+    },
+    {
+      "name": "follow-up consent false",
+      "tool": "request_agent_followup",
+      "args": {
+        "property_id": "demo-001",
+        "consent": false,
+        "preferred_channel": "email"
+      },
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "INVALID_ARGUMENTS",
+          "message": "Explicit consent, a property ID, and a preferred channel are required."
+        }
+      }
+    },
+    {
+      "name": "unapproved tool name",
+      "tool": "delete_property",
+      "args": {},
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "INVALID_ARGUMENTS",
+          "message": "This tool name is outside the approved mock tool list."
+        }
+      }
+    },
+    {
+      "name": "unknown fictional property",
+      "tool": "get_property_details",
+      "args": {
+        "property_id": "demo-999"
+      },
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "This property is not in the fictional approved fact set."
+        }
+      }
+    },
+    {
+      "name": "immediate injected mock timeout",
+      "tool": "get_property_details",
+      "args": {
+        "property_id": "demo-001"
+      },
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "TIMEOUT",
+          "message": "Simulated tool timeout; no network request was attempted."
+        }
+      }
+    },
+    {
+      "name": "unavailable human mock",
+      "tool": "request_agent_followup",
+      "args": {
+        "property_id": "demo-001",
+        "consent": true,
+        "preferred_channel": "email"
+      },
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "HUMAN_UNAVAILABLE",
+          "message": "Simulated human unavailability; no transfer or callback was placed."
+        }
+      }
+    }
+  ],
+  "externalRequests": 0,
+  "followupsSubmitted": 0,
+  "passed": true
+}

@@ -1,0 +1,10 @@
+{
+  "caseId": "FC7-model-timeout-dialogue",
+  "toolName": "get_property_details",
+  "args": {
+    "property_id": "demo-002"
+  },
+  "fault": "tool-timeout",
+  "capturedAt": "2026-11-19T03:11:58.803Z",
+  "observation": "Actual AI Studio proposed function, copied from its visible function-call block."
+}

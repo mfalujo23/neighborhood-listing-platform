@@ -1,0 +1,514 @@
+{
+  "label": "Fictional offline fixture only; no human/provider observations",
+  "source": "fixture",
+  "properties": [
+    {
+      "id": "70000000-0000-4000-8000-000000000001",
+      "label": "Fictional property A"
+    },
+    {
+      "id": "70000000-0000-4000-8000-000000000002",
+      "label": "Fictional property B"
+    }
+  ],
+  "baseEvents": [
+    {
+      "eventId": "70000000-0000-4000-8000-000000000100",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000051",
+      "source": "fixture",
+      "name": "listing_view",
+      "properties": {}
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000101",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000051",
+      "source": "fixture",
+      "name": "filter_used",
+      "properties": {
+        "filter": "bedrooms"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000102",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000051",
+      "source": "fixture",
+      "name": "sponsor_impression",
+      "properties": {
+        "sponsorId": "fictional-sponsor-a",
+        "neighborhood": "90032"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000103",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000051",
+      "source": "fixture",
+      "name": "sponsor_click",
+      "properties": {
+        "impressionId": "70000000-0000-4000-8000-000000000102"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000104",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000051",
+      "source": "fixture",
+      "name": "call_started",
+      "properties": {}
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000105",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000051",
+      "source": "fixture",
+      "name": "intent_category",
+      "properties": {
+        "category": "property_details"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000106",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000051",
+      "source": "fixture",
+      "name": "tool_success",
+      "properties": {
+        "tool": "get_property_details",
+        "success": true
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000107",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000051",
+      "source": "fixture",
+      "name": "call_completed",
+      "properties": {
+        "outcome": "resolved",
+        "pipelineLatencyMs": 800
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000108",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000052",
+      "source": "fixture",
+      "name": "listing_view",
+      "properties": {}
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000109",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000052",
+      "source": "fixture",
+      "name": "filter_used",
+      "properties": {
+        "filter": "bedrooms"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000110",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000052",
+      "source": "fixture",
+      "name": "sponsor_impression",
+      "properties": {
+        "sponsorId": "fictional-sponsor-a",
+        "neighborhood": "90032"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000111",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000052",
+      "source": "fixture",
+      "name": "sponsor_click",
+      "properties": {
+        "impressionId": "70000000-0000-4000-8000-000000000110"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000112",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000052",
+      "source": "fixture",
+      "name": "call_started",
+      "properties": {}
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000113",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000052",
+      "source": "fixture",
+      "name": "intent_category",
+      "properties": {
+        "category": "property_details"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000114",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000052",
+      "source": "fixture",
+      "name": "tool_success",
+      "properties": {
+        "tool": "get_property_details",
+        "success": true
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000115",
+      "occurredAt": "2026-11-18T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000052",
+      "source": "fixture",
+      "name": "call_completed",
+      "properties": {
+        "outcome": "resolved",
+        "pipelineLatencyMs": 999
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000116",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000053",
+      "source": "fixture",
+      "name": "listing_view",
+      "properties": {}
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000117",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000053",
+      "source": "fixture",
+      "name": "filter_used",
+      "properties": {
+        "filter": "bedrooms"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000118",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000053",
+      "source": "fixture",
+      "name": "sponsor_impression",
+      "properties": {
+        "sponsorId": "fictional-sponsor-a",
+        "neighborhood": "90032"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000119",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000053",
+      "source": "fixture",
+      "name": "call_started",
+      "properties": {}
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000120",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000053",
+      "source": "fixture",
+      "name": "intent_category",
+      "properties": {
+        "category": "property_details"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000121",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000053",
+      "source": "fixture",
+      "name": "tool_success",
+      "properties": {
+        "tool": "get_property_details",
+        "success": false
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000122",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000053",
+      "source": "fixture",
+      "name": "escalation",
+      "properties": {
+        "reason": "webhook_timeout"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000123",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000001",
+      "correlationId": "70000000-0000-4000-8000-000000000053",
+      "source": "fixture",
+      "name": "call_completed",
+      "properties": {
+        "outcome": "unresolved",
+        "pipelineLatencyMs": 1000
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000124",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000002",
+      "correlationId": "70000000-0000-4000-8000-000000000054",
+      "source": "fixture",
+      "name": "listing_view",
+      "properties": {}
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000125",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000002",
+      "correlationId": "70000000-0000-4000-8000-000000000054",
+      "source": "fixture",
+      "name": "filter_used",
+      "properties": {
+        "filter": "bedrooms"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000126",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000002",
+      "correlationId": "70000000-0000-4000-8000-000000000054",
+      "source": "fixture",
+      "name": "sponsor_impression",
+      "properties": {
+        "sponsorId": "fictional-sponsor-a",
+        "neighborhood": "90032"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000127",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000002",
+      "correlationId": "70000000-0000-4000-8000-000000000054",
+      "source": "fixture",
+      "name": "call_started",
+      "properties": {}
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000128",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000002",
+      "correlationId": "70000000-0000-4000-8000-000000000054",
+      "source": "fixture",
+      "name": "intent_category",
+      "properties": {
+        "category": "unknown"
+      }
+    },
+    {
+      "eventId": "70000000-0000-4000-8000-000000000129",
+      "occurredAt": "2026-11-17T12:00:00Z",
+      "propertyId": "70000000-0000-4000-8000-000000000002",
+      "correlationId": "70000000-0000-4000-8000-000000000054",
+      "source": "fixture",
+      "name": "tool_success",
+      "properties": {
+        "tool": "get_property_details",
+        "success": true
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "baseline",
+      "filter": {
+        "from": "2026-11-17",
+        "through": "2026-11-18"
+      },
+      "appendEvents": []
+    },
+    {
+      "id": "exact_retry",
+      "filter": {
+        "from": "2026-11-17",
+        "through": "2026-11-18"
+      },
+      "appendEvents": [
+        {
+          "eventId": "70000000-0000-4000-8000-000000000103",
+          "occurredAt": "2026-11-17T12:00:00Z",
+          "propertyId": "70000000-0000-4000-8000-000000000001",
+          "correlationId": "70000000-0000-4000-8000-000000000051",
+          "source": "fixture",
+          "name": "sponsor_click",
+          "properties": {
+            "impressionId": "70000000-0000-4000-8000-000000000102"
+          }
+        }
+      ]
+    },
+    {
+      "id": "another_click_same_impression",
+      "filter": {
+        "from": "2026-11-17",
+        "through": "2026-11-18"
+      },
+      "appendEvents": [
+        {
+          "eventId": "70000000-0000-4000-8000-000000000401",
+          "occurredAt": "2026-11-17T13:00:00Z",
+          "propertyId": "70000000-0000-4000-8000-000000000001",
+          "correlationId": "70000000-0000-4000-8000-000000000051",
+          "source": "fixture",
+          "name": "sponsor_click",
+          "properties": {
+            "impressionId": "70000000-0000-4000-8000-000000000102"
+          }
+        }
+      ]
+    },
+    {
+      "id": "utc_and_same_window_cohort",
+      "filter": {
+        "from": "2026-11-17",
+        "through": "2026-11-18"
+      },
+      "appendEvents": [
+        {
+          "eventId": "70000000-0000-4000-8000-000000000901",
+          "occurredAt": "2026-11-16T16:00:00-08:00",
+          "propertyId": "70000000-0000-4000-8000-000000000001",
+          "correlationId": "70000000-0000-4000-8000-000000000088",
+          "source": "fixture",
+          "name": "sponsor_impression",
+          "properties": {
+            "sponsorId": "fictional-sponsor-b",
+            "neighborhood": "90032"
+          }
+        },
+        {
+          "eventId": "70000000-0000-4000-8000-000000000902",
+          "occurredAt": "2026-11-18T16:00:00-08:00",
+          "propertyId": "70000000-0000-4000-8000-000000000001",
+          "correlationId": "70000000-0000-4000-8000-000000000088",
+          "source": "fixture",
+          "name": "sponsor_click",
+          "properties": {
+            "impressionId": "70000000-0000-4000-8000-000000000901"
+          }
+        },
+        {
+          "eventId": "70000000-0000-4000-8000-000000000903",
+          "occurredAt": "2026-11-16T23:59:59Z",
+          "propertyId": "70000000-0000-4000-8000-000000000001",
+          "correlationId": "70000000-0000-4000-8000-000000000088",
+          "source": "fixture",
+          "name": "sponsor_impression",
+          "properties": {
+            "sponsorId": "fictional-sponsor-b",
+            "neighborhood": "90032"
+          }
+        },
+        {
+          "eventId": "70000000-0000-4000-8000-000000000904",
+          "occurredAt": "2026-11-17T00:01:00Z",
+          "propertyId": "70000000-0000-4000-8000-000000000001",
+          "correlationId": "70000000-0000-4000-8000-000000000088",
+          "source": "fixture",
+          "name": "sponsor_click",
+          "properties": {
+            "impressionId": "70000000-0000-4000-8000-000000000903"
+          }
+        }
+      ]
+    },
+    {
+      "id": "wrong_property_or_correlation",
+      "filter": {
+        "from": "2026-11-17",
+        "through": "2026-11-18"
+      },
+      "appendEvents": [
+        {
+          "eventId": "70000000-0000-4000-8000-000000000405",
+          "occurredAt": "2026-11-17T12:00:00Z",
+          "propertyId": "70000000-0000-4000-8000-000000000002",
+          "correlationId": "70000000-0000-4000-8000-000000000051",
+          "source": "fixture",
+          "name": "sponsor_click",
+          "properties": {
+            "impressionId": "70000000-0000-4000-8000-000000000102"
+          }
+        },
+        {
+          "eventId": "70000000-0000-4000-8000-000000000406",
+          "occurredAt": "2026-11-17T12:00:00Z",
+          "propertyId": "70000000-0000-4000-8000-000000000001",
+          "correlationId": "70000000-0000-4000-8000-000000000099",
+          "source": "fixture",
+          "name": "sponsor_click",
+          "properties": {
+            "impressionId": "70000000-0000-4000-8000-000000000102"
+          }
+        }
+      ]
+    },
+    {
+      "id": "small_property_B",
+      "filter": {
+        "from": "2026-11-17",
+        "through": "2026-11-18",
+        "propertyId": "70000000-0000-4000-8000-000000000002"
+      },
+      "appendEvents": []
+    },
+    {
+      "id": "conflicting_retry",
+      "filter": {
+        "from": "2026-11-17",
+        "through": "2026-11-18"
+      },
+      "appendEvents": [
+        {
+          "eventId": "70000000-0000-4000-8000-000000000100",
+          "occurredAt": "2026-11-17T12:01:00Z",
+          "propertyId": "70000000-0000-4000-8000-000000000001",
+          "correlationId": "70000000-0000-4000-8000-000000000051",
+          "source": "fixture",
+          "name": "listing_view",
+          "properties": {}
+        }
+      ]
+    }
+  ],
+  "invalidShapeProbe": {
+    "eventId": "70000000-0000-4000-8000-000000000100",
+    "occurredAt": "2026-11-17T12:00:00Z",
+    "propertyId": "70000000-0000-4000-8000-000000000001",
+    "correlationId": "70000000-0000-4000-8000-000000000051",
+    "source": "fixture",
+    "name": "listing_view",
+    "properties": {},
+    "extraField": "not-permitted"
+  }
+}

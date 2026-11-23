@@ -1,0 +1,164 @@
+{
+  "canonicalSchema": "work/lab2-lab3-verified-snapshot/src/schemas/property.ts",
+  "canonicalSchemaSha256": "b9e60836cdb34c874eb705110444f4082a33cab405afcc8beb882c25efd9b61a",
+  "providerExamples": [
+    {
+      "provider": "gemini",
+      "extractedExamplesSha256": "dad1011d33d9e9a0fa0c8e510d5baaaa41a1b7107730b3e52fc35ba126331b6c",
+      "cases": [
+        {
+          "label": "valid",
+          "success": true,
+          "issues": []
+        },
+        {
+          "label": "missing_property_id",
+          "success": false,
+          "issues": [
+            {
+              "expected": "string",
+              "code": "invalid_type",
+              "path": [
+                "property_id"
+              ],
+              "message": "Invalid input: expected string, received undefined"
+            }
+          ]
+        },
+        {
+          "label": "negative_price",
+          "success": false,
+          "issues": [
+            {
+              "origin": "number",
+              "code": "too_small",
+              "minimum": 0,
+              "inclusive": true,
+              "path": [
+                "price"
+              ],
+              "message": "Too small: expected number to be >=0"
+            }
+          ]
+        },
+        {
+          "label": "malformed_zip",
+          "success": false,
+          "issues": [
+            {
+              "origin": "string",
+              "code": "invalid_format",
+              "format": "regex",
+              "pattern": "/^\\d{5}(-\\d{4})?$/",
+              "path": [
+                "zip_code"
+              ],
+              "message": "Use a US ZIP or ZIP+4 code."
+            }
+          ]
+        },
+        {
+          "label": "unknown_field",
+          "success": false,
+          "issues": [
+            {
+              "code": "unrecognized_keys",
+              "keys": [
+                "hoa_fee"
+              ],
+              "path": [],
+              "message": "Unrecognized key: \"hoa_fee\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "provider": "chatgpt",
+      "extractedExamplesSha256": "dbd856e6f01569b82daba24a6bd097c2980c7d5f32cd519ce33cd9f9fa7ea24d",
+      "cases": [
+        {
+          "label": "valid",
+          "success": true,
+          "issues": []
+        },
+        {
+          "label": "missing_property_id",
+          "success": false,
+          "issues": [
+            {
+              "expected": "string",
+              "code": "invalid_type",
+              "path": [
+                "property_id"
+              ],
+              "message": "Invalid input: expected string, received undefined"
+            }
+          ]
+        },
+        {
+          "label": "negative_price",
+          "success": false,
+          "issues": [
+            {
+              "origin": "number",
+              "code": "too_small",
+              "minimum": 0,
+              "inclusive": true,
+              "path": [
+                "price"
+              ],
+              "message": "Too small: expected number to be >=0"
+            }
+          ]
+        },
+        {
+          "label": "malformed_zip",
+          "success": false,
+          "issues": [
+            {
+              "origin": "string",
+              "code": "invalid_format",
+              "format": "regex",
+              "pattern": "/^\\d{5}(-\\d{4})?$/",
+              "path": [
+                "zip_code"
+              ],
+              "message": "Use a US ZIP or ZIP+4 code."
+            }
+          ]
+        },
+        {
+          "label": "unknown_field",
+          "success": false,
+          "issues": [
+            {
+              "code": "unrecognized_keys",
+              "keys": [
+                "virtual_tour_url"
+              ],
+              "path": [],
+              "message": "Unrecognized key: \"virtual_tour_url\""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "seedAttempt1": {
+    "success": false,
+    "issues": [
+      {
+        "expected": "array",
+        "code": "invalid_type",
+        "path": [],
+        "message": "Invalid input: expected array, received object"
+      }
+    ]
+  },
+  "seedAttempt2": {
+    "success": true,
+    "records": 5,
+    "sha256": "6a733c0bfaa2d0ab973448dff89cee0411db9968cadb99bfef77e9d35887f522"
+  }
+}

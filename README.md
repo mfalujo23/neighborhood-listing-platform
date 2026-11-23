@@ -1,50 +1,68 @@
-# GitHub Codespaces ♥️ Next.js
+# Neighborhood Listing Platform
 
-Welcome to your shiny new Codespace running Next.js! We've got everything fired up and running for you to explore Next.js.
+Property listings, services and booking requests, disclosed sponsors, and
+fictional voice and analytics demonstrations.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+- [Public demonstration](https://neighborhood-listing-platform-sable.vercel.app/)
+- [Release checks and remaining work #18](https://github.com/mfalujo23/neighborhood-listing-platform/issues/18)
+- [Integration PR](https://github.com/mfalujo23/neighborhood-listing-platform/pull/14)
+- [Integration branch](https://github.com/mfalujo23/neighborhood-listing-platform/tree/feature/mfalujo23-coursework-integration)
+- [Separate practical-exam PR](https://github.com/mfalujo23/neighborhood-listing-platform/pull/11)
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+The current work is on the integration branch. The default branch has not been
+updated to it. The practical-exam PR remains open for review.
 
-To run this application:
+## Run locally
 
-```
+Use Node.js 24 and npm 11.21.3. Versions are pinned in the package files.
+
+```sh
+npm ci --ignore-scripts
 npm run dev
 ```
 
-## Assignment Submission Summary
-- **Requirement 1 (Dev Server):** Local development server verified via `npm run dev`.
-- **Requirement 2 (Feature Branch & Edit):** Feature branch created and changes made to `pages/index.js`.
-- **Requirement 3 (Production Build):** Production build verified via `npm run build`.
-- **Requirement 4 (Pull Request):** https://github.com/gavy1997/neighborhood-listing-platform/pull/1
-## Component Hierarchy
+Open http://localhost:3000. Public fixture pages work without account credentials.
+For checks and a production build:
 
-```text
-App (or Page)
-├── Header / SearchFilters (Form with <label>, <select>, <button>)
-├── SponsorBanner (Article/Aside, "Sponsored" badge, Accessible <a href="...">)
-└── PropertyListingGrid (Tailwind responsive grid)
-    └── PropertyCard (x3)
-        ├── Image (with descriptive alt text)
-        ├── Heading (h2 / h3 in proper document order)
-        ├── Address & Price
-        ├── Facts List (ul > li)
-        └── CTA Link/Button ("View Details for [Property Name]")
-Lab 1 submission sync update
-## 🛡️ Content Correction Procedure & Media Metrics (Lab 7)
+```sh
+npm run verify:source
+npm start
+```
 
-### Content Correction Protocol
-If unapproved, inaccurate, or non-compliant marketing copy reaches production:
-1. **Immediate Revocation:** The governance lead sets `status: "revoked"` in `src/data/copy-approved.json`.
-2. **Fallback Execution:** The application falls back to displaying the verified base brand details (`Aster Corp — Workshop Registration`).
-3. **Audit Log & Re-evaluation:** The incident is logged in `docs/AI_COLLABORATION_LOG.md` with the corrective prompt action taken.
+The source check runs lint, types, tests, local database checks, build and a
+fictional local booking check. It uses no provider credentials and does not
+deploy. Configure private values from [`.env.example`](.env.example) only when
+using hosted features. Never commit actual values or disable authorization.
 
-### Asset Performance Metrics
-- **Raw Asset:** `public/asset/raw/aster-logo-orig.png`
-- **Optimized Asset:** `public/asset/optimized/aster-logo-1x1.webp`
-- **Format:** WebP format provides optimal visual quality with reduced payload size, improving page load efficiency and Largest Contentful Paint (LCP) performance.
+## Pages and evidence
 
-## Live Deployment
-- Vercel URL: https://neighborhood-listing-platform-lime.vercel.app/
-![Production Release Gates Pipeline](https://github.com/gavy1997/neighborhood-listing-platform/actions/workflows/deploy.yml/badge.svg)
-<!-- trigger build -->
+- `/listings`: the five validated fictional Gemini records and existing filters.
+- `/listings/live`: approved example listings with loading, empty, error and retry states.
+- `/services`: approved services and private booking requests.
+- `/media-demo`, `/sponsor-simulator`: disclosed fictional sponsor examples.
+- `/voice-simulator`: text simulation; no carrier call or SMS is made.
+- `/dashboard-demo`: optional fictional data in page memory.
+- `/realtor-dashboard`: sign-in and authorized property scope required.
+
+[Hosted results](docs/mfalujo23/hosted-evidence/index.json) record real Auth/RLS,
+booking persistence, synthetic callback checks and application rollback/restore.
+Earlier results retain their actual source commits. The full local check passed
+401 unit tests and 21 webhook tests. After removing one minimum-width rule,
+62 UI tests, lint, types and the normal and local QA builds passed.
+[Local browser checks](docs/mfalujo23/evidence/listings-browser-review.json)
+verified the new listing pages with read-only hosted data. Hosted deployment
+checks for these pages and assigned-partner review remain pending.
+
+## Documentation
+
+- [Architecture](docs/architecture.md) and [decisions](docs/architecture-decisions/README.md)
+- [Data dictionary](docs/data-dictionary.md) and [migration order](migrations/README.md)
+- [Privacy](docs/privacy-impact-note.md), [security](docs/security-audit.md) and [accessibility](docs/accessibility-audit.md)
+- [Usability report status](docs/uat-report.md)
+- [Voice](docs/voice-runbook.md) and [operations](docs/operations-runbook.md)
+- [AI process journal](docs/ai-log.md) and [portfolio](ai-portfolio/README.md)
+
+Human usability sessions, screen-reader checks, automatic traffic rollback and
+hosted backup recovery remain incomplete. Application rollback was observed;
+database recovery/RPO/RTO and live rotation continuity were not tested.
+No release tag is claimed by these checks.

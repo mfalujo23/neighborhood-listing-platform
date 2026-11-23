@@ -1,0 +1,160 @@
+{
+  "scope": "Isolated local PostgreSQL via PGlite; direct SQL, no Supabase Auth/PostgREST or hosted provider",
+  "version": "PostgreSQL 18.6 (PGlite 0.5.16) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.13 (e13ee988ce3d87a738dd8f3661d02223308c412a), 32-bit",
+  "migration": "supabase/migrations/20261118000100_telephony_webhook_events.sql",
+  "migrationSha256": "81e02d9a52ad8a352d816247d6caac1c19d3964066cfc23a5a4fb2c91c998845",
+  "cases": 7,
+  "results": [
+    {
+      "name": "first CallSid claim",
+      "role": "service_role",
+      "sql": "insert into public.telephony_webhook_events(event_id, call_status, phone_suffix, processed_at) values ($1, $2, $3, $4)",
+      "params": [
+        "CA00000000000000000000000000000001",
+        "ringing",
+        "***0199",
+        "2026-11-18T00:00:00Z"
+      ],
+      "expected": {
+        "affectedRows": 1
+      },
+      "actual": {
+        "affectedRows": 1,
+        "rows": []
+      }
+    },
+    {
+      "name": "same CallSid retry rejected atomically",
+      "role": "service_role",
+      "sql": "insert into public.telephony_webhook_events(event_id, call_status, phone_suffix, processed_at) values ($1, $2, $3, $4)",
+      "params": [
+        "CA00000000000000000000000000000001",
+        "ringing",
+        "***0199",
+        "2026-11-18T00:00:00Z"
+      ],
+      "expected": {
+        "code": "23505"
+      },
+      "actual": {
+        "error": {
+          "code": "23505",
+          "message": "duplicate key value violates unique constraint \"telephony_webhook_events_pkey\""
+        }
+      }
+    },
+    {
+      "name": "different CallSid accepted",
+      "role": "service_role",
+      "sql": "insert into public.telephony_webhook_events(event_id, call_status, phone_suffix, processed_at) values ($1, $2, $3, $4)",
+      "params": [
+        "CA00000000000000000000000000000002",
+        "ringing",
+        "***0199",
+        "2026-11-18T00:00:00Z"
+      ],
+      "expected": {
+        "affectedRows": 1
+      },
+      "actual": {
+        "affectedRows": 1,
+        "rows": []
+      }
+    },
+    {
+      "name": "anonymous claim denied",
+      "role": "anon",
+      "sql": "insert into public.telephony_webhook_events(event_id, call_status, phone_suffix, processed_at) values ($1, $2, $3, $4)",
+      "params": [
+        "CA00000000000000000000000000000003",
+        "ringing",
+        "***0199",
+        "2026-11-18T00:00:00Z"
+      ],
+      "expected": {
+        "code": "42501"
+      },
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "permission denied for table telephony_webhook_events"
+        }
+      }
+    },
+    {
+      "name": "authenticated claim denied",
+      "role": "authenticated",
+      "sql": "insert into public.telephony_webhook_events(event_id, call_status, phone_suffix, processed_at) values ($1, $2, $3, $4)",
+      "params": [
+        "CA00000000000000000000000000000004",
+        "ringing",
+        "***0199",
+        "2026-11-18T00:00:00Z"
+      ],
+      "expected": {
+        "code": "42501"
+      },
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "permission denied for table telephony_webhook_events"
+        }
+      }
+    },
+    {
+      "name": "full phone string rejected",
+      "role": "service_role",
+      "sql": "insert into public.telephony_webhook_events(event_id, call_status, phone_suffix, processed_at) values ($1, $2, $3, $4)",
+      "params": [
+        "CA00000000000000000000000000000005",
+        "ringing",
+        "+12025550199",
+        "2026-11-18T00:00:00Z"
+      ],
+      "expected": {
+        "code": "23514"
+      },
+      "actual": {
+        "error": {
+          "code": "23514",
+          "message": "new row for relation \"telephony_webhook_events\" violates check constraint \"telephony_webhook_events_phone_suffix_check\""
+        }
+      }
+    },
+    {
+      "name": "non-provider identifier rejected",
+      "role": "service_role",
+      "sql": "insert into public.telephony_webhook_events(event_id, call_status, phone_suffix, processed_at) values ($1, $2, $3, $4)",
+      "params": [
+        "not-a-CallSid",
+        "ringing",
+        "***0199",
+        "2026-11-18T00:00:00Z"
+      ],
+      "expected": {
+        "code": "23514"
+      },
+      "actual": {
+        "error": {
+          "code": "23514",
+          "message": "new row for relation \"telephony_webhook_events\" violates check constraint \"telephony_webhook_events_event_id_check\""
+        }
+      }
+    }
+  ],
+  "persisted": [
+    {
+      "event_id": "CA00000000000000000000000000000001",
+      "call_status": "ringing",
+      "phone_suffix": "***0199",
+      "processed_at": "2026-11-18T00:00:00.000Z"
+    },
+    {
+      "event_id": "CA00000000000000000000000000000002",
+      "call_status": "ringing",
+      "phone_suffix": "***0199",
+      "processed_at": "2026-11-18T00:00:00.000Z"
+    }
+  ],
+  "passed": true
+}

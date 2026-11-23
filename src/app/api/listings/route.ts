@@ -12,7 +12,7 @@ const PropertyInsertSchema = z
     city: z.string().trim().min(1),
     state: z.string().regex(/^[A-Z]{2}$/),
     zip_code: z.string().regex(/^[0-9]{5}(-[0-9]{4})?$/),
-    price: z.number().finite().nonnegative(),
+    price: z.number().finite().nonnegative().max(9999999999.99),
     bedrooms: z.number().int().nonnegative(),
     bathrooms: z.number().finite().nonnegative(),
     square_feet: z.number().int().nonnegative(),
@@ -120,9 +120,10 @@ export async function POST(request: Request) {
       .single()
 
     if (error) {
+      const status = error.code === '42501' ? 403 : error.code?.startsWith('23') ? 400 : 500
       return NextResponse.json(
         { error: 'Could not create listing.' },
-        { status: 403 },
+        { status },
       )
     }
 

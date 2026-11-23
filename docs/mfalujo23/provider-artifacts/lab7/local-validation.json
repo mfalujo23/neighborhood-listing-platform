@@ -1,0 +1,81 @@
+{
+  "capturedAtUTC": "2026-11-19T02:01:57.219Z",
+  "variants": [
+    {
+      "id": "variant-1",
+      "actualCharacters": 83,
+      "under120": true,
+      "exactSourceTraces": true,
+      "status": "draft",
+      "humanReviewed": false
+    },
+    {
+      "id": "variant-2",
+      "actualCharacters": 102,
+      "under120": true,
+      "exactSourceTraces": true,
+      "status": "draft",
+      "humanReviewed": false
+    },
+    {
+      "id": "variant-3",
+      "actualCharacters": 110,
+      "under120": true,
+      "exactSourceTraces": true,
+      "status": "draft",
+      "humanReviewed": false
+    }
+  ],
+  "sameReviewPromptExact": true,
+  "savedPromptMatchesAfterTrimming": true,
+  "generationContextIncludesUtc": true,
+  "reviewSourceContextIncludesUtc": false,
+  "contextInterpretation": "The generation instruction explicitly supplied UTC context. The review source-facts prefix omitted it. Both UTC critiques must be interpreted against that context difference; raw outputs and variant3 remain unchanged and draft.",
+  "modelComparisons": {
+    "geminiPreferred": "variant-1",
+    "chatgptPreferred": "variant-2"
+  },
+  "humanApproval": {
+    "status": "pending",
+    "actor": null,
+    "scope": null
+  },
+  "artifacts": [
+    {
+      "path": "docs/mfalujo23/provider-artifacts/lab7/gemini-copy-generation.raw.json",
+      "sha256": "869393f6e9b7c94a9ccb60d4ef654b0f0f6affaac262fa3350191fe5b948805c"
+    },
+    {
+      "path": "docs/mfalujo23/provider-artifacts/lab7/gemini-copy-generation.settings.json",
+      "sha256": "c92e8b7c7c2e899e7526990bc6e0cc3a7453dbf2a4c0b1f3cb3100ca75b7336a"
+    },
+    {
+      "path": "docs/mfalujo23/provider-artifacts/lab7/gemini-copy-review.raw.json",
+      "sha256": "f44e24db19df57b251f305c1b23e748347ba4d593db361482ca42582b1576b9c"
+    },
+    {
+      "path": "docs/mfalujo23/provider-artifacts/lab7/gemini-copy-review.settings.json",
+      "sha256": "c8a9c4eab0156b27294e50d7dc7926efa9572f313f2cded35f90a9c2a5641e44"
+    },
+    {
+      "path": "docs/mfalujo23/provider-artifacts/lab7/chatgpt-copy-review.raw.json",
+      "sha256": "24b25850f23342ba0d4f417a9aa46a5faaab5eb8fd251486462a012caf094534"
+    },
+    {
+      "path": "docs/mfalujo23/provider-artifacts/lab7/chatgpt-copy-review.settings.json",
+      "sha256": "6bacf5d1debaa564702e1dd2c6d4aa125453da6163504e4b13761e07b4c01bda"
+    },
+    {
+      "path": "docs/mfalujo23/provider-artifacts/lab7/actual-copy-review.prompt.txt",
+      "sha256": "f989c5337e57ec3f2661fa58819246e64c13b195d26f187dcf29f00263acad3d"
+    },
+    {
+      "path": "docs/mfalujo23/provider-artifacts/lab7/copy-generation.prompt.txt",
+      "sha256": "3f6c237e7a710114d25892be1d36474e7310cc3fcae16c7c9aa21d0572bb78d8"
+    },
+    {
+      "path": "docs/mfalujo23/provider-artifacts/lab7/source-facts.json",
+      "sha256": "4332e16bae0f3c0cb9f2e60d9346f1784183953f5611f360ee1a22616efc8db6"
+    }
+  ]
+}

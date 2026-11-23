@@ -1,0 +1,163 @@
+Property Data Contract Review
+
+Review the following schema for an explicitly fictional classroom neighborhood-listing platform. Do not invent stakeholder answers or claim to run commands.
+
+1. Identify ambiguous business rules that require stakeholder confirmation.
+2. Explain normalization issues across Property, Sponsor and PropertySponsor, including primary/foreign keys and the difference between normalized storage and an API response that embeds sponsor summaries.
+3. Compare free-text amenities, controlled enum values and an amenities join table. Recommend a choice for a five-record classroom exchange contract and explain when that choice should change.
+4. Provide one complete valid PropertyListing record and four complete intentionally invalid records: missing property_id, negative price, malformed ZIP, and an unknown field. State the expected validator failure for each. Use fictional names/addresses and invented UUIDv4 values.
+
+Schema:
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "property_id": {
+      "type": "string",
+      "format": "uuid",
+      "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+    },
+    "street": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "city": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "AL",
+        "AK",
+        "AZ",
+        "AR",
+        "CA",
+        "CO",
+        "CT",
+        "DE",
+        "DC",
+        "FL",
+        "GA",
+        "HI",
+        "ID",
+        "IL",
+        "IN",
+        "IA",
+        "KS",
+        "KY",
+        "LA",
+        "ME",
+        "MD",
+        "MA",
+        "MI",
+        "MN",
+        "MS",
+        "MO",
+        "MT",
+        "NE",
+        "NV",
+        "NH",
+        "NJ",
+        "NM",
+        "NY",
+        "NC",
+        "ND",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VT",
+        "VA",
+        "WA",
+        "WV",
+        "WI",
+        "WY"
+      ]
+    },
+    "zip_code": {
+      "type": "string",
+      "pattern": "^\\d{5}(-\\d{4})?$"
+    },
+    "price": {
+      "type": "number",
+      "minimum": 0
+    },
+    "bedrooms": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "bathrooms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "square_feet": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "amenities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "parking",
+          "pool",
+          "garden",
+          "balcony",
+          "air_conditioning",
+          "pet_friendly"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "local_sponsors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sponsor_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "sponsor_id",
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "property_id",
+    "street",
+    "city",
+    "state",
+    "zip_code",
+    "price",
+    "bedrooms",
+    "bathrooms",
+    "square_feet",
+    "amenities",
+    "local_sponsors"
+  ],
+  "additionalProperties": false,
+  "title": "PropertyListing",
+  "description": "Strict synthetic classroom listing exchange contract; not a real property offer."
+}

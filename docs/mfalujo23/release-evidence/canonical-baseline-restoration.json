@@ -1,0 +1,401 @@
+{
+  "semanticChanges": false,
+  "restored": [
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "gitBlobSha": "5cefab307000200c49c506bdc0fd084828c641bb",
+      "lineEndingOnly": true,
+      "beforeSha256": "0b0c27b94d14c0a3fed1d15b067e9d1d41086849e9e7ce35e53a68a82a59c6ae",
+      "afterSha256": "6bd540d85eed63f2b2506e5a1502238712848ecbc2be547aa4c5c9c0be5359cc",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": ".devcontainer/icon.svg",
+      "gitBlobSha": "135acfe233d95280e034d7ca822683b70d3defa8",
+      "lineEndingOnly": true,
+      "beforeSha256": "171a4256324dedf3f8490afa415c69a35331b83c37515bf488b4b412a64bde46",
+      "afterSha256": "44b2a36d8c1e608e14e56f8757e9e710143460bc83c9450b55e6995f80120a3d",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": ".vscode/launch.json",
+      "gitBlobSha": "8adc5903642572e2c192ef9c13d2fcce9d7cdfc2",
+      "lineEndingOnly": true,
+      "beforeSha256": "18ae898d07561b239cfb1306efec7ada465a724fa47531416ff0033bb3ab32a1",
+      "afterSha256": "cc3487c5271a9dfe5868a0bd6c527e87da29d1eb7a56478775ec7ba2c1aef211",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "DECISION_NOTE.md",
+      "gitBlobSha": "a53ddb85d1bd779891782d0c7429d4db341da913",
+      "lineEndingOnly": true,
+      "beforeSha256": "f3bef732dcc7956a0b576d67f743b9686460cb377a9c916cea54647eacb84891",
+      "afterSha256": "6ef21d0d466920181310cf2829832374a1cc6c4ae7d338061aa276a2884cfa21",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "data/generated/synthetic_properties.json",
+      "gitBlobSha": "243b1dfd96a294b6f38314d9ba43a0c8b237de8c",
+      "lineEndingOnly": true,
+      "beforeSha256": "fbfcb0e53967f52b9bd0ab0c18119f3e06a57594c2cae8f895ce87957bbb7ba0",
+      "afterSha256": "47d39aa84c307c07001dfe26bfb19e272ba30d14909b4da558244662b95737a9",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "data/sponsor-brief.json",
+      "gitBlobSha": "d938ae02a45e79a4f948bcbd0bc403f06633ae6a",
+      "lineEndingOnly": true,
+      "beforeSha256": "ef44b10a9bd8f905aeb4191f9b0d408da3992c74225a3fe2f9411176178e1dcb",
+      "afterSha256": "4a3cdac26b89277223564858112a114733aa18db81e078624070a3b1d8e99ed0",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/AI_COLLABORATION_LOG.md",
+      "gitBlobSha": "14cfc2b560e3b30c17f66f1c46064af4a1ce0e2a",
+      "lineEndingOnly": true,
+      "beforeSha256": "5689ea685ab2c32c331b637486fa39b39a41e9101e793c90271ec1b99979dd7b",
+      "afterSha256": "22e2ed35c24a3e6a522c7a72459e550cdd2a0e4097998d3704052cb64167a496",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/APPROVAL_WORKFLOW.md",
+      "gitBlobSha": "cf3a045f5087402e75d2b398b348bccef0eff9b0",
+      "lineEndingOnly": true,
+      "beforeSha256": "23ecba4942be4dfc23295cd56a5f5db38a9c0d3223ff03bd3e5e12706c894177",
+      "afterSha256": "2e1815836d567670f4a5df93c2a54222de8f3e71666e4b8fa8d93497aeb744a9",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/ASSET_INVENTORY.md",
+      "gitBlobSha": "2697d189b5abf38201f7f41c5d36cae5c8c42766",
+      "lineEndingOnly": true,
+      "beforeSha256": "04552c256fcc0fed8177adf8d3f1751b655574bf63d2801bfb3608e212449cd6",
+      "afterSha256": "0c9404f1b4a3d90834086b928e60e8f9b6d0e07dae7a2482c0772f7c3ccdfe65",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/ASSIGMENT_SUBMISSION.md",
+      "gitBlobSha": "d90b074a02c992be17fb29daa79074506bfe357a",
+      "lineEndingOnly": true,
+      "beforeSha256": "a3a44f8ecb5d6bd18426cb202299dbf3b163b781f345863730702b6a0aa6cd28",
+      "afterSha256": "47c003879577d5e4ca8d9e0c0dff61ca74f0f82c844a5b685613a38f530346e1",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/ASSIGMENT_SUBMISSION_FINAL.md",
+      "gitBlobSha": "2549390e32ab2b74c0a494236a21e1086a9c566d",
+      "lineEndingOnly": true,
+      "beforeSha256": "425a1dbb50688e42627cad9e3d6db7ef4da1edbb73387cf27b8d625bf241c98d",
+      "afterSha256": "2ebf425a3770f6c2e19bf4f4c3e782d027ffa61bead9930e8a9181936c7c0c64",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/ai-collaboration-log.md",
+      "gitBlobSha": "0abe9e5fa6e73883ea48f60d105e6a712b1ac7b4",
+      "lineEndingOnly": true,
+      "beforeSha256": "669e8917f19276fef9042071fc98c94d71394a1265f34d2669f80908a74bbd33",
+      "afterSha256": "299f124783da4c14d66620b132de6b816e0d5a88376846ff0860470423e0a2fc",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/architecture.md",
+      "gitBlobSha": "d34672cf8a103e5e890eaa7776d509ff0dbbb8a4",
+      "lineEndingOnly": true,
+      "beforeSha256": "c8e28bb255872c3a603965a310e84196944b20b6b9b32febe1fc4d223cf5ebf3",
+      "afterSha256": "f0f4bdd791e4cf33c2e78e1441c318dd3ef0d9d4c784eea0c36f376b8d3824cb",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/audit.md",
+      "gitBlobSha": "f6bc7299fa6eef5d122610aeff9cc25dc10e62d6",
+      "lineEndingOnly": true,
+      "beforeSha256": "0d1efc93976a02b2ac2aeb1e7ce6bd4f573238d25819d2345f987991074ef8e6",
+      "afterSha256": "c543d5a0d9dcb65d73582b5aeeaa79869cb2f26f2d4eba388416dfe17b70bebd",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/lab4-backlog.md",
+      "gitBlobSha": "c20b4d6c10485a9df6fcd264c58d78fada77e859",
+      "lineEndingOnly": true,
+      "beforeSha256": "3708aa3e962d47e2db9062633e7c3003ab1666a47af534deccee3ef1c09dc155",
+      "afterSha256": "8270405f7609a7f9c45b738e0730d036a9b6424565c1e18d34743bb0d510d7fa",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/lab4-discovery-outreach.md",
+      "gitBlobSha": "de31dff126446cd36177bf0d8c4a0f578b646135",
+      "lineEndingOnly": true,
+      "beforeSha256": "6651bd7aaaebab8537216d9005d4b079ec9eb8bdc9ac9d1dd375556f5acf5cea",
+      "afterSha256": "61b04ec0622c5074d2b641e15ec257af37a63a02a5555e539c7b209a8e7e7342",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/lab4-personas-themes.md",
+      "gitBlobSha": "2bb76c245257bd925a1337f33ed11ae3f0652a3e",
+      "lineEndingOnly": true,
+      "beforeSha256": "525ffd9e313110389cbfe46edbaa48bc3dfa7ed8593e193086060a65f0675790",
+      "afterSha256": "e89954f79fe4b22ff8889ddcd3ed54578ef30c9bb896b7c3671823bf8184a99b",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/lab5-rls-test-evidence.md",
+      "gitBlobSha": "366f7d7043178119c13e03bf21708620c623cfcd",
+      "lineEndingOnly": true,
+      "beforeSha256": "f2aa477597bcaa45ed587decde249e29069fc289fe3420fb8ae47c3b7cfee8ed",
+      "afterSha256": "43ea959ebc266ed7a7f3bd41b604c2cd09c43e7381012c57a3eaa20c668324b5",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/step1-stakeholders.md",
+      "gitBlobSha": "70deb854d1fdad508f5f8a931b62fd906ba3a740",
+      "lineEndingOnly": true,
+      "beforeSha256": "8451440b115e6a607db509b962f46da11bf329c2918f12d0eea6bbd795a0bbaa",
+      "afterSha256": "70a5f32740dd5bfb0e87dbef4610aa24626055e9137d52d6348702c63f67489f",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "docs/telephony-webhooks.md",
+      "gitBlobSha": "058b4500797678ac68aa417b62c4183c37184290",
+      "lineEndingOnly": true,
+      "beforeSha256": "7a1d571fc30332d1d2053fb6a13c703cc0a7c30378aea9a64d9fc53917983934",
+      "afterSha256": "875644fc4c1dd9e67b927a626c351e451bf7787826913bafda6a8208a206a9cb",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "index.html",
+      "gitBlobSha": "6250ecb0970788d631c7024ef7d52a87aea3c137",
+      "lineEndingOnly": true,
+      "beforeSha256": "fabbae1d4be7e41f44446ea14e6ad749590d0c1476b1a356eb4c9a47654060e0",
+      "afterSha256": "7ec0ddda6d3e554f23d7ccbf5667f8d3722e99cde10641aadabbc04b425ce2d1",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "next-env.d.ts",
+      "gitBlobSha": "a419cbe4e3a5e8d4b481b851dbf4ac767de069e6",
+      "lineEndingOnly": true,
+      "beforeSha256": "b8b3a344484b959af5e4e3fc1a1609dac3cb9ece0cdeb6c145be29bc4c491000",
+      "afterSha256": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "pages-old/_app.js",
+      "gitBlobSha": "253ece80e54905df9b4d7e795a61609f152b9fca",
+      "lineEndingOnly": true,
+      "beforeSha256": "8fe6aa72cd85ddde540c9a92a3ae9c6cbe9b2c46bf45e99e94cec6bc3e61795d",
+      "afterSha256": "671e6795e54c0986df4cd7d67acbe3e3ad7357ce8aa49bc46d30f995740febe8",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "pages-old/index.tsx",
+      "gitBlobSha": "f4ba473e5b046a7cc434ed1a07db109fd051b9fa",
+      "lineEndingOnly": true,
+      "beforeSha256": "43413aa016a8a8256749baf4384dcd7f9a2cb4105ff5417c884725dde8f8d23e",
+      "afterSha256": "3a8ba32c51ae944d95983f3390ad38736d8409c77e1b260b6ffe99ce6d2273ae",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "scripts/validate.js",
+      "gitBlobSha": "01cc7c057da48d68f9f83a7b85cfd0e73e1154d2",
+      "lineEndingOnly": true,
+      "beforeSha256": "a4df824b6ea40cb32550b85caf6a56b3fc7fdd7b4140e8e1c389d18cb42b23a2",
+      "afterSha256": "6bde0deb9fd433990327466321b86e9633d2deb7ba803d18679be5ca72599b1a",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "src/components/Button.js",
+      "gitBlobSha": "fdb433551f560729036b5e7122ba85ee4e4c17be",
+      "lineEndingOnly": true,
+      "beforeSha256": "57407b24ed72e4f8bbdb2282a8eaa780a0079b0b447d6e5e161676fde116af61",
+      "afterSha256": "5eeff5bf8bfbb617cf4d2866ce0fc301f35c1bc8f9ee7929097687c6f4a93921",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "src/components/Button.module.css",
+      "gitBlobSha": "3cba6f351a4560b00528812b2cb3dedfb21e7834",
+      "lineEndingOnly": true,
+      "beforeSha256": "9d778d24695b3e0c057bfff4f0401fcf1817093b8a5c642e08c9a48e969c8f93",
+      "afterSha256": "89d1d577730859f4caa1f9b82c2ebfa26f0632cb1ec4959c2df182ab763fc0c5",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "src/components/ClickCount.js",
+      "gitBlobSha": "fe2e71dd7b21020f561d6f8e3f9ddcdd62825c38",
+      "lineEndingOnly": true,
+      "beforeSha256": "c4c666104128c36dfbbd7fdd56c24f0a5a3928b35897c2b8aca9e3c12ed3d021",
+      "afterSha256": "9ca0564f90f1f74fcf261c333843ff7869b7ca68329e5b3069cfa1cc9841ca11",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "src/components/ListingCard.tsx",
+      "gitBlobSha": "68d44ba967452ff98e87a69a1b1f978a23decfea",
+      "lineEndingOnly": true,
+      "beforeSha256": "c8293057dec17060e741bba79aefe8eb2d07b83d568b42b985411b120b10179b",
+      "afterSha256": "61a06a6cdd652c1055c0871219fadb59fad01020045426325eafd872e20704c1",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "src/test/sponsorMatcher.test.ts",
+      "gitBlobSha": "0cfe1c351d618a883f43fed1cbfe5946fcc62029",
+      "lineEndingOnly": true,
+      "beforeSha256": "0b14c77a1e1d3cea0b0fedf8362e48e40a88928d01938d0c51b17659aa188d90",
+      "afterSha256": "840d35bf1a81ecb33d9f83622f23625d874fdd5133b5e8a82ac8cdbc1bcdb2a7",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "src/test/sponsorUrl.test.ts",
+      "gitBlobSha": "6d81bdc160bae84b1457f73907ca649ec20979b4",
+      "lineEndingOnly": true,
+      "beforeSha256": "7377ed92e4e4843889d02f916437aaa1d4d92fb15eccce04caef99a9502b31c0",
+      "afterSha256": "ba4248f1021bb13a4c6a94a6dffdf88dcfe6b8afca52b91ebd78bebd2cdd8b62",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "src/types",
+      "gitBlobSha": "2389c45e53051cc1dddca5e5594e1e326867ecd5",
+      "lineEndingOnly": true,
+      "beforeSha256": "fae49ce5337bb18045ed6523bf157715196a4a9a569c0df2bb4e8ba6980332c7",
+      "afterSha256": "e42ea00f37542d0aaae36ce23f2768c59fa31db6b7c2003b26eeb71184931793",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "src/utils/copyValidation.js",
+      "gitBlobSha": "124dd21bb6920dbbb637493280f510850b5489b9",
+      "lineEndingOnly": true,
+      "beforeSha256": "57c15b961d493734a9d1bbb23b7f4eb50dedb1686af8a40b3e3e70cf4741122c",
+      "afterSha256": "96756e21886d6d8e755555d332f13e29bb6f50a3bd3bd480824e0c2401639e26",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "styles/home.module.css",
+      "gitBlobSha": "693115201a064afa5621ac9678425be79518df6a",
+      "lineEndingOnly": true,
+      "beforeSha256": "ab457ac6ca51d1dec4005001f69e27e67d885f66b6ade7c065f43d5bf9f55270",
+      "afterSha256": "35f7899e43fa0d76e80c06464f5b676738ebb95b5e29a6f961aa53621646001b",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "supabase/.gitignore",
+      "gitBlobSha": "ad9264f0b14b294627f8e77383875c994af54865",
+      "lineEndingOnly": true,
+      "beforeSha256": "eccd25cd50cd8cb5447b70754f7dfa8dfc0008ce7b147c96f53fc4cfe6c78783",
+      "afterSha256": "507699eb91144818edf61d3a079212cacf31d8db520eae428e3b48fcf0d6919c",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "supabase/config.toml",
+      "gitBlobSha": "3f4f8853fdfd9ffa1369c1e5a6f84a258f745545",
+      "lineEndingOnly": true,
+      "beforeSha256": "e501ca82ee5afe93054083485e7ed27e31d0a55055181f8f73d028d7e4ef81a4",
+      "afterSha256": "406f38da369d207e7796c9e33c06e13d98ab1db7f48699c55dba10bcd1ae0007",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "supabase/migrations/20261025_create_core_tables.sql",
+      "gitBlobSha": "82aaad52430f611917ab708af608998482cb0b01",
+      "lineEndingOnly": true,
+      "beforeSha256": "56e2281bbe5b03fc275562815441f8f3f9ffba8bebfe1f63a470376d2d4296bd",
+      "afterSha256": "fe58d2964bb8c3b03cbeac520bb5c20fdf7f7b60291c354c91503c64dab21771",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "supabase/migrations/20261026000100_admin_property_policies.sql",
+      "gitBlobSha": "820eb235d9b9b0d4f847d55c8496eebf140339e8",
+      "lineEndingOnly": true,
+      "beforeSha256": "bcbee5e6b802afcdd8c2722ad2b9c9bad748d143ca4ac403213b55259e6affc6",
+      "afterSha256": "e0b07a1fceac8248ae07afcf1364fe65be5d5db9566a1ddb90da6f3da49fe8cd",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "supabase/migrations/20261026_restrict_client_table_grants.sql",
+      "gitBlobSha": "6b78e67a5e16866a6b0d0e8be8b2bd38c0488517",
+      "lineEndingOnly": true,
+      "beforeSha256": "f4ab0ec770337094aaf07befbaa9c2932f208ac76dafda034a3133d0ba7ce3e5",
+      "afterSha256": "ab7a6a791f3e3d5cfd8660ee5b2b1ca5ba33b5be8909ceb6d10b7f8662c29771",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "supabase/migrations/20261105082900_remote_schema.sql",
+      "gitBlobSha": "dae5e8356e84c28f0fbe3da4f40beafcc3cd24d6",
+      "lineEndingOnly": true,
+      "beforeSha256": "276016d3223cc9a4791358568689fa62ec951bade19e0b52a255350fa9ad559e",
+      "afterSha256": "431e7724c05e5a4fd0804fa0921240dfcb85a156bec046624fbfffe2ea28bc0a",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "supabase/migrations/20261117120000_add_sponsor_matching_fields.sql",
+      "gitBlobSha": "524bfeac6b71364deb81b6ba77a81625e12aa2d4",
+      "lineEndingOnly": true,
+      "beforeSha256": "51adea41ba4331d9d3c3cbec9bc69b12c1b2e5126106d9ad77766fd4f01fa4c5",
+      "afterSha256": "fe1c5ea773ff0899f4ceb2bf40e1a2ab59a6858f5ee81d74185135c755d2cd4d",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "supabase/migrations/20261117130000_add_sponsor_tier_distance.sql",
+      "gitBlobSha": "4fd4f41c0c2a4c1922d79edda09b624e82a5e9fb",
+      "lineEndingOnly": true,
+      "beforeSha256": "d678079d4aa6dde72a73ed87e193c761bad9051070227eb19b53205fec575792",
+      "afterSha256": "2fd6179765bed8954b5637bf0312133ee544b19211827063cfb223559dc77805",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "supabase/migrations/20261117140000_record_sponsor_impressions.sql",
+      "gitBlobSha": "8af8a79966c1f948b8f29a91974e09c3deb753aa",
+      "lineEndingOnly": true,
+      "beforeSha256": "0478d9a59f01e2c51072fb9b2a0514e4b1e45826502b112ec4f32cf543d5b99d",
+      "afterSha256": "f04099b5f0bc65a9bea8eca992fb9423d9d10ef85edb28ac9cdd3cabe5cee2a1",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    },
+    {
+      "path": "tsconfig.json",
+      "gitBlobSha": "d5a69a7392f5451489a18457cf92b404302aedf5",
+      "lineEndingOnly": true,
+      "beforeSha256": "d55ae32c34c276dd414cb234c18912b5f2450ed5b45087eb71b5c9f9bf68d010",
+      "afterSha256": "e245201715f11c5b8a7b620483ecdf1b3f2e20f1b276ef1d77dca6e16495a935",
+      "mainCheckoutStillMatchesBefore": true,
+      "normalizedBeforeEqualsAfter": true
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+
+ RUN  v5.1.0 C:/Users/mfalujo/Documents/Codex/2026-11-18/https-calstatela-instructure-com-https-calstatela/work/analytics-role-correction-work
+
+
+ Test Files  2 passed (2)
+      Tests  45 passed (45)
+   Start at  17:56:26
+   Duration  744ms (import 63%, tests 18%, transform 18%, worker 2%)
+

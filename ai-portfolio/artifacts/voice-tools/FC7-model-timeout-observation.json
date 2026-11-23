@@ -1,0 +1,7 @@
+{
+  "capturedAt": "2026-11-19T03:13:45.151Z",
+  "input": "Fictional classroom fault test: request property details for demo-002. The local mock adapter is configured to return an explicitly simulated TIMEOUT for this next lookup. Do not reuse details from demo-001, invent facts, or contact anyone.",
+  "continuation": "Continue from the manually supplied FC7 local mock function response above: get_property_details for demo-002 returned ok:false with TIMEOUT, and no network request was attempted. Give the caller a short truthful dialogue response using that result. Do not call another tool, reuse another property, claim contact, or invent details.",
+  "workflow": "Observed real proposal; ran strict local deterministic timeout branch; manually supplied result and committed edit; requested next-turn dialogue. Not an automatic provider-adapter continuation or timed network timeout.",
+  "response": "I'm sorry, I wasn't able to retrieve the fictional listing details for demo-002 because the local mock lookup (get_property_details, simulated fault case FC7-model-timeout-dialogue) returned a TIMEOUT error (ok: false; no network request was attempted).\n\nI don't have any verified details for demo-002 and cannot guess or reuse information from other listings. You can ask me to retry the lookup, or in a real-world setting you can contact the listing office or an agent manually using their published contact information (this teaching simulator cannot contact anyone, place calls, or promise a response time)."
+}

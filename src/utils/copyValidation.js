@@ -1,5 +1,5 @@
 /**
- * Copy Validation Utility — Lab 7
+ * Copy validation
  * Validates AI marketing copy against sponsor brief constraints.
  */
 

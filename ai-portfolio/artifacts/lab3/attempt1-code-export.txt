@@ -1,0 +1,48 @@
+Browser tab: 19, Title: "Google AI Studio", URL: "https://aistudio.google.com/prompts/new_chat".
+0 AXWebArea Google AI Studio, URL: aistudio.google.com/prompts/new_chat
+	1 container
+		207 container
+			208 container Description: Get code close, ID: code-dialog
+				209 container
+					210 heading Get code close, Value: 2, ID: mat-mdc-dialog-title-1
+						211 text Get code
+						212 button close
+					213 container
+						214 combo box (collapsed) Python, ID: mat-select-1, Secondary Actions: Expand
+							215 container
+								216 text Python
+								217 text expand_more
+					218 container
+						219 button (disabled, expanded) Code Open in Colab Download API Docs, ID: mat-expansion-panel-header-3, Secondary Actions: Collapse
+							226 text Code
+							220 container
+								221 button Open in Colab
+								222 button Download
+								223 link Description: API Docs, Value: aistudio.google.com/docs/interactions-overview
+						227 container Code Open in Colab Download API Docs, ID: cdk-accordion-child-3
+							228 container
+								229 text import  os
+ from  google  import  genai
+
+client = genai.Client(
+    api_key=os.environ.get( "GEMINI_API_KEY" ),
+)
+
+generation_config = {
+     'max_output_tokens' :  65536 ,
+     'thinking_level' :  'high' ,
+}
+
+interaction = client.interactions.create(
+    model= 'models/gemini-4-hydrogen' ,
+     input = """INSERT_INPUT_HERE""" ,
+    generation_config=generation_config,
+    response_mime_type= 'application/json' ,
+)
+
+print(interaction.output_text)
+					224 button Close
+					225 button Copy
+		206 text Response ready.
+
+The focused UI element is 212 button close

@@ -1,0 +1,9 @@
+{
+  "state": "services-named-region-fixed",
+  "route": "/services",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T02:47:55.546Z",
+  "violations": [],
+  "incomplete": [],
+  "passedRules": 22
+}

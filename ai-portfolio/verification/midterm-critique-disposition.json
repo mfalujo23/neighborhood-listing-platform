@@ -1,0 +1,68 @@
+{
+  "reviewTargetCommit": "f4ea7ab7adb0a4a50e7506f602bfda92282b2ae5",
+  "chronology": "Actual Gemini and ChatGPT reviews were captured after the implementation commit. They are review evidence, not authorship evidence for preceding code.",
+  "captures": [
+    {"path": "work/ai-experiments/midterm/gemini-critique.json", "tool": "Google AI Studio", "model": "gemini-4-hydrogen"},
+    {"path": "work/ai-experiments/midterm/chatgpt-critique.json", "tool": "ChatGPT", "modelLabel": "Instant", "exactModelVersionNotExposed": true}
+  ],
+  "acceptedForFollowup": [
+    {
+      "finding": "Gemini: a failed profiles query is treated as a forbidden role",
+      "decision": "Separate a profile-query outage from a valid identity lacking a permitted role. Preserve the authorization checks.",
+      "verification": "repository_inspection reports a tested 503 follow-up; final source/evidence reference must be pinned before reporting that fix as published."
+    },
+    {
+      "finding": "Gemini/ChatGPT: anonymous booking abuse and payload size",
+      "decision": "Bound JSON input to 16 KiB and add a per-process 30-per-minute booking limit while preserving anonymous booking required by the exam.",
+      "verification": "repository_inspection reports tested follow-up. The limit applies to this Next.js route/process; it does not establish distributed enforcement and cannot stop direct PostgREST traffic."
+    },
+    {
+      "finding": "Gemini: API and SQL email validation may disagree",
+      "decision": "Use actual character-by-character probes to align the SQL and JavaScript contracts, rather than accept all examples in the critique.",
+      "verification": "repository_inspection reports a real apostrophe/percent mismatch and a tested correction. The claimed exclamation-mark example was false. Pin the probe and corrected source before using the result as final evidence."
+    },
+    {
+      "finding": "Both models: hosted evidence differs from local evidence",
+      "decision": "Keep direct local PostgreSQL, simulated transport and real browser/HTTP fixture checks distinct from Supabase Auth, PostgREST, hosted migration and deployment.",
+      "verification": "Frozen midterm evidence explicitly identifies its disposable local environment. No provider integration result is inferred."
+    }
+  ],
+  "rejectedOrQualified": [
+    {
+      "finding": "Gemini: remove provider modification of suspended services",
+      "decision": "Rejected for this exam: Part 4 explicitly permits owners to modify their own draft or suspended services."
+    },
+    {
+      "finding": "Gemini/ChatGPT: replace booking ON DELETE CASCADE with RESTRICT",
+      "decision": "Rejected for this exam: Part 3 explicitly requires bookings.service_id ON DELETE CASCADE. Historical booking retention is a separate product-policy question."
+    },
+    {
+      "finding": "Gemini: coerce malformed public rates or silently drop invalid records",
+      "decision": "Rejected: the public contract deliberately rejects malformed runtime data. Existing tests check recoverable errors instead of silently changing data or weakening the fail-closed boundary. Pagination is a separate production improvement, not proof of a current exploit."
+    },
+    {
+      "finding": "ChatGPT: require future booking dates",
+      "decision": "Not adopted without a business rule. The exam requires a DATE and the implementation validates an actual calendar date; it does not specify a future-only policy or a booking timezone."
+    },
+    {
+      "finding": "Both models: conditional provider/merchant self-registration privilege concern",
+      "decision": "Qualified: self-insertion of the user's own non-admin provider/merchant profile is intentional in the current policy. Whether providers must be vetted before registration is a product decision absent from the rubric. This is distinct from assigning admin, modifying another identity or publishing a service, which actual SQL checks deny."
+    },
+    {
+      "finding": "ChatGPT: provider authorization depends on profile integrity",
+      "decision": "Not established: the inspected profile grants do not grant authenticated UPDATE, and actual SQL checks deny browser-created administrator identity. An untested conditional review concern is not a verified escalation."
+    },
+    {
+      "finding": "Gemini: missing trimmed-notes database validation",
+      "decision": "Rejected as stated: migration 004 already uses btrim in the database notes constraint. The real email mismatch was separately probed and corrected."
+    },
+    {
+      "finding": "Gemini: remove administrator re-export and align helper URL configuration",
+      "decision": "Qualified: both helper modules import server-only, and ordinary provider/booking writes use the session-bound public client. The current public helper explicitly requires SUPABASE_URL while the administrator helper also accepts NEXT_PUBLIC_SUPABASE_URL. The documented required server configuration works; a compatibility fallback or reduced coupling is an improvement rather than evidence of a key leak."
+    }
+  ],
+  "conciseTableRows": [
+    ["Gemini / AI Studio", "Critique the published Version B service and booking trust boundaries", "Review of profile outage classification, bounded public inputs and contract parity", "Rejected changes contradicting required suspended-service edits/CASCADE, unsupported notes claim and weaker read validation", "Compared exact exam requirements, source and local SQL; follow-up test evidence must be linked", "f4ea7ab (review target; review captured after implementation)"],
+    ["ChatGPT / Instant", "Independently critique the same published service and booking implementation", "Booking abuse controls and explicit distinction between local and hosted evidence", "Future-only dates and provider-vetting policy are unspecified; CASCADE is required; role escalation remains conditional", "Compared database grants/RLS and actual local cases; no model-executed test is claimed", "f4ea7ab (review target; review captured after implementation)"]
+  ]
+}

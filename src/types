@@ -1,9 +1,0 @@
-export interface Sponsor {
-  id: string;
-  company_name: string;
-  priority: number;
-  destination_url: string;
-  impression_count: number;
-  start_date: string;
-  end_date: string;
-}

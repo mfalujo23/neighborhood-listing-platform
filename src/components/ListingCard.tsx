@@ -15,7 +15,7 @@ export default function ListingCard() {
         />
       </div>
 
-      {/* Listing Content & Lab 7 Sponsor Details */}
+      {/* Listing and sponsor details */}
       <div className="p-4 space-y-4">
         <div>
           <h3 className="text-lg font-bold text-gray-900">Neighborhood Listing</h3>

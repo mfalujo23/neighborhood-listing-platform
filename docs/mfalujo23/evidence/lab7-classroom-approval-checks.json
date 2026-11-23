@@ -1,0 +1,27 @@
+{
+  "focusedVitest": {
+    "files": 4,
+    "passed": 36,
+    "failed": 0,
+    "exit": 0
+  },
+  "strictScopedLint": {
+    "exit": 0,
+    "maxWarnings": 0
+  },
+  "typecheck": {
+    "exit": 0
+  },
+  "browserQA": "Pending after integration; not claimed from tests",
+  "humanDecision": {
+    "date": "2026-11-19",
+    "precision": "date_only",
+    "name": "Michael Falujo",
+    "scope": "classroom_demo",
+    "variant": "variant-2",
+    "characters": 102
+  },
+  "productionApproval": "Not granted; existing production selector unchanged",
+  "rawProviderDrafts": "All3 original raw and normalized records remain draft",
+  "binariesChanged": 0
+}

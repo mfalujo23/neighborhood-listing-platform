@@ -1,0 +1,9 @@
+{
+  "state": "home-after-navigation-fix",
+  "route": "/",
+  "engine": "axe-core 4.14.1",
+  "checkedAt": "2026-11-19T02:45:58.215Z",
+  "violations": [],
+  "incomplete": [],
+  "passedRules": 19
+}

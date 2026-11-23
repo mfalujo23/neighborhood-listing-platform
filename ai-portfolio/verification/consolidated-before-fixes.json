@@ -1,0 +1,28 @@
+{
+  "localOnly": true,
+  "sourceCheckpoint": "251-test source before consolidated review fixes",
+  "results": {
+    "numericSponsorId": {
+      "returned": {
+        "eligible": true,
+        "reason": "eligible",
+        "geography": "exact_zip"
+      }
+    },
+    "numericCampaignZip": {
+      "error": "TypeError",
+      "message": "candidateZip.slice is not a function"
+    },
+    "numericContextZip": {
+      "error": "TypeError",
+      "message": "context.zipCode.slice is not a function"
+    },
+    "reorderedIdenticalAnalytics": {
+      "error": "Conflicting event IDs."
+    },
+    "nestedEnv": {
+      "rootOnlyPredicateRejected": false,
+      "actualNestedFileExists": true
+    }
+  }
+}

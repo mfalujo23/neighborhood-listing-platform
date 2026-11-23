@@ -3,102 +3,50 @@ import 'server-only'
 import { createClient } from '@supabase/supabase-js'
 import { z } from 'zod'
 import { selectSponsor } from '../lib/sponsorMatcher'
+import { SponsorContextSchema, SponsorIdSchema } from '../lib/sponsorRuntime'
 
-const PropertyIdSchema = z.string().uuid()
-const ZipSchema = z.string().regex(/^[0-9]{5}(-[0-9]{4})?$/)
+function publicConfiguration() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY ?? process.env.SUPABASE_ANON_KEY
+  return url && key ? { url, key } : null
+}
+export function hasSponsorBackendConfiguration() { return publicConfiguration() !== null }
+const Numeric = z.union([z.number(), z.string().regex(/^\d+(\.\d+)?$/)]).transform(Number).pipe(z.number().finite().nonnegative())
+const CandidateRow = z.object({
+  id: SponsorIdSchema, business_name: z.string().min(1), destination_url: z.string(),
+  status: z.literal('APPROVED'), is_active: z.literal(true), placement: z.string(),
+  start_date: z.string(), end_date: z.string(), target_zip_codes: z.array(z.string()),
+  coverage_radius_miles: Numeric, tier: z.enum(['Platinum', 'Gold', 'Silver']),
+  impression_count: Numeric.pipe(z.number().int().max(Number.MAX_SAFE_INTEGER)), distance_miles: Numeric,
+})
 
 export async function getActiveSponsorForProperty(
-  propertyId: string,
-  targetZip: string,
-  placement = 'sidebar',
+  propertyId: string, targetZip: string, placement = 'sidebar',
+  clock: () => Date = () => new Date(),
 ) {
-  const parsedId = PropertyIdSchema.safeParse(propertyId)
-  const parsedZip = ZipSchema.safeParse(targetZip)
-
-  if (!parsedId.success || !parsedZip.success) return null
-
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL
-  const key =
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
-    process.env.SUPABASE_PUBLISHABLE_KEY ??
-    process.env.SUPABASE_ANON_KEY
-
-  if (!url || !key) return null
-
-  const supabase = createClient(url, key, {
-    auth: { persistSession: false, autoRefreshToken: false },
+  const parsed = SponsorContextSchema.safeParse({ propertyId, targetZip, placement })
+  const config = publicConfiguration()
+  if (!parsed.success || !config) return null
+  const supabase = createClient(config.url, config.key, { auth: { persistSession: false, autoRefreshToken: false } })
+  // SQL applies CURRENT_DATE and geography before returning narrow public fields.
+  const { data, error } = await supabase.rpc('eligible_sponsors_for_property', {
+    p_property_id: parsed.data.propertyId, p_zip: parsed.data.targetZip, p_placement: parsed.data.placement,
   })
-  const today = new Date().toISOString().slice(0, 10)
-
-  const { data, error } = await supabase
-    .from('sponsors')
-    .select(`
-      id,
-      business_name,
-      destination_url,
-      status,
-      is_active,
-      placement,
-      start_date,
-      end_date,
-      target_zip_codes,
-      coverage_radius_miles,
-      tier,
-      impression_count,
-      property_sponsors!inner(property_id, distance_miles)
-    `)
-    .eq('property_sponsors.property_id', parsedId.data)
-    .eq('status', 'APPROVED')
-    .eq('is_active', true)
-    .eq('placement', placement)
-    .lte('start_date', today)
-    .gte('end_date', today)
-
   if (error) {
-    console.error('Sponsor eligibility query failed:', error)
+    console.error('Sponsor eligibility query unavailable.')
     return null
   }
-
-  const candidates = (data ?? []).map((row: any) => {
-    const links = Array.isArray(row.property_sponsors)
-      ? row.property_sponsors
-      : [row.property_sponsors]
-    const link = links[0]
-
-    return {
-      id: row.id,
-      name: row.business_name,
-      approved: row.status === 'APPROVED',
-      active: row.is_active,
-      placement: row.placement,
-      startDate: row.start_date,
-      endDate: row.end_date,
-      zipCodes: row.target_zip_codes ?? [],
-      coverageRadiusMiles: Number(row.coverage_radius_miles),
-      tier: row.tier,
-      distanceMiles:
-        link?.distance_miles == null
-          ? Number.MAX_SAFE_INTEGER
-          : Number(link.distance_miles),
-      impressions: Number(row.impression_count ?? 0),
-      destinationUrl: row.destination_url ?? '',
-    }
+  const candidates = (Array.isArray(data) ? data : []).flatMap((input: unknown) => {
+    const row = CandidateRow.safeParse(input)
+    if (!row.success) return []
+    return [{
+      id: row.data.id, name: row.data.business_name, destinationUrl: row.data.destination_url,
+      approved: true, active: true, placement: row.data.placement,
+      startDate: row.data.start_date, endDate: row.data.end_date, zipCodes: row.data.target_zip_codes,
+      coverageRadiusMiles: row.data.coverage_radius_miles, tier: row.data.tier,
+      distanceMiles: row.data.distance_miles, impressions: row.data.impression_count,
+    }]
   })
-
-  const selected = selectSponsor(
-    {
-      placement,
-      zipCode: parsedZip.data,
-      currentDate: today,
-    },
-    candidates,
-  )
-
-  if (!selected) return null
-
-  return {
-    id: selected.id,
-    business_name: selected.name,
-    destination_url: selected.destinationUrl,
-  }
+  const selected = selectSponsor({ placement, zipCode: targetZip, currentDate: clock().toISOString().slice(0, 10) }, candidates)
+  return selected ? { id: selected.id, business_name: selected.name, destination_url: selected.destinationUrl } : null
 }

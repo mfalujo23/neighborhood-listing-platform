@@ -1,0 +1,4 @@
+{"eventId":"CA0e241a89a251b6e43eb91b0095981b68","status":"http_200_attempt_1","phoneSuffix":"***0199"}
+<?xml version="1.0" encoding="UTF-8"?><Response><Say>Thank you for calling Neighborhood Listing Platform. Your request has been recorded.</Say></Response>
+{"eventId":"CA0e241a89a251b6e43eb91b0095981b68","status":"http_200_attempt_2","phoneSuffix":"***0199"}
+<?xml version="1.0" encoding="UTF-8"?><Response></Response>

@@ -1,0 +1,269 @@
+{
+  "checkedAt": "2026-11-23T16:38:21.251Z",
+  "sourceBase": "1de4e52545b0dfc5be877569e78140a50f7cd70a",
+  "scope": "Local source and rendered production-browser verification of address/city/ZIP search and sponsor explanation. No completed participant session or hosted-browser result is claimed.",
+  "changes": [
+    "Search the existing address, city and ZIP fields without changing fixture data.",
+    "Combine search with city and price; preserve reset, results count and empty state.",
+    "Explain the sample gardening sponsor and state that products, services and hours are not supplied."
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/app/listings/sponsors/imaginary-garden-shop/page.tsx",
+      "sha256": "6a5d35372c3f90685697a6933163a5b61e2ff55ac35f62c47533390b63d68adf"
+    },
+    {
+      "path": "src/components/ListingsExplorer.tsx",
+      "sha256": "b6500c944885031265b6450b4c500d5942469ed9376d385ce12bf903dabeacb9"
+    },
+    {
+      "path": "src/components/SearchFilters.tsx",
+      "sha256": "b4d6714d6aaa28f294bd31fb4a70d2558885f636e14b3f5d09972f9c65f14034"
+    },
+    {
+      "path": "src/components/listings.module.css",
+      "sha256": "b6b77f6e13f8190477e5955acaa15426020b26b80dbb6234c70560542f538bf1"
+    },
+    {
+      "path": "src/test/lab2Components.test.tsx",
+      "sha256": "95eecd3184a98d54bfa3e78ba232e41d37f4ede16f515c9ee69e5b0306fbf0f9"
+    },
+    {
+      "path": "src/types/index.ts",
+      "sha256": "8a0695cb6a403babf632505ab1e90996b84f1a60d7a11bbe57c0d5f12e0397bf"
+    }
+  ],
+  "unitTests": 421,
+  "unitFiles": 34,
+  "webhookTests": 21,
+  "focusedComponentTests": 9,
+  "checks": [
+    {
+      "name": "strict lint",
+      "command": [
+        "node",
+        "node_modules/eslint/bin/eslint.js",
+        "src",
+        "config",
+        "next.config.mjs",
+        "scripts/verify-all.mjs",
+        "scripts/verify-release.mjs",
+        "--max-warnings",
+        "0"
+      ],
+      "exit": 0,
+      "durationMs": 55180
+    },
+    {
+      "name": "TypeScript",
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "exit": 0,
+      "durationMs": 13320
+    },
+    {
+      "name": "all local tests",
+      "command": [
+        "node",
+        "scripts/verify-all.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 43332
+    },
+    {
+      "name": "production build",
+      "command": [
+        "node",
+        "node_modules/next/dist/bin/next",
+        "build",
+        "--webpack"
+      ],
+      "exit": 0,
+      "durationMs": 33503
+    },
+    {
+      "name": "actual fictional loopback booking API capacity",
+      "command": [
+        "node",
+        "scripts/verify-booking-http-capacity.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 8265
+    }
+  ],
+  "localTestPhases": [
+    {
+      "name": "unit and component tests",
+      "command": [
+        "node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "src/test",
+        "--no-cache",
+        "--no-fsModuleCache"
+      ],
+      "exit": 0,
+      "durationMs": 17077
+    },
+    {
+      "name": "webhook signature, consent and idempotency tests",
+      "command": [
+        "node",
+        "--test",
+        "tests/webhook.test.js"
+      ],
+      "exit": 0,
+      "durationMs": 431
+    },
+    {
+      "name": "backend PostgreSQL roles",
+      "command": [
+        "node",
+        "scripts/verify-local-backend.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 4321
+    },
+    {
+      "name": "midterm fresh and legacy PostgreSQL roles",
+      "command": [
+        "node",
+        "scripts/verify-local-midterm.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 3763
+    },
+    {
+      "name": "booking email PostgreSQL/runtime contract",
+      "command": [
+        "node",
+        "scripts/verify-booking-email-contract.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 2398
+    },
+    {
+      "name": "sponsor PostgreSQL eligibility and roles",
+      "command": [
+        "node",
+        "scripts/verify-local-sponsors.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 4351
+    },
+    {
+      "name": "analytics PostgreSQL privacy and aggregates",
+      "command": [
+        "node",
+        "scripts/verify-local-analytics.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 2351
+    },
+    {
+      "name": "canonical provider and legacy read-only analytics roles",
+      "command": [
+        "node",
+        "scripts/verify-local-analytics-provider.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 2487
+    },
+    {
+      "name": "media approval-record validation",
+      "command": [
+        "node",
+        "scripts/verify-mfalujo23-media-records.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 2307
+    },
+    {
+      "name": "fictional local backup recovery and restored RLS",
+      "command": [
+        "node",
+        "scripts/verify-local-restore.mjs"
+      ],
+      "exit": 0,
+      "durationMs": 3666
+    }
+  ],
+  "buildRetry": "The first build hit Windows sandbox EPERM creating output. The unchanged source passed the permitted retry. Earlier passing lint, types and tests were retained.",
+  "loopbackCapacity": {
+    "attempts": 31,
+    "accepted201": 30,
+    "rejected429": 1,
+    "retryAfterPresent": true,
+    "fictionalDisposableDatabaseOnly": true
+  },
+  "dependenciesSchemasMigrationsFixturesUnchanged": true,
+  "providerCredentialsUsed": false,
+  "providerWrites": false,
+  "renderedBrowserVerification": {
+    "scope": "Local normal production build in the in-app browser; assistant-operated checks, not a human participant session.",
+    "checks": [
+      {
+        "name": "Address search by Enter, mixed case and spaces",
+        "pass": true
+      },
+      {
+        "name": "ZIP plus city plus maximum price",
+        "pass": true
+      },
+      {
+        "name": "Unmatched search has helpful empty state",
+        "pass": true
+      },
+      {
+        "name": "Keyboard reset clears all three filters",
+        "pass": true
+      },
+      {
+        "name": "Sponsor link opens clear sample purpose and unknown offerings",
+        "pass": true
+      }
+    ],
+    "observedResults": {
+      "addressMixedCaseAndSpaces": 1,
+      "zipCityAndPrice": 1,
+      "unmatched": 0,
+      "reset": 5
+    },
+    "keyboardOrder": [
+      "Address, city or ZIP",
+      "City",
+      "Maximum price",
+      "Apply filters",
+      "Reset filters"
+    ],
+    "focus": "Visible 3px blue outline observed.",
+    "reflow": [
+      {
+        "viewportWidth": 320,
+        "documentWidth": 305,
+        "overflow": false
+      },
+      {
+        "viewportWidth": 375,
+        "documentWidth": 360,
+        "overflow": false
+      },
+      {
+        "viewportWidth": 768,
+        "documentWidth": 753,
+        "overflow": false
+      },
+      {
+        "viewportWidth": 1280,
+        "documentWidth": 1265,
+        "overflow": false
+      }
+    ],
+    "sponsorNavigation": "Keyboard link opened the matching heading and missing-information text; return link worked.",
+    "hostedVerification": "Pending; not established by these local checks."
+  },
+  "humanUsabilityEvidence": "Partial written-content feedback prompted these changes; no interactive completion, missing timings or assistant response is inferred."
+}

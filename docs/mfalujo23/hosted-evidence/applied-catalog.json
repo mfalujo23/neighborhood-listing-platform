@@ -1,0 +1,191 @@
+{
+  "status": "applied_and_catalog_verified",
+  "projectRef": "emzgyjdasctljwnbcuov",
+  "seedUtcDate": "2026-11-19",
+  "recordedAt": "2026-11-19T18:38:05.127Z",
+  "addons": [
+    {
+      "kind": "sponsors",
+      "bundleSha256": "8b3abf6355ee10ad878673c910b4b0e651d6b0304b46fc5f1dd29b46af32f5c5",
+      "applied": true
+    },
+    {
+      "kind": "analytics",
+      "bundleSha256": "7055759a2187212e2f7d0314a6cdd2a4ee1219d5a6d1d02b2fa2c9f03e18f169",
+      "applied": true
+    },
+    {
+      "kind": "telephony",
+      "bundleSha256": "fde628a4991c122ba6b9e638f2d344bfcc62d5f65b283104c830329eb1e0d96c",
+      "applied": true
+    }
+  ],
+  "catalog": {
+    "tables": [
+      "analytics_events",
+      "bookings",
+      "profiles",
+      "properties",
+      "property_sponsors",
+      "service_categories",
+      "service_category_mappings",
+      "services",
+      "sponsor_placement_impressions",
+      "sponsors",
+      "telephony_webhook_events"
+    ],
+    "rlsEnabled": 11,
+    "fixtureCounts": {
+      "profiles": 5,
+      "properties": 3,
+      "services": 3,
+      "service_categories": 2,
+      "service_category_mappings": 2,
+      "bookings": 1,
+      "sponsors": 4,
+      "property_sponsors": 4,
+      "sponsor_placement_impressions": 0,
+      "analytics_events": 2,
+      "telephony_webhook_events": 0
+    },
+    "functions": [
+      "analytics_event_window",
+      "analytics_sponsor_ctr",
+      "eligible_sponsors_for_property",
+      "purge_expired_analytics",
+      "record_sponsor_placement_impression"
+    ],
+    "grantsVerified": true,
+    "grantsVerificationScope": "Actual UI effective operation grants for5addon tables and EXECUTE/security/search_path metadata for5functions. This is not SDK/RLS execution evidence.",
+    "tableGrantColumns": [
+      "anon_select",
+      "browser_insert",
+      "browser_update",
+      "server_select",
+      "server_insert",
+      "server_update"
+    ],
+    "tableGrants": [
+      {
+        "table": "analytics_events",
+        "values": [
+          false,
+          false,
+          false,
+          true,
+          true,
+          false
+        ]
+      },
+      {
+        "table": "property_sponsors",
+        "values": [
+          false,
+          false,
+          false,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "table": "sponsor_placement_impressions",
+        "values": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "table": "sponsors",
+        "values": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "table": "telephony_webhook_events",
+        "values": [
+          false,
+          false,
+          false,
+          false,
+          true,
+          false
+        ]
+      }
+    ],
+    "functionGrants": [
+      {
+        "proname": "analytics_event_window",
+        "arguments": "p_from timestamp with time zone, p_end_exclusive timestamp with time zone, p_property_id uuid, p_source text",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog, public, pg_temp"
+        ],
+        "anon_execute": false,
+        "browser_execute": true,
+        "service_execute": false,
+        "expected_function_grants": true
+      },
+      {
+        "proname": "analytics_sponsor_ctr",
+        "arguments": "p_from timestamp with time zone, p_end_exclusive timestamp with time zone, p_property_id uuid, p_source text",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog, public, pg_temp"
+        ],
+        "anon_execute": false,
+        "browser_execute": true,
+        "service_execute": false,
+        "expected_function_grants": true
+      },
+      {
+        "proname": "eligible_sponsors_for_property",
+        "arguments": "p_property_id uuid, p_zip text, p_placement text",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, public, pg_temp"
+        ],
+        "anon_execute": true,
+        "browser_execute": true,
+        "service_execute": false,
+        "expected_function_grants": true
+      },
+      {
+        "proname": "purge_expired_analytics",
+        "arguments": "",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, public, pg_temp"
+        ],
+        "anon_execute": false,
+        "browser_execute": false,
+        "service_execute": true,
+        "expected_function_grants": true
+      },
+      {
+        "proname": "record_sponsor_placement_impression",
+        "arguments": "p_sponsor_id text, p_placement text, p_page_context text",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, public, pg_temp"
+        ],
+        "anon_execute": false,
+        "browser_execute": false,
+        "service_execute": true,
+        "expected_function_grants": true
+      }
+    ]
+  },
+  "checkpoint": "Catalog at original one-booking seed, before the preserved booking insert. This receipt is not a claim of current counts or SDK execution.",
+  "inputResultSha256": "f1937e149ba9fadf6caea2c1713229cbfa0181a561da3290edcabcb16b351db9",
+  "functionGrantsInputSha256": "f7f12e76e27d4c5f6fa958134751501a52fc519c77a72fabd46437cf496798b6"
+}

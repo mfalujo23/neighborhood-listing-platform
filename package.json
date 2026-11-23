@@ -1,27 +1,54 @@
 {
+  "name": "neighborhood-listing-platform",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "npm@11.21.3",
+  "engines": {
+    "node": "24.x",
+    "npm": "11.x"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
-    "lint": "next lint",
-    "test": "vitest run src/test && node --test tests/webhook.test.js"
+    "lint": "eslint src config next.config.mjs scripts/verify-all.mjs scripts/verify-release.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/verify-all.mjs",
+    "test:db": "node scripts/verify-local-backend.mjs",
+    "test:midterm:db": "node scripts/verify-local-midterm.mjs",
+    "test:core": "vitest run src/test && node --test tests/webhook.test.js && node scripts/verify-local-backend.mjs && node scripts/verify-local-midterm.mjs",
+    "verify:release": "node scripts/verify-release-evidence.mjs",
+    "verify:source": "node scripts/verify-release.mjs"
   },
   "devDependencies": {
-    "@types/node": "^26.6.2",
+    "@electric-sql/pglite": "0.5.16",
+    "@tailwindcss/postcss": "4.3.5",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.13",
+    "@types/node": "26.6.2",
     "@types/react": "19.3.0",
-    "supabase": "^2.122.1",
-    "tsx": "^4.23.15",
-    "typescript": "^7.0.2",
-    "vitest": "^5.0.5"
+    "@types/react-dom": "19.3.0",
+    "axe-core": "4.14.1",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.4.6",
+    "jsdom": "31.0.1",
+    "postcss": "8.5.33",
+    "supabase": "2.122.1",
+    "tailwindcss": "4.3.5",
+    "tsx": "4.23.15",
+    "typescript": "6.0.2",
+    "vitest": "5.1.0"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.119.0",
-    "@upstash/redis": "^1.41.0",
-    "next": "^16.4.6",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "server-only": "^0.0.1",
-    "twilio": "^6.3.0",
-    "zod": "^4.6.7"
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.119.0",
+    "@upstash/redis": "1.41.0",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "server-only": "0.0.1",
+    "sharp": "0.35.5",
+    "twilio": "6.3.0",
+    "zod": "4.6.7"
   }
 }

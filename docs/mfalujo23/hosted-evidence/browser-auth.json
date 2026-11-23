@@ -1,0 +1,53 @@
+{
+  "sourceCommit": "3384e88811d70d72a355b08b879f1839d3c86287",
+  "sourceTree": "4f40621cd0c190fb4708276ba87bb4b6180069bf",
+  "observedUTC": "2026-11-19T18:55:06.764Z",
+  "realRolesVerifiedViaBrowser": [
+    "provider",
+    "admin",
+    "client"
+  ],
+  "secretsOrCookieValuesRecorded": false,
+  "actualHTTPStatusInspection": false,
+  "zoomCheckPending": true,
+  "notHumanUAT": true,
+  "evidenceType": "Allowlisted summary of an actual retained result; not a new execution.",
+  "inputResultSha256": "8538763d84c45b8cd9c5cc32c003b7ebc242b51198419b2f290616693d252694",
+  "cases": [
+    {
+      "name": "real_provider_password_signin",
+      "outcome": "passed",
+      "fixtureEventsVisible": 1
+    },
+    {
+      "name": "provider_session_survives_browser_reload",
+      "outcome": "passed",
+      "fixtureEventsVisible": 1
+    },
+    {
+      "name": "sign_out_then_direct_dashboard_access_denied",
+      "outcome": "passed"
+    },
+    {
+      "name": "real_admin_password_signin",
+      "outcome": "passed",
+      "fixtureEventsVisible": 2
+    },
+    {
+      "name": "invalid_password_coarse_error_and_alert_focus",
+      "outcome": "passed",
+      "focusId": "sign-in-error"
+    },
+    {
+      "name": "real_client_password_signin_then_dashboard_denied",
+      "outcome": "passed"
+    },
+    {
+      "name": "client_denied_page_signout_control_clears_session",
+      "outcome": "passed"
+    }
+  ],
+  "caseCount": 7,
+  "status": "observed",
+  "scope": "Actual in-app browser observation against hosted Auth using source3384. Seven observed cases; browser status codes were not inspected. Not human UAT."
+}

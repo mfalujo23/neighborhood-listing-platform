@@ -1,0 +1,133 @@
+{
+  "localOnly": true,
+  "version": "PostgreSQL 18.6 (PGlite 0.5.16) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.13 (e13ee988ce3d87a738dd8f3661d02223308c412a), 32-bit",
+  "correctionPath": "supabase/migrations/20261119000100_analytics_provider_role_compat.sql",
+  "sha256": "a4ac0d881339bbdfd29ab20bfe1f060c0350d598f073525182cc05799b7a1cde",
+  "profileContractDependency": "Published midterm007 from f4ea7ab7adb0a4a50e7506f602bfda92282b2ae5",
+  "checks": [
+    {
+      "name": "Canonical provider reads own analytics only",
+      "actual": {
+        "rows": [
+          {
+            "property_id": "70000000-0000-4000-8000-000000000001"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Other provider reads its own distinct property only",
+      "actual": {
+        "rows": [
+          {
+            "property_id": "70000000-0000-4000-8000-000000000002"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Provider cannot query another property through the aggregate",
+      "actual": {
+        "rows": []
+      }
+    },
+    {
+      "name": "Provider own CTR is2/3",
+      "actual": {
+        "rows": [
+          {
+            "neighborhood": "90032",
+            "impression_count": 3,
+            "clicked_impressions": 2,
+            "ctr_percent": "66.6666666666666667"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Merchant denied",
+      "actual": {
+        "rows": []
+      }
+    },
+    {
+      "name": "Client denied",
+      "actual": {
+        "rows": []
+      }
+    },
+    {
+      "name": "Admin reads all three property scopes",
+      "actual": {
+        "rows": [
+          {
+            "property_id": "70000000-0000-4000-8000-000000000001"
+          },
+          {
+            "property_id": "70000000-0000-4000-8000-000000000002"
+          },
+          {
+            "property_id": "70000000-0000-4000-8000-000000000003"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Preserved legacy role reads its own property only",
+      "actual": {
+        "rows": [
+          {
+            "property_id": "70000000-0000-4000-8000-000000000003"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Legacy client cannot directly insert analytics",
+      "actual": {
+        "error": {
+          "code": "42501",
+          "message": "permission denied for table analytics_events"
+        }
+      }
+    },
+    {
+      "name": "Exact-role migration preserved the existing legacy row",
+      "actual": {
+        "role": "property_professional"
+      }
+    },
+    {
+      "name": "Fresh canonical provider profile accepted",
+      "actual": [
+        {
+          "role": "provider"
+        }
+      ]
+    },
+    {
+      "name": "Fresh post007 provider reads its assigned analytics only",
+      "actual": {
+        "rows": [
+          {
+            "property_id": "70000000-0000-4000-8000-000000000004"
+          }
+        ]
+      }
+    },
+    {
+      "name": "New legacy-role profile remains prohibited",
+      "actual": {
+        "code": "23514",
+        "message": "new row for relation \"profiles\" violates check constraint \"profiles_exam_role_check\""
+      }
+    },
+    {
+      "name": "Role-policy correction reapplied without changing profiles",
+      "actual": {
+        "legacyRole": "property_professional"
+      }
+    }
+  ],
+  "limitation": "Fictional local auth stubs and data only; no hosted session or provider data."
+}

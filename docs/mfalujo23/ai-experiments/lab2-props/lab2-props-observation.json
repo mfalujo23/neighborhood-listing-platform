@@ -1,0 +1,16 @@
+{
+  "observedAtUTC": "2026-11-19T21:50:51.840Z",
+  "tool": "Google AI Studio",
+  "model": "gemini-4-hydrogen",
+  "visibleModel": "Gemini 4 Hydrogen",
+  "temporaryChat": true,
+  "driveSaved": false,
+  "apiKeySelected": false,
+  "codeExecutionEnabled": false,
+  "structuredOutputsEnabled": false,
+  "promptSha256": "b8d5454be3500cbb4685fbc99233f2c3ab217d153ae81b1a1cb266a1478967bf",
+  "responseSha256": "626d54dd5b8a1d2ba570f19c1b648e4459d9b7a3de3ee64d1476b5c2f4492309",
+  "captureMethod": "Visible model response code block; clipboard copy did not update",
+  "result": "Three TypeScript prop interfaces returned, no implementation or test-execution claim",
+  "verificationPending": "Compare required/optional fields with actual components and compile accepted types independently"
+}

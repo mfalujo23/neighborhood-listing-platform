@@ -1,0 +1,44 @@
+[
+  {
+    "case": "approved services",
+    "status": 200,
+    "rows": [
+      {
+        "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb6",
+        "title": "Fictional plumbing review",
+        "hourly_rate": 85,
+        "duration_minutes": 45,
+        "coverage_radius_miles": 8
+      },
+      {
+        "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb2",
+        "title": "Provider A approved",
+        "hourly_rate": 75,
+        "duration_minutes": 60,
+        "coverage_radius_miles": 10
+      },
+      {
+        "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbb5",
+        "title": "Provider B approved",
+        "hourly_rate": 80,
+        "duration_minutes": 45,
+        "coverage_radius_miles": 5
+      }
+    ]
+  },
+  {
+    "case": "private booking insert",
+    "status": 201,
+    "response": ""
+  },
+  {
+    "case": "unapproved service denied",
+    "status": 403,
+    "response": "{\"code\":\"42501\",\"message\":\"Local fixture request rejected.\"}"
+  },
+  {
+    "case": "invalid email constraint",
+    "status": 400,
+    "response": "{\"code\":\"23514\",\"message\":\"Local fixture request rejected.\"}"
+  }
+]

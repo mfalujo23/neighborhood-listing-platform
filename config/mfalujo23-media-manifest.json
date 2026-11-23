@@ -1,0 +1,207 @@
+{
+  "generatedAtUTC": "2026-11-19T00:47:20.863Z",
+  "sharpVersion": "0.35.5",
+  "measurement": "Actual local encoded file bytes and decoded formats/dimensions. Not transferred bytes, download time, LCP or a provider performance measurement.",
+  "assets": [
+    {
+      "id": "fictional-property",
+      "category": "property-photo",
+      "purpose": "informational",
+      "alt": "AI-generated fictional cream house with a wood entrance and front garden; not a real listing.",
+      "width": 1280,
+      "height": 720,
+      "src": "/mfalujo23-media/property-1280.webp",
+      "source": {
+        "path": "assets/mfalujo23-media/source/property-generated-v1.png",
+        "kind": "actual-built-in-image-generation",
+        "proof": "assets/mfalujo23-media/source/generation-record.json",
+        "format": "png",
+        "width": 1672,
+        "height": 941,
+        "bytes": 3052760,
+        "sha256": "57ae20ac3a5ae69e356e841690732614e6b1ea99b9213877c4ba8abe29012a7a"
+      },
+      "permission": "Created for this authorized fictional classroom project; no third-party photo or stakeholder endorsement claimed.",
+      "approval": {
+        "status": "approved",
+        "scope": "fixture_test",
+        "actor": "test-fixture-only",
+        "humanReviewed": false,
+        "date": "2026-11-19",
+        "productionStatus": "draft"
+      },
+      "renditions": [
+        {
+          "path": "/mfalujo23-media/property-320.webp",
+          "format": "webp",
+          "decoderFormat": "webp",
+          "compression": null,
+          "width": 320,
+          "height": 180,
+          "bytes": 13378,
+          "sha256": "dcd04e8c39c306291dc2965933061c86b3ec4ce5d2d3edfa93cf3204795668b6"
+        },
+        {
+          "path": "/mfalujo23-media/property-320.avif",
+          "format": "avif",
+          "decoderFormat": "heif",
+          "compression": "av1",
+          "width": 320,
+          "height": 180,
+          "bytes": 6229,
+          "sha256": "e488db41c34254d82625c9e23a93412980fe5f4dc60e5af32bcf5a7cd5fd2bbd"
+        },
+        {
+          "path": "/mfalujo23-media/property-640.webp",
+          "format": "webp",
+          "decoderFormat": "webp",
+          "compression": null,
+          "width": 640,
+          "height": 360,
+          "bytes": 47206,
+          "sha256": "d3e5d8a5f812408d42b2627311ed2ff83974aa24570263e0b7e3b4d735dca039"
+        },
+        {
+          "path": "/mfalujo23-media/property-640.avif",
+          "format": "avif",
+          "decoderFormat": "heif",
+          "compression": "av1",
+          "width": 640,
+          "height": 360,
+          "bytes": 20898,
+          "sha256": "e7e85bc48860fcab97bb352c960184c906a550f18056b925f54ab5f9a31a2e95"
+        },
+        {
+          "path": "/mfalujo23-media/property-1280.webp",
+          "format": "webp",
+          "decoderFormat": "webp",
+          "compression": null,
+          "width": 1280,
+          "height": 720,
+          "bytes": 161092,
+          "sha256": "6007e5ad911c3c1d2cc3e7c0f29b1d516649ed9b391db447299a009824660335"
+        },
+        {
+          "path": "/mfalujo23-media/property-1280.avif",
+          "format": "avif",
+          "decoderFormat": "heif",
+          "compression": "av1",
+          "width": 1280,
+          "height": 720,
+          "bytes": 71467,
+          "sha256": "53fc1ff340fcb74894e265e187d2588fda1484d2b3c143ec27a7a0b17594f85d"
+        },
+        {
+          "path": "/mfalujo23-media/property-baseline-1280.jpg",
+          "format": "jpeg",
+          "decoderFormat": "jpeg",
+          "compression": null,
+          "width": 1280,
+          "height": 720,
+          "bytes": 360629,
+          "sha256": "e2e2b99055fbbdd4493c0fdccb3b642337da723ee8889f1477ea46a20fc91e58"
+        }
+      ]
+    },
+    {
+      "id": "fictional-partner",
+      "category": "partner-banner",
+      "purpose": "informational",
+      "alt": "Leaf and plant illustration for the Fictional Garden Partner classroom banner.",
+      "width": 640,
+      "height": 240,
+      "src": "/mfalujo23-media/partner-banner.svg",
+      "source": {
+        "path": "assets/mfalujo23-media/source/partner-banner.svg",
+        "kind": "self-authored-svg-by-codex",
+        "proof": "assets/mfalujo23-media/source/partner-banner.svg",
+        "format": "svg",
+        "width": 640,
+        "height": 240,
+        "bytes": 706,
+        "sha256": "63350d898019ff7dc9957ffc3c719ea5de3af67f641c644f67aef450312bc4c1"
+      },
+      "permission": "Created for this authorized fictional classroom project; no third-party photo or stakeholder endorsement claimed.",
+      "approval": {
+        "status": "approved",
+        "scope": "fixture_test",
+        "actor": "test-fixture-only",
+        "humanReviewed": false,
+        "date": "2026-11-19",
+        "productionStatus": "draft"
+      },
+      "renditions": [
+        {
+          "path": "/mfalujo23-media/partner-banner.svg",
+          "format": "svg",
+          "decoderFormat": "svg",
+          "compression": null,
+          "width": 640,
+          "height": 240,
+          "bytes": 706,
+          "sha256": "63350d898019ff7dc9957ffc3c719ea5de3af67f641c644f67aef450312bc4c1"
+        },
+        {
+          "path": "/mfalujo23-media/fictional-partner.webp",
+          "format": "webp",
+          "decoderFormat": "webp",
+          "compression": null,
+          "width": 640,
+          "height": 240,
+          "bytes": 5380,
+          "sha256": "5c99d1ebb353a409a1a1d6cb3590b1e516456378c5b124abcfc5d9ebc754fb4a"
+        }
+      ]
+    },
+    {
+      "id": "home-navigation",
+      "category": "navigation-icon",
+      "purpose": "decorative",
+      "alt": "",
+      "width": 48,
+      "height": 48,
+      "src": "/mfalujo23-media/home-icon.svg",
+      "source": {
+        "path": "assets/mfalujo23-media/source/home-icon.svg",
+        "kind": "self-authored-svg-by-codex",
+        "proof": "assets/mfalujo23-media/source/home-icon.svg",
+        "format": "svg",
+        "width": 48,
+        "height": 48,
+        "bytes": 314,
+        "sha256": "79ec126fd5e05d771b5caee7014f53ab959eb23c78a18082c313bd45306ece82"
+      },
+      "permission": "Created for this authorized fictional classroom project; no third-party photo or stakeholder endorsement claimed.",
+      "approval": {
+        "status": "approved",
+        "scope": "fixture_test",
+        "actor": "test-fixture-only",
+        "humanReviewed": false,
+        "date": "2026-11-19",
+        "productionStatus": "draft"
+      },
+      "renditions": [
+        {
+          "path": "/mfalujo23-media/home-icon.svg",
+          "format": "svg",
+          "decoderFormat": "svg",
+          "compression": null,
+          "width": 48,
+          "height": 48,
+          "bytes": 314,
+          "sha256": "79ec126fd5e05d771b5caee7014f53ab959eb23c78a18082c313bd45306ece82"
+        },
+        {
+          "path": "/mfalujo23-media/home-navigation.webp",
+          "format": "webp",
+          "decoderFormat": "webp",
+          "compression": null,
+          "width": 48,
+          "height": 48,
+          "bytes": 610,
+          "sha256": "480fe5da8c11960623536da4b57adba40da5f67b27e9842a4b20a6cd59b0fd48"
+        }
+      ]
+    }
+  ]
+}

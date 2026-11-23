@@ -1,0 +1,22 @@
+{
+  "alerts": [
+    "Enter a valid email address.",
+    "Choose a valid calendar date.",
+    "Describe your request in 10–2000 characters."
+  ],
+  "focusedId": "client_email",
+  "invalid": [
+    {
+      "description": "client_email-error",
+      "id": "client_email"
+    },
+    {
+      "description": "requested_date-error",
+      "id": "requested_date"
+    },
+    {
+      "description": "notes-error",
+      "id": "notes"
+    }
+  ]
+}

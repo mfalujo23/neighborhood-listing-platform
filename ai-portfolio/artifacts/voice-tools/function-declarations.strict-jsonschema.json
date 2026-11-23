@@ -1,0 +1,93 @@
+[
+  {
+    "name": "get_property_details",
+    "description": "Return only a fictional approved listing, by exact ID or address.",
+    "parametersJsonSchema": {
+      "type": "object",
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "property_id": {
+              "type": "string",
+              "pattern": "^demo-\\d{3}$"
+            }
+          },
+          "required": [
+            "property_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "minLength": 4,
+              "maxLength": 160
+            }
+          },
+          "required": [
+            "address"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "get_nearby_sponsors",
+    "description": "Return labeled fictional sponsored content for a five-digit ZIP and optional category.",
+    "parametersJsonSchema": {
+      "type": "object",
+      "properties": {
+        "zip": {
+          "type": "string",
+          "pattern": "^\\d{5}$"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "food",
+            "home-services",
+            "retail"
+          ]
+        }
+      },
+      "required": [
+        "zip"
+      ],
+      "additionalProperties": false
+    }
+  },
+  {
+    "name": "request_agent_followup",
+    "description": "Validate an explicitly consented fictional follow-up draft. Never submits or contacts anyone.",
+    "parametersJsonSchema": {
+      "type": "object",
+      "properties": {
+        "consent": {
+          "type": "boolean",
+          "const": true
+        },
+        "property_id": {
+          "type": "string",
+          "pattern": "^demo-\\d{3}$"
+        },
+        "preferred_channel": {
+          "type": "string",
+          "enum": [
+            "email",
+            "phone"
+          ]
+        }
+      },
+      "required": [
+        "consent",
+        "property_id",
+        "preferred_channel"
+      ],
+      "additionalProperties": false
+    }
+  }
+]
