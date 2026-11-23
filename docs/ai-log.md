@@ -232,3 +232,12 @@ The later reflow correction removed only `body` min-width:320px. Existing listin
 | Date | Tool / model | Prompt | Output used | Output rejected | Verification | Git trace |
 | --- | --- | --- | --- | --- | --- | --- |
 | November 19, 2026 (America/Los_Angeles) | Codex; exact model identifier not exposed | Add the required /listings/[propertyId] page using the existing five validated Gemini fixtures. Preserve Save and native details, reject unknown IDs and add a named card link. No schema/SQL/provider writes. | Awaited Next 16 params, shared runtime validation, fixed internal links, pre-rendered known IDs, escaped text and generic unavailable page | Duplicate fixtures/schemas, raw HTML, invented sponsor destinations, public audit controls and unperformed browser/provider claims | Assistant-run 417 unit tests, 21 webhook tests, strict lint/types, normal production build and 9 actual loopback HTTP checks passed. Normal audit control off. [Results](mfalujo23/evidence/property-detail/verification.json), [HTTP](mfalujo23/evidence/property-detail/http-results.json), [actual output](mfalujo23/evidence/property-detail/test-build-output.txt). Rendered browser checks are separate. | Base 96c078949cef9b91ea13980da1dd26cf4b34ea5f; isolated candidate related to [PR 14](https://github.com/mfalujo23/neighborhood-listing-platform/pull/14). No new commit, review, merge, deployment or live defense is claimed. |
+
+
+## Discovery and analytics evidence follow-up
+
+The required discovery review used the existing team questions and de-identified notes in ChatGPT and Google AI Studio. The selected questions, source-by-source theme check, accepted and rejected suggestions, prompt and unchanged outputs are recorded in [the Lab 4 process log](mfalujo23/lab4-followup-ai-log.md).
+
+The required analytics comparison used the same fictional fixture with both tools. The calculations were checked against the saved local results. The chosen inquiry-flow count chart is a next design to evaluate; the current required daily chart remains unchanged. See [the comparison](mfalujo23/lab14-model-comparison.md) and [process log](mfalujo23/lab13-14-ai-log.md).
+
+The browser runs were performed by an assistant under Michael Falujo's direction. Their capture records identify November 19, 2026, Pacific time. This commit adds and corrects documentation only. It does not claim new application tests, participant sessions, stakeholder approvals or other students' work.

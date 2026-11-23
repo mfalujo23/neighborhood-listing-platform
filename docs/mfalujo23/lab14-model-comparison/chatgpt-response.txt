@@ -1,0 +1,111 @@
+1. Calculation check
+
+The fictional baseline contains 30 unique events across November 17–18, 2026 (UTC).
+
+Metric
+
+	
+
+Numerator / Denominator
+
+	
+
+Result
+
+
+
+
+Sponsor CTR
+
+	
+
+2 clicked impressions / 4 impressions
+
+	
+
+50%
+
+
+
+
+Call completion
+
+	
+
+3 completed sessions / 4 started sessions
+
+	
+
+75%
+
+
+
+
+Tool success
+
+	
+
+3 successful results / 4 tool results
+
+	
+
+75%
+
+
+
+
+Escalation
+
+	
+
+1 escalated session / 4 started sessions
+
+	
+
+25%
+
+Inquiry-category event counts are property_details: 3 and unknown: 1. These are category events, not unique people.
+
+Daily UTC event counts are November 17: 29 and November 18: 1. The latter is a completion event from a session started November 17, illustrating why daily event volume must not be labeled daily calls.
+
+Fictional completion latencies are 800, 999 and 1000 milliseconds. Exactly 2/3 (66.7%) are strictly below 1000 ms. This validates threshold arithmetic, not actual provider latency or SLA compliance.
+
+2. Edge cases
+
+Each case independently extends the baseline.
+
+exact_retry: Identical event ID and payload deduplicate. CTR remains 2/4; daily counts remain 29 and 1.
+
+another_click_same_impression: One additional distinct click event increases November 17 to 30 events, but CTR remains 2/4 because the impression was already clicked.
+
+utc_and_same_window_cohort: The -08:00 impression becomes November 17 00:00 UTC and qualifies. Its click becomes November 19 00:00 UTC and is excluded. The earlier impression is outside the window, so its in-window click does not qualify. CTR becomes 2/5 (40%); daily counts become 31 and 1.
+
+wrong_property_or_correlation: Both appended clicks fail their impression joins. Neither increases clicked opportunities; CTR remains 2/4 in an offline match-failure calculation. Normal ingestion rejects unmatched clicks.
+
+small_property_B: CTR 0/1, completion 0/1, tool success 1/1 and escalation 0/1 must all display Insufficient data, not percentages.
+
+conflicting_retry: Reused event ID with changed timestamp rejects the entire dataset.
+
+invalidShapeProbe: Unknown extraField violates strict schema validation and must be rejected separately.
+
+3. One chart recommendation
+
+Replace the existing daily event bar/table as the primary decision chart with a horizontal grouped bar chart showing inquiry-flow outcomes.
+
+Use three labeled measures: completion (3/4), tool failure (1/4) and escalation (1/4). The horizontal axis represents session or tool-result counts; the vertical axis identifies each metric and its denominator unit. Do not combine these into a single additive funnel.
+
+Display numerator/denominator labels, suppress percentages below three denominator observations, and distinguish empty groups as No observations.
+
+Provide an accessible HTML table with headers, counts, definitions and insufficient-data notices. Avoid color-only distinctions and support keyboard and screen-reader navigation.
+
+Operational decision: Inspect the fictional get_property_details failure and webhook_timeout escalation path first, rather than interpreting sponsor CTR as the immediate inquiry-flow problem. Retain the existing daily chart/table only as secondary event-volume context. This is a proposed inspection priority, not an observed production issue.
+
+4. Privacy and limits
+
+Retain only event ID, UTC timestamp, property ID, session correlation ID, source, controlled event name and minimal event-specific fields required for calculations and matching.
+
+Preserve opt-in collection, revocation clearing, server-side ownership checks, role restrictions and request-body filters. Enforce the 30-day retention target through verified scheduled purging; an existing purge function alone does not establish automatic deletion.
+
+Exclude recordings, transcripts, contact information, IP/user-agent hashes and free-text notes.
+
+Conclusion: The fixture supports checking arithmetic, deduplication, UTC boundaries and validation behavior. It cannot establish actual demand, causation, revenue, unique users, provider reliability or real-world accessibility. No implementation changes, provider measurements or user tests are claimed.

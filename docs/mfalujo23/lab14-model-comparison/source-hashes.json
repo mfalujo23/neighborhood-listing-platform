@@ -1,0 +1,34 @@
+[
+  {
+    "path": "src/analytics/fixtures.ts",
+    "sha256": "8880cb232da71d924e6c53b0406f48b3dac0b1dd08de6b14e1b2690971986352"
+  },
+  {
+    "path": "src/analytics/schema.ts",
+    "sha256": "351e23bfc5b0f8e7e91282df551e9ed878c65c4fdc7b38ec4d5543381c453486"
+  },
+  {
+    "path": "src/analytics/metrics.ts",
+    "sha256": "9d410a7c8f3de4ea7024d43d4a27ca0b81b2a4cac84eaec9a6ece412b530ad5e"
+  },
+  {
+    "path": "src/analytics/store.ts",
+    "sha256": "6805f7e1fa1a400915793eced3bc5fab77a4f8da80209a16c1241b4f95c6a0d3"
+  },
+  {
+    "path": "src/analytics/server.ts",
+    "sha256": "a2ce499e8e16d6efa71d9082ec96056231a5f063a5b69eb9a417b85dc8bcbcfa"
+  },
+  {
+    "path": "src/analytics/http.ts",
+    "sha256": "336d9e45578fcd337815172b122d462524c8b7e926eed130f77ac9d5cbd66d86"
+  },
+  {
+    "path": "src/analytics/SummaryView.tsx",
+    "sha256": "be3353917ce2c17037d15f48f7f73c43612319f8bcd280b713ee4a3f9ea76ba3"
+  },
+  {
+    "path": "docs/mfalujo23/lab13-14-ai-log.md",
+    "sha256": "959f2bc19f6a373dadda5d8acc960e04352cfd2fa8d16a7d276c3eb328344caf"
+  }
+]

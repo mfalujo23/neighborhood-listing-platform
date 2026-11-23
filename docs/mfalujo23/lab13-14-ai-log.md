@@ -29,3 +29,18 @@ Lab 14 requires an actual ChatGPT/Gemini chart recommendation comparison. It rem
 > Review this analytics plan for decision usefulness, denominator errors, duplicate events, privacy overcollection, misleading small samples and accessibility. Recommend the minimum viable metric set and one chart supporting a stated operational decision. Use the attached fictional fixture only. Do not invent user behavior or provider measurements.
 
 Compare technical correctness, data minimization, accessible alternatives and the actual decision supported. The current daily bar/table choice is a Codex implementation decision; it is not attributed to either required external tool. Live UAT, stakeholder approval/disposition, real issue/fixing commit links and the student's individual reflection must be recorded truthfully after they occur.
+
+
+## Completed Lab 14 chart comparison — November 19, 2026
+
+The responses were captured at 2026-11-20T01:08:14.661Z (November 19 in Los Angeles). ChatGPT showed Instant, with no exact version shown. Google AI Studio showed Gemini 4 Hydrogen (`gemini-4-hydrogen`), with no API key selected. An assistant prepared the fixture, operated the browsers and compared the outputs under Michael Falujo's direction.
+
+**Prompt:** Both tools received the same complete [prompt](lab14-model-comparison/prompt.txt), containing 21,549 ASCII bytes and the fictional 30-event fixture. SHA256: `0a490243fe3176c5a62d2c42082ce9b0eaf2ebae40357f9f5013b92b7a012572`. It asked for calculation checks, edge cases, privacy/accessibility review and one useful chart. Actual [ChatGPT](lab14-model-comparison/chatgpt-response.txt) and [Gemini](lab14-model-comparison/gemini-response.txt) responses are preserved unchanged.
+
+**Used:** Verified arithmetic, minimal fields, explicit denominators, accessible tables and server ownership checks. ChatGPT's inquiry-flow count chart was selected as a next design to evaluate. The existing daily chart/table remains in place and is not attributed to these later responses.
+
+**Rejected or clarified:** Exactly 1000 ms remains in the latency denominator and fails only the passing numerator. Gemini's numerical 2/3 was correct but its exclusion wording was unclear. Keep the required time series and avoid comparing rates with different units as if they were interchangeable. ChatGPT exceeded the requested length (544 words; Gemini 453). Scheduled deletion is a recommendation, not a completed operational check.
+
+**Verification:** Compared both responses with the saved execution of the pure TypeScript fixture/schema/metrics modules at `fa9d5780041996cc81c8ca1a25a9703f80d8c2cd`. The results include CTR 2/4, completion 3/4, tool success 3/4, escalation 1/4, UTC counts 29/1, boundary-case CTR 2/5, duplicate handling, rejected conflicts and unknown fields, and suppressed percentages below three observations. All eight recorded source hashes match the publication snapshot. The server's source filtering and ownership checks were reviewed separately. [Verification](lab14-model-comparison/verification.json), [source hashes](lab14-model-comparison/source-hashes.json), [settings](lab14-model-comparison/model-settings.json) and [decision](lab14-model-comparison.md).
+
+**Git trace and remaining work:** This entry is part of the documentation update in [PR 14](https://github.com/mfalujo23/neighborhood-listing-platform/pull/14); its file history identifies the new documentation commit. The earlier pending-comparison entry describes the prior checkpoint. Lab 13 human observations and Rahim's Lab 14 participation/review remain unverified. No app change, new application test run, human session or provider measurement is claimed by this comparison.

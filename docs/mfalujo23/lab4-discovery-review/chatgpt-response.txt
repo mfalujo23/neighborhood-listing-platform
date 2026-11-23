@@ -1,0 +1,479 @@
+CIS 3610 Lab 4: Discovery, Responsible Outreach, and Product Requirements
+
+Source boundary: This review uses only the eight supplied Team Aster questions and six P1 notes authored by gavy1997. P1 is an existing team-reported source, not a new Michael Falujo interview. The source's live/approved label does not independently verify instructor approval, consent, or the original interview. No new interviews, outreach, or usability tests were conducted.
+
+1. Review of the eight existing questions
+
+ID
+
+	
+
+Issue identified
+
+	
+
+Smallest neutral rewrite
+
+
+
+
+Q1
+
+	
+
+Assumes information is currently shared and updated.
+
+	
+
+How, if at all, do you currently share or update neighborhood or property information?
+
+
+
+
+Q2
+
+	
+
+Assumes manual steps exist and are time-consuming.
+
+	
+
+What steps, if any, take the most time in your publishing process?
+
+
+
+
+Q3
+
+	
+
+Assumes a primary audience exists. Could invite identifiable client details.
+
+	
+
+What audience roles, if any, use your local content, and through which channels? Please avoid identifying individuals.
+
+
+
+
+Q4
+
+	
+
+Assumes formal approval or compliance steps exist.
+
+	
+
+What reviews or checks, if any, happen before publishing listings or local banners?
+
+
+
+
+Q5
+
+	
+
+Assumes a correction process exists.
+
+	
+
+How, if at all, are published content updates or corrections handled?
+
+
+
+
+Q6
+
+	
+
+Assumes success is already measured.
+
+	
+
+What measures, if any, do you use to evaluate listings or sponsorships?
+
+
+
+
+Q7
+
+	
+
+Assumes standards and device preferences are established. Could overlook assistive technologies.
+
+	
+
+What accessibility needs, assistive technologies, or device considerations, if any, are relevant?
+
+
+
+
+Q8
+
+	
+
+Leading: assumes frustration with existing platforms.
+
+	
+
+What works well or poorly, if anything, with your current tools?
+
+No question explicitly requests protected housing characteristics or identifiable client records. However, Q3 should clearly limit responses to general audience roles and channels.
+
+2. Eight final neutral discovery questions
+
+These retain the original Q1–Q8 correspondence.
+
+Q1 — Workflow: How, if at all, do you currently share and update neighborhood or property information?
+
+Q2 — Workflow: What parts of your publishing process, if any, require manual effort or take extra time?
+
+Q3 — Audience: What audience roles, if any, use your local content, and through which channels do they access it? Please avoid identifying individuals.
+
+Q4 — Content Approval: What review, approval, or compliance steps, if any, happen before listings or sponsor content are published?
+
+Q5 — Corrections: How, if at all, do you handle updates or corrections after content is published?
+
+Q6 — Success Measures: What measures, if any, help you evaluate whether listings or sponsorships meet their goals?
+
+Q7 — Accessibility: What accessibility needs, assistive technologies, or mobile and desktop considerations, if any, should the platform support?
+
+Q8 — General Experience: What works well or poorly with your current listing and content management tools, if anything?
+
+All eight allow participants to report that a process, problem, measurement, or need does not exist.
+
+3. Themes from existing P1 notes
+
+Theme ID
+
+	
+
+Supporting lines
+
+	
+
+Grounded paraphrase
+
+	
+
+Inference or uncertainty
+
+
+
+
+T1 — Professional context
+
+	
+
+P1-01, P1-02
+
+	
+
+P1 is described as an active local real estate agent involved in buyer representation and listing management.
+
+	
+
+Context only; does not establish a feature requirement.
+
+
+
+
+T2 — Manual information sharing
+
+	
+
+P1-03
+
+	
+
+P1 manually gathers neighborhood summaries, nearby local spots, and property links to share with buyers.
+
+	
+
+A combined-content workflow might help, but time savings are unverified.
+
+
+
+
+T3 — Mobile communication
+
+	
+
+P1-04
+
+	
+
+Client communication occurs primarily on mobile devices during tours or while reviewing links.
+
+	
+
+Suggests considering mobile usability; does not establish completed accessibility testing.
+
+
+
+
+T4 — Sponsor review
+
+	
+
+P1-05
+
+	
+
+P1 requires quick review and approval authority over sponsor or partner ads beside her property information.
+
+	
+
+The approval owner, process, and technical permissions remain undefined.
+
+
+
+
+T5 — Engagement measures
+
+	
+
+P1-06
+
+	
+
+P1's reported measures include direct client inquiry responses and time spent engaging with shared neighborhood links.
+
+	
+
+Metric definitions, collection methods, and actual results are unknown.
+
+Evidence limitation: The notes describe one de-identified participant. They do not establish how often issues occur across professionals, whether sponsors share these needs, or whether any proposed solution is effective.
+
+4. Candidate user stories and acceptance criteria
+
+These are proposed requirements, not existing implemented features. Each story distinguishes the observation from the design inference.
+
+US1 — Combined neighborhood information
+
+Source: P1-03
+
+Observation: P1 manually compiles neighborhood summaries, nearby local spots, and property links.
+
+Design inference: A combined information view may reduce the need to assemble separate links.
+
+User story: As a property professional, I want to organize neighborhood information and property links in one view so that I can share them together.
+
+Acceptance criteria:
+
+Given fictional neighborhood information and property links exist,
+
+When the user opens the neighborhood view,
+
+Then the view displays the associated summary, local spots, and property links together.
+
+US2 — Mobile-friendly content
+
+Source: P1-04
+
+Observation: Client communication primarily occurs on mobile devices.
+
+Design inference: A responsive interface could support this reported workflow.
+
+User story: As a mobile visitor, I want neighborhood information to be readable and navigable on a small screen so that I can review it while on the go.
+
+Acceptance criteria:
+
+Given the neighborhood page is displayed on a narrow screen,
+
+When a visitor views its content,
+
+Then text and links remain readable and usable without horizontal page scrolling at the agreed test viewport.
+
+US3 — Sponsor content review
+
+Source: P1-05
+
+Observation: P1 requires quick review and approval authority over adjacent sponsor content.
+
+Design inference: A review checkpoint could support this requirement without assuming self-service approval or production permissions.
+
+User story: As a property professional, I want proposed sponsor content reviewed before it appears beside my property information so that I can verify its suitability.
+
+Acceptance criteria:
+
+Given a fictional sponsor banner is awaiting review,
+
+When the proposed content is submitted for the agreed review process,
+
+Then its review status is recorded and it is not treated as approved for publication until the designated reviewer approves it.
+
+The reviewer and workflow still require confirmation.
+
+US4 — Inquiry and engagement summaries
+
+Source: P1-06
+
+Observation: P1 reports inquiry responses and engagement time as success measures.
+
+Design inference: A small analytics summary may help evaluate content engagement.
+
+User story: As a property professional, I want to review defined inquiry and engagement measures so that I can assess how shared content is performing.
+
+Acceptance criteria:
+
+Given fictional, non-identifying event records are available,
+
+When the user opens an analytics summary,
+
+Then it displays the agreed inquiry and engagement measures with their definitions.
+
+Given no qualifying records exist,
+
+When the summary loads,
+
+Then it shows an appropriate no-data state rather than inventing results.
+
+These criteria do not justify collecting identifiable client records or claim that analytics currently work.
+
+US5 — Content corrections
+
+Source: P1-02, P1-03 (contextual support only)
+
+Observation: P1 manages listings and manually shares property-related information. The notes do not describe a correction process.
+
+Design inference: A controlled correction workflow may be useful, subject to stakeholder confirmation.
+
+User story: As an authorized content maintainer, I want to propose corrections to neighborhood information so that outdated content can be reviewed.
+
+Acceptance criteria:
+
+Given a fictional listing contains information requiring correction,
+
+When a maintainer submits a proposed change,
+
+Then the changed content is available for the agreed review process before publication.
+
+This story is less directly supported than US1–US4 and should remain provisional.
+
+5. Questions requiring stakeholder or instructor-proxy confirmation
+
+Area
+
+	
+
+Outstanding question
+
+
+
+
+Source of truth
+
+	
+
+Which source is authoritative for property details, neighborhood summaries, and local spot information?
+
+
+
+
+Approval owner
+
+	
+
+Who has final authority over sponsor content, and does P1's requested authority apply to every publication?
+
+
+
+
+Approval workflow
+
+	
+
+What evidence of review is required before publishing, and who handles rejected content?
+
+
+
+
+Update cadence
+
+	
+
+How frequently should listings and neighborhood information be checked or corrected?
+
+
+
+
+Sponsor claims
+
+	
+
+What sponsor statements, disclaimers, and supporting evidence are allowed?
+
+
+
+
+Sponsor destinations
+
+	
+
+Which website destinations or links are permitted, and how should they be checked?
+
+
+
+
+Metric definitions
+
+	
+
+What qualifies as an inquiry response? When does engagement time begin and end?
+
+
+
+
+Privacy
+
+	
+
+What minimum non-identifying data may be collected, and what retention limits apply?
+
+
+
+
+Accessibility
+
+	
+
+Which accessibility criteria, devices, and assistive technologies should be used for verification?
+
+
+
+
+Source authorization
+
+	
+
+Can the instructor-proxy confirm whether the inherited notes are appropriate for the assignment, given that original consent and approval are not independently verified?
+
+
+
+
+Requirements priority
+
+	
+
+Which candidate stories should be prioritized, and who can confirm their acceptance criteria?
+
+Unsupported conclusions to reject
+
+P1 was newly interviewed by Michael Falujo.
+
+The original interview, participant consent, or instructor approval was independently verified.
+
+A local sponsor was directly interviewed.
+
+Usability or accessibility testing has been completed.
+
+The notes demonstrate measurable time savings, increased revenue, or improved conversion.
+
+The notes establish demographics-based housing targeting, real-time alerts, or production access permissions.
+
+The proposed user stories are already implemented, tested, or approved.
+
+One participant's reported experience represents all property professionals or sponsors.
+
+Conclusion: The inherited Team Aster materials support provisional requirements for combined neighborhood information, mobile usability, sponsor review, and clearly defined engagement measures. A correction workflow is a reasonable but weaker inference. All requirements remain candidates pending stakeholder or instructor-proxy confirmation. No new outreach is required for this source-based Lab 4 review.

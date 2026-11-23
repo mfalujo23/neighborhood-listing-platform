@@ -1,0 +1,89 @@
+{
+  "sourceCommit": "fa9d5780041996cc81c8ca1a25a9703f80d8c2cd",
+  "method": "Compared both actual responses with the saved execution of the current pure TypeScript fixture/schema/aggregation modules. Rechecked all eight source hashes against the publication snapshot and asserted the saved arithmetic. No new application test run is claimed.",
+  "reference": "local-reference.json",
+  "fixture": "fixture.json",
+  "baseline": {
+    "uniqueEvents": 30,
+    "sponsorCtr": "2/4 = 50%",
+    "callCompletion": "3/4 = 75%",
+    "toolSuccess": "3/4 = 75%",
+    "escalation": "1/4 = 25%",
+    "categories": {
+      "property_details": 3,
+      "unknown": 1
+    },
+    "utcDailyCounts": [
+      29,
+      1
+    ],
+    "fictionalLatencyBelow1000ms": "2/3; exactly 1000 ms stays in denominator"
+  },
+  "cases": [
+    {
+      "id": "exact_retry",
+      "checked": "No inflated event or CTR counts",
+      "bothResponses": "correct"
+    },
+    {
+      "id": "another_click_same_impression",
+      "checked": "CTR remains 2/4; distinct click increases daily volume only",
+      "bothResponses": "correct"
+    },
+    {
+      "id": "utc_and_same_window_cohort",
+      "checked": "CTR 2/5; UTC start inclusive, end exclusive",
+      "bothResponses": "correct"
+    },
+    {
+      "id": "wrong_property_or_correlation",
+      "checked": "Unmatched clicks do not join; normal ingestion rejects them",
+      "bothResponses": "correct"
+    },
+    {
+      "id": "small_property_B",
+      "checked": "Counts shown, percentages suppressed below denominator 3",
+      "bothResponses": "correct"
+    },
+    {
+      "id": "conflicting_retry",
+      "checked": "Changed payload under an existing event ID rejected",
+      "bothResponses": "correct"
+    },
+    {
+      "id": "invalidShapeProbe",
+      "checked": "Unknown field rejected",
+      "bothResponses": "correct"
+    }
+  ],
+  "qualifiedOutput": {
+    "gemini": "The numerical latency answer 2/3 is correct. Its phrase 1000ms excluded is ambiguous: exclude only from the passing numerator, not from the denominator.",
+    "chatgpt": "544 words exceed the requested 500-word maximum."
+  },
+  "scores": {
+    "chatgpt": {
+      "correctness": 3,
+      "privacy": 3,
+      "accessibility": 3,
+      "decisionUsefulness": 3
+    },
+    "gemini": {
+      "correctness": 2,
+      "privacy": 3,
+      "accessibility": 3,
+      "decisionUsefulness": 2
+    }
+  },
+  "scoreBasis": "Gemini correctness is reduced for ambiguous threshold wording, not a wrong numerical answer. Decision usefulness is reduced because a shared percentage scale can encourage comparisons between different denominator units and its replacement wording would remove the required time series.",
+  "decision": "Choose the inquiry-flow count chart as a next design to evaluate; retain the required existing daily chart and accessible table. No chart implementation is claimed.",
+  "sourceBoundary": "Server read filters p_source, rejects mixed-source results and verifies SQL CTR counts. Normal ingestion matches clicks to property, correlation and source.",
+  "rawResponseWordCounts": {
+    "chatgpt-response.txt": 544,
+    "gemini-response.txt": 453
+  },
+  "sourceFilesUnchanged": true,
+  "newApplicationTestsRun": false,
+  "applicationChanged": false,
+  "humanTestingOrProviderMeasurements": false,
+  "partnerReviewVerified": false
+}

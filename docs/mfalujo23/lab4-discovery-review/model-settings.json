@@ -1,0 +1,18 @@
+{
+  "capturedAtUTC": "2026-11-20T01:11:27.763Z",
+  "promptSHA256": "cb79e78963af5e627c348f3ca210354df1c4644d83698e6985442a90b7c2be01",
+  "sameInput": "Same complete prompt file filled in both UIs. ChatGPT normalized auto-linked URL whitespace; all text matched after whitespace normalization.",
+  "chatgpt": {
+    "uiModel": "Instant; version not shown"
+  },
+  "gemini": {
+    "tool": "Google AI Studio",
+    "model": "Gemini 4 Hydrogen",
+    "modelId": "gemini-4-hydrogen",
+    "apiKeySelected": false,
+    "urlContext": false
+  },
+  "sourceBoundary": "Existing public Team Aster questions and reported P1 notes only. No new interview, consent validation, UAT, stakeholder approval or source browsing by the models.",
+  "captureMethod": "Rendered final response text only; no model thoughts expanded.",
+  "performedBy": "Assistant operating the tools under Michael Falujo’s direction"
+}

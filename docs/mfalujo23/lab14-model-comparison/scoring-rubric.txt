@@ -1,0 +1,29 @@
+Chart comparison rubric
+
+Score each dimension from 0 to 3. Preserve both raw outputs. Scores assess these responses only.
+
+Technical correctness
+3: Correct baseline counts and denominators, independent cases, retries/conflicts, same-window CTR, property/correlation matching, UTC instants, denominator suppression and fixture/provider distinction.
+2: Correct central calculation with a minor omission that does not change the decision.
+1: Material counting or boundary error, despite some valid analysis.
+0: Invented measurements, unsafe conflicting-event acceptance, or fundamentally incorrect denominators.
+
+Privacy/data minimization
+3: Uses only necessary controlled event fields; preserves default-off permission, deletion, real server authorization/ownership, source separation and honest retention limits; requests no identifiers/raw content.
+2: Sound minimum with a modest missing operational caveat.
+1: Vague privacy claims or unnecessary fields.
+0: Recommends raw transcripts/recordings/contact/IP/user-agent identification, treats fixture opt-in as participant consent, or claims legal/retention compliance without evidence.
+
+Accessibility
+3: Meaningful labels/units/counts, adequate non-color cues and a same-data semantic table/text alternative; describes small/empty states and usable controls without pretending an audit ran.
+2: Appropriate alternative but incomplete labeling/state detail.
+1: Generic accessibility claim with no usable alternative.
+0: Color-only or inaccessible recommendation, or invented user/axe results.
+
+Decision usefulness
+3: One proportionate chart directly supports the stated inquiry-flow inspection decision, states the denominator/data unit and the two-day/small-fixture limits; chooses function over decoration.
+2: Relevant chart with a modest decision/uncertainty gap.
+1: Attractive but weakly related chart or unsupported trend interpretation.
+0: Claims causal, business, user or provider outcomes from this fixture.
+
+Record useful and rejected suggestions, why, independent verification, actual model/UI label when exposed, capture date and eventual source commit. A score is an analytical judgment, not evidence of stakeholder approval or human UAT. Do not attribute the earlier daily bar/table implementation to these later model runs.
