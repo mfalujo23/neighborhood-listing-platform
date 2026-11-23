@@ -1,5 +1,7 @@
 # Labs 10-12: no-cost voice workflow simulator
 
+Current status: [coursework status](../current-status.md). This document records the initial deterministic simulator checkpoint. Later [AI Studio function-calling cases](../../ai-portfolio/case-studies/05-function-calling.md), [saved voice configuration](voice-active-config.md) and [hosted callbacks](hosted-reproduction.md) are separate evidence. The simulator itself still makes no provider calls.
+
 Prepared for `mfalujo23` with Codex assistance on November 18, 2026.
 
 ## Demonstration and scope

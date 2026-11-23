@@ -1,5 +1,7 @@
 # Lab 6 decision note — mfalujo23
 
+Current status: [coursework status](../current-status.md). The rules and local results below retain the original migration scope. Later hosted sponsor reads and the current merchant-only draft policy are in [hosted reproduction](hosted-reproduction.md). An admin browser does not gain approval rights from the earlier policy description; trusted server authorization is required.
+
 The selector now has a narrow public database path, explicit rejection reasons, deterministic fixture evidence and a revalidated redirect. Existing campaign rows, prior student history and historical impression logs are preserved.
 
 ## Rules and precedence

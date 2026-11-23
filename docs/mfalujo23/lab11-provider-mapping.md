@@ -1,8 +1,10 @@
-# Planned provider mapping - not applied or dashboard verified
+# Voice provider mapping
 
-The local no-cost simulator is implemented at `/voice-simulator`. This document maps its artifacts to a possible future provider configuration. There is **no configured assistant ID, phone number, API credential, model run, STT service, TTS service, or live call** for this work.
+Current status: [coursework status](../current-status.md). The [saved v5 configuration](voice-active-config.md) and [hosted callback results](hosted-reproduction.md) supersede the original plan below. Recorded real calls remain zero.
 
-| Local source | Intended provider concept | Current status |
+The local no-cost simulator is implemented at `/voice-simulator`. The table below preserves the original pre-configuration plan. It does not describe the later saved assistant or prove live speech, carrier or provider-call behavior.
+
+| Local source | Intended provider concept | Original plan status |
 | --- | --- | --- |
 | `config/mfalujo23-voice-system-prompt.md` | Assistant system message/persona | Versioned locally; no provider import verified |
 | `config/mfalujo23-voice-tools.schema.json` | Three named tools and argument schemas | Runtime Zod validation tested locally; provider envelope/subset acceptance pending |
@@ -14,7 +16,7 @@ The local no-cost simulator is implemented at `/voice-simulator`. This document 
 
 ## Artifact privacy configuration to verify before any real call
 
-Vapi's current documentation describes artifact settings under `artifactPlan`; its older root recording options are deprecated. The proposed values below are not an API request and have not been applied to a dashboard. [Vapi recording/logging/transcription documentation](https://docs.vapi.ai/assistants/call-recording).
+Vapi's current documentation describes artifact settings under `artifactPlan`; its older root recording options are deprecated. The values below are the original proposal, not an API request. Consult the saved v5 export for the settings actually observed. [Vapi recording/logging/transcription documentation](https://docs.vapi.ai/assistants/call-recording).
 
 ```json
 {
@@ -30,4 +32,4 @@ Vapi's current documentation describes artifact settings under `artifactPlan`; i
 
 Before claiming external privacy configuration, inspect the selected assistant/call configuration and retention behavior with the instructor/project owner, verify the current supported fields, and capture actual evidence without caller data. This local mock does not prove a provider has stopped retaining audio, messages, or metadata.
 
-The proposed full mapping is in `config/mfalujo23-voice-provider-plan.json`. It deliberately keeps IDs null, provider tests unverified, real telephony disabled, and model-run history empty. No existing teammate provider configuration is replaced.
+The original mapping remains in `config/mfalujo23-voice-provider-plan.json`, with its placeholder IDs and unverified fields intact. The later redacted active export is linked above; neither record establishes a completed real call.

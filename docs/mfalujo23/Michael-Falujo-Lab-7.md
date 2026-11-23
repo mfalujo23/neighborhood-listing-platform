@@ -2,6 +2,8 @@ Michael Falujo
 
 # Lab 7: Media Pipeline and AI-Assisted Marketing Copy
 
+Current status: [coursework status](../current-status.md). [Variant 2 has a separate classroom approval](lab7-classroom-approval.md) from Michael Falujo dated November 19, 2026, for the exact text and November 19–26 UTC window. The raw provider records remain drafts; production asset/copy approval is separate.
+
 ## Asset inventory and provenance
 
 | Asset | Source | Permission/proof | Purpose | Expiration |
@@ -43,7 +45,7 @@ Fictional Garden Partner: a fictional gardening guide (URL: /media-demo/partner)
 - "a fictional gardening guide" -> offer
 - "/media-demo/partner" -> url
 - "Classroom demo only." -> disclaimer
-Status: draft. Human approver/date: pending.
+Raw provider record: draft. Separate classroom decision: approved by Michael Falujo on November 19, 2026, for the exact text and stated dates. Production approval remains pending.
 
 ### variant-3 (110 characters)
 Fictional Garden Partner lists a fictional gardening guide, 2026-11-19 to 2026-11-26 UTC. Classroom demo only.
@@ -56,7 +58,7 @@ Status: draft. Human approver/date: pending.
 
 ## Factual review and approval workflow
 The identical critique prompt was run in Gemini (Gemini 4 Hydrogen, High) and ChatGPT (Instant; exact version not exposed). Both recomputed 83/102/110 correctly and required human review. Gemini preferred variant 1; ChatGPT preferred variant 2. The latter flagged presents/lists as action implications. Both flagged UTC because the review source-facts prefix omitted the UTC context present in the generation instructions. The exact raw outputs are preserved; variant 3 is unchanged and draft.
-All actual variants remain in the unpublished review queue. The campaign card uses only a separate, visibly test-only fixture. Production approval fails closed. A named human reviewer must check every sentence and record the decision/date before any approved copy record is created; no Supabase identity or approval is invented. Drafts/raw model outputs remain separate from approved display records.
+All raw provider variants remain unchanged drafts. The separate classroom record permits only exact variant 2 within its dates; variants 1 and 3 are unapproved. Production approval still fails closed. The classroom decision does not invent a Supabase identity or business approval. Drafts/raw output remain separate from approved display records.
 
 ## Server/UI validation and expiration
 The server and UI enforce the 120-character maximum, strict fields, known fact/template vocabulary and the brief date range. Client-supplied approval fields are rejected. Each validation success remains draft. The date gate runs on every request; the client removes active copy at UTC expiration. Unknown/unapproved/rejected/expired content yields a house message.
@@ -74,4 +76,4 @@ Missing-image fallback preserved the 998x561.375px frame before/after. A known d
 The maintainer can unpublish by changing the trusted record to draft/rejected or removing it from the display set. Record the affected source/version and correction; preserve raw output; rerun date/length/fact/display checks; require a named human reapproval with date. Expired copy remains unpublished.
 
 ## Submission evidence
-Repository: https://github.com/mfalujo23/neighborhood-listing-platform . Local demos: /media-demo and /media-demo/baseline. Media publication/deployed-commit references will be added after the actual publication. The individual work is the new personal media pipeline, strict draft/approval gates, tests and recorded provider comparison; previous teammate artifacts are preserved.
+Repository: https://github.com/mfalujo23/neighborhood-listing-platform. Demo paths: /media-demo and /media-demo/baseline. The current published source and deployment are linked in [coursework status](../current-status.md). The individual work is the new personal media pipeline, strict draft/approval gates, tests and recorded provider comparison; previous teammate artifacts are preserved.

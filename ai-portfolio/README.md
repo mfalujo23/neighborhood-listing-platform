@@ -26,4 +26,4 @@ Original team files are outside this new folder and are not overwritten. No acti
 
 ## Integrated implementation trace
 
-[Current repository source](https://github.com/mfalujo23/neighborhood-listing-platform/tree/3e48dad16d9df3aa07630c90f0858f511e6c237c). Individual experiment and test links retain their recorded historical commits. [Later hosted checks](../docs/mfalujo23/hosted-reproduction.md) are separate from the original local fixtures.
+[Recorded integration checkpoint](https://github.com/mfalujo23/neighborhood-listing-platform/tree/3e48dad16d9df3aa07630c90f0858f511e6c237c). Individual experiment and test links retain their recorded historical commits. [Later hosted checks](../docs/mfalujo23/hosted-reproduction.md) are separate from the original local fixtures.

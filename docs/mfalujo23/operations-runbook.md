@@ -1,8 +1,10 @@
 # Michael Falujo — Operations and Disaster Recovery
 
+Current status: [coursework status](../current-status.md). For the existing coursework database and its guarded fresh-install sequence, use [hosted reproduction](hosted-reproduction.md). The local tests and older core-only examples below retain their scope. Hosted backup/PITR recovery, automatic rollback and real-call continuity remain unverified.
+
 ## Installation and provisioning
 
-Runtime: Node.js 24.22.3, npm 11.21.3, Next.js 16.4.6, PGlite 0.5.16 for disposable local PostgreSQL verification. Production uses managed Supabase PostgreSQL and Auth; no hosted database has been provisioned or verified by these local commands.
+Runtime: Node.js 24.22.3, npm 11.21.3, Next.js 16.4.6, PGlite 0.5.16 for disposable local PostgreSQL verification. Production uses managed Supabase PostgreSQL and Auth. Provisioning and managed-session verification are documented separately in hosted reproduction; these local commands do not establish those results.
 
 ```powershell
 git clone https://github.com/mfalujo23/neighborhood-listing-platform.git
@@ -83,7 +85,7 @@ Supabase: distinguish the server API secret from Auth signing keys. Create a rep
 
 Use an isolated branch, exact package versions and updated lockfile; inspect lifecycle scripts before installation. Run `npm ci --ignore-scripts`, `npm run verify:source`, source/client secret scans and rendered browser checks. Review changelogs and the installed version's Next.js documentation. Retain the previous production deployment and compatible database schema until post-deploy verification passes; do not rewrite shared history.
 
-No live LLM model is called by the current deterministic text simulator. For a future approved Gemini/Vapi integration: record the exact provider model identifier, prompt version, tool JSON schema and approval flags in a secret-free change record. Run the fixed fictional scenarios in `src/voice` for invalid tool names, extra fields, unsupported claims, missing consent, timeout, malformed response and duplicate events. Add actual captured provider responses to a separate redacted fixture set, validate every tool output before side effects, compare outcomes with the previous model, and complete a controlled provider canary before promotion. A model critique is not execution evidence. Preserve the prior model/prompt configuration for rollback. Do not enable paid calls, microphone capture, SMS or follow-up dispatch merely to upgrade a model.
+No live LLM model is called by the current deterministic text simulator. For a future approved model or voice-configuration change, record the exact provider model identifier, prompt version, tool JSON schema and approval flags in a secret-free change record. The already saved Vapi v5 settings are in [voice-active-config.md](voice-active-config.md); saved settings do not establish real-call performance. Run the fixed fictional scenarios in `src/voice` for invalid tool names, extra fields, unsupported claims, missing consent, timeout, malformed response and duplicate events. Add actual captured provider responses to a separate redacted fixture set, validate every tool output before side effects, compare outcomes with the previous model, and complete a controlled provider canary before promotion. A model critique is not execution evidence. Preserve the prior model/prompt configuration for rollback. Do not enable paid calls, microphone capture, SMS or follow-up dispatch merely to upgrade a model.
 
 ## Retirement and purge
 

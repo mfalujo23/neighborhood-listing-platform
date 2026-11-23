@@ -1,5 +1,7 @@
 # Audit 14: telemetry pipeline and decision-support metrics — mfalujo23
 
+Current status: [coursework status](../current-status.md). The calculations below retain their original fixture scope. Later [session support](session-auth.md), [hosted checks](hosted-reproduction.md) and [actual chart comparison](lab14-model-comparison.md) are now recorded.
+
 This answer is grounded in the implemented `public.analytics_events` model, strict event contract, protected API and actual fictional local PostgreSQL execution. It does not claim deployed analytics, real UAT, real calls or provider performance. The live source has no supplied samples.
 
 ## Five core metrics
@@ -201,4 +203,4 @@ Provider-only latency result (fixture times excluded):
 
 Raw evidence: `evidence/dashboard-actual-results.json`, `evidence/analytics-local-postgres.json`, `evidence/dashboard-tests.txt` and `evidence/analytics-postgres-terminal.txt`. The complete model is `supabase/migrations/20261118000600_minimized_analytics.sql`; strict JSON Schema is in `evidence/analytics-events.schema.json`.
 
-Protected live deployment/authenticated session integration, actual provider measurements, retention scheduling, required ChatGPT/Gemini recommendation comparison and empirical UAT remain pending. None is inferred from the fictional fixture or automated browser checks.
+Protected session integration, hosted checks and the required ChatGPT/Gemini chart comparison have separate later records linked above. The new protected date/property controls passed local checks, exact-commit CI and production verification. Narrow-screen reflow, operational retention scheduling, actual provider measurements and empirical UAT remain unverified; none is inferred from these fixture calculations.

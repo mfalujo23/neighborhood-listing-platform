@@ -1,12 +1,14 @@
 # Lab 14 privacy and operations note
 
+Current status: [coursework status](../current-status.md). Actual [sign-in/session support](session-auth.md), [hosted checks](hosted-reproduction.md) and the [completed chart comparison](lab14-model-comparison.md) are separate from the original local fixture tests.
+
 The public fixture demonstration stores only prewritten fictional events in volatile component memory. Optional collection starts false. Loading is disabled until permission is checked. Revocation clears memory and turns permission off; refresh discards the in-memory store. Nothing is sent to an analytics provider, cookie store or browser storage. The client has no audio, recording, transcript or personal-contact input.
 
 The protected server path is separate. `ENABLE_ANALYTICS` must be the literal `true`; `ANALYTICS_FIXTURE_MODE=true` is also required for fixture writes. Defaults are off. The endpoint verifies a bearer token with Supabase `auth.getUser`, then reads the protected profile role. Reads accept admin/provider plus existing protected legacy property_professional profiles. Legacy profiles cannot invoke fixture writes; merchant/client are denied. Role metadata supplied by the caller is ignored. A canonical provider fixture write is checked against current property ownership before the privileged insert client is created. SQL RLS applies again to reads; unauthenticated users have no table or RPC grants. The production service key remains in the existing server-only client module.
 
-This repository currently has no interactive sign-in/session-cookie adapter for the new page. `/realtor-dashboard` consumes a trusted Authorization header on the server and fails closed for ordinary anonymous navigation. Its API can be integrated with the authenticated application later; that integration has not been demonstrated with a live Supabase session. No hosted schema was queried or migrated by this work.
+The repository now has `/login` and a server-managed session for `/realtor-dashboard`. The page verifies the user, stored role and ownership on the server. Existing analytics API routes retain their bearer-token requirement; cookies do not silently authorize those APIs. Actual managed sign-in and hosted role checks are recorded in [hosted reproduction](hosted-reproduction.md).
 
-The protected server page renders the latest seven UTC days. Date/property filtering is implemented in the strict POST API and the interactive public fictional demo; a signed-in filter UI on the protected page remains to be integrated with the application's real session flow.
+The protected page starts with the latest seven UTC days and now has From, Through and optional Property ID controls. Each submission verifies the session and role again, validates real ordered UTC dates and the property ID, and uses the existing ownership-scoped read. Filters stay out of the URL. Local checks, exact-commit CI and production sign-in/filter/error/retry/sign-out checks passed. Narrow-screen reflow remains unverified; see [coursework status](../current-status.md).
 
 ## Data minimization and idempotence
 
@@ -34,4 +36,4 @@ Deleting an impression cascades to its linked click rows; deleting a property ca
 
 Short-lived correlation IDs and property-level categories remain linkable operational data. Role scoping, limited retention and minimizing columns reduce exposure; they do not prove anonymity. Small denominators show insufficient rates, but this does not establish a complete statistical disclosure-control policy. No FERPA, WCAG or other legal compliance certification is claimed.
 
-Local evidence includes strict validation, duplicate/conflict/revocation and UTC-boundary tests; mocked authenticated SDK behavior; actual PostgreSQL grants/RLS, distinct CTR, shape constraints and retention; and schema reapplication without row loss. These use fictional rows and auth stubs. Real authenticated sessions, production log behavior, operational retention scheduling and provider end-to-end measurements remain pending.
+Local evidence includes strict validation, duplicate/conflict/revocation and UTC-boundary tests; mocked authenticated SDK behavior; actual PostgreSQL grants/RLS, distinct CTR, shape constraints and retention; and schema reapplication without row loss. These use fictional rows and auth stubs. Real authenticated sessions were checked separately. Production log behavior, operational retention scheduling and provider end-to-end measurements remain unverified.

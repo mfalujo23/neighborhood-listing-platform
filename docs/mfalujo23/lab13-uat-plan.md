@@ -1,6 +1,8 @@
 # Lab 13 UAT preparation — mfalujo23
 
-Status: prepared, not conducted. No participant has consented, no pilot/live session has occurred, no observation or quote is claimed, and no stakeholder has approved a business-rule change. The plan uses fictional fixtures. Automated browser checks of a simulator are engineering verification, not user acceptance testing.
+Current status: [coursework status](../current-status.md). The plan remains uncompleted. A partial written page review has arrived, but it does not establish notes consent, completed interactive tasks, task times or a full participant session.
+
+Status: prepared; full consented sessions are not recorded. No participant quotation or completed stakeholder approval is claimed. The plan uses fictional fixtures. Automated browser checks and partial written feedback do not replace the required observed tasks.
 
 The original course mode is team work with an approved stakeholder. The user reports permission to complete coursework solo; that does not establish a real participant session or stakeholder approval, and neither is invented here.
 

@@ -1,5 +1,7 @@
 # Michael Falujo — live Vapi tool callback
 
+Current status: [coursework status](../current-status.md). The implementation checks below were local. Later [hosted reproduction](hosted-reproduction.md) records seven public callbacks using sample request envelopes and approved hosted data. [Saved v5 settings](voice-active-config.md) are observed configuration, not real-call evidence.
+
 `POST /api/voice/tools` accepts authenticated Vapi Function-tool messages and performs public approved-data reads. It does not start a phone call, transfer a caller, persist a follow-up, or send SMS.
 
 ## Configuration
@@ -49,7 +51,7 @@ Focused tests cover authentication before work, wrong/conflicting assistant iden
 node --conditions=react-server --import tsx scripts/verify-vapi-live-http.mts
 ```
 
-[Full source-gate output](vapi-live-evidence/full-source-gate-terminal-final.txt) and [gate summary](vapi-live-evidence/source-gates.json) record the final local checks. Hosted Supabase requests, actual Vapi tool calls, carrier calls/transfers/SMS, provider retention settings and model responses are pending until separately observed. Local checks do not establish those outcomes.
+[Full source-gate output](vapi-live-evidence/full-source-gate-terminal-final.txt) and [gate summary](vapi-live-evidence/source-gates.json) record the final local checks. Hosted Supabase-backed sample callbacks and saved artifact settings were observed separately in the links above. Provider-issued calls, carrier playback/transfers/SMS and end-to-end provider retention behavior remain unverified. Local checks do not establish those outcomes.
 
 [Implementation record](vapi-live-ai-log.md).
 

@@ -1,5 +1,7 @@
 # Backend acceptance and traceability
 
+Current status: [coursework status](../current-status.md). The acceptance criteria and local checks below record the original backend checkpoint. Later managed Auth, hosted role tests and public booking checks are in [hosted reproduction](hosted-reproduction.md). They do not establish the still-missing Lab 5 inquiries rollout.
+
 Database acceptance and authorization criteria for services, listings and bookings.
 Executed database evidence is local and fictional.
 
